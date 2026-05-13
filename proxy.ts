@@ -7,10 +7,12 @@ const ADMIN_ROUTES = ['/admin']
 export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (!url || !key) return supabaseResponse
+
+  try {
+    const supabase = createServerClient(url, key, {
       cookies: {
         getAll() {
           return request.cookies.getAll()
@@ -23,23 +25,25 @@ export async function proxy(request: NextRequest) {
           )
         },
       },
+    })
+
+    const { data: { user } } = await supabase.auth.getUser()
+
+    const { pathname } = request.nextUrl
+
+    if (!user && !PUBLIC_ROUTES.some((r) => pathname.startsWith(r))) {
+      return NextResponse.redirect(new URL('/login', request.url))
     }
-  )
 
-  const { data: { user } } = await supabase.auth.getUser()
+    if (user && (pathname === '/login' || pathname === '/register')) {
+      return NextResponse.redirect(new URL('/profile', request.url))
+    }
 
-  const { pathname } = request.nextUrl
-
-  if (!user && !PUBLIC_ROUTES.some((r) => pathname.startsWith(r))) {
-    return NextResponse.redirect(new URL('/login', request.url))
-  }
-
-  if (user && (pathname === '/login' || pathname === '/register')) {
-    return NextResponse.redirect(new URL('/profile', request.url))
-  }
-
-  if (!user && ADMIN_ROUTES.some((r) => pathname.startsWith(r))) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    if (!user && ADMIN_ROUTES.some((r) => pathname.startsWith(r))) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+  } catch {
+    // Auth greška — propusti request, stranice same proveravaju sesiju
   }
 
   return supabaseResponse

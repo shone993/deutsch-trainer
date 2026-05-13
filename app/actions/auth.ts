@@ -77,17 +77,18 @@ export async function register(_prevState: AuthState, formData: FormData): Promi
     return { error: error?.message ?? 'Registracija nije uspela.' }
   }
 
-  // Ažuriraj korisnika u našoj bazi
-  await prisma.user.update({
-    where: { id: existingUser.id },
+  // Zameni placeholder korisnika sa pravim Supabase UUID-em
+  await prisma.user.delete({ where: { id: existingUser.id } })
+  await prisma.user.create({
     data: {
-      id: data.user.id, // sinhronizuj sa Supabase UUID
+      id: data.user.id,
       email,
       name,
       surname,
       displayName,
       isVerified: true,
       verificationCode: null,
+      role: existingUser.role,
     },
   })
 

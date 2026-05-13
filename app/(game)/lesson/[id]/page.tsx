@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import type { GameSession, GameType, GameQuestion, QuestionResult } from '@/types'
 import { GameEngine } from '@/components/game/GameEngine'
@@ -26,12 +26,16 @@ export default function LessonPage({ params }: PageProps) {
   const [finalScore, setFinalScore] = useState({ total: 0, max: 0 })
   const [error, setError] = useState<string | null>(null)
 
-  // Dohvati lesson iz params
-  if (lesson === null) {
+  useEffect(() => {
     params.then(({ id }) => setLesson(Number(id)))
-    return <div className="flex items-center justify-center min-h-screen">
-      <div className="animate-spin text-4xl">⏳</div>
-    </div>
+  }, [params])
+
+  if (lesson === null) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin text-4xl">⏳</div>
+      </div>
+    )
   }
 
   async function startGame(gameType: GameType) {
