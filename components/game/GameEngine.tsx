@@ -42,7 +42,7 @@ export function GameEngine({ session, onComplete }: Props) {
     <div className="flex flex-col min-h-screen bg-gray-50 px-4 py-8">
       {question.type === 'FILL_BLANK' && <FillBlankGame {...questionProps} />}
       {question.type === 'TRANSLATE' && <TranslateGame {...questionProps} />}
-      {question.type === 'MATCH_PAIRS' && <MatchPairsGame {...questionProps} />}
+      {question.type === 'MATCH_PAIRS' && <MatchPairsGame key={question.id} {...questionProps} />}
       {question.type === 'AUDIO' && (
         <div className="text-center text-gray-500 mt-20">
           <p className="text-2xl mb-2">🚧</p>
