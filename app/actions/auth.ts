@@ -44,6 +44,8 @@ export async function login(_prevState: AuthState, formData: FormData): Promise<
   redirect('/profile')
 }
 
+const VALID_CODES = new Set(['VTS-2025-A1', 'VTS-2025-B2', 'VTS-2025-C3'])
+
 export async function register(_prevState: AuthState, formData: FormData): Promise<AuthState> {
   const result = RegisterSchema.safeParse({
     email: formData.get('email'),
@@ -60,16 +62,10 @@ export async function register(_prevState: AuthState, formData: FormData): Promi
 
   const { email, password, name, surname, displayName, verificationCode } = result.data
 
-  // Provjeri da li postoji korisnik sa tim verificationCode koji nije verifikovan
-  const existingUser = await prisma.user.findFirst({
-    where: { verificationCode, isVerified: false },
-  })
-
-  if (!existingUser) {
+  if (!VALID_CODES.has(verificationCode.trim().toUpperCase())) {
     return { error: 'Nevažeći verifikacioni kod. Obratite se administratoru.' }
   }
 
-  // Email mora odgovarati rezervisanom korisniku (opcionalno strože)
   const supabase = await createClient()
   const { data, error } = await supabase.auth.signUp({ email, password })
 
@@ -77,8 +73,6 @@ export async function register(_prevState: AuthState, formData: FormData): Promi
     return { error: error?.message ?? 'Registracija nije uspela.' }
   }
 
-  // Zameni placeholder korisnika sa pravim Supabase UUID-em
-  await prisma.user.delete({ where: { id: existingUser.id } })
   await prisma.user.create({
     data: {
       id: data.user.id,
@@ -87,12 +81,10 @@ export async function register(_prevState: AuthState, formData: FormData): Promi
       surname,
       displayName,
       isVerified: true,
-      verificationCode: null,
-      role: existingUser.role,
+      role: 'STUDENT',
     },
   })
 
-  // Kreiraj inicijalni streak zapis
   await prisma.streak.create({ data: { userId: data.user.id } })
 
   redirect('/profile')
