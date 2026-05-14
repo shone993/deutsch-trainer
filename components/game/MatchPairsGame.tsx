@@ -35,9 +35,9 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
 
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null)
   const [selectedRight, setSelectedRight] = useState<string | null>(null)
-  const [matched, setMatched] = useState<Set<string>>(new Set()) // matched infinitives
+  const [matched, setMatched] = useState<Set<string>>(new Set())
   const [wrong, setWrong] = useState<{ left: string; right: string } | null>(null)
-  const [startTime] = useState(Date.now())
+  const [wrongAttempts, setWrongAttempts] = useState(0)
 
   const totalPairs = infinitives.length
 
@@ -58,7 +58,6 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
 
   function checkPair(inf: string, conj: string) {
     if (pairMap.get(inf) === conj) {
-      // Correct
       const newMatched = new Set(matched)
       newMatched.add(inf)
       setMatched(newMatched)
@@ -66,19 +65,19 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
       setSelectedRight(null)
 
       if (newMatched.size === totalPairs) {
-        // All matched — finish
         setTimeout(() => {
           onAnswer({
             questionId: question.id,
-            userAnswer: conjugations[0], // server poredi sa correctAnswers[0]
+            userAnswer: conjugations[0],
             isCorrect: true,
-            timeTakenMs: Date.now() - startTime,
-            pointsEarned: 100,
+            // timeTakenMs nosi broj grešaka — server koristi za oduzimanje poena
+            timeTakenMs: wrongAttempts,
+            pointsEarned: Math.max(10, 100 - wrongAttempts * 15),
           })
         }, 600)
       }
     } else {
-      // Wrong
+      setWrongAttempts((n) => n + 1)
       setWrong({ left: inf, right: conj })
       setTimeout(() => {
         setWrong(null)

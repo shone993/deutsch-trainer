@@ -38,8 +38,9 @@ export async function POST(request: NextRequest) {
 
   const questionResults: QuestionResult[] = rawResults.map((r) => {
     const isCorrect = r.userAnswer.trim().toLowerCase() === r.correctAnswer.trim().toLowerCase()
+    // Za MATCH_PAIRS timeTakenMs nosi broj pogrešnih pokušaja
     const pointsEarned = gameType === 'MATCH_PAIRS'
-      ? (isCorrect ? 100 : 0)
+      ? (isCorrect ? Math.max(10, 100 - r.timeTakenMs * 15) : 0)
       : calculatePoints(isCorrect, r.timeTakenMs)
     return {
       questionId: r.questionId,
