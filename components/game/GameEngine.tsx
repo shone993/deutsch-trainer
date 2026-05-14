@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react'
 import type { GameQuestion, GameSession, GameType, QuestionResult } from '@/types'
 import { FillBlankGame } from './FillBlankGame'
 import { TranslateGame } from './TranslateGame'
+import { MatchPairsGame } from './MatchPairsGame'
 
 interface Props {
   session: GameSession
@@ -41,11 +42,11 @@ export function GameEngine({ session, onComplete }: Props) {
     <div className="flex flex-col min-h-screen bg-gray-50 px-4 py-8">
       {question.type === 'FILL_BLANK' && <FillBlankGame {...questionProps} />}
       {question.type === 'TRANSLATE' && <TranslateGame {...questionProps} />}
-      {/* MATCH_PAIRS i AUDIO se dodaju kao sledeci korak */}
-      {(question.type === 'MATCH_PAIRS' || question.type === 'AUDIO') && (
+      {question.type === 'MATCH_PAIRS' && <MatchPairsGame {...questionProps} />}
+      {question.type === 'AUDIO' && (
         <div className="text-center text-gray-500 mt-20">
           <p className="text-2xl mb-2">🚧</p>
-          <p>Ova vrsta vežbe je u razvoju</p>
+          <p>Audio vežba je u razvoju</p>
           <button
             className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg"
             onClick={() => handleAnswer({
