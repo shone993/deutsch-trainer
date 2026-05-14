@@ -38,12 +38,15 @@ export async function POST(request: NextRequest) {
 
   const questionResults: QuestionResult[] = rawResults.map((r) => {
     const isCorrect = r.userAnswer.trim().toLowerCase() === r.correctAnswer.trim().toLowerCase()
+    const pointsEarned = gameType === 'MATCH_PAIRS'
+      ? (isCorrect ? 100 : 0)
+      : calculatePoints(isCorrect, r.timeTakenMs)
     return {
       questionId: r.questionId,
       userAnswer: r.userAnswer,
       isCorrect,
       timeTakenMs: r.timeTakenMs,
-      pointsEarned: calculatePoints(isCorrect, r.timeTakenMs),
+      pointsEarned,
     }
   })
 
