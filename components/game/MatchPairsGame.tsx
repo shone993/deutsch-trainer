@@ -70,7 +70,7 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
         setTimeout(() => {
           onAnswer({
             questionId: question.id,
-            userAnswer: 'all_correct',
+            userAnswer: conjugations[0], // server poredi sa correctAnswers[0]
             isCorrect: true,
             timeTakenMs: Date.now() - startTime,
             pointsEarned: 100,
