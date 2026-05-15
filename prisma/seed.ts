@@ -1,171 +1,65 @@
 import { config } from 'dotenv'
 config({ path: '.env.local' })
+
 import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '../app/generated/prisma/client'
+import { VERBS_FROM_EXCEL } from './verbs-data'
 
 const adapter = new PrismaPg({ connectionString: process.env.DIRECT_URL! })
 const prisma = new PrismaClient({ adapter })
 
-// Glagoli iz VTŠ udžbenika — Lekcija 1 (sein, haben, lernen, heißen, kommen, wohnen)
-const VERBS_LEKTION_1 = [
-  {
-    infinitiv: 'sein',
-    ich: 'bin', du: 'bist', erSieEs: 'ist', wir: 'sind', ihr: 'seid', sieSie: 'sind',
-    perfekt: 'gewesen', hilfsverb: 'SEIN' as const,
-    lesson: 1, difficulty: 1,
-    translation: 'biti', translationEn: 'to be', translationHu: 'lenni',
-  },
-  {
-    infinitiv: 'haben',
-    ich: 'habe', du: 'hast', erSieEs: 'hat', wir: 'haben', ihr: 'habt', sieSie: 'haben',
-    perfekt: 'gehabt', hilfsverb: 'HABEN' as const,
-    lesson: 1, difficulty: 1,
-    translation: 'imati', translationEn: 'to have', translationHu: 'bírni/rendelkezni',
-  },
-  {
-    infinitiv: 'lernen',
-    ich: 'lerne', du: 'lernst', erSieEs: 'lernt', wir: 'lernen', ihr: 'lernt', sieSie: 'lernen',
-    perfekt: 'gelernt', hilfsverb: 'HABEN' as const,
-    lesson: 1, difficulty: 1,
-    translation: 'učiti', translationEn: 'to learn', translationHu: 'tanulni',
-  },
-  {
-    infinitiv: 'heißen',
-    ich: 'heiße', du: 'heißt', erSieEs: 'heißt', wir: 'heißen', ihr: 'heißt', sieSie: 'heißen',
-    perfekt: 'geheißen', hilfsverb: 'HABEN' as const,
-    lesson: 1, difficulty: 1,
-    translation: 'zvati se', translationEn: 'to be called', translationHu: 'hívnak',
-  },
-  {
-    infinitiv: 'kommen',
-    ich: 'komme', du: 'kommst', erSieEs: 'kommt', wir: 'kommen', ihr: 'kommt', sieSie: 'kommen',
-    perfekt: 'gekommen', hilfsverb: 'SEIN' as const,
-    lesson: 1, difficulty: 1,
-    translation: 'doći/dolaziti', translationEn: 'to come', translationHu: 'jönni',
-  },
-  {
-    infinitiv: 'wohnen',
-    ich: 'wohne', du: 'wohnst', erSieEs: 'wohnt', wir: 'wohnen', ihr: 'wohnt', sieSie: 'wohnen',
-    perfekt: 'gewohnt', hilfsverb: 'HABEN' as const,
-    lesson: 1, difficulty: 1,
-    translation: 'stanovati', translationEn: 'to live', translationHu: 'lakni',
-  },
-  {
-    infinitiv: 'arbeiten',
-    ich: 'arbeite', du: 'arbeitest', erSieEs: 'arbeitet', wir: 'arbeiten', ihr: 'arbeitet', sieSie: 'arbeiten',
-    perfekt: 'gearbeitet', hilfsverb: 'HABEN' as const,
-    lesson: 1, difficulty: 1,
-    translation: 'raditi', translationEn: 'to work', translationHu: 'dolgozni',
-  },
-  {
-    infinitiv: 'sprechen',
-    ich: 'spreche', du: 'sprichst', erSieEs: 'spricht', wir: 'sprechen', ihr: 'sprecht', sieSie: 'sprechen',
-    perfekt: 'gesprochen', hilfsverb: 'HABEN' as const,
-    lesson: 2, difficulty: 2,
-    translation: 'govoriti', translationEn: 'to speak', translationHu: 'beszélni',
-  },
-  {
-    infinitiv: 'gehen',
-    ich: 'gehe', du: 'gehst', erSieEs: 'geht', wir: 'gehen', ihr: 'geht', sieSie: 'gehen',
-    perfekt: 'gegangen', hilfsverb: 'SEIN' as const,
-    lesson: 2, difficulty: 1,
-    translation: 'ići', translationEn: 'to go', translationHu: 'menni',
-  },
-  {
-    infinitiv: 'machen',
-    ich: 'mache', du: 'machst', erSieEs: 'macht', wir: 'machen', ihr: 'macht', sieSie: 'machen',
-    perfekt: 'gemacht', hilfsverb: 'HABEN' as const,
-    lesson: 2, difficulty: 1,
-    translation: 'raditi/praviti', translationEn: 'to do/make', translationHu: 'csinálni',
-  },
-  {
-    infinitiv: 'sehen',
-    ich: 'sehe', du: 'siehst', erSieEs: 'sieht', wir: 'sehen', ihr: 'seht', sieSie: 'sehen',
-    perfekt: 'gesehen', hilfsverb: 'HABEN' as const,
-    lesson: 2, difficulty: 2,
-    translation: 'videti', translationEn: 'to see', translationHu: 'látni',
-  },
-  {
-    infinitiv: 'lesen',
-    ich: 'lese', du: 'liest', erSieEs: 'liest', wir: 'lesen', ihr: 'lest', sieSie: 'lesen',
-    perfekt: 'gelesen', hilfsverb: 'HABEN' as const,
-    lesson: 3, difficulty: 2,
-    translation: 'čitati', translationEn: 'to read', translationHu: 'olvasni',
-  },
-  {
-    infinitiv: 'schreiben',
-    ich: 'schreibe', du: 'schreibst', erSieEs: 'schreibt', wir: 'schreiben', ihr: 'schreibt', sieSie: 'schreiben',
-    perfekt: 'geschrieben', hilfsverb: 'HABEN' as const,
-    lesson: 3, difficulty: 2,
-    translation: 'pisati', translationEn: 'to write', translationHu: 'írni',
-  },
-  {
-    infinitiv: 'fahren',
-    ich: 'fahre', du: 'fährst', erSieEs: 'fährt', wir: 'fahren', ihr: 'fahrt', sieSie: 'fahren',
-    perfekt: 'gefahren', hilfsverb: 'SEIN' as const,
-    lesson: 3, difficulty: 2,
-    translation: 'voziti/putovati', translationEn: 'to drive/travel', translationHu: 'utazni/vezetni',
-  },
-]
+const PERSON_LABELS: Record<string, string> = {
+  ich: 'ich', du: 'du', erSieEs: 'er', wir: 'wir', ihr: 'ihr', sieSie: 'sie',
+}
+
+const SUBJECT_TO_PERSON: Record<string, string> = {
+  'ich': 'ich', 'du': 'du', 'er': 'erSieEs', 'sie': 'erSieEs', 'es': 'erSieEs',
+  'wir': 'wir', 'ihr': 'ihr', 'Sie': 'sieSie',
+}
+
+function sentenceToTemplate(
+  sentence: string,
+  verbId: string,
+  conjugations: Record<string, string>
+): { template: string; person: string } | null {
+  // Napravi mapu: forma -> osoba (za pronalaženje oblika u rečenici)
+  const formToPersons: Record<string, string[]> = {}
+  for (const [person, form] of Object.entries(conjugations)) {
+    if (!form) continue
+    if (!formToPersons[form]) formToPersons[form] = []
+    formToPersons[form].push(person)
+  }
+
+  const words = sentence.split(/\b/)
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i]
+    const persons = formToPersons[word]
+    if (!persons) continue
+
+    let chosenPerson = persons[0]
+
+    // Ako ima više lica za isti oblik, pokušaj da odrediš iz subjekta rečenice
+    if (persons.length > 1) {
+      const before = words.slice(0, i).join('')
+      const firstWord = before.trim().split(/\s+/).find(w => w.length > 0)
+      if (firstWord && SUBJECT_TO_PERSON[firstWord]) {
+        const p = SUBJECT_TO_PERSON[firstWord]
+        if (persons.includes(p)) chosenPerson = p
+      }
+    }
+
+    const template = words.map((w, j) => j === i ? `<${verbId},${chosenPerson}>` : w).join('')
+    return { template, person: chosenPerson }
+  }
+
+  return null
+}
 
 async function main() {
   console.log('🌱 Seeding database...')
 
-  // Upsert glagole
-  for (const verb of VERBS_LEKTION_1) {
-    const created = await prisma.verb.upsert({
-      where: { infinitiv: verb.infinitiv },
-      create: verb,
-      update: verb,
-    })
-
-    // Dodaj primere rečenica za 'sein' i 'lernen'
-    if (verb.infinitiv === 'sein') {
-      await prisma.sentence.upsert({
-        where: { id: `seed-sein-1` },
-        create: {
-          id: 'seed-sein-1',
-          verbId: created.id,
-          template: `Ich <${created.id},ich> Student.`,
-          translation: 'Ja sam student.',
-          translationEn: 'I am a student.',
-          difficulty: 1,
-        },
-        update: {},
-      })
-      await prisma.sentence.upsert({
-        where: { id: `seed-sein-2` },
-        create: {
-          id: 'seed-sein-2',
-          verbId: created.id,
-          template: `Du <${created.id},du> aus Deutschland?`,
-          translation: 'Da li si iz Nemačke?',
-          translationEn: 'Are you from Germany?',
-          difficulty: 1,
-        },
-        update: {},
-      })
-    }
-
-    if (verb.infinitiv === 'lernen') {
-      await prisma.sentence.upsert({
-        where: { id: 'seed-lernen-1' },
-        create: {
-          id: 'seed-lernen-1',
-          verbId: created.id,
-          template: `Wir <${created.id},wir> Deutsch.`,
-          translation: 'Mi učimo nemački.',
-          translationEn: 'We learn German.',
-          difficulty: 1,
-        },
-        update: {},
-      })
-    }
-
-    console.log(`  ✅ ${verb.infinitiv}`)
-  }
-
-  // Admin nalog (placeholder — registruj se manuelno u Supabase)
+  // Admin nalog
   await prisma.user.upsert({
     where: { email: 'admin@vtss.edu.rs' },
     create: {
@@ -179,27 +73,83 @@ async function main() {
     update: {},
   })
 
-  // Primer verifikacionih kodova za studente
-  const CODES = ['VTS-2025-A1', 'VTS-2025-B2', 'VTS-2025-C3']
-  for (const code of CODES) {
-    const exists = await prisma.user.findFirst({ where: { verificationCode: code } })
-    if (!exists) {
-      await prisma.user.create({
-        data: {
-          email: `placeholder-${code}@vtss.edu.rs`,
-          name: 'Placeholder',
-          surname: 'Student',
-          displayName: `student_${code.slice(-2)}`,
-          verificationCode: code,
-          isVerified: false,
-          role: 'STUDENT',
+  let verbCount = 0
+  let sentenceCount = 0
+
+  for (const v of VERBS_FROM_EXCEL) {
+    // Preskoči glagole bez konjugacije
+    if (!v.ich && !v.du && !v.erSieEs) {
+      console.log(`  ⚠️  Preskočen (bez konjugacije): ${v.infinitiv}`)
+      continue
+    }
+
+    const conjugations: Record<string, string> = {
+      ich: v.ich,
+      du: v.du,
+      erSieEs: v.erSieEs,
+      wir: v.wir,
+      ihr: v.ihr,
+      sieSie: v.sieSie,
+    }
+
+    const created = await prisma.verb.upsert({
+      where: { infinitiv: v.infinitiv },
+      create: {
+        infinitiv: v.infinitiv,
+        ich: v.ich,
+        du: v.du,
+        erSieEs: v.erSieEs,
+        wir: v.wir,
+        ihr: v.ihr,
+        sieSie: v.sieSie,
+        perfekt: v.perfekt || v.infinitiv,
+        hilfsverb: v.hilfsverb === 'SEIN' ? 'SEIN' : 'HABEN',
+        lesson: v.lesson,
+        difficulty: v.difficulty,
+      },
+      update: {
+        ich: v.ich,
+        du: v.du,
+        erSieEs: v.erSieEs,
+        wir: v.wir,
+        ihr: v.ihr,
+        sieSie: v.sieSie,
+        perfekt: v.perfekt || v.infinitiv,
+        hilfsverb: v.hilfsverb === 'SEIN' ? 'SEIN' : 'HABEN',
+        lesson: v.lesson,
+      },
+    })
+
+    verbCount++
+
+    // Dodaj rečenice kao FILL_BLANK template
+    for (let i = 0; i < v.sentences.length; i++) {
+      const sentence = v.sentences[i]
+      const result = sentenceToTemplate(sentence, created.id, conjugations)
+      if (!result) continue
+
+      const sentenceId = `excel-${created.id}-${i}`
+      await prisma.sentence.upsert({
+        where: { id: sentenceId },
+        create: {
+          id: sentenceId,
+          verbId: created.id,
+          template: result.template,
+          translation: sentence,
+          difficulty: 1,
+        },
+        update: {
+          template: result.template,
+          translation: sentence,
         },
       })
-      console.log(`  🔑 Verifikacioni kod: ${code}`)
+      sentenceCount++
     }
+
+    console.log(`  ✅ [L${v.lesson}] ${v.infinitiv} (${v.sentences.length} rečenica)`)
   }
 
-  console.log('✅ Seed završen!')
+  console.log(`\n✅ Seed završen: ${verbCount} glagola, ${sentenceCount} rečenica`)
 }
 
 main()
