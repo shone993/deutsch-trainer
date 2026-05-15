@@ -86,10 +86,10 @@ async function main() {
     const conjugations: Record<string, string> = {
       ich: v.ich,
       du: v.du,
-      erSieEs: v.erSieEs,
+      er: v.erSieEs,
       wir: v.wir,
       ihr: v.ihr,
-      sieSie: v.sieSie,
+      sie: v.sieSie,
     }
 
     const created = await prisma.verb.upsert({
