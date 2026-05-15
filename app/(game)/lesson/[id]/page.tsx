@@ -12,6 +12,52 @@ const GAME_TYPES: { type: GameType; label: string; emoji: string; desc: string }
   { type: 'AUDIO',      label: 'Audio',            emoji: '🔊', desc: 'Odslušaj i upiši' },
 ]
 
+const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: string[]; example: string }> = {
+  FILL_BLANK: {
+    title: 'Popuni prazninu',
+    emoji: '✏️',
+    steps: [
+      'Vidiš nemačku rečenicu u kojoj nedostaje glagol.',
+      'U plavoj kartici gore piše koji glagol i koje lice treba.',
+      'Upiši tačan oblik glagola u polje za unos.',
+      'Potvrdi pritiskom na ✓ ili Enter.',
+    ],
+    example: 'Primer: "Ich  ?  Student."  →  upiši: bin',
+  },
+  TRANSLATE: {
+    title: 'Prevod — višestruki izbor',
+    emoji: '🌍',
+    steps: [
+      'Vidiš glagol i lice koje treba da konjuguješ.',
+      'Ponuđena su 4 odgovora — samo jedan je tačan.',
+      'Klikni na tačan oblik glagola.',
+      'Brži odgovor donosi više poena!',
+    ],
+    example: 'Primer: "haben · wir"  →  klikni: haben',
+  },
+  MATCH_PAIRS: {
+    title: 'Poveži parove',
+    emoji: '🔗',
+    steps: [
+      'Na levoj strani su infinitivi glagola.',
+      'Na desnoj strani su njihove konjugacije — izmešane.',
+      'Klikni jedan infinitiv (levo), pa njegovu konjugaciju (desno).',
+      'Tačan par postaje zelen. Krivi par bljesne crveno — pokušaj ponovo.',
+    ],
+    example: 'Primer: klikni "sein" → klikni "bin"',
+  },
+  AUDIO: {
+    title: 'Audio vežba',
+    emoji: '🔊',
+    steps: [
+      'Odslušaj izgovor nemačke reči.',
+      'Upiši ono što si čuo.',
+      'Možeš ponovo pustiti audio pre odgovora.',
+    ],
+    example: '',
+  },
+}
+
 interface PageProps {
   params: Promise<{ id: string }>
 }
@@ -22,6 +68,8 @@ export default function LessonPage({ params }: PageProps) {
   const [selectedType, setSelectedType] = useState<GameType | null>(null)
   const [session, setSession] = useState<GameSession | null>(null)
   const [loading, setLoading] = useState(false)
+  const [showInstructions, setShowInstructions] = useState(false)
+  const [pendingType, setPendingType] = useState<GameType | null>(null)
   const [completed, setCompleted] = useState(false)
   const [finalScore, setFinalScore] = useState({ total: 0, max: 0 })
   const [error, setError] = useState<string | null>(null)
@@ -38,7 +86,13 @@ export default function LessonPage({ params }: PageProps) {
     )
   }
 
+  function selectGameType(gameType: GameType) {
+    setPendingType(gameType)
+    setShowInstructions(true)
+  }
+
   async function startGame(gameType: GameType) {
+    setShowInstructions(false)
     setLoading(true)
     setError(null)
     try {
@@ -90,6 +144,53 @@ export default function LessonPage({ params }: PageProps) {
     } catch {
       // Tiha greška — statistike nisu kritične za UX
     }
+  }
+
+  if (showInstructions && pendingType) {
+    const instr = INSTRUCTIONS[pendingType]
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-800 px-4">
+        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full">
+          <div className="text-center mb-6">
+            <div className="text-5xl mb-3">{instr.emoji}</div>
+            <h2 className="text-2xl font-bold text-gray-900">{instr.title}</h2>
+          </div>
+
+          <ol className="space-y-3 mb-6">
+            {instr.steps.map((step, i) => (
+              <li key={i} className="flex gap-3 text-sm text-gray-700">
+                <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 font-bold rounded-full flex items-center justify-center text-xs">
+                  {i + 1}
+                </span>
+                {step}
+              </li>
+            ))}
+          </ol>
+
+          {instr.example && (
+            <div className="bg-gray-50 rounded-xl px-4 py-3 mb-6 text-sm text-gray-600 italic">
+              {instr.example}
+            </div>
+          )}
+
+          <div className="flex flex-col gap-3">
+            <button
+              onClick={() => startGame(pendingType)}
+              disabled={loading}
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-bold py-3 rounded-xl transition text-lg"
+            >
+              {loading ? 'Učitavam...' : '🚀 Počni vežbu'}
+            </button>
+            <button
+              onClick={() => { setShowInstructions(false); setPendingType(null) }}
+              className="w-full border border-gray-300 text-gray-600 font-medium py-2.5 rounded-xl hover:bg-gray-50 transition"
+            >
+              ← Nazad
+            </button>
+          </div>
+        </div>
+      </main>
+    )
   }
 
   if (session && !completed) {
@@ -144,7 +245,7 @@ export default function LessonPage({ params }: PageProps) {
           {GAME_TYPES.map((g) => (
             <button
               key={g.type}
-              onClick={() => startGame(g.type)}
+              onClick={() => selectGameType(g.type)}
               disabled={loading}
               className="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 disabled:opacity-60 rounded-2xl p-5 flex items-center gap-4 text-left transition"
             >
