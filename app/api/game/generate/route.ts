@@ -7,7 +7,7 @@ import type { VerbData, GameType } from '@/types'
 
 const QuerySchema = z.object({
   lesson: z.coerce.number().int().min(1).max(13),
-  gameType: z.enum(['FILL_BLANK', 'MATCH_PAIRS', 'TRANSLATE', 'AUDIO']),
+  gameType: z.enum(['CONJUGATE', 'FILL_BLANK', 'MATCH_PAIRS', 'TRANSLATE', 'AUDIO']),
   count: z.coerce.number().int().min(1).max(30).default(10),
 })
 

@@ -18,6 +18,7 @@ enum HilfsverbType {
 }
 
 enum GameType {
+  CONJUGATE
   FILL_BLANK
   MATCH_PAIRS
   TRANSLATE
