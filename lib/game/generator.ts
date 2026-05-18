@@ -3,12 +3,19 @@ import { parseSentenceTemplate } from './parser'
 
 const PERSONS: GrammaticalPerson[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie']
 
-// Vraća nasumičan element iz niza
+const PERSON_PRONOUN: Record<GrammaticalPerson, string> = {
+  ich: 'ich',
+  du: 'du',
+  er: 'er/sie/es',
+  wir: 'wir',
+  ihr: 'ihr',
+  sie: 'sie/Sie',
+}
+
 function randomItem<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-// Mešanje niza (Fisher-Yates)
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
@@ -22,7 +29,6 @@ function getConjugation(verb: VerbData, person: GrammaticalPerson): string {
   return verb.conjugation[person]
 }
 
-// Generiše lažne odgovore (distraktori) iz ostalih glagola
 function getDistractors(correct: string, allVerbs: VerbData[], count = 3): string[] {
   const pool = new Set<string>()
   for (const verb of shuffle(allVerbs)) {
@@ -41,7 +47,7 @@ interface GenerateOptions {
   sentences?: Array<{ id: string; verbId: string; template: string; translation: string }>
   gameType: GameType
   lesson: number
-  count: number // broj pitanja
+  count: number
 }
 
 export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
@@ -50,7 +56,6 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
 
   const verbMap = new Map(verbs.map((v) => [v.id, v]))
   const questions: GameQuestion[] = []
-
   const shuffledVerbs = shuffle(verbs)
 
   for (let i = 0; i < count; i++) {
@@ -59,53 +64,56 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
     const correctAnswer = getConjugation(verb, person)
 
     switch (gameType) {
+
+      case 'CONJUGATE': {
+        // Prosta konjugacija: prikazuje se zamenica + praznina, upisuje se oblik
+        questions.push({
+          id: `conj-${verb.id}-${person}-${i}`,
+          type: 'CONJUGATE',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          translation: `${PERSON_PRONOUN[person]} + ${verb.infinitiv}`,
+          correctAnswers: [correctAnswer],
+          options: [PERSON_PRONOUN[person]], // options[0] = zamenica koja se prikazuje
+        })
+        break
+      }
+
       case 'FILL_BLANK': {
-        // Nađi rečenicu za ovaj glagol, ili napravi generičku
+        // Samo rečenice sa prazninom — bez generičkog fallbacka
         const matchingSentences = sentences.filter((s) => s.verbId === verb.id)
-        const sentence = randomItem(matchingSentences.length > 0 ? matchingSentences : [])
+        if (matchingSentences.length === 0) break
 
-        if (sentence) {
-          const parsed = parseSentenceTemplate(sentence.template, verbMap)
-          const firstBlank = parsed.blanks[0]
-          if (!firstBlank) break
+        const sentence = randomItem(matchingSentences)
+        const parsed = parseSentenceTemplate(sentence.template, verbMap)
+        const firstBlank = parsed.blanks[0]
+        if (!firstBlank) break
 
-          questions.push({
-            id: `${sentence.id}-${i}`,
-            type: 'FILL_BLANK',
-            verbId: verb.id,
-            infinitiv: verb.infinitiv,
-            sentence: sentence.template,
-            parsedSentence: parsed,
-            translation: sentence.translation,
-            correctAnswers: [firstBlank.answer],
-          })
-        } else {
-          // Generička rečenica ako nema u bazi
-          const personLabel = person === 'er' ? 'Er/Sie/Es' : person.charAt(0).toUpperCase() + person.slice(1)
-          questions.push({
-            id: `generic-${verb.id}-${person}-${i}`,
-            type: 'FILL_BLANK',
-            verbId: verb.id,
-            infinitiv: verb.infinitiv,
-            sentence: `${personLabel} _____ (${verb.infinitiv})`,
-            translation: verb.translation ?? verb.infinitiv,
-            correctAnswers: [correctAnswer],
-          })
-        }
+        questions.push({
+          id: `${sentence.id}-${i}`,
+          type: 'FILL_BLANK',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          sentence: sentence.template,
+          parsedSentence: parsed,
+          translation: sentence.translation,
+          correctAnswers: [firstBlank.answer],
+        })
         break
       }
 
       case 'MATCH_PAIRS': {
-        // 4 para: infinitiv ↔ konjugacija za random lice
+        // 4 para: infinitiv ↔ zamenica + konjugacija (npr. "sein" ↔ "er/sie/es ist")
         const pairVerbs = shuffle(verbs).slice(0, 4)
         const pairPerson = randomItem(PERSONS)
+        const pronoun = PERSON_PRONOUN[pairPerson]
         questions.push({
           id: `match-${verb.id}-${i}`,
           type: 'MATCH_PAIRS',
           verbId: verb.id,
           infinitiv: verb.infinitiv,
           translation: verb.translation ?? verb.infinitiv,
-          correctAnswers: pairVerbs.map((v) => getConjugation(v, pairPerson)),
+          correctAnswers: pairVerbs.map((v) => `${pronoun} ${getConjugation(v, pairPerson)}`),
           options: pairVerbs.map((v) => v.infinitiv),
         })
         break
@@ -119,7 +127,7 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
           type: 'TRANSLATE',
           verbId: verb.id,
           infinitiv: verb.infinitiv,
-          translation: `${person} (${verb.translation ?? verb.infinitiv})`,
+          translation: `${PERSON_PRONOUN[person]} (${verb.translation ?? verb.infinitiv})`,
           correctAnswers: [correctAnswer],
           options,
         })

@@ -8,13 +8,17 @@ import { VERBS_FROM_EXCEL } from './verbs-data'
 const adapter = new PrismaPg({ connectionString: process.env.DIRECT_URL! })
 const prisma = new PrismaClient({ adapter })
 
-const PERSON_LABELS: Record<string, string> = {
-  ich: 'ich', du: 'du', erSieEs: 'er', wir: 'wir', ihr: 'ihr', sieSie: 'sie',
+const SUBJECT_TO_PERSON: Record<string, string> = {
+  'ich': 'ich', 'Ich': 'ich',
+  'du': 'du', 'Du': 'du',
+  'er': 'er', 'Er': 'er', 'sie': 'er', 'Sie': 'sie', 'es': 'er', 'Es': 'er',
+  'wir': 'wir', 'Wir': 'wir',
+  'ihr': 'ihr', 'Ihr': 'ihr',
 }
 
-const SUBJECT_TO_PERSON: Record<string, string> = {
-  'ich': 'ich', 'du': 'du', 'er': 'erSieEs', 'sie': 'erSieEs', 'es': 'erSieEs',
-  'wir': 'wir', 'ihr': 'ihr', 'Sie': 'sieSie',
+// Izvuče čistu reč bez interpunkcije
+function stripPunct(w: string): string {
+  return w.replace(/[.,!?;:"""„\-()]+/g, '').trim()
 }
 
 function sentenceToTemplate(
@@ -22,34 +26,38 @@ function sentenceToTemplate(
   verbId: string,
   conjugations: Record<string, string>
 ): { template: string; person: string } | null {
-  // Napravi mapu: forma -> osoba (za pronalaženje oblika u rečenici)
+  // Mapa: oblik -> lista lica
   const formToPersons: Record<string, string[]> = {}
   for (const [person, form] of Object.entries(conjugations)) {
     if (!form) continue
-    if (!formToPersons[form]) formToPersons[form] = []
-    formToPersons[form].push(person)
+    // Razdvojivi glagoli (npr. "lädt ein") — uzimamo samo prvi deo za matching
+    const key = form.includes(' ') ? form.split(' ')[0] : form
+    if (!formToPersons[key]) formToPersons[key] = []
+    formToPersons[key].push(person)
   }
 
-  const words = sentence.split(/\b/)
+  // Tokenizuj rečenicu čuvajući pozicije
+  const tokens = sentence.split(/(\s+)/)
 
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i]
-    const persons = formToPersons[word]
+  for (let i = 0; i < tokens.length; i++) {
+    const clean = stripPunct(tokens[i])
+    const persons = formToPersons[clean]
     if (!persons) continue
 
     let chosenPerson = persons[0]
 
-    // Ako ima više lica za isti oblik, pokušaj da odrediš iz subjekta rečenice
+    // Pokušaj da odrediš lice iz subjekta (prethodna reč)
     if (persons.length > 1) {
-      const before = words.slice(0, i).join('')
-      const firstWord = before.trim().split(/\s+/).find(w => w.length > 0)
-      if (firstWord && SUBJECT_TO_PERSON[firstWord]) {
-        const p = SUBJECT_TO_PERSON[firstWord]
-        if (persons.includes(p)) chosenPerson = p
-      }
+      const prevWords = tokens.slice(0, i).map(stripPunct).filter(Boolean)
+      const lastWord = prevWords[prevWords.length - 1] ?? ''
+      const p = SUBJECT_TO_PERSON[lastWord]
+      if (p && persons.includes(p)) chosenPerson = p
     }
 
-    const template = words.map((w, j) => j === i ? `<${verbId},${chosenPerson}>` : w).join('')
+    // Zameni token u rečenici templateom — čuvaj interpunkciju oko reči
+    const punct = tokens[i].replace(clean, '')
+    const replacement = `<${verbId},${chosenPerson}>${punct}`
+    const template = tokens.map((t, j) => j === i ? replacement : t).join('')
     return { template, person: chosenPerson }
   }
 

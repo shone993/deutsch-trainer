@@ -2,7 +2,7 @@ export type Language = 'srb' | 'hun' | 'eng'
 
 export type GrammaticalPerson = 'ich' | 'du' | 'er' | 'wir' | 'ihr' | 'sie'
 
-export type GameType = 'FILL_BLANK' | 'MATCH_PAIRS' | 'TRANSLATE' | 'AUDIO'
+export type GameType = 'CONJUGATE' | 'FILL_BLANK' | 'MATCH_PAIRS' | 'TRANSLATE' | 'AUDIO'
 
 export interface VerbConjugation {
   ich: string

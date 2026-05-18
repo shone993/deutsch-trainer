@@ -6,13 +6,24 @@ import type { GameSession, GameType, GameQuestion, QuestionResult } from '@/type
 import { GameEngine } from '@/components/game/GameEngine'
 
 const GAME_TYPES: { type: GameType; label: string; emoji: string; desc: string }[] = [
-  { type: 'FILL_BLANK', label: 'Popuni prazninu', emoji: '✏️', desc: 'Upiši ispravnu formu glagola' },
-  { type: 'TRANSLATE',  label: 'Prevod',          emoji: '🌍', desc: 'Izaberi ispravnu konjugaciju' },
-  { type: 'MATCH_PAIRS',label: 'Poveži parove',   emoji: '🔗', desc: 'Poveži infinitiv sa formom' },
-  { type: 'AUDIO',      label: 'Audio',            emoji: '🔊', desc: 'Odslušaj i upiši' },
+  { type: 'CONJUGATE',  label: 'Konjugacija',      emoji: '🔤', desc: 'Upiši oblik glagola za dato lice' },
+  { type: 'FILL_BLANK', label: 'Popuni rečenicu',  emoji: '✏️', desc: 'Upiši glagol koji nedostaje u rečenici' },
+  { type: 'MATCH_PAIRS',label: 'Poveži parove',    emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i formom' },
+  { type: 'TRANSLATE',  label: 'Višestruki izbor', emoji: '🌍', desc: 'Izaberi tačnu konjugaciju' },
 ]
 
 const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: string[]; example: string }> = {
+  CONJUGATE: {
+    title: 'Konjugacija',
+    emoji: '🔤',
+    steps: [
+      'Prikazan je infinitiv glagola i lična zamenica.',
+      'Upiši tačan oblik glagola za to lice.',
+      'Potvrdi pritiskom na ✓ ili Enter.',
+      'Brži tačan odgovor donosi više poena!',
+    ],
+    example: 'Primer: "sein" + "er/sie/es"  →  upiši: ist',
+  },
   FILL_BLANK: {
     title: 'Popuni prazninu',
     emoji: '✏️',

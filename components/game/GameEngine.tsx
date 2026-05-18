@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import type { GameQuestion, GameSession, GameType, QuestionResult } from '@/types'
+import { ConjugateGame } from './ConjugateGame'
 import { FillBlankGame } from './FillBlankGame'
 import { TranslateGame } from './TranslateGame'
 import { MatchPairsGame } from './MatchPairsGame'
@@ -40,7 +41,8 @@ export function GameEngine({ session, onComplete }: Props) {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 px-4 py-8">
-      {question.type === 'FILL_BLANK' && <FillBlankGame {...questionProps} />}
+      {question.type === 'CONJUGATE' && <ConjugateGame key={question.id} {...questionProps} />}
+      {question.type === 'FILL_BLANK' && <FillBlankGame key={question.id} {...questionProps} />}
       {question.type === 'TRANSLATE' && <TranslateGame {...questionProps} />}
       {question.type === 'MATCH_PAIRS' && <MatchPairsGame key={question.id} {...questionProps} />}
       {question.type === 'AUDIO' && (
