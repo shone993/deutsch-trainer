@@ -207,7 +207,7 @@ export default function LessonPage({ params }: PageProps) {
   if (showInstructions && pendingType) {
     const instr = INSTRUCTIONS[pendingType]
     return (
-      <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-800 px-4">
+      <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-sky-500 to-sky-700 px-4">
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full">
           <div className="text-center mb-6">
             <div className="text-5xl mb-3">{instr.emoji}</div>
@@ -217,7 +217,7 @@ export default function LessonPage({ params }: PageProps) {
           <ol className="space-y-3 mb-6">
             {instr.steps.map((step, i) => (
               <li key={i} className="flex gap-3 text-sm text-gray-700">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 font-bold rounded-full flex items-center justify-center text-xs">
+                <span className="flex-shrink-0 w-6 h-6 bg-sky-100 text-sky-700 font-bold rounded-full flex items-center justify-center text-xs">
                   {i + 1}
                 </span>
                 {step}
@@ -235,7 +235,7 @@ export default function LessonPage({ params }: PageProps) {
             <button
               onClick={() => startGame(pendingType)}
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-bold py-3 rounded-xl transition text-lg"
+              className="w-full bg-sky-500 hover:bg-sky-600 disabled:opacity-60 text-white font-bold py-3 rounded-xl transition text-lg"
             >
               {loading ? 'Učitavam...' : '🚀 Počni vežbu'}
             </button>
@@ -258,19 +258,19 @@ export default function LessonPage({ params }: PageProps) {
   if (completed) {
     const pct = Math.round((finalScore.total / finalScore.max) * 100)
     return (
-      <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-800 px-4">
+      <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-sky-500 to-sky-700 px-4">
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full text-center">
           <div className="text-6xl mb-4">{pct >= 80 ? '🎉' : pct >= 50 ? '👍' : '💪'}</div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Završeno!</h2>
           <p className="text-gray-500 mb-4">Lekcija {lesson}</p>
-          <div className="bg-blue-50 rounded-xl p-4 mb-6">
-            <div className="text-4xl font-bold text-blue-600">{finalScore.total}</div>
+          <div className="bg-sky-50 rounded-xl p-4 mb-6">
+            <div className="text-4xl font-bold text-sky-600">{finalScore.total}</div>
             <div className="text-gray-500 text-sm">od {finalScore.max} poena ({pct}%)</div>
           </div>
           <div className="flex flex-col gap-3">
             <button
               onClick={() => { setSession(null); setCompleted(false); setSelectedType(null) }}
-              className="bg-blue-600 text-white font-semibold py-2.5 rounded-xl hover:bg-blue-700 transition"
+              className="bg-sky-500 text-white font-semibold py-2.5 rounded-xl hover:bg-sky-600 transition"
             >
               Pokušaj ponovo
             </button>
@@ -296,7 +296,7 @@ export default function LessonPage({ params }: PageProps) {
               key={g.type}
               onClick={() => selectGameType(g.type)}
               disabled={loading}
-              className="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 disabled:opacity-60 rounded-2xl p-4 flex items-center gap-4 text-left transition"
+              className="bg-white border-2 border-gray-200 hover:border-sky-500 hover:bg-sky-50 disabled:opacity-60 rounded-2xl p-4 flex items-center gap-4 text-left transition"
             >
               <span className="text-2xl">{g.emoji}</span>
               <div>
@@ -313,7 +313,7 @@ export default function LessonPage({ params }: PageProps) {
   return (
     <main className="min-h-screen bg-gray-50 px-4 py-8">
       <div className="max-w-lg mx-auto">
-        <button onClick={() => router.back()} className="text-blue-600 text-sm mb-4">← Nazad</button>
+        <button onClick={() => router.back()} className="text-sky-600 text-sm mb-4">← Nazad</button>
         <h1 className="text-2xl font-bold text-gray-900 mb-1">Lekcija {lesson}</h1>
         <p className="text-gray-500 mb-6">Izaberi vrstu vežbe</p>
 
@@ -323,7 +323,7 @@ export default function LessonPage({ params }: PageProps) {
           </div>
         )}
 
-        {renderSection('Präsens', 'text-blue-600', PREZENS_TYPES)}
+        {renderSection('Präsens', 'text-sky-600', PREZENS_TYPES)}
         {renderSection('Perfekt', 'text-purple-600', PERFEKT_TYPES)}
       </div>
     </main>

@@ -56,11 +56,11 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
       <div className="w-full">
         <div className="flex justify-between text-sm text-gray-500 mb-1">
           <span>Pitanje {questionNumber} / {totalQuestions}</span>
-          <span className="font-medium text-blue-600">{questionNumber}/{totalQuestions}</span>
+          <span className="font-medium text-sky-600">{questionNumber}/{totalQuestions}</span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
-            className="bg-blue-500 h-2 rounded-full transition-all"
+            className="bg-sky-500 h-2 rounded-full transition-all"
             style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
           />
         </div>
@@ -77,7 +77,7 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
         <p className="text-3xl font-bold text-gray-900 mb-6">{question.infinitiv}</p>
 
         <div className="flex items-center justify-center gap-4 text-2xl">
-          <span className="bg-blue-100 text-blue-700 font-bold px-4 py-2 rounded-xl">
+          <span className="bg-sky-100 text-sky-700 font-bold px-4 py-2 rounded-xl">
             {pronoun}
           </span>
           <span className="text-gray-400">+</span>
@@ -86,7 +86,7 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
               ? isCorrect
                 ? 'border-green-400 text-green-600 bg-green-50'
                 : 'border-red-400 text-red-600 bg-red-50'
-              : 'border-blue-300 text-blue-500 bg-blue-50'
+              : 'border-blue-300 text-sky-500 bg-sky-50'
           }`}>
             {submitted ? (isCorrect ? input : question.correctAnswers[0]) : (input || '?')}
           </span>
@@ -101,7 +101,7 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
           value={input}
           onChange={(e) => setInput(e.target.value)}
           disabled={submitted}
-          className="flex-1 border-2 border-gray-300 focus:border-blue-500 rounded-xl px-4 py-3 text-lg outline-none transition disabled:opacity-60 font-medium"
+          className="flex-1 border-2 border-gray-300 focus:border-sky-500 rounded-xl px-4 py-3 text-lg outline-none transition disabled:opacity-60 font-medium"
           placeholder={`${pronoun} forma...`}
           autoCorrect="off"
           autoCapitalize="none"
@@ -110,7 +110,7 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
         <button
           type="submit"
           disabled={submitted || !input.trim()}
-          className="bg-blue-600 hover:bg-blue-700 disabled:opacity-40 text-white font-bold px-6 py-3 rounded-xl transition text-xl"
+          className="bg-sky-500 hover:bg-sky-600 disabled:opacity-40 text-white font-bold px-6 py-3 rounded-xl transition text-xl"
         >
           ✓
         </button>

@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { prisma } from '@/lib/db/prisma'
@@ -35,14 +36,19 @@ export default async function ProfilePage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-blue-600 text-white px-4 py-4">
+      <header className="bg-sky-500 text-white px-4 py-4">
         <div className="max-w-lg mx-auto flex items-center justify-between">
-          <div>
-            <h1 className="font-bold text-lg">{dbUser.displayName}</h1>
-            <p className="text-blue-200 text-sm">{dbUser.name} {dbUser.surname}</p>
+          <div className="flex items-center gap-3">
+            <div className="bg-white rounded-lg px-2 py-1">
+              <Image src="/vts-transparent.png" alt="VTŠ" width={50} height={25} />
+            </div>
+            <div>
+              <h1 className="font-bold text-base leading-tight">{dbUser.displayName}</h1>
+              <p className="text-sky-100 text-xs">{dbUser.name} {dbUser.surname}</p>
+            </div>
           </div>
           <form action={logout}>
-            <button type="submit" className="text-blue-200 hover:text-white text-sm">
+            <button type="submit" className="text-sky-100 hover:text-white text-sm">
               Odjavi se
             </button>
           </form>
@@ -71,7 +77,7 @@ export default async function ProfilePage() {
               <Link
                 key={lesson}
                 href={`/lesson/${lesson}`}
-                className="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 rounded-xl p-4 text-center font-bold text-gray-700 hover:text-blue-700 transition"
+                className="bg-white border-2 border-gray-200 hover:border-sky-500 hover:bg-sky-50 rounded-xl p-4 text-center font-bold text-gray-700 hover:text-sky-700 transition"
               >
                 <div className="text-2xl mb-1">📖</div>
                 <div className="text-sm">Lekcija {lesson}</div>
@@ -84,14 +90,14 @@ export default async function ProfilePage() {
         <div className="flex gap-3">
           <Link
             href="/leaderboard"
-            className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-blue-400 hover:bg-blue-50 transition"
+            className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
           >
             <div className="text-2xl">🏆</div>
             <div className="text-sm font-medium text-gray-700 mt-1">Leaderboard</div>
           </Link>
           <Link
             href="/saved"
-            className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-blue-400 hover:bg-blue-50 transition"
+            className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
           >
             <div className="text-2xl">🔖</div>
             <div className="text-sm font-medium text-gray-700 mt-1">Sačuvani</div>

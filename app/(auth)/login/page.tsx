@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useActionState } from 'react'
 import { login } from '@/app/actions/auth'
@@ -8,12 +9,14 @@ export default function LoginPage() {
   const [state, formAction, isPending] = useActionState(login, {})
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-800 px-4">
+    <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-sky-500 to-sky-700 px-4">
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl p-8">
         <div className="text-center mb-6">
-          <div className="text-4xl mb-2">🇩🇪</div>
+          <div className="flex justify-center mb-4">
+            <Image src="/vts-transparent.png" alt="VTŠ Subotica" width={100} height={50} />
+          </div>
           <h1 className="text-2xl font-bold text-gray-900">Prijava</h1>
-          <p className="text-gray-500 text-sm mt-1">Deutsch Trainer VTŠ</p>
+          <p className="text-gray-500 text-sm mt-1">Deutsch Trainer — VTŠ Subotica</p>
         </div>
 
         <form action={formAction} className="space-y-4">
@@ -33,7 +36,7 @@ export default function LoginPage() {
               type="email"
               required
               autoComplete="email"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
               placeholder="student@vtss.edu.rs"
             />
           </div>
@@ -48,7 +51,7 @@ export default function LoginPage() {
               type="password"
               required
               autoComplete="current-password"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
               placeholder="••••••••"
             />
           </div>
@@ -56,7 +59,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isPending}
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-semibold py-2.5 rounded-lg transition"
+            className="w-full bg-sky-500 hover:bg-sky-600 disabled:opacity-60 text-white font-semibold py-2.5 rounded-lg transition"
           >
             {isPending ? 'Prijavljujem...' : 'Prijavi se'}
           </button>
@@ -64,7 +67,7 @@ export default function LoginPage() {
 
         <p className="text-center text-sm text-gray-500 mt-6">
           Nemaš nalog?{' '}
-          <Link href="/register" className="text-blue-600 font-medium hover:underline">
+          <Link href="/register" className="text-sky-600 font-medium hover:underline">
             Registruj se
           </Link>
         </p>

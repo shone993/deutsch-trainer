@@ -90,16 +90,16 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
   function getLeftStyle(inf: string) {
     if (matched.has(inf)) return 'bg-green-100 border-green-400 text-green-800 opacity-60'
     if (wrong?.left === inf) return 'bg-red-100 border-red-400 text-red-700 animate-shake'
-    if (selectedLeft === inf) return 'bg-blue-100 border-blue-500 text-blue-800'
-    return 'bg-white border-gray-300 text-gray-800 hover:border-blue-400 hover:bg-blue-50'
+    if (selectedLeft === inf) return 'bg-sky-100 border-sky-500 text-blue-800'
+    return 'bg-white border-gray-300 text-gray-800 hover:border-sky-400 hover:bg-sky-50'
   }
 
   function getRightStyle(conj: string) {
     const isMatched = [...matched].some((inf) => pairMap.get(inf) === conj)
     if (isMatched) return 'bg-green-100 border-green-400 text-green-800 opacity-60'
     if (wrong?.right === conj) return 'bg-red-100 border-red-400 text-red-700 animate-shake'
-    if (selectedRight === conj) return 'bg-blue-100 border-blue-500 text-blue-800'
-    return 'bg-white border-gray-300 text-gray-800 hover:border-blue-400 hover:bg-blue-50'
+    if (selectedRight === conj) return 'bg-sky-100 border-sky-500 text-blue-800'
+    return 'bg-white border-gray-300 text-gray-800 hover:border-sky-400 hover:bg-sky-50'
   }
 
   return (
@@ -111,7 +111,7 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
         </div>
         <div className="h-2 bg-gray-200 rounded-full">
           <div
-            className="h-2 bg-blue-500 rounded-full transition-all"
+            className="h-2 bg-sky-500 rounded-full transition-all"
             style={{ width: `${((questionNumber - 1) / totalQuestions) * 100}%` }}
           />
         </div>

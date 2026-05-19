@@ -74,27 +74,27 @@ export function FillBlankGame({ question, onAnswer, questionNumber, totalQuestio
       <div className="w-full">
         <div className="flex justify-between text-sm text-gray-500 mb-1">
           <span>Pitanje {questionNumber} / {totalQuestions}</span>
-          <span className="font-medium text-blue-600">{questionNumber}/{totalQuestions}</span>
+          <span className="font-medium text-sky-600">{questionNumber}/{totalQuestions}</span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
-            className="bg-blue-500 h-2 rounded-full transition-all"
+            className="bg-sky-500 h-2 rounded-full transition-all"
             style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
           />
         </div>
       </div>
 
       {/* Info kartica: glagol + lice */}
-      <div className="w-full bg-blue-600 text-white rounded-2xl px-5 py-4 flex items-center justify-between">
+      <div className="w-full bg-sky-500 text-white rounded-2xl px-5 py-4 flex items-center justify-between">
         <div>
-          <p className="text-xs text-blue-200 uppercase tracking-wide mb-0.5">Glagol</p>
+          <p className="text-xs text-sky-200 uppercase tracking-wide mb-0.5">Glagol</p>
           <p className="text-2xl font-bold">{question.infinitiv}</p>
         </div>
         {personInfo && (
           <div className="text-right">
-            <p className="text-xs text-blue-200 uppercase tracking-wide mb-0.5">Lice</p>
+            <p className="text-xs text-sky-200 uppercase tracking-wide mb-0.5">Lice</p>
             <p className="text-xl font-bold">{personInfo.de}</p>
-            <p className="text-sm text-blue-200">({personInfo.sr})</p>
+            <p className="text-sm text-sky-200">({personInfo.sr})</p>
           </div>
         )}
       </div>
@@ -119,7 +119,7 @@ export function FillBlankGame({ question, onAnswer, questionNumber, totalQuestio
                     ? isCorrect
                       ? 'border-green-500 text-green-600'
                       : 'border-red-500 text-red-600'
-                    : 'border-blue-400 text-blue-500'
+                    : 'border-sky-400 text-sky-500'
                 }`}
               >
                 {submitted
@@ -146,7 +146,7 @@ export function FillBlankGame({ question, onAnswer, questionNumber, totalQuestio
           value={input}
           onChange={(e) => setInput(e.target.value)}
           disabled={submitted}
-          className="flex-1 border-2 border-gray-300 focus:border-blue-500 rounded-xl px-4 py-3 text-lg outline-none transition disabled:opacity-60 font-medium"
+          className="flex-1 border-2 border-gray-300 focus:border-sky-500 rounded-xl px-4 py-3 text-lg outline-none transition disabled:opacity-60 font-medium"
           placeholder={personInfo ? `${personInfo.de} forma...` : 'Unesite odgovor...'}
           autoCorrect="off"
           autoCapitalize="none"
@@ -155,7 +155,7 @@ export function FillBlankGame({ question, onAnswer, questionNumber, totalQuestio
         <button
           type="submit"
           disabled={submitted || !input.trim()}
-          className="bg-blue-600 hover:bg-blue-700 disabled:opacity-40 text-white font-bold px-6 py-3 rounded-xl transition text-xl"
+          className="bg-sky-500 hover:bg-sky-600 disabled:opacity-40 text-white font-bold px-6 py-3 rounded-xl transition text-xl"
         >
           ✓
         </button>

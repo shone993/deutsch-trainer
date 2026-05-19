@@ -68,9 +68,9 @@ export default async function LeaderboardPage({
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <header className="bg-blue-600 text-white px-4 py-4">
+      <header className="bg-sky-500 text-white px-4 py-4">
         <div className="max-w-lg mx-auto flex items-center gap-3">
-          <Link href="/profile" className="text-blue-200 hover:text-white">←</Link>
+          <Link href="/profile" className="text-sky-200 hover:text-white">←</Link>
           <h1 className="font-bold text-lg">🏆 Leaderboard</h1>
         </div>
       </header>
@@ -84,8 +84,8 @@ export default async function LeaderboardPage({
               href={`?period=${p.key}`}
               className={`flex-1 text-center py-2 rounded-lg text-sm font-medium transition ${
                 validPeriod === p.key
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white border border-gray-200 text-gray-600 hover:border-blue-400'
+                  ? 'bg-sky-500 text-white'
+                  : 'bg-white border border-gray-200 text-gray-600 hover:border-sky-400'
               }`}
             >
               {p.label}
@@ -102,7 +102,7 @@ export default async function LeaderboardPage({
             <div
               key={entry.userId}
               className={`flex items-center gap-3 bg-white rounded-xl p-4 border-2 ${
-                entry.isMe ? 'border-blue-400 bg-blue-50' : 'border-transparent'
+                entry.isMe ? 'border-sky-400 bg-sky-50' : 'border-transparent'
               }`}
             >
               <div className={`w-8 text-center font-bold text-lg ${
@@ -114,7 +114,7 @@ export default async function LeaderboardPage({
               </div>
               <div className="flex-1 min-w-0">
                 <div className="font-semibold text-gray-900 truncate">
-                  {entry.displayName} {entry.isMe && <span className="text-blue-600 text-xs">(ti)</span>}
+                  {entry.displayName} {entry.isMe && <span className="text-sky-600 text-xs">(ti)</span>}
                 </div>
                 <div className="text-xs text-gray-500">
                   {entry.sessionsCount} sesija · 🔥 {entry.currentStreak}d

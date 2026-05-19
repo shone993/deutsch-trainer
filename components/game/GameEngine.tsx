@@ -58,7 +58,7 @@ export function GameEngine({ session, onComplete }: Props) {
           <p className="text-2xl mb-2">🚧</p>
           <p>Audio vežba je u razvoju</p>
           <button
-            className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg"
+            className="mt-4 bg-sky-500 text-white px-6 py-2 rounded-lg"
             onClick={() => handleAnswer({
               questionId: question.id,
               userAnswer: '',

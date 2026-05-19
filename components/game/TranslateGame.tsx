@@ -37,11 +37,11 @@ export function TranslateGame({ question, onAnswer, questionNumber, totalQuestio
       <div className="w-full">
         <div className="flex justify-between text-sm text-gray-500 mb-1">
           <span>Pitanje {questionNumber}/{totalQuestions}</span>
-          <span className="font-medium text-blue-600">{question.infinitiv}</span>
+          <span className="font-medium text-sky-600">{question.infinitiv}</span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
-            className="bg-blue-500 h-2 rounded-full transition-all"
+            className="bg-sky-500 h-2 rounded-full transition-all"
             style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
           />
         </div>
@@ -55,7 +55,7 @@ export function TranslateGame({ question, onAnswer, questionNumber, totalQuestio
       <div className="grid grid-cols-2 gap-3 w-full">
         {(question.options ?? []).map((option) => {
           const isAnswer = question.correctAnswers.includes(option)
-          let cls = 'border-2 border-gray-200 bg-white text-gray-800 hover:border-blue-400 hover:bg-blue-50'
+          let cls = 'border-2 border-gray-200 bg-white text-gray-800 hover:border-sky-400 hover:bg-sky-50'
           if (selected) {
             if (isAnswer) cls = 'border-2 border-green-500 bg-green-50 text-green-700'
             else if (option === selected) cls = 'border-2 border-red-500 bg-red-50 text-red-700'
