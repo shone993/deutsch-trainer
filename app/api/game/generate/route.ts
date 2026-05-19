@@ -7,7 +7,7 @@ import type { VerbData, GameType } from '@/types'
 
 const QuerySchema = z.object({
   lesson: z.coerce.number().int().min(1).max(13),
-  gameType: z.enum(['CONJUGATE', 'FILL_BLANK', 'MATCH_PAIRS', 'TRANSLATE', 'AUDIO']),
+  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_CONJUGATE','PERFEKT_FILL','AUDIO']),
   count: z.coerce.number().int().min(1).max(30).default(10),
 })
 
@@ -56,11 +56,13 @@ export async function GET(request: NextRequest) {
 
   let sentences: Array<{ id: string; verbId: string; template: string; translation: string }> = []
 
-  if (gameType === 'FILL_BLANK') {
+  if (gameType === 'FILL_BLANK' || gameType === 'PERFEKT_FILL') {
+    const difficulty = gameType === 'PERFEKT_FILL' ? 2 : 1
     const dbSentences = await prisma.sentence.findMany({
       where: {
         verbId: { in: dbVerbs.map((v) => v.id) },
         isActive: true,
+        difficulty,
       },
     })
     sentences = dbSentences.map((s) => ({

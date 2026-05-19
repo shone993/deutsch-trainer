@@ -5,14 +5,45 @@ import { useRouter } from 'next/navigation'
 import type { GameSession, GameType, GameQuestion, QuestionResult } from '@/types'
 import { GameEngine } from '@/components/game/GameEngine'
 
-const GAME_TYPES: { type: GameType; label: string; emoji: string; desc: string }[] = [
-  { type: 'CONJUGATE',  label: 'Konjugacija',      emoji: '🔤', desc: 'Upiši oblik glagola za dato lice' },
-  { type: 'FILL_BLANK', label: 'Popuni rečenicu',  emoji: '✏️', desc: 'Upiši glagol koji nedostaje u rečenici' },
-  { type: 'MATCH_PAIRS',label: 'Poveži parove',    emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i formom' },
-  { type: 'TRANSLATE',  label: 'Višestruki izbor', emoji: '🌍', desc: 'Izaberi tačnu konjugaciju' },
+type ExerciseEntry = { type: GameType; label: string; emoji: string; desc: string }
+
+const PREZENS_TYPES: ExerciseEntry[] = [
+  { type: 'MATCH_PAIRS', label: 'Poveži parove',    emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i formom' },
+  { type: 'TRANSLATE',   label: 'Višestruki izbor', emoji: '🌍', desc: 'Izaberi tačnu konjugaciju' },
+  { type: 'CONJUGATE',   label: 'Konjugacija',      emoji: '🔤', desc: 'Upiši oblik glagola za dato lice' },
+  { type: 'FILL_BLANK',  label: 'Popuni rečenicu',  emoji: '✏️', desc: 'Upiši glagol koji nedostaje u rečenici' },
+]
+
+const PERFEKT_TYPES: ExerciseEntry[] = [
+  { type: 'PERFEKT_HILFSVERB',  label: 'HABEN ili SEIN?',   emoji: '🟣', desc: 'Koji pomoćni glagol se koristi?' },
+  { type: 'PERFEKT_PARTIZIP',   label: 'Partizip II',        emoji: '📝', desc: 'Upiši oblik Partizipa II' },
+  { type: 'PERFEKT_CONJUGATE',  label: 'Konjugacija Perfekt',emoji: '🔤', desc: 'Upiši punu Perfekt formu sa licem' },
+  { type: 'PERFEKT_FILL',       label: 'Rečenice (Perfekt)', emoji: '✏️', desc: 'Popuni dva mesta u rečenici' },
 ]
 
 const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: string[]; example: string }> = {
+  MATCH_PAIRS: {
+    title: 'Poveži parove',
+    emoji: '🔗',
+    steps: [
+      'Na levoj strani su infinitivi glagola.',
+      'Na desnoj strani su zamenica + konjugacija — izmešane.',
+      'Klikni jedan infinitiv (levo), pa odgovarajuću formu (desno).',
+      'Tačan par postaje zelen. Krivi par bljesne crveno.',
+    ],
+    example: 'Primer: klikni "sein" → klikni "er/sie/es ist"',
+  },
+  TRANSLATE: {
+    title: 'Višestruki izbor',
+    emoji: '🌍',
+    steps: [
+      'Vidiš glagol i lice koje treba da konjuguješ.',
+      'Ponuđena su 4 odgovora — samo jedan je tačan.',
+      'Klikni na tačan oblik glagola.',
+      'Brži odgovor donosi više poena!',
+    ],
+    example: 'Primer: "haben · wir"  →  klikni: haben',
+  },
   CONJUGATE: {
     title: 'Konjugacija',
     emoji: '🔤',
@@ -25,46 +56,62 @@ const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: stri
     example: 'Primer: "sein" + "er/sie/es"  →  upiši: ist',
   },
   FILL_BLANK: {
-    title: 'Popuni prazninu',
+    title: 'Popuni rečenicu',
     emoji: '✏️',
     steps: [
       'Vidiš nemačku rečenicu u kojoj nedostaje glagol.',
-      'U plavoj kartici gore piše koji glagol i koje lice treba.',
+      'Kartica gore prikazuje koji glagol i koje lice treba.',
       'Upiši tačan oblik glagola u polje za unos.',
       'Potvrdi pritiskom na ✓ ili Enter.',
     ],
     example: 'Primer: "Ich  ?  Student."  →  upiši: bin',
   },
-  TRANSLATE: {
-    title: 'Prevod — višestruki izbor',
-    emoji: '🌍',
+  PERFEKT_HILFSVERB: {
+    title: 'HABEN ili SEIN?',
+    emoji: '🟣',
     steps: [
-      'Vidiš glagol i lice koje treba da konjuguješ.',
-      'Ponuđena su 4 odgovora — samo jedan je tačan.',
-      'Klikni na tačan oblik glagola.',
-      'Brži odgovor donosi više poena!',
+      'Prikazan je infinitiv glagola.',
+      'Klikni da li taj glagol u Perfektu koristi HABEN ili SEIN.',
+      'Zapamti: glagoli kretanja i promene stanja → sein; ostali → haben.',
     ],
-    example: 'Primer: "haben · wir"  →  klikni: haben',
+    example: 'Primer: "gehen"  →  klikni: sein',
   },
-  MATCH_PAIRS: {
-    title: 'Poveži parove',
-    emoji: '🔗',
+  PERFEKT_PARTIZIP: {
+    title: 'Partizip II',
+    emoji: '📝',
     steps: [
-      'Na levoj strani su infinitivi glagola.',
-      'Na desnoj strani su njihove konjugacije — izmešane.',
-      'Klikni jedan infinitiv (levo), pa njegovu konjugaciju (desno).',
-      'Tačan par postaje zelen. Krivi par bljesne crveno — pokušaj ponovo.',
+      'Prikazan je infinitiv glagola.',
+      'Upiši Partizip II (treći oblik glagola).',
+      'Regularni glagoli: ge- + osnova + -t  (lernen → gelernt)',
+      'Nepravilni glagoli imaju posebne oblike (gehen → gegangen).',
     ],
-    example: 'Primer: klikni "sein" → klikni "bin"',
+    example: 'Primer: "lernen"  →  upiši: gelernt',
+  },
+  PERFEKT_CONJUGATE: {
+    title: 'Konjugacija Perfekt',
+    emoji: '🔤',
+    steps: [
+      'Prikazan je infinitiv glagola i lična zamenica.',
+      'Upiši punu Perfekt formu: konjugovani haben/sein + Partizip II.',
+      'Razmaknicom odvoji pomoćni glagol od participa.',
+    ],
+    example: 'Primer: "gehen" + "ich"  →  upiši: bin gegangen',
+  },
+  PERFEKT_FILL: {
+    title: 'Rečenice — Perfekt',
+    emoji: '✏️',
+    steps: [
+      'Vidiš nemačku rečenicu sa dva prazna mesta.',
+      'Prvo mesto: konjugovani haben/sein.',
+      'Drugo mesto: Partizip II.',
+      'Upiši svaki oblik posebno.',
+    ],
+    example: 'Primer: "Ich _____ nach Berlin _____"  →  bin / gegangen',
   },
   AUDIO: {
     title: 'Audio vežba',
     emoji: '🔊',
-    steps: [
-      'Odslušaj izgovor nemačke reči.',
-      'Upiši ono što si čuo.',
-      'Možeš ponovo pustiti audio pre odgovora.',
-    ],
+    steps: ['Odslušaj izgovor nemačke reči.', 'Upiši ono što si čuo.'],
     example: '',
   },
 }
@@ -239,6 +286,30 @@ export default function LessonPage({ params }: PageProps) {
     )
   }
 
+  function renderSection(title: string, color: string, types: ExerciseEntry[]) {
+    return (
+      <div className="mb-8">
+        <h2 className={`text-sm font-bold uppercase tracking-widest mb-3 ${color}`}>{title}</h2>
+        <div className="grid grid-cols-1 gap-3">
+          {types.map((g) => (
+            <button
+              key={g.type}
+              onClick={() => selectGameType(g.type)}
+              disabled={loading}
+              className="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 disabled:opacity-60 rounded-2xl p-4 flex items-center gap-4 text-left transition"
+            >
+              <span className="text-2xl">{g.emoji}</span>
+              <div>
+                <div className="font-bold text-gray-900 text-sm">{g.label}</div>
+                <div className="text-xs text-gray-500">{g.desc}</div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <main className="min-h-screen bg-gray-50 px-4 py-8">
       <div className="max-w-lg mx-auto">
@@ -252,22 +323,8 @@ export default function LessonPage({ params }: PageProps) {
           </div>
         )}
 
-        <div className="grid grid-cols-1 gap-4">
-          {GAME_TYPES.map((g) => (
-            <button
-              key={g.type}
-              onClick={() => selectGameType(g.type)}
-              disabled={loading}
-              className="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 disabled:opacity-60 rounded-2xl p-5 flex items-center gap-4 text-left transition"
-            >
-              <span className="text-3xl">{g.emoji}</span>
-              <div>
-                <div className="font-bold text-gray-900">{g.label}</div>
-                <div className="text-sm text-gray-500">{g.desc}</div>
-              </div>
-            </button>
-          ))}
-        </div>
+        {renderSection('Präsens', 'text-blue-600', PREZENS_TYPES)}
+        {renderSection('Perfekt', 'text-purple-600', PERFEKT_TYPES)}
       </div>
     </main>
   )

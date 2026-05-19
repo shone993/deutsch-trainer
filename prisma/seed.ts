@@ -64,6 +64,55 @@ function sentenceToTemplate(
   return null
 }
 
+const HABEN_PERSON: Record<string, string> = {
+  habe:'ich', hast:'du', hat:'er', haben:'wir_or_sie', habt:'ihr',
+}
+const SEIN_PERSON: Record<string, string> = {
+  bin:'ich', bist:'du', ist:'er', sind:'wir_or_sie', seid:'ihr',
+}
+
+function perfektToTemplate(
+  sentence: string,
+  verbId: string,
+  partizip: string,
+  hilfsverb: 'HABEN' | 'SEIN'
+): { template: string } | null {
+  const auxPersonMap = hilfsverb === 'HABEN' ? HABEN_PERSON : SEIN_PERSON
+  const tokens = sentence.split(/(\s+)/)
+
+  let auxIdx = -1
+  let auxPerson = 'er'
+  let partizipIdx = -1
+
+  for (let i = 0; i < tokens.length; i++) {
+    const clean = stripPunct(tokens[i])
+    if (auxIdx === -1 && auxPersonMap[clean]) {
+      auxIdx = i
+      let p = auxPersonMap[clean]
+      // Razreši wir_or_sie iz subjekta
+      if (p === 'wir_or_sie') {
+        const prevWords = tokens.slice(0, i).map(stripPunct).filter(Boolean)
+        const subj = prevWords[prevWords.length - 1] ?? ''
+        p = (subj === 'wir' || subj === 'Wir') ? 'wir' : 'sie'
+      }
+      auxPerson = p
+    }
+    if (partizipIdx === -1 && stripPunct(tokens[i]) === partizip) partizipIdx = i
+  }
+
+  if (auxIdx === -1 || partizipIdx === -1) return null
+
+  const result = tokens.map((t, i) => {
+    const clean = stripPunct(t)
+    const punct = t.replace(clean, '')
+    if (i === auxIdx) return `<${verbId},aux_${auxPerson}>${punct}`
+    if (i === partizipIdx) return `<${verbId},partizip>${punct}`
+    return t
+  }).join('')
+
+  return { template: result }
+}
+
 async function main() {
   console.log('🌱 Seeding database...')
 
@@ -130,31 +179,36 @@ async function main() {
 
     verbCount++
 
-    // Dodaj rečenice kao FILL_BLANK template
+    // Präsens rečenice (FILL_BLANK)
     for (let i = 0; i < v.sentences.length; i++) {
       const sentence = v.sentences[i]
       const result = sentenceToTemplate(sentence, created.id, conjugations)
       if (!result) continue
-
-      const sentenceId = `excel-${created.id}-${i}`
+      const sid = `excel-${created.id}-${i}`
       await prisma.sentence.upsert({
-        where: { id: sentenceId },
-        create: {
-          id: sentenceId,
-          verbId: created.id,
-          template: result.template,
-          translation: sentence,
-          difficulty: 1,
-        },
-        update: {
-          template: result.template,
-          translation: sentence,
-        },
+        where: { id: sid },
+        create: { id: sid, verbId: created.id, template: result.template, translation: sentence, difficulty: 1 },
+        update: { template: result.template, translation: sentence },
       })
       sentenceCount++
     }
 
-    console.log(`  ✅ [L${v.lesson}] ${v.infinitiv} (${v.sentences.length} rečenica)`)
+    // Perfekt rečenice (PERFEKT_FILL — dva prazna mesta)
+    const perfektSentences = (v as any).perfektSentences ?? []
+    for (let i = 0; i < perfektSentences.length; i++) {
+      const sentence = perfektSentences[i] as string
+      const result = perfektToTemplate(sentence, created.id, v.perfekt, v.hilfsverb as 'HABEN' | 'SEIN')
+      if (!result) continue
+      const sid = `perfekt-${created.id}-${i}`
+      await prisma.sentence.upsert({
+        where: { id: sid },
+        create: { id: sid, verbId: created.id, template: result.template, translation: sentence, difficulty: 2 },
+        update: { template: result.template, translation: sentence },
+      })
+      sentenceCount++
+    }
+
+    console.log(`  ✅ [L${v.lesson}] ${v.infinitiv} (präs: ${v.sentences.length}, perf: ${perfektSentences.length})`)
   }
 
   console.log(`\n✅ Seed završen: ${verbCount} glagola, ${sentenceCount} rečenica`)

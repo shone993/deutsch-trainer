@@ -6,6 +6,10 @@ import { ConjugateGame } from './ConjugateGame'
 import { FillBlankGame } from './FillBlankGame'
 import { TranslateGame } from './TranslateGame'
 import { MatchPairsGame } from './MatchPairsGame'
+import { PerfektHilfsverbGame } from './PerfektHilfsverbGame'
+import { PerfektPartizipGame } from './PerfektPartizipGame'
+import { PerfektConjugateGame } from './PerfektConjugateGame'
+import { PerfektFillGame } from './PerfektFillGame'
 
 interface Props {
   session: GameSession
@@ -45,6 +49,10 @@ export function GameEngine({ session, onComplete }: Props) {
       {question.type === 'FILL_BLANK' && <FillBlankGame key={question.id} {...questionProps} />}
       {question.type === 'TRANSLATE' && <TranslateGame {...questionProps} />}
       {question.type === 'MATCH_PAIRS' && <MatchPairsGame key={question.id} {...questionProps} />}
+      {question.type === 'PERFEKT_HILFSVERB' && <PerfektHilfsverbGame key={question.id} {...questionProps} />}
+      {question.type === 'PERFEKT_PARTIZIP' && <PerfektPartizipGame key={question.id} {...questionProps} />}
+      {question.type === 'PERFEKT_CONJUGATE' && <PerfektConjugateGame key={question.id} {...questionProps} />}
+      {question.type === 'PERFEKT_FILL' && <PerfektFillGame key={question.id} {...questionProps} />}
       {question.type === 'AUDIO' && (
         <div className="text-center text-gray-500 mt-20">
           <p className="text-2xl mb-2">🚧</p>

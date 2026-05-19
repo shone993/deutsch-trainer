@@ -5,6 +5,7 @@
     perfekt: 'gewesen', hilfsverb: 'SEIN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich bin Student.', 'Bist du Studentin?', 'Ist er Ingenieur?', 'Wir sind in Deutschland.', 'Seid ihr Studenten?', 'Maria ist Ingenieurin.', 'Sind Sie Herr Schmidt?', 'Was ist Frau Müller von Beruf?', 'Mario ist nicht aus Madrid.', 'Ich bin zwanzig.'],
+    perfektSentences: [],
   },
   {
     infinitiv: 'kommen',
@@ -12,6 +13,7 @@
     perfekt: 'gekommen', hilfsverb: 'SEIN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich komme aus Deutschland.', 'Kommst du aus Österreich?', 'Er kommt  aus Berlin.', 'Kommen Sie aus Hamburg?', 'Wir kommen nicht aus Italien.', 'Kommt ihr aus Wien?', 'Kommst du nicht?', 'Kommen die Praktikanten aus Rom?', 'Ihr kommt nicht aus Portugal.', 'Claudia kommt nicht aus der Schweiz.'],
+    perfektSentences: ['Bist du aus Österreich gekommen?', 'Er ist aus Berlin gekommen.', 'Sind Sie aus Hamburg gekommen?', 'Wir sind nicht aus Italien gekommen.', 'Seid ihr aus Wien gekommen?', 'Sind die Praktikanten aus Rom gekommen?', 'Seid ihr nicht aus Portugal gekommen?', 'Claudia ist nicht aus der Schweiz gekommen.', 'Ich bin aus Deutschland gekommen.', 'Bist du nicht gekommen?'],
   },
   {
     infinitiv: 'sprechen',
@@ -19,6 +21,7 @@
     perfekt: 'gesprochen', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Du sprichst gut Englisch.', 'Ich spreche Deutsch.', 'Die Praktikanten sprechen Deutsch.', 'Er spricht Englisch.', 'Anna spricht Spanisch.', 'Sprechen Sie gut Französisch?', 'Sprecht ihr Serbisch?', 'Welche Sprache sprechen Sie?', 'Wir sprechen kein Russisch.', 'Herr Richter spricht kein Serbisch.'],
+    perfektSentences: ['Er hat Englisch gesprochen.', 'Anna hat Französisch gesprochen.', 'Haben Sie gut Französisch gesprochen?', 'Habt ihr Serbisch gesprochen?', 'Welche Sprache haben Sie gesprochen?', 'Wir haben Japanisch gesprochen.', 'Herr Richter hat nicht mit dem Chef gesprochen.', 'Du hast gut Englisch gesprochen.', 'Ich habe Deutsch gesprochen.', 'Frau Müller hat mit Anna gesprochen.'],
   },
   {
     infinitiv: 'haben',
@@ -26,6 +29,7 @@
     perfekt: 'gehabt', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich habe zwei Jobs.', 'Hast du Hunger?', 'Wir haben ein Auto.', 'Hat er einen Job?', 'Herr Müller hat keinen Job.', 'Christine hat einen neuen Job.', 'Die Firma hat vier Praktikanten.', 'Du hast eine gute Idee.', 'Habt ihr eine Idee?', 'Haben Sie einen Termin bei Frau Lich?'],
+    perfektSentences: ['Hat er eine Arbeit gehabt?', 'Habt ihr eine Idee gehabt?', 'Haben Sie einen Termin bei Frau Lich gehabt?', 'Ich habe einen Termin bei Herrn Müller gehabt.', 'Hast du einen Termin un 9 Uhr gehabt?', 'Hast du einen Termin beim Direktor gehabt?', 'Haben Sie einen Termin um 13 Uhr gehabt?', 'Ich habe einen Termin um 10 Uhr gehabt.', 'Herr Böll hat einen Termin um 11 Uhr gehabt.'],
   },
   {
     infinitiv: 'arbeiten',
@@ -33,6 +37,7 @@
     perfekt: 'gearbeitet', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Arbeiten Sie hier?', 'Wo arbeitet er von Januar bis Juni?', 'Herr Müller arbeitet als Ingenieur.', 'Arbeitest du als Praktikant?', 'Ich arbeite im Büro.', 'Wir arbeiten bei Bosch.', 'Arbeitest du als Techniker?', 'Arbeitet ihr bei Siemens?', 'Frau Jung arbeitet als Sekretärin.'],
+    perfektSentences: ['Haben Sie hier gearbeitet?', 'Wo hat er von Januar bis Juni gearbeitet?', 'Herr Müller hat als Ingenieur gearbeitet.', 'Hast du als Praktikant gearbeitet?', 'Ich habe im Büro gearbeitet.', 'Wir haben bei Bosch gearbeitet.', 'Hast du als Techniker gearbeitet?', 'Habt ihr bei Siemens gearbeitet?', 'Frau Jung hat als Sekretärin gearbeitet.', 'Ich habe  als Praktikant bei Bosch gearbeitet.'],
   },
   {
     infinitiv: 'studieren',
@@ -40,6 +45,7 @@
     perfekt: 'studiert', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich studiere Mathematik.', 'Elisabeth möchte Maschinenbau studieren.', 'Studieren Sie Informatik?', 'Wo studierst du?', 'Wo studiert Bettina?', 'Wir studieren nicht in Wien.', 'Studiert er Elektrotechnik?', 'Studiert er in Amerika?', 'Möchtest du in Deutschland studieren?', 'Studiert ihr Mechatronik?'],
+    perfektSentences: ['Ich habe Mathematik studiert.', 'Haben Sie Informatik studiert?', 'Wo hast du studiert?', 'Wo hat Bettina studiert?', 'Wir haben nicht in Wien studiert.', 'Hat er Elektrotechnik studiert?', 'Hast du in Deutschland studiert?', 'Habt ihr Mechatronik studiert?', 'Jonas hat Maschinenbau studiert.', 'Die Praktikanten haben Philosophie studiert.'],
   },
   {
     infinitiv: 'trinken',
@@ -47,6 +53,7 @@
     perfekt: 'getrunken', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich trinke gerne Tee.', 'Trinkst du Kaffee?', 'Er trinkt Wasser.', 'Frau Böll trinkt Cola.', 'Wir trinken gerne Orangensaft.', 'Trinken Sie Kaffee?', 'Trinkt ihr Mineralwasser?', 'Wir möchten Wasser trinken.', 'Möchten Sie etwas trinken?', 'Frau Engelbrecht trinkt keinen Kaffee.'],
+    perfektSentences: ['Ich habe gerne Tee getrunken.', 'Hast du Kaffee getrunken?', 'Ich habe gerne Tee getrunken.', 'Er hat Wasser getrunken.', 'Frau Böll hat Cola getrunken.', 'Wir haben gerne Orangensaft getrunken.', 'Haben Sie Kaffee getrunken?', 'Frau Engelbrecht hat keinen Kaffee getrunken.', 'Julian hat keinen Tee getrunken.', 'Ich habe nichts getrunken.'],
   },
   {
     infinitiv: 'anrufen',
@@ -54,6 +61,7 @@
     perfekt: 'angerufen', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich rufe Frau Böll an.', 'Du rufst Anna an.', 'Er ruft den Chef an.', 'Rufst du Peter an?', 'Frau Müller ruft Herrn Böll nicht an.', 'Wir rufen die Polizei an.', 'Wer ruft an?', 'Ruft ihr die Polizei?', 'Sie können mich morgen anrufen.', 'wen rufen Sie an?'],
+    perfektSentences: ['Du hast Anna angerufen.', 'Ich habe Frau Böll angerufen.', 'Er hat den Chef angerufen.', 'Hast du Peter angerufen?', 'Frau Müller hat Herrn Böll nicht angerufen.', 'Wir haben die Polizei angerufen.', 'Wer hat angerufen?', 'Wen haben Sie angerufen?', 'Habt ihr Adam angerufen?'],
   },
   {
     infinitiv: 'helfen',
@@ -61,6 +69,7 @@
     perfekt: 'geholfen', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Frau Jung hilft meinem Kollegen.', 'Du hilfst deiner Familie.', 'Herr Müller hilft den Praktikanten.', 'Sie hilft mir gerne.', 'Wir helfen dem Chef.', 'Helft ihr den Kolleginnen?', 'Ich möchte dir helfen.', 'Können Sie mir helfen?', 'Ich helfen Ihnen gern.', 'Die Praktikanten helfen mir nicht.'],
+    perfektSentences: ['Frau Jung hat meinem Kollegen geholfen.', 'Du hast deiner Familie geholfen.', 'Herr Müller hat den Praktikanten geholfen.', 'Sie hat mir gerne geholfen.', 'Wir haben dem Chef geholfen.', 'Die Studenten haben mir nicht geholfen.', 'Ich habe Ihnen gern geholfen.', 'Habt ihr den Kollegen geholfen?', 'Habt ihr Jens geholfen?', 'Hast du den Praktikaten geholfen?'],
   },
   {
     infinitiv: 'können',
@@ -68,6 +77,7 @@
     perfekt: '* Präteritum', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich kann gut Deutsch.', 'Er kann Englisch sprechen.', 'Frau Müller kann Klavier spielen.', 'Kannst du nicht kommen?', 'Können Sie Französisch sprechen?', 'Wir können nicht kommen.', 'Könnt ihr mir helfen?', 'Können Sie kommen?', 'Jens kann nicht kommen.', 'Was kannst du gut?'],
+    perfektSentences: [],
   },
   {
     infinitiv: 'nehmen',
@@ -75,6 +85,7 @@
     perfekt: 'genommen', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich nehme ein Glas Wasser.', 'Wir nehmen Wasser.', 'Nimmst du Tee?', 'Nehmt ihr ein Glas Mineralwasser?', 'Herr Richter nimmt Kaffee.', 'Die Frauen nehmen Orangensaft.', 'Wer nimmt Tee?', 'Was nehmen Sie?', 'Nimmst du keinen Kaffee?', 'Nehmen Sie keinen Tee?'],
+    perfektSentences: ['Ich habe einen Kaffee genommen.', 'Haben Sie kein Wasser genommen?', 'Hast du keinen Tee genommen?', 'Ich habe die Telefonnummer von Anna genommen.', 'Habt ihr die Handynummer von Herrn Müller genommen?', 'Wir haben die Adresse von Frau Schmidt genommen.', 'Hast du die Handynummer von Anna genommen?', 'Frau Bäll hat die Papiere von Herrn Schmidt genommen.', 'Die Herren haben Wasser genommen.'],
   },
   {
     infinitiv: 'freuen, sich',
@@ -82,6 +93,7 @@
     perfekt: 'gefreut', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich  freue mich auch.', 'Freust du dich auch?', 'Das freut mich.', 'Es freut mich.', 'Freut ihr euch auch?', 'Das freut uns.', 'Frau Engelbrecht freut sich.', 'Die Praktikanten freuen sich nicht.', 'Wer freut sich?', 'Freust du dich nicht?'],
+    perfektSentences: ['Ich habe mich gefreut.', 'Hast du dich auch gefreut?', 'Das hat mich sehr gefreut.', 'Es hat mich sehr gefreut.', 'Habt ihr euch auch gefreut?', 'Wir haben uns nicht gefreut.', 'Warum haben sich die Praktikanten gefreut?', 'Wer hat sich gefreut?', 'Die Studenten haben sich sehr gefreut.', 'Das hat uns sehr gefreut.'],
   },
   {
     infinitiv: 'einladen',
@@ -89,6 +101,7 @@
     perfekt: 'eingeladen', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Wir laden Herr Schmidt ein.', 'Ich lade Sie ein.', 'Wer lädt Anna ein?', 'Laden Sie auch Herrn Schmidt ein?', 'Ladet ihr Frau Müller ein?', 'Lädst du Jörg ein?', 'Ich lade Anna nicht ein.', 'Frau Müller lädt Herrn Müller zum Tee ein.', 'Wen lädt Herr Müller zum Kaffee ein?', 'Ich lade meine Kollegen zum Kaffee ein.'],
+    perfektSentences: ['Ich habe meine Kollegen zur Party eingeladen.', 'Wir haben Herrn Schmidt zum Kaffee eingeladen.', 'Hast du Anna eingeladen?', 'Habt ihr Jörg eingeladen?', 'Herr Schmidt hat Frau Jung zum Kaffee eingeladen.', 'Wer hat Herrn Müller zur Party eingeladen?', 'Wen hast du morgen zur Party eingeladen?', 'Frau Müller hat mich zum Tee eingeladen.', 'Wir haben Peter zur Party eingeladen.', 'Habt ihr auch Frau Lich eingeladen?'],
   },
   {
     infinitiv: 'grüßen',
@@ -96,6 +109,7 @@
     perfekt: 'gegrüßt', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich grüße Sie herzlich.', 'Du grüßt mich.', 'Wir grüßen Herrn Schmidt.', 'Grüßt ihr Frau Müller nicht?', 'Wen grüßen Sie?', 'Wer grüßt mich?', 'Herr Schmidt grüßt Frau Müller.', 'Frau Müller grüßt Herrn Schmidt nicht.', 'Jens grüßt Anna.'],
+    perfektSentences: ['Jens hat Anna gegrüßt.', 'Ich habe dich gegrüßt.', 'Wir haben Sie gegrüßt.', 'Hast du mich gegrüßt?', 'Haben Sie mich gegrüßt?', 'Wen habt ihr gegrüßt?', 'Wer hat dich gegrüßt?', 'Herr Müller hat Sie gegrüßt.', 'Frau Müller hat alle Kollegen gegrüßt', 'Herr Böll hat alle Praktikanten gegrüßt.'],
   },
   {
     infinitiv: 'geben',
@@ -103,6 +117,7 @@
     perfekt: 'gegeben', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich gebe Ihnen meine Visitenkarte.', 'Geben Sie mir Ihre Visitenkarte?', 'Wir geben Ihnen neue Informationen.', 'Herr Müller gibt uns neue Informationen.', 'Frau Müller gibt mir die Telefonnummer von Herrn Jung.', 'Geben Sie mir Ihre E-Mail-Adresse?', 'Gebt ihr uns das Formular?', 'Geben Sie uns die Informationen über die Firma?', 'Gibst du mir die neuen Informationen?'],
+    perfektSentences: ['Ich habe dir alle Informationen gegeben.', 'Hast du mir diese Dokumente gegeben?', 'Wer hat Ihnen diesen Plan gegeben?', 'Wir haben Ihnen das Projekt gegeben.', 'Haben Sie uns das Thema für das Projekt gegeben?', 'Habt ihr dem Team den Plan gegeben?', 'Wem haben Sie das Projekt gegeben?', 'Was haben Sie dem Chef gegeben?', 'Frau Wagner hat Herr Böll das Projekt gegeben.', 'Die Kollegen haben uns den Plan gegeben.'],
   },
   {
     infinitiv: 'dürfen',
@@ -110,6 +125,7 @@
     perfekt: '* Präteritum', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Darf ich eine Glas Wasser nehmen?', 'Darf ich auf die Toilette?', 'Dürfen wir sprechen?', 'Ihr dürft hier nicht sprechen.', 'Dürfen wir hier arbeiten?', 'Herr Schmidt darf hier nicht arbeiten.', 'Sie dürfen hier nicht arbeiten, Frau Müller.', 'Darf ich Ihnen etwas anbieten?', 'Darf ich dir etwas anbieten?', 'Dürfen wir Sie morgen erwarten?'],
+    perfektSentences: [],
   },
   {
     infinitiv: 'erwarten',
@@ -117,6 +133,7 @@
     perfekt: 'erwartet', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Wir erwarten Herrn Müller.', 'Herr Schmidt erwartet Frau Schmidt um 10 Uhr.', 'Erwarten Sie Frau Richter?', 'Erwartest du Anna morgen?', 'Ich erwarte meine Kollegen um 13 Uhr.', 'Erwartet ihr morgen neue Praktikanten?', 'Ich erwarte Frau Weber nicht.', 'Herr Müller erwartet morgen Herrn Schmidt.', 'Wen erwarten Sie morgen?', 'Erwarten Sie noch Herrn Richter?'],
+    perfektSentences: ['Wen hast du erwartet?', 'Habt ihr Jens um 10 Uhr erwartet. Die Assistentin hat Herrn Jung um 11 Uhr erwartet.', 'Wir haben dich um 2 Uhr erwartet', 'Die Assistentin hat Herrn Böll um 13 Uhr erwartet.', 'Der Chef hat mich um 9 Uhr erwartet.', 'Wer hat Sie um 9 Uhr erwartet?', 'Habt ihr alle Kollegen erwartet?', 'Frau Jung hat Herrn Kurz um 10 Uhr erwartet.', 'Ich habe dich nicht erwartet.'],
   },
   {
     infinitiv: 'heißen',
@@ -124,6 +141,7 @@
     perfekt: 'geheißen', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich heiße Anna.', 'Wie heißt du?', 'Wer heißt Jörg?', 'Heißen Sie Schmidt?', 'Wir heißen Müller.', 'Wir heißen nicht Schmidt.', 'Heißt ihr Müller?', 'Heißen Sie Schmidt?', 'Ich heiße nicht Martin.', 'Wer heißt Richter?'],
+    perfektSentences: ['Wie hat der Herr geheißen?', 'Wie hat der Praktikant geheißen?', 'Wie haben die Studenten geheißen?', 'Die Praktikantinnen haben Müller geheißen.', 'Der Ingenieur hat Schmidt geheißen.', 'Die Studentin hat Susanne geheißen.', 'Der Student hat Michael geheißen. Die', 'Die Studenten haben Schmidt geheißen.', 'Die Studentinnen haben Anna geheißen.', 'Haben die Praktikantinnen Sabine geheißen?'],
   },
   {
     infinitiv: 'anmelden, sich',
@@ -131,6 +149,7 @@
     perfekt: 'angemeldet', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich melde mich für den Kurs an.', 'Wir melden uns an der Rezeption an.', 'Meldet ihr euch für den Multimediakurs an?', 'Frau Weber meldet sich zu einem Workshop für digitales Marketin an.', 'Er meldet sich zu einem Fitnesskurs an.', 'Herr Schmidt meldet sich für den Newesletter an.', 'Herr Professor Jung meldet sich für die Konferenz über KI an.', 'Meldest du dich für das Sommercamp an?', 'Die Studenten melden sich für das neue Studienprogramm an.', 'Die Firma meldet sich für das Training der Praktikanten an.'],
+    perfektSentences: ['Wir haben uns für den Kurs angemeldet.', 'Wer hat sich für den Kurs angemeldet?', 'Hast du dich für den Deutschkurs angemeldet?', 'Frau Müller hat sich für das Trainig angemeldet.', 'Haben Sie sich für die Konferenz angemeldet?', 'Hast du dich für den Workshop angemeldet?', 'Wer hat Adam für den Workshop angemeldet?', 'Ich kann mich nicht für den Workshop anmelden.', 'Habt ihr euch für das Sommercamp angemeldet?'],
   },
   {
     infinitiv: 'ausfüllen',
@@ -138,6 +157,7 @@
     perfekt: 'ausgefüllt', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Füllt er das Formular aus?', 'Ich fülle morgen das Formular aus.', 'Sie füllen morgen das Formular aus.', 'Ich fülle das Formular nicht aus.', 'Füllt Herr Müller das Formular aus?', 'Füllst du den Test aus?', 'Frau Engelbrecht füllt die Dokumente aus.', 'Wer füllt Excell-Tabellen aus?', 'Praktikanten füllen Checklisten aus.', 'Füllen die MItarbeiter Protokolle aus?'],
+    perfektSentences: ['Ich habe das Formular ausgefüllt.', 'Haben Sie das Formular ausgefüllt?', 'Frau Jung hat die Protokolle ausgefüllt.', 'Hast du alle Tabellen ausgefüllt?', 'Adam hat das Online-Formular ausgefüllt.', 'Wer hat das Formular ausgefüllt?', 'Habt ihr das Anmeldeformular ausgefüllt?', 'Wir haben die Protokolle ausgefüllt.', 'Das haben die Praktikanten ausgefüllt.', 'Kannst du das Formular ausfüllen?'],
   },
   {
     infinitiv: 'wohnen',
@@ -145,6 +165,7 @@
     perfekt: 'gewohnt', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Wir wohnen in der Goethe-Straße.', 'Wo wohnst du?', 'Wohnen Sie in der Kantstraße?', 'Wir wohnen hier.', 'Wo wohnen Sie?', 'Wohnt ihr auch hier?', 'Herr Müller wohnt nicht hier.', 'Wohnt Frau Müller hier?', 'Wo wohnt ihr?', 'Wohnen die Praktikanten hier?'],
+    perfektSentences: ['Herr Richter hat in Berlin gewohnt.', 'Ich habe hier gewohnt.', 'Haben Sie in Budapest gewohnt?', 'Wo hast du gewohnt?', 'Wo haben Sie gewohnt?', 'Die Studenten haben in Berlin gewohnt.', 'Habt ihr in Paris gewohnt?', 'Wer hat in Linz gelebt?', 'Hast du in Salzburg gewohnt?', 'Ich habe in Novi Sad wohnt.'],
   },
   {
     infinitiv: 'leben',
@@ -152,6 +173,7 @@
     perfekt: 'gelebt', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Lebst du in Wien?', 'Wir leben in Amerika.', 'Lebst du gern in Europa?', 'Wo leben Sie?', 'Ich lebe nicht in Berlin.', 'Lebt ihr in Zürich?', 'Herr Müller lebt in der Schweiz.', 'Leben Sie in Österreich?', 'Wo lebst du?', 'Die Müllers leben in den USA.'],
+    perfektSentences: ['Frau Livingston hat in England gelebt.', 'Haben Sie in Amerika gelebt?', 'Wer hat hier gelebt?', 'Hast du in Kanada gelebt?', 'Frau Lich hat in Frankreich gelebt.', 'Wo hast du gelebt?', 'Wo haben Sie gelebt?', 'Habt ihr in Italien gelebt?', 'Anna hat in Japan gelebt.', 'Nico hat in China gelebt.'],
   },
   {
     infinitiv: 'werden',
@@ -159,6 +181,7 @@
     perfekt: 'geworden', hilfsverb: 'SEIN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Ich werde Studentin.', 'Jörg wird Ingenieur.', 'Ich werde 23 Jahre alt.', 'Wir werden Maschinenbauingenieure.', 'Wirst du Elektroingenieur?', 'Werden Sie Diplom-Elektroingenieur?', 'Wirst du Programmierer?', 'Rolf wird Techniker.', 'Melanie wird Lehrerin.', 'Wird Anna Programmiererin?'],
+    perfektSentences: ['Adam ist ein Ingenieur geworden.', 'Anna ist eine Programmiererin geworden.', 'Ich bin ein Maschinenbauingenieur geworden.', 'Bist du Informatiker geworden?', 'Sind Sie Programmierer geworden?', 'Wir sind Studenten geworden.', 'Jochen ist kein Student geworden.', 'Seid ihr Techniker geworden?', 'Sind Sie Praktikantin geworden?', 'Susanne ist eine Praktikantin geworden.'],
   },
   {
     infinitiv: 'anbieten',
@@ -166,6 +189,7 @@
     perfekt: 'angeboten', hilfsverb: 'HABEN' as const,
     lesson: 1, difficulty: 1,
     sentences: ['Bietest du mir einen Tee an?', 'Was bieten Sie mir an?', 'Ich biete Kaffee an.', 'Bietet ihr nur Kaffee an?', 'Wir bieten etwas zu trinken an.', 'Wer bietet Ihnen das an?', 'Bieten Sie mir etwas an?', 'Herr Schmidt bietet mir einen Kaffee an.', 'Frau Schmidt bietet Herrn Böll einen Kaffee an.', 'Darf ich Ihnen etwas anbieten?'],
+    perfektSentences: ['Was hat Herr Schmidt Ihnen angeboten?', 'Ich habe Ihnen etwas angeboten.', 'Was hast du mir angeboten?', 'Wer hat das Ihnen angeboten?', 'Sie haben mir etwas Neues angeboten.', 'Hast du mir Tee angeboten?', 'Die Sekretärin hat mir Wasser angeboten.', 'Was hat der Chef angeboten?', 'Habt ihr den Kollegen Wasser angeboten?', 'Frau Schweiger  hat mir Platz angeboten.'],
   },
   {
     infinitiv: 'dauern',
@@ -173,6 +197,7 @@
     perfekt: 'gedauert', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Das Konzert dauert bis 2 Uhr.', 'Wie lange dauert das Studium?', 'Die Deutschstunde dauert 45 Minuten.', 'Dauert es noch lange?', 'Wie lange dauert es noch?', 'Wie lange dauert der Film?', 'Wie lange dauern die Prüfungen?', 'Wie lange dauert das Semester?', 'Wie lange dauert das Projekt?', 'Das Projekt dauert nicht lange.'],
+    perfektSentences: ['Das Workshop hat nicht lange gedauert.', 'Hat das Konzert lange gedauert?', 'Der Film hat bis 22 Uhr gedauert.', 'Wie lange hat das Konzert gedauert?', 'Das Seminar hat 3 Tage gedauert.', 'Wie lange hat das Workshop gedauert?', 'Die Workshops haben 2 Tage gedauert.', 'Die Konferenz hat 3 Tage gedauert.', 'Das Projekt hat nicht lange gedauert.', 'Die Projekte haben nicht lange gedauert.'],
   },
   {
     infinitiv: 'interessieren, sich',
@@ -180,6 +205,7 @@
     perfekt: 'interessiert', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich interessiere mich für Computer.', 'Interessierst du dich für Autos?', 'Interessiert euch das neue Programm?', 'Wer interessiert sich für Informatik?', 'Herr Wagner interessiert sich für das neue Programm.', 'Die Praktikanten interessieren sich für die Maschinen.', 'Die Studentinnen interessieren sich für Mode.', 'Interessieren Sie sich für Robotik?', 'Programmieren interessiert uns.', 'Wir interessieren uns für die 3D-Modellierung.'],
+    perfektSentences: ['Mode hat mich nicht lange interessiert.', 'Programmieren hat mich schon lange interessiert.', 'Herr Richter hat sich schon sehr lange für das Thema Auto interessiert.', 'Adam hat sich schon seit sehr langer Zeit für Englisch interessiert.', 'Wir haben uns schon immer für Astronomie interessiert.', 'Klaus hat sich für Solarenergie interessiert.', 'Susanne hat sich für künstliche Intelligenz interessiert.', 'Habt ihr euch für innovative Technologien interessiert?', 'Frau Kurz hat sich für innovative Marketingstrategien interessiert.', 'Der Chef hat sich für Teambuilding-Aktivitäten interessiert.'],
   },
   {
     infinitiv: 'vorstellen',
@@ -187,6 +213,7 @@
     perfekt: 'vorgestellt', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Darf ich mich vorstellen?', 'Können Sie sich vorstellen?', 'Wir stellen Ihnen unsere Kollegen vor.', 'Stellst du uns deine Assistentin vor?', 'Stellen Sie uns Ihre Mitarbeiter vor?', 'Stellt ihr das Team vor?', 'Ich stelle Ihnen meine Kollegen vor.', 'Ich stellen Ihnen neue Praktikanten vor.', 'Herr Schmidt stellt sein Team vor.', 'Frau Hillerich stellt uns ihr Team vor.'],
+    perfektSentences: ['Frau Wagner hat uns ihr Team vorgestellt.', 'Ich habe mich kurz vorgestellt.', 'Haben Sie sich schon vorgestellt?', 'Wem hast du dich vorgestellt?', 'Wir haben uns unseren neuen Kollegen vorgestellt.', 'Habt ihr euch in der Firma vorgestellt?', 'Hast du dich schon vorgestellt?', 'Die neue Praktikantin hat sich kurz vorgestellt.', 'Der neue Praktikant hat sich kurz vorgestellt.', 'Die neuen Praktikanten haben sich kurz vorgestellt.'],
   },
   {
     infinitiv: 'kennen',
@@ -194,6 +221,7 @@
     perfekt: 'gekannt', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Frau Jung kennt alle Mitarbeiter in der Firma.', 'Wir kennen den neuen Praktikanten.', 'Kennst du den neuen Kollegen?', 'Ich kenne ihn nicht.', 'Ich kenne die neue Mitarbeiterin nicht.', 'Kennt ihr Adam?', 'Kennst du den neuen Praktikanten?', 'Kennen Sie den neuen Chef?', 'Wir kennen Herrn Jung seht gut.', 'Herr Kurz kennt den neuen Kollegen nicht.'],
+    perfektSentences: ['Ich habe Herr Jung als guten Ingenieur gekannt.', 'Hast du den Kollegen persönlich gekannt?', 'Haben Sie die Kollegin persönlich gekannt?', 'Wir haben Frau Müller sehr gut gekannt.', 'Wir haben alle Praktikannten in der Firma gekannt.', 'Haben Sie den neuen Praktikanten gekannt?', 'Hast du die neue Praktikantin gekannt?', 'Wen hast du nicht gekannt?', 'Habt ihr die neuen Praktikantinnen gekannt?', 'Haben Sie die Chefin gekannt?'],
   },
   {
     infinitiv: 'kennen lernen',
@@ -201,6 +229,7 @@
     perfekt: 'kennengelernt', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich lerne Kollegen kennen.', 'Wir lernen neue Praktikanten kennen.', 'Lernst du die neue Chefin kennen?', 'Wen lernst du kennen?', 'Lernen Sie die Mitarbeiterinnen kennen?'],
+    perfektSentences: ['Ich habe den neuen Praktikanten kennengelent.', 'Hast du den neuen Chef kennengelernt?', 'Wen hast du kennengelernt?', 'Wer hat den neuen Chef kennengelernt?', 'Wir haben die neuen Kolleginnen kennengelernt.', 'Haben Sie den neuen Kollegen kennengelernt?', 'Habt ihr die neue Praktikantin kennengelernt?', 'Herr Kurz hat die neuen Mitarbeiter kennengelernt.', 'Frau Jung hat Herrn Schmidt kennengelernt.'],
   },
   {
     infinitiv: 'besuchen',
@@ -208,6 +237,7 @@
     perfekt: 'besucht', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich besuche die Schule in Novi Sad.', 'Wo besuchst du die Schule?', 'Herr Jung besucht den Englischkurs.', 'Klaus besucht den Sprachkurs in Wien.', 'Susanne besucht den neuen Informatikkurs.', 'Alle Kollegen beuchen das neue Trainingsprogramm.', 'Besuchst du den Spranischkurs?', 'Besuchen Sie das neue Trainingsprogramm?', 'Besucht ihr den Englischkurs?', 'Wir besuchen alle den Deutschkurs.'],
+    perfektSentences: ['Ich habe im Juni einen Sprachkurs in Amerika besucht.', 'Hast du auch einen Englischkurs besucht?', 'Wir haben im September ein Trainingprogramm besucht.', 'Haben Sie schon einen Informatikkurs besucht?', 'Habt ihr schon einen Programmier-Kurs besucht?', 'Ich habe keinen Deutschkurs besucht.', 'Die Müllers haben einen Yoga-Kurs besucht.', 'Janis hat ein Museum besucht.', 'Wen hast du in Amerika besucht?', 'Frau Richter hat Herrn Wagner kurz besucht.'],
   },
   {
     infinitiv: 'gehen',
@@ -215,6 +245,7 @@
     perfekt: 'gegangen', hilfsverb: 'SEIN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich gehe zur Schule.', 'Gehen Sie zur Arbeit?', 'Wann gehen Sie zum Seminar?', 'Wir gehen alle zum Chef.', 'Gehst du in die Kantine?', 'Wer geht in die Kantine?', 'Wohin gehen wir?', 'Gehen wir in die Kantine?', 'Wohin geht ihr?'],
+    perfektSentences: ['Wir sind in die Kantine gegangen.', 'Ich bin nach Hause gegangen.', 'Bist du nach Hause gegangen?', 'Seid ihr um 5 Uhr schwimmen gegangen?', 'Herr Schmidt ist in die Teeküche gegangen.', 'Wohin bist du gegangen?', 'Sind Sie zur Bank gegangen?', 'Ist Lars in die Informatikabteilung gegangen?', 'Seid ihr ins Kino gegangen?', 'Anna ist zur Post gegangen.'],
   },
   {
     infinitiv: 'suchen',
@@ -222,6 +253,7 @@
     perfekt: 'gesucht', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich suche den neuen Praktikanten.', 'Wen suchen Sie?', 'Wir suchen einen neuen Job.', 'Die Firma sucht neue Praktikanten.', 'Suchen Sie nur Praktikanten?', 'Suchen Sie eine neue Stelle als Praktikantin?', 'Herr Richter sucht eine neue Assistentin.', 'Das Unternehmen sucht neue Mitarbeiter.', 'Sucht ihr einen neuen Job?'],
+    perfektSentences: ['Ich habe einen neuen Job gesucht.', 'Habt ihr eine Bank gesucht?', 'Haben Sie die Firma Bosch gesucht?', 'Wir haben den neuen Praktikanten gesucht.', 'Hast du die neue Praktikantin gesucht?', 'Herr Schimdt sucht Frau Müller.', 'Frau Beck sucht Herrn Schmidt.', 'Wen haben Sie gesucht?', 'Was haben Sie gesucht?', 'Wie lange haben Sie eine Arbeit gesucht?'],
   },
   {
     infinitiv: 'finden',
@@ -229,6 +261,7 @@
     perfekt: 'gefunden', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich finde unseren Chef super.', 'Ich finde das Projekt gut.', 'Herr Schmidt findet den Informatik-Kurs interessant.', 'Finden Sie die neue Praktikantin aktraktiv?', 'Frau Kurz findet Herrn Weber nicht.', 'Herr Schmidt findet Frau Schmidt nicht.', 'Wen finden Sie nicht?', 'Finden Sie den neuen Kollegen kooperativ?', 'Wie finden Sie den neuen Mitarbeiter?', 'Ich finde ihn toll.'],
+    perfektSentences: ['Ich habe das Unternehmen über Google gefunden.', 'Wie hast du uns gefunden?', 'Haben Sie den Direktor gefunden?', 'Hast du eine Bank gefunden?', 'Ich habe die Bank nicht gefunden.', 'Habt ihr die Post gefunden?', 'Anna hat einen neuen Job gefunden.', 'Hat Josef einen Praktikumsplatz gefunden?', 'Wir haben noch keine Praktikumsplätze für Sie gefunden.', 'Hast du die Stelle als Ingenieur gefunden?'],
   },
   {
     infinitiv: 'machen',
@@ -236,6 +269,7 @@
     perfekt: 'gemacht', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich mache eine Torte.', 'Machst du einen Salat?', 'Wir machen Pause.', 'Wir machen jetzt die Aufgabe.', 'Wann machen Sie Pause?', 'Macht ihr Sport?', 'Wann macht Sven eine Party?', 'Frau Hoffmann macht gerade Pause.', 'Die Studierende machen ein Praktikum.', 'Wer macht im Juni ein Praktikum?'],
+    perfektSentences: ['Wir haben im Juni ein Praktikum gemacht.', 'Wann haben Sie das Praktikum gemacht?', 'Wo haben Sie das Praktikum gemacht?', 'Wer hat ein Praktikum gemacht?', 'Adam hat sein Praktikum bei Bosch gemacht.', 'Habt ihr die Aufgabe gemacht?', 'Ich habe einen Obstsalat gemacht.', 'Hast du eine Pause gemacht?', 'Wir haben keine Pause gemacht.', 'Eduard hat eine lange Pause gemacht.'],
   },
   {
     infinitiv: 'lernen',
@@ -243,6 +277,7 @@
     perfekt: 'gelernt', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich lerne Italienisch.', 'Welche Sprache lernst du?', 'Lernen Sie auch Deutsch?', 'Wir lernen in der Bibliothek.', 'Was lernen die Praktikantinnen?', 'Wo lernt Sebastian?', 'Die Studierende lernen eine neue Programmiersprache.', 'Ich lerne Physik.', 'Lernst du im Sommer Französisch?', 'Herr Kurz aus Deutschland lernt Japanisch.'],
+    perfektSentences: ['Ich habe in der Schule Französisch gelernt.', 'Welche Sprache hast du in der Schule gelernt?', 'Was haben Sie heute in der Schule gelernt?', 'Wer hat Deutsch in der Schule gelernt?', 'Ich habe viel gelernt.', 'Haben Sie Englisch gelernt?', 'Wir haben Spanisch gelernt.', 'Habt ihr Mathe gelernt?', 'Ich habe nichts gelernt.', 'Hast du etwas gelernt?'],
   },
   {
     infinitiv: 'bekommen',
@@ -250,6 +285,7 @@
     perfekt: 'bekommen', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich bekomme einen neuen Chef.', 'Bekommst du den Job als Techniker?', 'Wer bekommt einen Kaffee in der Pause?', 'Wir bekommen eine neue Chefin.', 'Frau Kurz bekommt keine neue Assistentin.', 'Bekommst du ein Baby?', 'Wer bekommt im Sommer einen Praktikumsplatz?', 'Was bekommst du für das Projekt?', 'Bekomme ich einen neuen Job?'],
+    perfektSentences: ['Ich habe einen neuen Job bekommen.', 'Was hast du von Anna bekommen?', 'Haben Sie meine E-Mail bekommen?', 'Wir haben Ihre E-Mail bekommen.', 'Habt ihr einen Praktikumsplatz bekommen?', 'Frau Kurz hat ein Projekt bekommen.', 'Wer hat ein Projekt bekommen?', 'Wann hast du die E-Mail bekommen?'],
   },
   {
     infinitiv: 'brauchen',
@@ -257,6 +293,7 @@
     perfekt: 'gebraucht', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Wir brauchen mehr Ressourcen.', 'Ich brauche einen Job.', 'Brauchst du etwas?', 'Brauchen Sie einen einen Computer?', 'Braucht ihr eine Pause?', 'Sie brauchen ein neues Handy.', 'Ich brauche neue Praktikanten.', 'Wir brauchen noch 10 Minuten.', 'Wie lange brauchst du noch?', 'Was brauchen Sie noch?'],
+    perfektSentences: ['Ich habe einen Laptop für die Arbeit gebraucht.', 'Wir haben Hilfe beim Teambuilding gebraucht.', 'Hast du noch etwas gebraucht?', 'Anna hat eine Pause gebraucht.', 'Das Auto hat eine Reparatur gebraucht.', 'Haben Sie einen neuen Termin gebraucht?', 'Habt ihr mehr Informationen gebraucht?', 'Habt ihr eine lange Pause gebraucht?', 'Haben Sie ein Auto gebraucht?', 'Herr Schmidt hat nichts Neues gebraucht.'],
   },
   {
     infinitiv: 'produzieren',
@@ -264,6 +301,7 @@
     perfekt: 'produziert', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['In Deutschland produziert man Autos.', 'Hier produziert man Maschinen.', 'Die Fabrik produziert Roboter.', 'Im Süden produziert man Solarenergie.', 'Im Norden produziert man Windenergie.', 'Das Unternehmen produziert Generatoren.', 'Die Unternehmen produzieren Elektrogeneratoren.', 'Wer produziert Laptops?', 'Produziert die Fabrik auch Computers?', 'Was produziert die Fabrik?'],
+    perfektSentences: ['Was hat das Unternehmen produziert?', 'Wo hat die Firma das Automodell produziert?', 'Welche Firma hat die Maschinen produziert?', 'Hat das Unternehmen Generatoren produziert?', 'Hat die Fabrik Autoteile produziert?', 'Die Fabrik in Deutschland hat Medikamente produziert.', 'Unser Unternehmen hat innovative Technologien produziert.', 'Die Filmstudios haben viele SF-Filme produziert.', 'Wie viele Autoteile hat die Firma in März produziert?', 'Die Unternehmen haben pro Tag 1 Million Computerteile produziert.'],
   },
   {
     infinitiv: 'benötigen',
@@ -271,6 +309,7 @@
     perfekt: 'benötigt', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Was benötigen Sie?', 'Ich benötige eine Antwort auf die Frage.', 'Benötigt ihr Hilfe bei der Projektarbeit?', 'Der Laptop benötigt ein Softwareupdate.', 'Wir benötigen für die Prüfung ein paar Übungen.', 'Herr Wagner benötigt eine Antwort auf die E-Mail.', 'Benötigen Sie noch Informationen?', 'Benötigen Sie noch etwas?', 'Herr Schmidt benötigt neue Informationen von Frau Beck.', 'Frau Jenicke benötigt die Namen von Mitarbeitern.'],
+    perfektSentences: ['Hast du mehr Informationen benötigt?', 'Ich habe Hilfe benötigt.', 'Haben Sie Hilfe benötigt?', 'Wer hat die Namen von Mitarbeitern benötigt?', 'Was hast du benötigt?', 'Habt ihr etwas anderes benötigt?', 'Wir haben einen neuen Laptop benötigt.', 'Der Computer hat ein Softwareupdate benötigt.', 'Die Maschine hat eine Reparatur benötigt.', 'Das Team hat neue Kommunikationsstrategien benötigt.'],
   },
   {
     infinitiv: 'bewerben, sich',
@@ -278,6 +317,7 @@
     perfekt: 'beworben', hilfsverb: 'HABEN' as const,
     lesson: 2, difficulty: 1,
     sentences: ['Ich bewerbe mich um eine Ingenieurstelle.', 'Wir bewerben uns jetzt nicht.', 'Bewirbst du dich auch?', 'Bewerbt euch nicht?', 'Wir bewerben uns um das Stipendium.', 'Klaus bewirbt sich für ein Praktikum.', 'Bewerben Sie sich um die Stelle als Ingenieur?', 'Um welche Stelle bewirbst du dich?', 'Um welche Stelle bewerben Sie sich?', 'Die Studentinnen bewerben sich für das Projekt.'],
+    perfektSentences: ['Ich habe mich um die Stelle als Programmiererin beworben.', 'Wir haben uns für ein Praktikum beworben.', 'Hast du dich schon für das Praktikum beworben?', 'Haben Sie sich schon um die Stelle als Ingenieurin beworben?', 'Sabine hat sich als Technikerin beworben.', 'Lorenz hat sich um eine Stelle als Ingenieur beworben.', 'Wer hat sich schon für da Praktikum beworben?', 'Die Praktikanten haben sich um das Stipendium beworben.', 'Wann haben Sie sich um das Stipendium beworben?', 'Wann haben Sie sich beworben?'],
   },
   {
     infinitiv: 'zeigen',
@@ -285,6 +325,7 @@
     perfekt: 'gezeigt', hilfsverb: 'HABEN' as const,
     lesson: 3, difficulty: 1,
     sentences: ['Ich zeige Ihnen das Unternehmen.', 'Wer zeigt dir das Haus?', 'Zeigst du mir die Aufgabe?', 'Herr Schmidt zeigt den Praktikanten das Unternehmen.', 'Frau Jung zeigt Herrn Schmidt die Produktion.', 'Der Betreuer zeigt den Praktikanten die Maschinen.', 'Wir zeigen Ihnen die Maschinen.', 'Zeigen Sie mir die neuen Programme?', 'Frau Wagner zeigt mir ihr Unternehmen.', 'Was zeigen Sie mir jetzt?'],
+    perfektSentences: ['Ich habe Ihnen unsere Firma gezeigt.', 'Haben Sie mir das neue Projekt gezeigt?', 'Hast du mir den neuen Praktikanten gezeigt?', 'Habt ihr uns den neuen Chef gezeigt?', 'Herr Schmidt hat uns die Maschinen gezeigt.', 'Frau Schmidt hat mir den neuen Plan gezeigt.', 'Die Mitarbeiter haben Ihnen die neue Software gezeigt.', 'Wir haben Ihnen neue Autoteile gezeigt.', 'Haben Sie uns den neuen Motor gezeigt?', 'Frau Beck hat Herrn Müller die neuen Pläne gezeigt.'],
   },
   {
     infinitiv: 'melden, sich',
@@ -292,6 +333,7 @@
     perfekt: 'gemeldet', hilfsverb: 'HABEN' as const,
     lesson: 3, difficulty: 1,
     sentences: ['Ich melde mich beim Chef.', 'Bei wem meldest du dich?', 'Wir melden uns bei Ihnen.', 'Wir melden uns bald bei Ihnen.', 'Herr Richter meldet sich nicht.', 'Sie melden sich telefonisch.', 'Meldest du dich später?', 'Wir melden uns bei Ihnen.', 'Wann melden Sie sich?', 'Meldet ihr euch am Montag?'],
+    perfektSentences: ['Warum hast du dich nicht gemeldet?', 'Ich habe mich beim Betreuer gemeldet.', 'Bei wem hast du dich gemeldet?', 'Wir haben uns am Montag beim Chef gemeldet.', 'Habt ihr euch beim Betreuer gemeldet?', 'Haben Sie sich telefonisch bei der Sekretärin gemeldet?', 'Wann haben Sie sich bei uns gemeldet?', 'Wir haben uns am Vormittag bei Herrn Schmidt gemeldet.', 'Herr Kurz hat sich bei Frau Hillerich gemeldet.', 'Rolf hat sich per E-Mail gemeldet.'],
   },
   {
     infinitiv: 'erklären',
@@ -299,6 +341,7 @@
     perfekt: 'erklärt', hilfsverb: 'HABEN' as const,
     lesson: 3, difficulty: 1,
     sentences: ['Der Betreuer erklärt den Praktikanten alles.', 'Der Betreuer erklärt dem Praktikanten die Roboterfunktion.', 'Erklärst du mir das?', 'Professor Schmidt erklärt den Studierenden die Aufgabe.', 'Frau Jenicke erklärt Herrn Müller das neue Projekt.', 'Was erklärst du den Praktikanten?', 'Wie erklärst du das?', 'Ich erkläre es später.', 'Erklären Sie mir die Lösung der matematischen Aufgabe?', 'Erklärst du mir die Aufgabe?'],
+    perfektSentences: ['Ich habe dir alles erklärt.', 'Wer hat Ihnen das erklärt?', 'Hat dir der Betreuer alles erklärt?', 'Der Chef hat mir die Der Professor hat die Theorie genau erklärt.', 'Der Betreuer hat uns den komplexen Prozess erklärt.', 'Wir haben dem Betreuer unser Situation erklärt.', 'Klaus hat mir seine Situation erklärt.', 'Anna hat mir ihre Situation erklärt.', 'Habt ihr ihm die Aufgabe erklärt?', 'Haben Sie ihr die Situation erklärt?'],
   },
   {
     infinitiv: 'versuchen',
@@ -306,6 +349,7 @@
     perfekt: 'versucht', hilfsverb: 'HABEN' as const,
     lesson: 3, difficulty: 1,
     sentences: ['Ich versuche zu schlafen.', 'Wir versuchen zu lernen.', 'Herr Schmidt versucht zu arbeiten.', 'Frau Lich versucht zu schreiben.', 'Adrian versucht, Maschinenteile zu modellieren.', 'Studenten versuchen, ein neues Projekt zu planen.', 'Was versuchst du?', 'Der Betreuer versucht, den Praktikanten das Programm zu erklären.', 'Das Unternehmen versucht, neue Investoren zu finden.', 'Herr Beck versucht, eine neue Sprache zu lernen.'],
+    perfektSentences: ['Was hat Herr Beck versucht?', 'Hast du versucht zu programmiern?', 'Haben Sie versucht, das Auto zu reparieren?', 'Wir haben versucht, Spanisch zu lernen.', 'Habt ihr versucht, Auto zu fahren?', 'Anna hat versucht, einen Jobb zu finden.', 'Adam hat versucht, einen Praktikumsplatz zu finden.', 'Herr Böll hat versucht, die Aufgabe zu erklären.', 'Die Praktikanten haben versucht, gut zu arbeiten.', 'Frau Richter hat versucht, einen neuen Termin für das Treffen zu finden.'],
   },
   {
     infinitiv: 'beginnen',
@@ -313,6 +357,7 @@
     perfekt: 'begonnen', hilfsverb: 'HABEN' as const,
     lesson: 3, difficulty: 1,
     sentences: ['Wann beginnt der Kurs?', 'Der Film beginnt um 20 Uhr.', 'Wann beginnt die Arbeit?', 'Das Seminar beginnt um 14 Uhr.', 'Das Workshop beginnt morgen.', 'Die Deutschstunde beginnt um 8 Uhr.', 'Beginnt das Sommersemester im März?', 'Die Testphase beginnt jetzt.', 'Wann beginnt die Konferenz?', 'Beginnen die Prüfungen im Juni?'],
+    perfektSentences: ['Der Film hat um 20 Uhr begonnen.', 'Das Konzert hat um 18 Uhr begonnen.', 'Wann hat der Kurs begonnen?', 'Wann ist die Deutschstunden begonnen?', 'Hat die Mathestunde schon begonnen?', 'Haben die Workshops schon begonnen?', 'Haben die Prüfungen schon begonnen?', 'Hat die Prüfung schon begonnen?', 'Das Praktikum hat im Juni begonnen.'],
   },
   {
     infinitiv: 'setzen, sich',
@@ -320,6 +365,7 @@
     perfekt: 'gesetzt', hilfsverb: 'HABEN' as const,
     lesson: 3, difficulty: 1,
     sentences: ['Wir setzen uns neben Adam.', 'Ich setze mich dorthin.', 'Wo setzt du dich hin?', 'Setzen Sie sich jetzt?', 'Herr Richter setzt sich neben Frau Richter.', 'Anna setzt sich zwischen zwei Studenten.', 'Studenten setzen sich hin.', 'Der Praktikant setzt sich zwischen zwei Praktikanten.', 'Herr Richter setzt sich neben seinen Kollegen.', 'Frau Jenicke setzt sich neben ihrer Kollegin.'],
+    perfektSentences: ['Frau Böll hat sich neben Herrn Kurz gesetzt.', 'Wir haben uns auf unsere Plätze gesetzt.', 'Hast du dich auf deinen Platz gesetzt?', 'Ich habe mich auf meinen Platz gesetzt.', 'Haben Sie sich neben Frau Seiler gesetzt?', 'Habt ihr euch neben Praktikanten gesetzt?', 'Silke hat sich neben mich gesetzt.', 'Klaus hat sich neben dich gesetzt.', 'Die Frauen haben sich dorthin gesetzt.', 'Die Praktikanten haben sich in die Kantine gesetzt.'],
   },
   {
     infinitiv: 'schreiben',
@@ -327,6 +373,7 @@
     perfekt: 'geschrieben', hilfsverb: 'HABEN' as const,
     lesson: 3, difficulty: 1,
     sentences: ['Ich habe Herrn Jung eine E-Mail geschrieben.', 'Wir schreiben einen Test.', 'Schreibst du deiner Mutter?', 'Wem schreibst du die E-Mail?', 'Patrick schreibt David eine SMS.', 'Die Praktikanten schreiben dem Betreuer eine E-Mail.', 'Frau Wagner schreibt Herrn Richter eine Karte aus Wien.', 'Schreibst du Frau Beck eine E-Mail?'],
+    perfektSentences: ['Ich habe Frau Löschmann eine E-Mail geschrieben.', 'Haben Sie schon Ihrem Chef geschrieben?', 'Hat Lisa etwas geschrieben?', 'Was hat Herr Kurz geschrieben?', 'Hast du Anna geschrieben?', 'Hat Frau Jung etwas über das Projekt geschrieben?', 'Wer hat dir geschrieben?', 'Hat dir die neue Praktikatin geschrieben?', 'Wem hast du geschrieben?', 'Ich habe die Aufgabe geschrieben.'],
   },
   {
     infinitiv: 'ausmachen',
@@ -334,6 +381,7 @@
     perfekt: 'ausgemacht', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich mache einen Termin für morgen aus.', 'Wir machen einen Termin für das Bwerbungsgespräch aus.', 'Machst du einen Termin für das Treffen mit Herrn Beck aus?', 'Machen Sie das Treffen mit den Kunden aus?', 'Frau Schmidt macht einen Termin für Freitag aus.', 'Die Kollegen machen einen Termin für Montag aus.', 'Die Praktikanten machen einen Termin mit dem Betreuer aus.', 'Herr Wagner macht einen Termin mit seinem Team aus.', 'Der Ingenieur macht einen Termin mit seinem Chef aus.'],
+    perfektSentences: ['Wir haben einen Termin für den 15. März ausgemacht.', 'Frau Berg hat Treffpunkt für das Team-Event ausgemacht.', 'Die Assistentin hat den Ort für das Seminar ausgemacht.', 'Hast du den Ort für das Treffen ausgemacht?', 'Ich habe die Zeit für das Treffen ausgemacht.', 'Hast du den Raum für das Treffen ausgemacht?', 'Hast du die Zeit für unsere Party ausgemacht?', 'Herr Richter hat einen Treffpunkt ausgemacht.', 'Habt ihr den Treffpunkt ausgemacht?', 'Die Kolleginnen haben den Termin für das Treffen ausgemacht.'],
   },
   {
     infinitiv: 'absagen',
@@ -341,6 +389,7 @@
     perfekt: 'abgesagt', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich sage den Termin ab.', 'Sagst du den Termin ab?', 'Sagen Sie den Termin ab?', 'Herr Lindemann sagt das Treffen ab.', 'Frau Jenicke sagt den Arzttermin ab.', 'Wir sagen das Klassentreffen ab.', 'Der Musiker sagt das Konzert ab.', 'Die Sportler sagen das Interview ab.', 'Sagt ihr das Event ab?', 'Die Müllers sagen das Abendessen ab.'],
+    perfektSentences: ['Herr Schmidt hat das Abendessen abgesagt.', 'Der Artz hat den Termin um 13 Uhr abgesagt.', 'Wir haben den Seminarraum abgesagt.', 'Haben Sie das Workshop abgesagt?', 'Habt ihr die das Treffen abgesagt?', 'Die Studenten haben die Konferenz abgesagt.', 'Frau Berg hat das Mittagessen abgesagt.', 'Die Praktikanten haben den Treffpunkt abgesagt.', 'Hast du alle Termine abgesagt?', 'Ich möchte alle Termine absagen.'],
   },
   {
     infinitiv: 'aussehen',
@@ -348,6 +397,7 @@
     perfekt: 'ausgesehen', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Das sieht gut aus.', 'Das Projekt sieht gut aus.', 'Der Plan sieht gut aus.', 'Die Resultate sehen gut aus.', 'Sieht das gut aus?', 'Das sieht nicht gut aus.', 'Das Projekt sieht perfekt aus.', 'Das Projekt sieht interessant aus.', 'Die Praktikantin sieht gut aus.', 'Sieht das Projekt gut aus?'],
+    perfektSentences: ['Hat das Modell gut ausgesehen?', 'Die Modelle haben gut ausgesehen.', 'Frau Jung hat gut ausgesehen.', 'Die Aufgabe haben kompliziert ausgesehen.', 'Die Webseite hat professionell ausgesehen.', 'Die Präsentationen haben wunderbar ausgesehen.', 'Hat das Firmenlogo zu einfach ausgesehen?', 'Die Software hat nach dem Update besser ausgesehen.', 'Die Grafiken haben sehr kompliziert ausgesehen.', 'Wie hast du gestern Abend ausgesehen?'],
   },
   {
     infinitiv: 'fliegen',
@@ -355,6 +405,7 @@
     perfekt: 'geflogen', hilfsverb: 'SEIN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Wir fliegen morgen nach Berlin,', 'Fliegen Sie morgen?', 'Ich fliegen um 2 Uhr.', 'Fliegst du nach Berlin?', 'Wann fliegt ihr?', 'Wohin fliegt Anna?', 'Herr Kunz fliegt um 14 Uhr nach Stuttgart.', 'Fliegt ihr um 18 Uhr nach Bern?', 'Die Bölls fliegen um 8 Uhr nach Wien.', 'Fliegst du gern?'],
+    perfektSentences: ['Ich bin gestern nach Mailand geflogen.', 'Wir sind um 14 Uhr geflogen.', 'Seid ihr nach München geflogen?', 'Bist du früher oft geflogen?', 'Herr Berg ist aus Japan nach Deutschland geflogen.', 'Michael ist aus Frankfurt nach Hamburg geflogen.', 'Eine Gruppe von Touristen ist gestern nach Griechenland geflogen.', 'Sind Sie schon mit dem Flugzeug geflogen?', 'Adrian ist noch nie mit dem Flugzeug geflogen.', 'Wann ist Susanne geflogen?'],
   },
   {
     infinitiv: 'passen',
@@ -362,6 +413,7 @@
     perfekt: 'gepasst', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Das passt mir sehr gut.', 'Das passt mir gar nicht.', 'Passt Ihnen das?', 'Der Temin passt mir gut.', 'Die Termine passen perfekt in meinen Kalender.', 'Passt Ihnen der Termin für das Treffen?', 'Wann passt es Ihnen?', 'Der Termin passt mir leider nicht.', 'Der Termin passt uns gar nicht.'],
+    perfektSentences: ['Der Termin hat mir überhaupt nicht gepasst.', 'Die Präsentation hat gut zum Thema der Konferenz gepasst.', 'Die Farbpalette des Designs hat gut zum Markenimage gepasst.', 'Die Idee hat zu unserem Konzept gepasst.', 'Die Qualifikationen der Praktikanten haben perfekt zu den Aufgaben gepasst.', 'Die alten Modelle haben in unsere Produktion nicht gepasst.', 'Die alten Arbeitsmethoden haben nicht zu unserer Strategie gepasst.', 'Der Termin am Freitag hat mir gut gepasst.', 'Die neuen Autoteile passten nicht zur alten Serie.', 'Was hat Ihnen nicht gepasst?'],
   },
   {
     infinitiv: 'stattfinden',
@@ -369,6 +421,7 @@
     perfekt: 'stattgefunden', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Die Besprechung findet um 9 Uhr statt.', 'Das Treffen findet hier statt.', 'Das Workshop findet am Wochenende statt.', 'Das Konzert findet in Berlin statt.', 'Wann findet die Teambesprechung statt?', 'Wo findet die Besprechung statt?', 'Findet das Workshop am Montag statt?', 'Finden die Besprechungen hier statt?', 'Die Konferenz findet in der Türkei statt.', 'Findet das Workshop im Bespechungsraum statt?'],
+    perfektSentences: ['Wo hat die Konferenz stattgefunden?', 'Hat das Workshop in Berlin stattgefunden?', 'Das Konzert hat im Stadion stattgefunden.', 'Wo haben die Präsentationen stattgefunden?', 'Die Besprechungen haben im Konferenzraum stattgefunden.', 'Wann hat das Workshop stattgefunden?', 'Wann hat deine Präsentation stattgefunden?', 'Wann hat Ihre Präsentation statt?', 'Hat die Präsentation von Herrn Schmidt schon stattgefunden?', 'Wann hat das Referat von Professor Jung in der Hochschule stattgefunden?'],
   },
   {
     infinitiv: 'verschieben',
@@ -376,6 +429,7 @@
     perfekt: 'verschoben', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich verschiebe den Termin auf Donnerstag,', 'Verschiebst du das Treffen mit Frau Böll auf Freitag?', 'Verschieben Sie den Termin mit Herrn Schmidt auf morgen?', 'Wir verschieben unseres Treffen auf nächste Woche.', 'Ihr verschiebt den Termin auf Montag.', 'Herr Kurz verschiebt seinen Arzttermin auf Freitag.', 'Frau Schmidt verschiebt ihren Friseurtermin auf den Nachmittag.', 'Verschieben Sie den Termin auf Vormittag?', 'Wir schieben den Termin auf nächste Woche.', 'Wir möchten den Termin auf nächste Woche verschieben.'],
+    perfektSentences: ['Wir haben den Termin für das Treffen auf Montag verschoben.', 'Sie haben die Besprechung auf Freitag verschoben.', 'Habt ihr das Treffen wieder verschoben?', 'Ich habe das Workshop auf Samstag verschoben.', 'Frau Berg hat die Sitzung auf nächste Woche verschoben.', 'Herr Schmidt hat seinen Arzttermin auf Montag verschoben.', 'Ich habe meinen Frisörtermin von Montag auf Freitag verschoben.', 'Haben Sie Ihre Termine für Montag verschoben?', 'Wer hat die Termine für die Konferenz verschoben?', 'Ich habe die Termine nicht verschoben.'],
   },
   {
     infinitiv: 'bestätigen',
@@ -383,6 +437,7 @@
     perfekt: 'bestätigt', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich bestätige den Termin für Freitag.', 'Bestätigen Sie den Termin?', 'Bestätigst du das?', 'Wir bestätigen den Termin für das Meeting am Mittwoch um 10 Uhr.', 'Herr Schmidt bestätigt sein Kommen.', 'Frau Schmidt bestätigt ihr Kommen.', 'Der Personalchef bestätigt unser Praktikum.', 'Das Hotel bestätigt unsere Reservierung.', 'Ich möchte den Termin am Mittwoch um 14 Uhr bestätigen.', 'Bestätigen Sie die Reservierung für nächste Woche?'],
+    perfektSentences: ['Hat das Restaurant die Reservierung bestätigt?', 'Hast du das Treffen für Montag bestätigt?', 'Haben Sie den Termin für Freitag bestätigt?', 'Wer hat den Terim bestätigt?', 'Wann hat Herr Schmidt den Termin bestätigt?', 'Ich habe den Termin heute bestätigt.', 'Du hast noch keinen Termin bestätigt.', 'Sie haben noch den Termin nicht bestätigt.', 'Herr Löschmann hat den Termin am Freitag nicht bestätigt.'],
   },
   {
     infinitiv: 'vorziehen',
@@ -390,6 +445,7 @@
     perfekt: 'vorgezogen', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich ziehe den Termin vor.', 'Wir ziehen den Liefertermin etwas vor.', 'Der Personalchef zieht das Treffen mit neuen Mitarbeitern vor.', 'Wir möchten den geplanten Termin vorziehen.', 'Ziehen Sie jetz alle geplante Termine vor?', 'Möchten Sie den geplanten Termin vorziehen?', 'Welchen Termin möchten Sie vorziehen?', 'Auf welches Datum möchten Sie den Termin für das Treffen vorziehen?', 'Herr Schmidt zieht den Termin auf Montag vor.'],
+    perfektSentences: ['Der Personalchef hat das Treffen vorgezogen.', 'Haben Sie den Termin vorgezogen?', 'Warum haben Sie den Termin vorgezogen?', 'Hast du das Treffen vorgezogen?', 'Herr Jenicke hat den Termin der Arbeitsgruppe vorgezogen.', 'Haben Sie alle Termine vorgezogen?', 'Ich habe nur einen Termin am Freitag vorgezogen.', 'Wann haben Sie den Termin vorgezogen?', 'Ich habe keinen Termin vorgezogen.', 'Habt ihr den Termin am Freitag vorgezogen?'],
   },
   {
     infinitiv: 'vereinbaren',
@@ -397,6 +453,7 @@
     perfekt: 'vereinbart', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich vereinbare einen Termin für nächste Woche.', 'Wir vereinbaren morgen einen Termin.', 'Wann vereinbarst du den Termin mit Herrn Kurz?', 'Der Praktikant vereinbart einen Termin mit seinem Betreuer.', 'Kollege Schmidt vereinbart einen Termin mit seinem Chef.', 'Kollege Wagner vereinbart mit seinem Chef einen Termin für eine Besprechung.', 'Herr Schmidt vereinbart einen Termin am Montag.', 'Frau Berg vereinbart eine Sitzung um 17 Uhr.', 'Wir möchten einen Termin mit Herrn Schmidt vereinabren.', 'Ich möchte einen Termin um 15 Uhr vereinbaren.'],
+    perfektSentences: ['Haben Sie schon einen Termin für Montag vereinbart?', 'Ich habe einen Termin um 12 Uhr vereinbart.', 'Wann haben Sie einen Termin vereinbart?', 'Wir haben eine Termin telefonisch vereinbart.', 'Habt ihr ein Treffen mit dem Betreuer vereinbart?', 'Ich habe einen Termin mit dem Chef vereinbart.', 'Mit wem haben Sie den Termin vereinbart?', 'Frau Schmidt hat einen Termin mit Herrn Beck vereinbart.', 'Herr Schmidt hat für Freitag einen Termin mit Herrn Sommer vereinbart.'],
   },
   {
     infinitiv: 'vorschlagen',
@@ -404,6 +461,7 @@
     perfekt: 'vorgeschlagen', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich schlage einen neuen Termin vor.', 'Wir schlagen einen Termin für Freitag vor.', 'Was schlägst du vor?', 'Was schlagen Sie vor?', 'Schlagen Sie einen anderen Termin für die Tagung vor?', 'Ich schlage Ihnen einen Termin am Freitag Vormittag vor.', 'Wann schlagen Sie einen Termin am Freitag vor?', 'Schlägt ihr einen Termin für die Sitzung am 15. März vor?', 'Herr Kurz schlägt den 20. Juni vor.', 'Ich schlage vor, wir gehen ins Café.'],
+    perfektSentences: ['Ich habe einen neuen Termin vorgeschlagen.', 'Haben Sie einen neuen Termin vorgeschlagen?', 'Was haben Sie vorgeschlagen?', 'Hast du den Ort für das Treffen vorgeschlagen?', 'Wir haben den Termin für die Sitzung vorgeschlagen.', 'Wann haben Sie das Treffen für den neuen Termin vorgeschlagen?', 'Haben Sie schon einen Termin für Juni vorgeschlagen?', 'Ihr habt noch keinen Termin für die Konferenz im September vorgeschlagen.', 'Herr Wagner hat noch keinen Termin für das Mittagessen vorgeschlagen.', 'Frau Beck hat noch keinen Termin für ein Teamtreffen vorgeschlagen.'],
   },
   {
     infinitiv: 'spielen',
@@ -411,6 +469,7 @@
     perfekt: 'gespielt', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich spiele Tennis.', 'Spielen Sie Basketball?', 'Wie spielen gern Volleyball.', 'Die Praktikanten spielen in der Pause Fußball.', 'Spielst du gerne Klavier?', 'Ich spiele gerne Computerspiele.', 'Wir spielen in einem Orchester.', 'Spielt ihr gerne Handball?', 'Anna spielt Klarinette.', 'Spielt ihr morgen Basketball?'],
+    perfektSentences: ['Wir haben am Nachmittag Fußball gespielt.', 'Hast du gestern vor Publikum gespielt?', 'Ich habe am Wochenende lange am Computer gespielt.', 'Mit wem hast du Fußball gespielt?', 'Wann haben die Praktikanten Basketball gespielt?', 'Wo haben die Kollegen Basketball gespielt?', 'Habt ihr am Wochenende Hockey gespielt?', 'Thomas hat lange Gitarre gespielt.', 'Ich habe nie ein Musikinstrument gespielt.', 'Hast du in der Schule auch Volleyball gespielt?'],
   },
   {
     infinitiv: 'telefonieren',
@@ -418,6 +477,7 @@
     perfekt: 'telefoniert', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Mit wem telefonierst du?', 'Ich telefoniere gerade.', 'Telefonieren Sie mit Herrn Schmidt?', 'Wir telefonieren nicht gern.', 'Klaus telefoniert mit Anna.', 'Herr Kurz telefoniert mit Frau Schmidt.', 'Frau Schmidt telefoniert mit Herrn Kurz.', 'Wie lange telefoniert Anna schon?', 'Die Studentinnen telefonieren immer sehr lange.', 'Telefoniert ihr gerne?'],
+    perfektSentences: ['Wir haben lange telefoniert.', 'Hast du mit Susanne telefoniert?', 'Haben Sie mit Herrn Jung telefoniert?', 'Mit wen habt ihr telefoniert?', 'Wann hat Anna mit Lars telefoniert?', 'Habt ihr gestern Abend miteinander telefoniert?', 'Anna hat ganz kurz mit Basti telefoniert.', 'Der Betreuer hat mit dem Praktikanten telefoniert.', 'Frau Müller hat mit Herrn Schmidt telefoniert.', 'Wer hat mit Herrn Schmidt telefoniert?'],
   },
   {
     infinitiv: 'lesen',
@@ -425,6 +485,7 @@
     perfekt: 'gelesen', hilfsverb: 'HABEN' as const,
     lesson: 4, difficulty: 1,
     sentences: ['Ich lese gerne Romane.', 'Lest ihr gern?', 'Frau Kurz liest Protokolle.', 'Was lesen Sie?', 'Lesen die Studenten gern?', 'Lest ihr auch Comics?', 'Herr Richter liest Wochenberichte.', 'Lesen Sie oft?', 'Frau Lindenberg liest gern.', 'Liest du gern?'],
+    perfektSentences: ['Hast du das Buch schon gelesen?', 'Herr Schmidt hat die E-Mail gelesen.', 'Wir haben den Wochenbericht gelesen.', 'Was hast du gelesen?', 'Wer hat die E-Mail gelesen?', 'Habt ihr die SMS gelesen?', 'Haben Sie die Bedienungeinleitung für die Maschine gelesen?', 'Ich habe die Aufgabe gelesen.', 'Ich lese nicht gern.', 'Frau Schmidt hat unsere Tagesberichte gelesen.'],
   },
   {
     infinitiv: 'hören',
@@ -432,6 +493,7 @@
     perfekt: 'gehört', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Ich höre schlecht.', 'Was hören Sie?', 'Ich höre gerne Musik.', 'Hören Sie gerne Musik?', 'Die Praktikanten hören gerne Pop-Musik.', 'Hört ihr gerne klassische Musik?', 'Ich höre gar nichts.', 'Hörst du etwas?', 'Wir hören ganz gut.', 'Wer hört gerne Techno?'],
+    perfektSentences: ['Das hast du schlecht gehört.', 'Was haben Sie gehört?', 'Ich habe gerne Musik gehört.', 'Haben Sie gerne Musik gehört?', 'Die Praktikanten haben gerne Rap gehört.', 'Habt ihr gerne klassische Musik gehört?', 'Ich habe gar nichts gehört.', 'Hast du etwas gehört?', 'Wir haben ganz gut gehört.', 'Was hast du gehört?'],
   },
   {
     infinitiv: 'herstellen',
@@ -439,6 +501,7 @@
     perfekt: 'hergestellt', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Wo stellt die Fabrik Autos her?', 'Die Firma stellt Computerteile her.', 'Was möchten Sie herstellen?', 'Was stellen Sie her?', 'Das Unternehmen stellt Handys her.', 'Die Firmen stellen Qualitätsprodukte her.', 'Stellt das Unternehmen auch Sportwagen her?', 'Die Firma stellt gar nichts her.', 'Wie stellt man Bier her?', 'Wie viele Produkte stellen Sie pro Tag her?'],
+    perfektSentences: ['Wo hat die Fabrik Computer hergestellt?', 'Die Firma hat Autoteile hergestellt.', 'Was möchten Sie herstellen?', 'Was haben Sie hergestellt?', 'Das Unternehmen hat Handys hergestellt.', 'Die Firmen haben Qualitätsprodukte hergestellt.', 'Hat das Unternehmen auch Sportwagen hergestellt?', 'Die Firma hat gar nichts hergestellt.', 'Wann hat man Bier hergestellt?', 'Wie viele Produkte haben Sie pro Tag hergestellt?'],
   },
   {
     infinitiv: 'messen',
@@ -446,6 +509,7 @@
     perfekt: 'gemessen', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Wir messen das Fieber mit dem Thermometer.', 'Wie misst man die Temperatur?', 'Ich messe die Länge in Metern.', 'Wie misst man die Breite?', 'Der IT-Spezialist misst die Netzwerkleistung.', 'Ingenieure messen die Qualität der hergestellten Produkte.', 'Kraft misst man in Newton.', 'Ich möchte die Höhe des Hauses messen.', 'Techniker messen die elektrische Spannung.', 'Ingenieure messen den Energieverbrauch in verschiedenen Systemen.'],
+    perfektSentences: ['Wir haben die Fläche mit dem Messgerät gemessen.', 'Wie hast du die Temperatur gemessen?', 'Ich habe die Breite mit dem Meter gemessen.', 'Wie haben Sie die Breite gemessen?', 'Der Informatiker hat die Netzwerkleistung gemessen.', 'Ingenieure haben die Qualität der hergestellten Produkte gemessen.', 'Die Kraft wurde in Newton gemessen.', 'Ich habe die Höhe der Maschine gemessen.', 'Ingenieure haben die elektrische Spannung gemessen.', 'Ingenieure haben den Energieverbrauch in verschiedenen Systemen gemessen.'],
   },
   {
     infinitiv: 'wissen',
@@ -453,6 +517,7 @@
     perfekt: 'gewußt', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Davon weiß ich nichts.', 'Herr Schmidt weiß, wer der Chef ist.', 'Frau Schmidt weiß, welche Sprachen Sie sprechen.', 'Wir wissen, dass das Meeting um 10 Uhr beginnt.', 'Er weiß, wann der Bus kommt.', 'Ich weiß, wo die Firma ist.', 'Weißt du, wer Herr Schmidt ist?', 'Ich weiß nichts davon.', 'Weißt du was?', 'Wir wissen nichts.'],
+    perfektSentences: ['Davon habe ich nichts gewusst.', 'Hast du das gewusst?', 'Haben Sie gewusst, wer Herr Schmidt ist?', 'Herr Schmidt hat gewusst, wer der Chef ist.', 'Ich habe nichts davon gewusst.', 'Wir haben gewusst, dass das Meeting um 10 Uhr beginnt.', 'Frau Schmidt hat gewusst, welche Sprachen Sie sprechen.', 'Er hat gewusst, wann der Bus kommt.', 'Ich habe gewusst, wo die Firma ist.', 'Wir haben nichts gewusst.'],
   },
   {
     infinitiv: 'verwenden',
@@ -460,6 +525,7 @@
     perfekt: 'verwendet', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Wir verwenden nur passende Computerteile.', 'Techniker verwenden spezielle Software für die Planung.', 'Programmierer verwenden Code.', 'Sportler verwenden viele Trainingsgeräte im Fitnessstudio.', 'Fotografen verwenden viele Objektive.', 'Welche Software verwendest du?', 'Welche Programmiersprache?', 'Verwendest du nur drei Farben?', 'Verwenden Sie die neue Software?', 'Ich verwende eine neue Methode.'],
+    perfektSentences: ['Wir haben nur passende Computerteile verwendet.', 'Techniker haben spezielle Software für die Planung verwendet.', 'Programmierer haben Code verwendet.', 'Sportler haben viele Trainingsgeräte im Fitnessstudio verwendet.', 'Der Fotograf hat viele Objektive verwendet.', 'Welche Software haben Sie verwendet?', 'Welche Programmiersprache hast du verwendet?', 'Haben Sie nur drei Farben verwendet?', 'Hast du die neue Software verwendet?', 'Herr Jung hat eine neue Methode verwendet.'],
   },
   {
     infinitiv: 'betragen',
@@ -467,6 +533,7 @@
     perfekt: 'betragen', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Das beträgt 100 Euro.', 'Die Summe der Zahlen beträgt 25.', 'Die Gesamtkosten des Projekts betragen 10.000 Euro.', 'Die Fläche des Rechtecks beträgt 50 Quadratmeter.', 'Die Anzahl der verkauften Produkte beträgt 100.', 'Die durchschnittlichen Ausgaben im Juli betragen 500 Euro.', 'Der Winkel beträgt 15 Prozent.', 'Die Differenz der beiden Werte beträgt 50 Euro.', 'Der Rechnungsbetrag beträgt 75 US-Dollar.', 'Die Höhe des Berges beträgt 2000 Meter über dem Meeresspiegel.'],
+    perfektSentences: ['Die Summe der Zahlen hat 25 betragen.', 'Die Gesamtkosten des Projekts haben 10.000 Euro betragen.', 'Die Fläche des Rechtecks hat 50 Quadratmeter betragen.', 'Die Anzahl der verkauften Produkte hat 100 betragen.', 'Die durchschnittlichen Ausgaben im Juli haben 500 Euro betragen.', 'Der Winkel hat 15 Prozent betragen.', 'Die Differenz der beiden Werte hat 50 Euro betragen.', 'Der Rechnungsbetrag hat 75 US-Dollar betragen.', 'Die Höhe des Berges hat 2000 Meter über dem Meeresspiegel betragen.'],
   },
   {
     infinitiv: 'stehen',
@@ -474,6 +541,7 @@
     perfekt: 'gestanden', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Er steht vor der Fabrik.', 'Wo steht das Auto?', 'Steht das Auto vor der Firma?', 'Wir stehen hinter der Firma.', 'Stehen Sie immer noch da?', 'Warum stehen Sie noch?', 'Der Computer steht dort.', 'Wo stehen die Projektunterlagen?', 'Ich stehe hier links.', 'Stehst du immer noch da?'],
+    perfektSentences: ['Warum hast du dort gestanden?', 'Warum hast du dort gestanden?', 'Wie lange haben Sie dort gestanden?', 'Der Laptop hat auf dem Tisch gestanden.', 'Ich habe hier links gestanden.', 'Wo haben die Projektunterlagen gestanden?', 'Wir haben hinter der Firma gestanden.', 'Hat das Auto vor der Firma gestanden?', 'Wo hat das Auto gestanden?', 'Er hat vor der Fabrik gestanden.'],
   },
   {
     infinitiv: 'vergleichen',
@@ -481,6 +549,7 @@
     perfekt: 'verglichen', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Wir vergleichen zwei Automotoren.', 'Beim Kauf vergleichen wir die Modelle.', 'Beim Autokauf vergleicht man die Qualität.', 'Der Ingenieur vergleicht Testergebnisse.', 'Die Studierenden vergleichen die Aufgaben.', 'Ich vergleiche meine Lösungen mit denen meiner Kommilitonin.', 'Das kann man nicht vergleichen.', 'Du vergleichst die Angebote im Supermarkt.', 'Man vergleicht zwei verschiedene Programme.', 'Vergleicht man die Situation in der Fabrik heute und damals?'],
+    perfektSentences: ['Haben Sie die Situation in der Fabrik heute und damals verglichen?', 'Das konnte man nicht vergleichen.', 'Wer hat zwei verschiedene Programme verglichen?', 'Du hast die Angebote im Supermarkt verglichen.', 'Ich habe meine Lösungen mit denen meiner Kommilitonin verglichen.', 'Die Studierenden haben die Aufgaben verglichen.', 'Der Ingenieur hat Testergebnisse verglichen.', 'Beim Autokauf vergleicht man die Qualität.', 'Beim Kauf haben wir die Modelle verglichen.', 'Wir haben zwei Automotoren verglichen.'],
   },
   {
     infinitiv: 'fließen',
@@ -488,6 +557,7 @@
     perfekt: 'geflossen', hilfsverb: 'SEIN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Die Donau fließt durch zehn europäische Länder.', 'Beim Brainstorming können die Ideen frei fließen.', 'Der Verkehr auf der Autobahn fließt gut.', 'Geld fließt in verschiedene Investitionen.', 'Die Zeit fließt schnell  in der Prüfung.', 'Der Fluss fließt ruhig durch die Stadt.', 'Informationen fleßen schnell  im Internet.', 'Der Dialog fließt leicht.', 'Die Gedanken fließen kreativ.', 'Das Wasser fließt im Bad.'],
+    perfektSentences: ['Der Fluss ist ruhig durch die Stadt geflossen.', 'Das Wasser ist im Bad geflossen.', 'Die Emotionen sind während des Films geflossen.', 'Der Dialog ist ruhig geflossen.', 'Informationen sind schnell im Internet geflossen.', 'Die Zeit ist schnell in der Prüfung geflossen.', 'Geld ist in verschiedene Investitionen geflossen.', 'Der Verkehr auf der Autobahn ist gut geflossen.', 'Die Gedanken sind kreativ geflossen.', 'Beim Brainstorming konnten die Ideen frei fließen."'],
   },
   {
     infinitiv: 'bilden',
@@ -495,6 +565,7 @@
     perfekt: 'gebildet', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Der Student bildet zwei Sätze.', 'Die Studierenden bilden für ihre Projekte Arbeitsgruppen.', 'Die Buchstaben A, B und C bilden das Alphabet.', 'Beim Fußball bilden sich spontan Teams.', 'Sonne und Planeten bilden unser Sonnensystem.', 'Teams bilden sich dynamisch.', 'Die verschiedenen Abteilungen bilden ein integriertes Netzwerk.'],
+    perfektSentences: ['Die Studierenden haben zwei Gruppen gebildet.', 'Die Praktikanten haben Arbeitsgruppen für ihre Projekte gebildet.', 'Die Studenten haben Kleingruppen gebildet.', 'Die Studenten haben drei Sätze gebildet.', 'Beim Fußball haben sich spontan Mannschaften gebildet.', 'Teams haben sich dynamisch gebildet.', 'Die verschiedenen Abteilungen haben ein integriertes Netzwerk gebildet.'],
   },
   {
     infinitiv: 'recherchieren',
@@ -502,6 +573,7 @@
     perfekt: 'recherchiert', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Wir recherchieren im Internet.', 'Die Projektmanager recherchieren aktuelle Markttrends.', 'Die Studierenden recherchieren intensiv das Thema.', 'Die Historiker recherchieren historische Dokumente.', 'Die Marketingabteilung recherchiert die Zielgruppe.', 'Die Studentin recherchiert für ihre Diplomarbeit.', 'Die Studentin recherchiert für ihre Präsentation.', 'Ich recherchiere relevante Statistiken für die Präsentation.', 'Der Regisseur recherchiert historische Fakten für seinen Film.', 'Das Ingenieurteam recherchiert effiziente Technologien für Innovationen.'],
+    perfektSentences: ['Wo haben Sie recherchiert?', 'Die Marketingabteilung hat die Zielgruppen recherchiert.', 'Ich habe relevante Statistiken für die Präsentation recherchiert.', 'Der Regisseur hat historische Fakten für seinen Film recherchiert.', 'Das Ingenieurteam hat effiziente Technologien für Innovationen recherchiert.', 'Die Marketingabteilung hat Markttrends recherchiert.', 'Die Technologen haben neue Technologien recherchiert.', 'Der Ingenieure hat neue Konstruktionsmethoden recherchiert.', 'Haben Praktikanten Arbeitsmethoden recherchiert?', 'Was hast du recherchiert?'],
   },
   {
     infinitiv: 'auswählen',
@@ -509,6 +581,7 @@
     perfekt: 'ausgewählt', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Ich habe das blaue Auto ausgewählt.', 'Wir wählen ein Thema für die Präsentation  aus.', 'In der Software wählt der Benutzer die Einstellungen aus.', 'Die Fußballmannschaft wählt die besten Spieler für das nächste Spiel aus.', 'Der Programmierer wählt die Farben für seine neue App. Aus.', 'Bei einer Bewerbung wählen die Bewerber ihre relevantesten Qualifikationen aus.', 'Die Jury wählt die besten Bands für das Musikfestival aus.', 'Im Supermarkt wählt man vierschiedene Marken aus.', 'Wer wählt die besten Projekte aus?'],
+    perfektSentences: ['Haben Sie das kleine Handy ausgewählt?', 'Der Ingenieur hat die neue Software ausgewählt.', 'Habt  ihr das Thema für die Präsentation ausgewählt?', 'Die Fußballmannschaft hat den neuen Trainer ausgewählt.', 'Der Manager hat eine neue Methode für seine Marketingstrategie ausgewählt.', 'Der Bewerber hat die relevantesten Qualifikationen ausgewählt.', 'Die Jury hat die besten Automodelle ausgewählt.', 'Wer hat die Programme ausgewählt?', 'Was hast du ausgewählt?', 'Die Ingenieure haben die besten Sensoren für das neue Robotik-Projekt ausgewählt.'],
   },
   {
     infinitiv: 'eintragen',
@@ -516,6 +589,7 @@
     perfekt: 'eingetragen', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Wir tragen Ihren Namen in das Formular ein.', 'Ich trage die neuen Informationen in die Datenbank ein.', 'Frau Kurz trägt die Namen in die Liste ein.', 'Wer trägt die Daten in die Excel-Tabelle ein?', 'Frau Schmidt trägt die Ergebnisse in die Tabelle ein.', 'Frau Schmidt trägt Ihre Kontaktdaten in die Namensliste ein.', 'Wo tragen Sie die Namen ein?', 'Was trägt Frau Kurz in den Formular ein?', 'Bis wann tragen Sie die persönlichen Daten in den Computer ein?', 'Die Praktikanten tragen ihre Namen in die Liste ein.'],
+    perfektSentences: ['Wir haben Ihren Namen in das Formular eingetragen.', 'Herr Schmidt hat die Ergebnisse in die Tabelle eingetragen.', 'Frau Kurz hat die Namen in die Liste eingetragen.', 'Haben Sie die persönlichen Daten in den Computer eingetragen?', 'Was hat Frau Kurz in die Tabelle eingetragen?', 'Wo haben Sie die Namen eingetragen?', 'Die Praktikanten haben ihre Namen in die Liste eingetragen.', 'Ich habe die neuen Informationen in die Datenbank eingetragen.', 'Wer hat die Daten in die Excel-Tabelle eingetragen?', 'Frau Schmidt hat die Kontaktdaten in die Namensliste eingetragen.'],
   },
   {
     infinitiv: 'vorkommen',
@@ -523,6 +597,7 @@
     perfekt: 'vorgekommen', hilfsverb: 'SEIN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Das kommt manchmal vor.', 'Solche Fehler kommen selten vor.', 'Es kommt auch zu Problemen bei Software-Updates.', 'Bei manchen Menschen kommen allergische Reaktionen vor.', 'In Deutschland kommen viele Dialekte vor.', 'Beim Lernen einer neuen Sprache kommen Schwierigkeiten vor.', 'Bei schlechtem Wetter kommen Probleme mit der Internetverbindung vor.', 'Manchmal kommen Fehler beim Programmieren vor.', 'Kommen Fehler häufig vor?', 'Bei Besprechungen kommen häufig Diskussionen vor.'],
+    perfektSentences: ['Bei Besprechungen sind oft Diskussionen vorgekommen.', 'Das ist oft vorgekommen.', 'Solche Fehler sind häufig vorgekommen.', 'Es sind auch Probleme mit Software-Updates vorgekommen.', 'Bei einigen Menschen sind allergische Reaktionen vorgekommen.', 'Sind häufig Probleme vorgekommen?', 'Manchmal sind Fehler beim Programmieren vorgekommen.', 'Es sind Probleme mit der Internetverbindung bei schlechtem Wetter vorgekommen.', 'Es sind Probleme beim Erlernen einer neuen Sprache vorgekommen.', 'Was genau ist vorgekommen?'],
   },
   {
     infinitiv: 'sparen',
@@ -530,6 +605,7 @@
     perfekt: 'gespart', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Wir sparen für ein neues Auto.', 'Wir sparen Strom.', 'Sparst du Geld?', 'Wir sparen Energie.', 'Wofür sparst du?', 'Ich spare für ein Haus.', 'Wie sparen Sie?', 'Spart ihr für einen neuen Laptop?', 'Wer spart für einen neuen Computer?'],
+    perfektSentences: ['Wer hat für einen neuen Laptop gespart?', 'Ich habe für ein neues Handy gespart.', 'Ich habe für einen neuen Computer gespart.', 'Wofür habt ihr gespart?', 'Wir haben Strom gespart.', 'Hast du Geld gespart?', 'Wir haben Energie gespart.', 'Wofür hast du gespart?', 'Wir haben für ein Haus gespart.', 'Wie viel Geld hast du gespart?'],
   },
   {
     infinitiv: 'fehlen',
@@ -537,6 +613,7 @@
     perfekt: 'gefehlt', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Was fehlt?', 'Wer fehlt heute?', 'Heute fehlen zwei Praktikanten.', 'Es fehlen noch zwei Computer.', 'Herr Schmidt fehlt noch.', 'Fehlt noch etwas?', 'Uns fehlen noch zwei Kaffees.', 'In der Liste fehlt noch Ihr Name.', 'Ihre Adresse fehlt noch.', 'Mir fehlen noch ein paar Informationen.'],
+    perfektSentences: ['Was hat gefehlt?', 'Anna hat heute gefehlt.', 'Wer hat heute gefehlt?', 'Drei Computer haben gefehlt.', 'Drei Studenten haben gestern gefehlt.', 'Was hat noch gefehlt?', 'Es haben noch zwei Kaffees gefehlt.', 'Ihr Name hat auf der Liste gefehlt.', 'Ihre Adresse hat noch gefehlt.', 'Es fehlen noch Informationen.'],
   },
   {
     infinitiv: 'kaufen',
@@ -544,6 +621,7 @@
     perfekt: 'gekauft', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Wir kaufen ein neues Auto.', 'Ich kaufe einen neuen Laptop.', 'Kaufst du einen Computer?', 'Herr Schmidt kauft neue Maschinen.', 'Frau Lich kauft einen neuen Laptop.', 'Kaufen wir ein neues Haus?', 'Wer kauft das?', 'Maria kauft ein neues Handy.', 'Die Studenten kaufen Bücher.'],
+    perfektSentences: ['Die Studenten haben Bücher gekauft.', 'Adrian hat ein neues Handy gekauft.', 'Wer hat das Haus gekauft?', 'Haben wir ein neues Haus gekauft?', 'Frau Lich hat einen neuen Computer gekauft.', 'Herr Schmidt hat einen neuen Computer gekauft.', 'Hast du eine Uhr gekauft?', 'Ich habe einen neuen Laptop gekauft.', 'Ich habe nichts gekauft.', 'Wir haben ein neues Auto gekauft.'],
   },
   {
     infinitiv: 'kosten',
@@ -551,6 +629,7 @@
     perfekt: 'gekostet', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Was kostet das Auto?', 'Die neue Software kostet ca. 150 Euro.', 'Die neuen Motoren für die Maschinen kosten viel Geld.', 'Die Handys kosten genauso wie die Laptops.', 'Der neue Computer kostet 1000 Euro.', 'Der Sprachkurs kostet viel Zeit.', 'Der Flug nach Paris kostet in der Hochsaison mehr.', 'Wie viel kostet die neue Software?', 'Die Renovierung des Hauses kostet viel.', 'Wie viel kostet das Buch?'],
+    perfektSentences: ['Wie viel hat die neue Software gekostet?', 'Die Renovierung der Wohnung hat viel gekostet.', 'Die neue Software hat etwa 150 Euro gekostet.', 'Wie viel hat das Buch gekostet?', 'Die neuen Motoren für die Maschinen haben viel Geld gekostet.', 'Die Handys haben so viel gekostet wie die Laptops.', 'Der neue Computer hat 1000 Euro gekostet.', 'Der Sprachkurs hat sehr viel Zeit gekostet.', 'Der Flug nach Paris hat in der Hochsaison mehr gekostet.', 'Was hat das Auto gekostet?'],
   },
   {
     infinitiv: 'gewinnen',
@@ -558,6 +637,7 @@
     perfekt: 'gewonnen', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Es ist wichtig, potenzielle Kunden zu gewinnen.', 'Wir gewinnen immer den ersten Preis.', 'Ein guter Student gewinnt das Stipendium.', 'Wir gewinnen das Schachspiel.', 'Gewinnst du oft?', 'Ich gewinne nie.', 'Ich möchte jetzt das Spiel gewinnen.', 'Gewinnt ihr das Videospiel?', 'Er gewinnt das Pokerturnier.'],
+    perfektSentences: ['Wir haben das Projekt gewonnen.', 'Unser Team hat das Fußballspiel gewonnen.', 'Unsere Schulmannschaft hat das Basketballspiel gewonnen.', 'Wann haben Sie gewonnen?', 'Ich habe noch nie etwas gewonnen.', 'Heute habe ich das zwanzigste Level gewonnen.', 'Wer hat das Tennisspiel gewonnen?', 'Wo haben Sie das letzte Mal gewonnen?', 'Hast du gewonnen?', 'Ich habe diesmal nichts gewonnen.'],
   },
   {
     infinitiv: 'formulieren',
@@ -565,6 +645,7 @@
     perfekt: 'formuliert', hilfsverb: 'HABEN' as const,
     lesson: 5, difficulty: 1,
     sentences: ['Herr Schmidt formuliert die Projektziele.', 'Formulierst du jetzt deine Ideen?', 'Wir formulieren unsere Pro- und Contra-Argumente.', 'Anna formuliert ihre beruflichen Ziele.', 'Die Auszubildenden formulieren ihre Fragen klar und deutlich.', 'Die Praktikantin formuliert ihre Meinung nicht immer klar.', 'Frau Beck formuliert ihren Dank.', 'Formuliert ihr den Bericht zur Analyse der Ergebnisse?', 'Was formulierst du?', 'Sie können Ihre Fragen gut formulieren.'],
+    perfektSentences: ['Haben Sie Ihren Lebenslauf formuliert?', 'Herr Schmidt hat seine Pro- und Contra-Argumente formuliert.', 'Lars hat seine persönlichen Ziele formuliert.', 'Die Praktikantin hat ihre Fragen klar formuliert.', 'Die Studentin hat ihre Meinung nicht klar formuliert.', 'Professor Schmidt hat seine Rede für die Konferenz formuliert.', 'Die Softwareentwickler haben die Benutzeroberfläche des Programms formuliert.', 'Die Projektgruppe hat die Projektziele formuliert.', 'Hast du schon deine Lebensziele formuliert?', 'Ich habe noch nichts formuliert.'],
   },
   {
     infinitiv: 'essen',
@@ -572,6 +653,7 @@
     perfekt: 'gegessen', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Ich esse gerne Pizza.', 'Du isst heute Abend zu Hause.', 'Er isst immer gesund.', 'Wir essen oft in der Kantine.', 'Ihr esst viel Gemüse.', 'Er isst gerne vegetarisch.', 'Frau Jung isst keinen Fisch.', 'Die Praktikanten essen gerne Nudeln.', 'Der Praktikant isst sein Pausenbrot.', 'Sie essen kein Schweinefleisch.'],
+    perfektSentences: ['Ich habe gerne Pizza gegessen.', 'Hast du heute Abend zu Hause gegessen?', 'Herr Wagner hat immer gut gegessen.', 'Die Studenten haben oft in der Kantine gegessen.', 'Habt ihr viel Gemüse gegessen?', 'Er hat gerne vegetarisch gegessen.', 'Frau Jung hat nie Fisch gegessen.', 'Der Praktikant hat gerne Nudeln gegessen.', 'Der Praktikant hat sein Pausenbrot gegessen.', 'Sie haben kein Rindfleisch gegessen.'],
   },
   {
     infinitiv: 'mögen',
@@ -579,6 +661,7 @@
     perfekt: '* Präteritum', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Ich mag mein altes Auto.', 'Magst du Sport?', 'Er mag Filme mit viel Action.', 'Wir mögen Tennis.', 'Ihr mögt keine Tomaten.', 'Sie mag Musik aus den 80ern.', 'Alle mögen Schokolade.', 'Ich mag Musik.', 'Sie mögen schnelle Autos.', 'Herr Schmidt mag schnelle Autos.'],
+    perfektSentences: [],
   },
   {
     infinitiv: 'wollen',
@@ -586,6 +669,7 @@
     perfekt: '* Präteritum', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Ich will heute früh aufstehen.', 'Willst du das Buch lesen?', 'Er will das Mittagessen kochen.', 'Wir wollen ins Kino gehen.', 'Wollt ihr das neue Auto kaufen?', 'Herr Schmidt will das neue Computerprogramm nicht kaufen.', 'Wir wollen Eis essen.', 'Der Praktikant will Erfahrungen sammeln.', 'Die Prakikanten wollen Deutsch lernen.', 'Was willst du machen?'],
+    perfektSentences: [],
   },
   {
     infinitiv: 'sammeln',
@@ -593,6 +677,7 @@
     perfekt: 'gesammelt', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Herr Meier sammelt alte Bücher.', 'Der Studenten sammeln Erfahrungen im Ausland.', 'Der Praktikant sammelt Informationen für das Projekt.', 'Die Studenten sammeln Fotos aus verschiedenen Ländern.', 'Ich sammle Daten für die Marktforschung.', 'Du sammelst Informationen über potentielle Kunden.', 'Er sammelt Erfahrungen im Projektmanagement.', 'Wir sammeln Feedback vom Kunden.', 'Das Team sammelt Ideen für die Produktentwicklung.'],
+    perfektSentences: ['Ich habe Daten für die Marktforschung gesammelt.', 'Du hast Informationen über potentielle Kunden gesammelt.', 'Wir haben Kundenfeedback gesammelt.', 'Ich habe Erfahrungen im Projektmanagement gesammelt.', 'Das Team hat Ideen für die Produktentwicklung gesammelt.', 'Die Studentin hat relevante Literatur für die Diplomarbeit gesammelt.', 'Das Unternehmen hat Informationen über die Konkurrenz gesammelt.', 'Die Teilnehmer haben neue Trends während des Seminars gesammelt.', 'Der Journalist hat Informationen für das Unternehmen gesammelt.', 'Das Team hat während des Workshops viele kreative Ideen gesammelt.'],
   },
   {
     infinitiv: 'darstellen',
@@ -600,6 +685,7 @@
     perfekt: 'dargestellt', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Ich stelle die Statistik grafisch dar.', 'Du stellst die Grafiken an der Whiteboardtafel dar.', 'Wir stellen die neuen Mitarbeiter in der Besprechung vor.', 'Ihr stellt die Projektphasen dar.', 'Sie stellt die finanzielle Situation im Bericht dar.', 'Das Projekt stellt eine Herausforderung für das Team dar.', 'Wie kann man die Zahlen aus dem letzten Jahr in einer Präsentation darstellen?', 'Was stellt die Grafik dar?', 'Was stellst du mit diesem Bild dar?', 'Wie stellt man neue Modetrends dar?'],
+    perfektSentences: ['Wie hast du neue Trends dargestellt?', 'Das Projekt stellte eine neue Chance für das Team dar.', 'Ich habe die Statistik grafisch dargestellt.', 'Du hast die Grafiken auf der Tafel dargestellt.', 'Der Ingenieur hat die Phasen des Projekts dargestellt.', 'Sie hat die finanzielle Situation im Bericht dargestellt.', 'Wie hast du die Zahlen des letzten Jahres in einer Präsentation dargestellt?', 'Was hat die Grafik dargestellt?', 'Was hast du mit diesem Bild dargestellt?', 'Wie hat er neue Modetrends dargestellt?'],
   },
   {
     infinitiv: 'erstellen',
@@ -607,6 +693,7 @@
     perfekt: 'erstellt', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Ich erstelle einen Bericht über Markttrends.', 'Du erstellst eine Aufgabenliste für das Projekt.', 'Ich erstelle eine neue Software.', 'Wir erstellen einen Zeitplan für das Projekt.', 'Wir erstellen eine Präsentation für den Kunden.', 'Die Praktikantin erstellt eine Grafik für die Präsentation.', 'Die Köchin erstellt die Speisekarte für das Restaurant.', 'Der Ingenieur erstellt eine technische Zeichnung des Produkts.', 'Der Chef erstellt einen Wochenplan für die Mitarbeiter.', 'Der Fotograf erstellt eine Collage aus verschiedenen Bildern.'],
+    perfektSentences: ['Ich habe einen Bericht über Markttrends erstellt.', 'Du hast eine Liste mit Projektaufgaben erstellt.', 'Frau Lich hat eine Grafik für die Präsentation erstellt.', 'Die Köchin hat die Speisekarte für das Restaurant erstellt.', 'Die Redakteurin hat einen Plan für die Veröffentlichung des Artikels erstellt.', 'Der Fotograf hat eine Collage aus verschiedenen Bildern erstellt.', 'Die Finanzabteilung hat den Finanzbericht für das Quartal erstellt.', 'Der Webentwickler hat eine interaktive Website erstellt.'],
   },
   {
     infinitiv: 'denken',
@@ -614,6 +701,7 @@
     perfekt: 'gedacht', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Ich denke viel an meine Familie.', 'Du denkst an deine berufliche Zukunft.', 'Frau Schmidt denkt an die Projektziele.', 'Die Ingenieure denken an ihre Lösungen.', 'Frau Meier denkt an das Projekt.', 'Der Betreuer denkt an seine Arbeit.', 'Die Studierenden denken an ihre Hausaufgaben.', 'Der Professor denkt an neue Technologien.', 'Die Mitarbeiter denken an Verbesserungen im Arbeitsprozess.', 'Woran denken Sie?'],
+    perfektSentences: ['Ich habe oft an meine Familie gedacht.', 'Wer hat oft an sein Familie gedacht?', 'Der Professor hat an neue Technologien gedacht.', 'Du hast an deine Zukunft gedacht.', 'Herr Lich  hat an die Projektziele gedacht.', 'Die Ingenieure haben an die Lösungen gedacht.', 'Frau Meier dachte an die Projekte.', 'Der Betreuer hat an die Arbeit gedacht.', 'Die Studenten haben an ihre Hausaufgaben gedacht.'],
   },
   {
     infinitiv: 'befragen',
@@ -621,6 +709,7 @@
     perfekt: 'befragt', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Ich befrage Kunden nach ihren Bedürfnissen.', 'Du befragst die Einkäufer nach der Kundenzufriedenheit.', 'Wer befragt die Studentinnen für die Studie?', 'Der Chef befragt die Mitarbeiter nach ihren Arbeitsbedingungen.', 'Wir befragen die Studierenden nach ihrem Feedback.', 'Der Arzt befragt die Patienten über ihre Krankheit.', 'Wen befragt die Polizei bei einem Autounfall?', 'Professor Schmidt befragt die Studenten zu ihren Englischkenntnissen.', 'Die Journalisten befragen den Experten zu aktuellen Themen.', 'Worüber befragen Sie die Praktikanten?'],
+    perfektSentences: ['Der Chef hat die Mitarbeiter nach ihrer Zufriedenheit befragt.', 'Hast du die Kunden nach ihrer Zufriedenheit befragt?', 'Wen hat die Polizei nach dem Autounfall befragt?', 'Der Betreuer hat die Praktikanten zu ihren Arbeitsbedingungen befragt.', 'Die Wissenschaftler haben die Studenten für ihre Studie befragt.', 'Die Professoren haben die Studenten zu ihrem Feedback befragt.', 'Der Arzt hat Patienten über ihre Krankheit befragt.', 'Frau Beck hat die Studierenden zu ihren Computerkenntnissen befragt.', 'Wer hat Sie nach Ihrer Meinung gefragt?', 'Die Journalisten haben den Experten zu aktuellen Themen befragt.'],
   },
   {
     infinitiv: 'zahlen',
@@ -628,6 +717,7 @@
     perfekt: 'gezahlt', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Die Studierenden zahlen Semestergebühren.', 'Viele Studierende zahlen Miete für eine Studentenwohnung.', 'Einige Studierende zahlen für Studienmaterial.', 'Das Unternehmen zahlt Stipendien an gute Studierende.', 'Einige Studierende zahlen für Englischkurse.', 'Wie viel zahlst du für ein Zimmer im Studentenwohnheim?', 'Wie viel zahlen die Studierenden für das Diplom?', 'Herr Schmidt bezahlt im Namen der Firma das Mittagessen für Frau Böll.', 'Wie viel zahlst du für das Essen in der Mensa?'],
+    perfektSentences: ['Lars hat im September die Semestergebühren gezahlt.', 'Viele Studierende haben Miete für eine Studentenwohnung gezahlt.', 'Das Unternehmen hat Stipendien für gute Studierende gezahlt.', 'Einige Studierende haben für Englischkurse gezahlt.', 'Wie viel hast du für ein Zimmer in einem Studentenwohnheim gezahlt?', 'Die Eltern haben für das Studium gezahlt.', 'Wie viel haben die Studierenden für das Diplom gezahlt?', 'Herr Schmidt hat das Mittagessen für Frau Böll gezahlt.', 'Wie viel hast du für das Essen in der Mensa gezahlt?', 'Haben Sie mit der Karte gezahlt?'],
   },
   {
     infinitiv: 'treffen, sich',
@@ -635,6 +725,7 @@
     perfekt: 'getroffen', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Ich treffe mich oft mit Freunden.', 'Anna trifft Lars in der Bibliothek.', 'Wir treffen uns um 12 Uhr in der Kantine.', 'Du triffst dich heute Abend mit Maria.', 'Ihr trefft euch zum Mittagessen.', 'Sie treffen sich vor dem Konzert.', 'Wann treffen wir uns?', 'Triffst du Herrn Schmidt heute?', 'Wen triffst du heute Abend?', 'Wo treffen wir uns?'],
+    perfektSentences: ['Ich habe mich gestern mit Peter getroffen.', 'Wo haben Sie Herrn Jung getroffen?', 'Sie haben sich vor der Firma getroffen.', 'Die Geschwister haben sich nach zehn Monaten wieder getroffen.', 'Wir haben uns auf einen Kaffee getroffen.', 'Ihr habt euch in der Firma getroffen.', 'Mein Bruder hat seine Freunde in der Stadt getroffen.', 'Frau Schmidt hat sich letzte Woche mit ihren Kollegen getroffen.', 'Wann haben Sie Frau Beck getroffen?', 'Du hast deine Freundin schon lange nicht mehr gesehen.'],
   },
   {
     infinitiv: 'frühstücken',
@@ -642,6 +733,7 @@
     perfekt: 'gefrühstückt', hilfsverb: 'HABEN' as const,
     lesson: 6, difficulty: 1,
     sentences: ['Du frühstückst gerne Brötchen mit Marmelade.', 'Ich frühstücke jeden Morgen Müsli.', 'Am Wochenende frühstücken wir zusammen.', 'Ihr frühstückt meistens um 7 Uhr.', 'Wann frühstückst du?', 'Wer frühstückt nicht?', 'Praktikanten frühstücken nicht.', 'Herr Jung frühstückt meistens nur Kaffee.', 'Was frühstücken Sie gerne?', 'Um wie viel Uhr frühstücken Sie?'],
+    perfektSentences: ['Wer hat nicht gefrühstückt?', 'Ihr habt meistens um 9 Uhr gefrühstückt.', 'Die Praktikanten haben nicht gefrühstückt.', 'Du hast gerne Käsebrötchen gefrühstückt.', 'Wann hast du gefrühstückt?', 'Warum haben Sie heute nicht gefrühstückt?', 'Herr Jung hat meistens nur Kaffee gefrühstückt.', 'Sonntags haben wir zusammen gefrühstückt.', 'Wann haben Sie gefrühstückt?', 'Ich habe jeden Morgen Wurstbrot gefrühstückt.'],
   },
   {
     infinitiv: 'befinden, sich',
@@ -649,6 +741,7 @@
     perfekt: 'befunden', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Die Büros befinden sich im dritten Stock.', 'Die Bibliothek befindet sich neben dem Hauptgebäude.', 'Die Parkplätze befinden sich vor dem Gebäude.', 'Die Toiletten befinden sich dort.', 'Der Konferenzraum ist im Erdgeschoss.', 'Die Cafeteria befindet sich im Keller.', 'Unsere Abteilung ist im ersten Stock.', 'Wo befinden wir uns jetzt?', 'Die Produktion befindet sich hinter dem Lager.', 'Die Informatikabteilung befindet sich im zweiten Stock.'],
+    perfektSentences: ['Die Büros haben sich im dritten Stock befunden.', 'Wo hat sich die Bibliothek befunden?', 'Die Parkplätze haben sich vor dem Gebäude befunden.', 'Haben sich die Toiletten dort befunden?', 'Der Konferenzraum hat sich nicht im Erdgeschoss befunden.', 'Unsere Abteilung hat sich im ersten Stock befunden.', 'Die Produktion hat sich hinter dem Lager befunden.', 'Die Marketingabteilung hat sich im vierten Stock befunden.', 'Wo haben Sie sich 2018 befunden?', 'Die Cafeteria hat sich im Keller befunden.'],
   },
   {
     infinitiv: 'empfangen',
@@ -656,6 +749,7 @@
     perfekt: 'empfangen', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Ich empfange jeden Tag viele Kunden.', 'Der Betrieb empfängt neue Kunden.', 'Frau Wagner empfängt ihre Kunden am Nachmittag.', 'Wir empfangen ein starkes Signal.', 'Der Fernsehsender empfängt kein Signal.', 'Die Familie empfängt Freunde zum Essen.', 'Der Fernseher empfängt viele Programme.', 'Die Maschine empfängt Befehle von der Software.', 'Wer empfängt heute neue Kunden?', 'Die Antenne empfängt ein gutes Radiosignal.'],
+    perfektSentences: ['Die Familie hat Freunde zum Essen empfangen.', 'Der Fernseher hat viele Programme empfangen.', 'Die Antenne hat ein gutes Radiosignal empfangen.', 'Die Maschine hat Befehle von der Software empfangen.', 'Wer hat heute neue Kunden empfangen?', 'Der Fernsehsender hat kein Signal empfangen.', 'Wir haben ein starkes Signal empfangen.', 'Frau Wagner hat ihre Kunden am Nachmittag empfangen.', 'Der Betrieb hat neue Kunden empfangen.', 'Ich habe jeden Tag viele Kunden empfangen.'],
   },
   {
     infinitiv: 'sehen',
@@ -663,6 +757,7 @@
     perfekt: 'gesehen', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Ich sehe nichts.', 'Was siehst du?', 'Herr Müller sieht Horrorfilme.', 'Wir sehen uns morgen zum Mittagessen.', 'Die Praktikanten sehen das Problem in der Produktion.', 'Sehen Sie die Maschinen?', 'Die Kollegen sehen sich jeden Tag im Büro.', 'Wen sieht Herr Richter auf dem Parkplatz?', 'Man sieht keine Nachrichten mehr.', 'Die Studenten sehen die Testergebnisse.'],
+    perfektSentences: ['Ich habe nichts gesehen.', 'Was hast du gesehen?', 'Die Studenten haben die Testergebnisse gesehen.', 'Herr Müller hat SF-Filme gesehen.', 'Wir haben uns morgen beim Mittagessen gesehen.', 'Wer hat Maschinen gesehen?', 'Die Kollegen haben sich jeden Tag im Büro gesehen.', 'Wen hat Herr Richter auf dem Parkplatz gesehen?', 'Haben Sie die neuen Autoteile gesehen?', 'Die Praktikanten haben die Produktion gesehen.'],
   },
   {
     infinitiv: 'lassen',
@@ -670,6 +765,7 @@
     perfekt: 'gelassen', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Ich lasse es dich wissen.', 'Der Betreuer lässt den Praktikanten im Team arbeiten.', 'Man lässt die Kunden die Produkte ausprobieren.', 'Herr Schmidt lässt den neuen Mitarbeiter in die Produktion.', 'Wir lassen die Fenster offen.', 'Man lässt die Jacken in der Garderobe.', 'Die Praktikanten lassen ihren Betreuer sprechen.', 'Die Firma lässt ihre Produkte von Experten prüfen.', 'Die Professorin lässt die Studenten ihre Hausaufgaben machen.', 'Der Chef lässt die Mitarbeiter Überstunden machen.'],
+    perfektSentences: ['Herr Schmidt hat den neuen Mitarbeiter in die Produktion gelassen.', 'Man hat die Fenster offen gelassen.', 'Wir haben die Jacken in der Garderobe gelassen.', 'Man hat die Türen geschlossen gelassen.', 'Der Student hat das Papier leer gelassen.', 'Das Unternehmen hat die alten Arbeitsmodelle hinter sich gelassen.', 'Wer hat Herrn Richter in die Firma gelassen?', 'Der Kollege hat die Tür offen gelassen.', 'Wer hat den Computer eingeschaltet gelassen?', 'Wen hast du in den Betrieb gelassen?'],
   },
   {
     infinitiv: 'müssen',
@@ -677,6 +773,7 @@
     perfekt: '* Präteritum', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Ich muss Hausaufgaben machen.', 'Du musst pünktlich zum Unterricht kommen.', 'Die Praktikanten müssen ihren Arbeitsplatz aufräumen.', 'Herr Schmidt muss das Referat vorbereiten.', 'Wir müssen die Maschinen warten.', 'Ihr müsst die Hausaufgaben bis morgen machen.', 'Frau Müller muss die Dokumente unterschreiben.', 'Die Studierenden müssen an der Vorlesung teilnehmen.', 'Die Mitarbeiter müssen die Programme vorbereiten.', 'Man muss sich auf die Besprechung vorbereiten.'],
+    perfektSentences: [],
   },
   {
     infinitiv: 'erlauben',
@@ -684,6 +781,7 @@
     perfekt: 'erlaubt', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Ich erlaube dem Praktikanten, den Computer zu benutzen.', 'Wer erlaubt den Praktikanten, draußen Fußball zu spielen?', 'Herr Wagner erlaubt den Mitarbeitern, Pause zu machen.', 'Wir erlauben den Studierenden, ihre Ideen vorzustellen.', 'Wer erlaubt das Essen in der Abteilung?', 'Frau Becker erlaubt den Praktikanten, selbständig zu arbeiten.', 'Der Professor erlaubt den Studierenden, am Wochenende am Computer zu arbeiten.', 'Die Hochschule erlaubt die Benutzung der Bibliothek.', 'Die Firma erlaubt den Mitarbeitern flexible Arbeitszeiten.', 'Man erlaubt den Besuchern, im Museum zu fotografieren.'],
+    perfektSentences: ['Ich habe dir erlaubt, ins Büro zu gehen.', 'Hast du den Praktikanten erlaubt, draußen Fußball zu spielen?', 'Herr Wagner hat den Praktikanten erlaubt, am Projekt zu arbeiten.', 'Wir haben den Studierenden erlaubt, ihre Ideen vorzustellen.', 'Was hat Herr Wagner erlaubt?', 'Herr Jung hat den Praktikanten erlaubt, selbstständig zu arbeiten.', 'Der Betreuer hat den Schülern erlaubt, am Wochenende frei zu haben.', 'Wer hat Ihnen erlaubt, die Bibliothek zu benutzen?', 'Der Betrieb hat flexible Arbeitszeiten erlaubt.', 'Niemand hat erlaubt, in der Firma Fotos zu machen.'],
   },
   {
     infinitiv: 'verbieten',
@@ -691,6 +789,7 @@
     perfekt: 'verboten', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Der Chef verbietet dir, den Firmenwagen zu benutzen.', 'Was verbietest du den Auszubildenden?', 'Herr Becker verbietet den Mitarbeitern, während der Arbeitszeit private E-Mails zu schreiben.', 'Der Professor verbietet den Studenten, während des Unterrichts zu stören.', 'Wir verbieten den Praktikanten, das Gebäude ohne Erlaubnis zu verlassen.', 'Der Chef verbietet den Praktikanten, ohne Sicherheitsschuhe in der Produktion zu arbeiten.', 'Wer verbietet den Praktikanten, auf dem Hof zu rauchen?', 'Der Betrieb verbietet den Mitarbeitern, Informationen weiterzugeben.', 'Die Firma verbietet den Besuchern, im Museum zu fotografieren.', 'Der Chef verbietet den Mitarbeitern, während der Arbeitszeit privat zu telefonieren.'],
+    perfektSentences: ['Der Chef hat die Benutzung des Firmenwagens verboten.', 'Was hast du den Mitarbeitern verboten?', 'Herr Becker hat den Mitarbeitern verboten, in der Arbeitszeit private E-Mails zu schreiben.', 'Der Professor hat den Studenten verboten, den Unterricht zu stören.', 'Der Chef hat den Praktikanten verboten, in der Produktion ohne Sicherheitsschuhe zu arbeiten.', 'Wer hat den Praktikanten das Rauchen im Betrieb verboten?', 'Der Betrieb hat den Mitarbeitern verboten, Informationen weiterzugeben.', 'Die Firma hat den Besuchern verboten, im Museum zu fotografieren.', 'Der Chef hat den Mitarbeitern verboten, in der Arbeitszeit privat zu telefonieren.', 'Wir haben den Praktikanten verboten, das Gebäude ohne Erlaubnis zu verlassen.'],
   },
   {
     infinitiv: 'benutzen',
@@ -698,6 +797,7 @@
     perfekt: 'benutzt', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Die Mitarbeiter benutzen Sicherheitsschuhe.', 'Das Laborpersonal benutzt Schutzhandschuhe.', 'Die Ingenieure benutzen einen Augenschutz.', 'Studierende müssen Sicherheitsschuhe benutzen, wenn sie das Labor betreten.', 'Ich benutze meinen Laptop für die Arbeit.', 'Herr Müller benutzt sein Handy für geschäftliche Anrufe.', 'Das Unternehmen benutzt eine spezielle Software für die Buchhaltung.', 'Benutzen Sie den Drucker im Büro für Ihre Dokumente?', 'Wir benutzen die neue Maschine für die Produktion.', 'Die Techniker benutzen ihr Werkzeug für Reparaturen.'],
+    perfektSentences: ['Das Laborpersonal hat Augenschutz benutzt.', 'Wer hat keinen Augenschutz benutzt?', 'Ich habe meinen Laptop zum Arbeiten benutzt.', 'Herr Müller hat sein Handy für dienstliche Anrufe benutzt.', 'Die Firma hat eine spezielle Software für die Buchhaltung benutzt.', 'Haben Sie den Drucker im Büro für Ihre Dokumente benutzt?', 'Wir haben die neue Maschine für die Produktion benutzt.', 'Die Techniker haben ihr Werkzeug für Reparaturen benutzt.', 'Haben die Studierenden ihre Laptops im Unterricht benutzt?', 'Was haben Sie zum Schutz benutzt?'],
   },
   {
     infinitiv: 'löschen',
@@ -705,6 +805,7 @@
     perfekt: 'gelöscht', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Ich lösche die Dateien von meinem Computer.', 'Du löschst die falsche Antwort.', 'Herr Schmidt löscht alte Daten.', 'Die Praktikanten löschen ihre Notizen nach der Besprechung.', 'Löscht das System die temporären Dateien immer automatisch?', 'Frau Müller löscht ihre alten E-Mails.', 'Wir löschen den Fehler im Code.', 'Löscht man alte Dateien auf dem Server?', 'Studierende löschen falsche Antworten.', 'Adam löscht das falsche Wort in der Tabelle.'],
+    perfektSentences: ['Ich habe die Dateien von meinem Computer gelöscht.', 'Die Praktikanten haben ihre Notizen nach der Besprechung gelöscht.', 'Hat Anna die falsche Lösung gelöscht?', 'Herr Jung hat alte Informationen gelöscht.', 'Hast du die falsche Antwort gelöscht?', 'Wer hat die Dateien gelöscht?', 'Frau Müller hat alte E-Mails gelöscht.', 'Wir haben den Fehler im Code gelöscht.', 'Wurden alte Dateien auf dem Server gelöscht?', 'Die Studierenden haben falsche Antworten gelöscht.'],
   },
   {
     infinitiv: 'fotografieren',
@@ -712,6 +813,7 @@
     perfekt: 'fotografiert', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Ich fotografiere gerne Häuser.', 'Jörg fotografiert oft auf Partys.', 'Ich fotografiere schöne Momente im Leben meiner Familie.', 'Herr Schmidt fotografiert als Berufsfotograf für Firmenpräsentationen.', 'Was fotografierst du am liebsten?', 'Du fotografierst gut.', 'Adam fotografiert gerne dich.', 'Praktikanten fotografieren Menschen für soziale Projekte.', 'Fotografierst du oft im Winter?', 'Fotografierst du gerne?'],
+    perfektSentences: ['Ich habe gerne Fotos gemacht.', 'Konrad hat alle auf der Geburtstagsfeier fotografiert.', 'Wer hat mich fotografiert?', 'Herr Jenicke hat Mitarbeiter für Firmenpräsentationen fotografiert.', 'Du hast gut fotografiert.', 'Herr Schmidt hat dich oft fotografiert.', 'Der Praktikant hat Maschinenteile für ein Studienprojekt fotografiert.', 'Hast du im Sommer viel fotografiert?', 'Wen hast du am liebsten fotografiert?', 'Habt ihr den Betreuer fotografiert?'],
   },
   {
     infinitiv: 'rauchen',
@@ -719,6 +821,7 @@
     perfekt: 'geraucht', hilfsverb: 'HABEN' as const,
     lesson: 7, difficulty: 1,
     sentences: ['Ich rauche nicht.', 'Herr Wagner raucht schon seit Jahren Zigarren.', 'Manchmal rauchen wir auf einer Party.', 'Raucht ihr immer noch?', 'Rauchst du in der Pause?', 'Rauchen Sie E-Zigaretten?', 'In der Firma darf man nicht rauchen.', 'Wie viele Zigaretten rauchen Sie täglich?', 'Wer raucht hier?', 'Die Praktikanten rauchen im Raucherraum.'],
+    perfektSentences: ['Herr Schmidt hat in der Abteilung nicht geraucht.', 'Wer hat in der Pause geraucht?', 'Frau Klein hat manchmal geraucht.', 'Auf Partys haben wir viel geraucht.', 'Wie oft habt ihr geraucht?', 'Wie viele Zigaretten hast du am Tag geraucht?', 'Haben die Praktikanten jeden Tag geraucht?', 'Wer hat in der Kantine geraucht?', 'Der Betreuer hat sehr wenig geraucht.'],
   },
   {
     infinitiv: 'übernehmen',
@@ -726,6 +829,7 @@
     perfekt: 'übernommen', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich übernehme das Projekt.', 'Herr Meier telefoniert mit seinem Geschäftspartner.', 'Herr Meier übernimmt die Aufgaben seines Kollegen.', 'Wir übernehmen die Reparaturkosten.', 'Wer übernimmt die Praktikanten?', 'Frau Jung übernimmt die Finanzabteilung.', 'Die Firma übernimmt eine neue Firma.', 'Der Chef übernimmt die Firma.', 'Du übernimmst die Organisation der Party.', 'Professor Schmidt übernimmt die Korrektur der Diplomarbeit.'],
+    perfektSentences: ['Ich habe die Leitung des Projekts übernommen.', 'Wir haben die Reparatur übernommen.', 'Frau Jung hat die Finanzabteilung übernommen.', 'Du hast die Organisation der Party übernommen.', 'Professor Schmidt hat die Korrektur der Diplomarbeit übernommen.', 'Die Firma hat eine neue Firma übernommen.', 'Herr Meier hat die Aufgaben seines Kollegen übernommen.', 'Du hast die Teamleitung übernommen.', 'Der Chef hat den Betrieb übernommen.', 'Wer hat die Praktikanten übernommen?'],
   },
   {
     infinitiv: 'anmachen',
@@ -733,6 +837,7 @@
     perfekt: 'aufgemacht', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich mache das Fenster auf.', 'Wer telefoniert so lange?', 'Wer macht das Fenster auf?', 'Du machst die Tür auf.', 'Die Studenten machen das Buch auf.', 'Machst du die Flasche auf?', 'Der Supermarkt macht um 7.30 Uhr auf.', 'Der Techniker macht den Werkzeugkasten auf.', 'Wir machen den Koffer auf.', 'Herr Schmidt macht die Motorhaube auf.'],
+    perfektSentences: ['Ich habe das Fenster aufgemacht.', 'Wer hat das Fenster aufgemacht?', 'Die Studierenden haben das Buch aufgemacht.', 'Der Techniker hat den Werkzeugkasten aufgemacht.', 'Du hast die Tür aufgemacht.', 'Wir haben das Paket aufgemacht.', 'Herr Schmidt hat die Motorhaube aufgemacht.', 'Wir haben den Koffer aufgemacht.', 'Der Supermarkt hat um 7.30 Uhr aufgemacht.', 'Hast du die Flasche aufgemacht?'],
   },
   {
     infinitiv: 'aufräumen',
@@ -740,6 +845,7 @@
     perfekt: 'aufgeräumt', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich räume mein Zimmer auf.', 'Man telefoniert in der Mittagspause.', 'Was räumen wir jetzt auf?', 'Wir räumen die Garage auf.', 'Wer räumt das Lager auf?', 'Die Praktikanten räumen den Maschinenraum auf.', 'Die Mitarbeiter räumen ihren Arbeitsplatz auf.', 'Der Techniker räumt die Werkzeugkiste auf.', 'Räumst du die Bücher auf?', 'Frau Winter räumst die Kantine auf.'],
+    perfektSentences: ['Ich habe mein Zimmer aufgeräumt.', 'Hat Frau Belt die Kantine aufgeräumt?', 'Herr Schmidt hat sein Büro aufgeräumt.', 'Wir haben die Garage aufgeräumt.', 'Wer hat das Lager aufgeräumt?', 'Die Praktikanten haben den Maschinenraum aufgeräumt.', 'Die Mitarbeiter haben ihre Arbeitsplätze aufgeräumt.', 'Der Techniker hat die Werkzeugkiste aufgeräumt.', 'Hast du die Bücher aufgeräumt?', 'Was haben Sie heute aufgeräumt?'],
   },
   {
     infinitiv: 'räumen',
@@ -747,6 +853,7 @@
     perfekt: 'geräumt', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich räume die Bücher vom Tisch?', 'Die Praktikanten telefonieren mit den Kunden.', 'Du räumst das Werkzeug in die Schublade.', 'Wir räumen die Projektdokumente aus dem Konferenzraum.', 'Die Praktikanten räumen die Motorenteile ins Lager.', 'Die Arbeiter räumen die Produktionshalle auf.', 'Der Techniker räumt die defekten Computerteile in den Container.', 'Du räumst die alten Sachen in den Schrank.', 'Wer räumt die Fahrräder aus dem Weg?', 'Herr Schmidt räumt die Akten in den Schrank.'],
+    perfektSentences: ['Ich habe die Bücher vom Tisch geräumt.', 'Wer hat das Altpapier in den Müllcontainer geräumt?', 'Hast du die alten Sachen in den Schrank geräumt?', 'Herr Schmidt hat die Akten in den Schrank geräumt.', 'Wir haben die Projektdokumente aus dem Konferenzraum geräumt.', 'Du hast das Werkzeug in die Schublade geräumt.', 'Die Arbeiter haben die Produkte ins Lager geräumt.', 'Wer hat die Fahrräder aus dem Weg geräumt?', 'Die Praktikanten haben die Motorenteile ins Lager geräumt.', 'Der Mechaniker hat die defekten Autoteile in den Container geräumt.'],
   },
   {
     infinitiv: 'anschließen',
@@ -754,6 +861,7 @@
     perfekt: 'angeschlossen', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Du schließt das Telefon an.', 'Frau Schmidt telefoniert mit der Kundenhotline.', 'Die Studierenden schließen ihre Laptops an.', 'Wer schließt das Kabel an?', 'Der Elektriker schließt die Maschine an.', 'Wer schließt die Kopfhörer an?', 'Der Elektriker schließt die neuen Geräte an.', 'Wir schließen den Drucker an.', 'Frau Beck schließt die Lampe an.', 'Ich schließe den Computer an.'],
+    perfektSentences: ['Hast du das Handy angeschlossen?', 'Herr Meiner hat die Kabel an den Beamer angeschlossen.', 'Wer hat das Kabel angeschlossen?', 'Der Elektriker hat das Kabel angeschlossen.', 'Wer hat den Kopfhörer angeschlossen?', 'Was hat der Elektriker angeschlossen?', 'Wir haben den Drucker angeschlossen.', 'Frau Beck hat die Waschmaschine angeschlossen.', 'Ich habe den Computer angeschlossen.', 'Die Studierenden haben ihre Notebooks angeschlossen.'],
   },
   {
     infinitiv: 'einschalten',
@@ -761,6 +869,7 @@
     perfekt: 'eingeschaltet', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Herr Krause schaltet den Laptop ein.', 'Der Arzt telefoniert mit seinem Patienten.', 'Wir schalten das Radio ein.', 'Die Praktikanten schalten den Beamer ein.', 'Ich schalte den Computer ein.', 'Du schaltest die Maschine ein.', 'Frau Sommer schaltet das Mikrophon ein.', 'Frau Richter schaltet den Ventilator ein.', 'Der Mechaniker schaltet die Maschine ein.', 'Die Lehrerin schaltet das Whiteboard ein.'],
+    perfektSentences: ['Was habt ihr eingeschaltet?', 'Die Lehrerin hat das Whiteboard eingeschaltet.', 'Der Mechaniker hat den Apparat eingeschaltet.', 'Frau Sommer hat den Ventilator eingeschaltet.', 'Du hast das Telefon eingeschaltet.', 'Ich habe die Maschine eingeschaltet.', 'Die Praktikanten haben den Beamer eingeschaltet.', 'Wir haben das Radio eingeschaltet.', 'Frau Müller hat das Mikrofon eingeschaltet.', 'Herr Krause hat seinen Laptop eingeschaltet.'],
   },
   {
     infinitiv: 'ausschalten',
@@ -768,6 +877,7 @@
     perfekt: 'ausgeschaltet', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Wer schaltet mein Telefon aus?', 'Die Kolleginnen und Kollegen telefonieren über die bevorstehende Besprechung.', 'Die Praktikanten schalten die Maschinen aus.', 'Ich schalte den Laptop aus.', 'Du schaltest den Strom aus.', 'Frau Lich schaltet das Mikrophon aus.', 'Der Elektriker macht die Waschmaschine aus.', 'Adam schaltet den CD-Spieler aus.', 'Frau Sommer macht die Lampe aus.', 'Herr Meier schaltet seinen Computer aus.'],
+    perfektSentences: ['Herr Müller hat seinen Computer ausgeschaltet.', 'Was schaltet ihr aus?', 'Wir schalten das Telefon aus.', 'Die Praktikanten schalten die Maschinen aus.', 'Ich schalte den Laptop aus.', 'Du schaltest den Strom aus.', 'Frau Lich schaltet das Mikrofon aus.', 'Frau Sommer schaltet die Lampe aus.', 'Der Elektriker schaltet die Waschmaschine aus.', 'Die Lehrerin schaltet den CD-Player aus.'],
   },
   {
     infinitiv: 'drücken',
@@ -775,6 +885,7 @@
     perfekt: 'gedrückt', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Frau Müller drückt den Knopf im Lift.', 'Warum telefoniert Herr Schmidt mit dem Chef?', 'Der Techniker drückt den Alarmknopf.', 'Herr Schmidt drückt den grünen Knopf.', 'Wir drücken die 1 am Handy.', 'Die Praktikanten drücken den falschen Knopf an der Maschine.', 'Ich drücke die Taste Strg.', 'Die Studentin drückt die Maustaste, um das Dokument zu speichern.', 'Der Betreuer drückt die Hand von Herrn Schmidt.', 'Warum drücken Sie den Knopf so lange?'],
+    perfektSentences: ['Frau Müller hat den Knopf im Lift gedrückt.', 'Wir haben die Eins am Mobiltelefon gedrückt.', 'Der Betreuer hat die Hand von Herrn Schmidt gedrückt.', 'Der Techniker hat den Alarmknopf gedrückt.', 'Ich habe die Strg-Taste gedrückt.', 'Die Praktikantin hat die Maustaste gedrückt, um das Dokument zu speichern.', 'Warum haben Sie die Taste so lange gedrückt?', 'Die Praktikanten haben den falschen Knopf an der Maschine gedrückt.', 'Herr Schmidt hat den grünen Knopf gedrückt.', 'Wer hat den roten Knopf gedrückt?'],
   },
   {
     infinitiv: 'vergessen',
@@ -782,6 +893,7 @@
     perfekt: 'vergessen', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Vergisst du manchmal deine Termine?', 'Man vergisst nie seine Hausaufgaben.', 'Wer vergisst seinen Namen?', 'Die Studenten vergessen selten ihre Sachen.', 'Der Lehrer vergisst nie die Formel.', 'Frau Schmidt vergisst nie ihre Tasche.', 'Wir vergessen oft die Hausaufgaben.', 'Wir vergessen selten wichtige Informationen.', 'Herr Müller vergisst immer seinen Geburtstag.', 'Ich vergesse oft meine Termine.'],
+    perfektSentences: ['Hast du den Termin vergessen?', 'Du hast noch nie deine Hausaufgaben vergessen.', 'Ich habe noch nie einen Termin vergessen.', 'Wer hat das Konzert vergessen?', 'Wir haben die Telefonnummer oft vergessen.', 'Wir haben immer etwas vergessen.', 'Herr Müller hat das Mittagessen mit Frau Schmidt vergessen.', 'Frau Schmidt hat noch nie die Telefonnummer von Herrn Beck vergessen.', 'Was hast du vergessen?', 'Die Kollegen haben das Meeting vergessen.'],
   },
   {
     infinitiv: 'zumachen',
@@ -789,6 +901,7 @@
     perfekt: 'zugemacht', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich mache das Fenster zu.', 'Du machst die Tür zu, wenn du gehst.', 'Wir machen den Supermarkt um 18 Uhr zu.', 'Die Praktikantin macht die Tasche zu.', 'Frau Müller macht den Laptop zu.', 'Der Automechaniker macht die Motorhaube zu.', 'Wer macht alle Fenster zu?', 'Warum machst du die Tür nicht zu?', 'Ihr macht das Buch zu.', 'Herr Schmidt macht die Tür zu.'],
+    perfektSentences: ['Ich habe das Fenster zugemacht.', 'Herr Schmidt hat die Tür zugemacht.', 'Ihr habt das Buch zugemacht.', 'Die Praktikantin hat die Tasche zugemacht.', 'Frau Müller hat den Laptop zugemacht.', 'Der Automechaniker hat die Motorhaube zugemacht.', 'Wer hat die Fenster zugemacht?', 'Warum hast du die Tür nicht zugemacht?', 'Hast du die Tür zugemacht?', 'Wir haben den Supermarkt um 18 Uhr zugemacht.'],
   },
   {
     infinitiv: 'beenden',
@@ -796,6 +909,7 @@
     perfekt: 'beendet', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Wer beendet die Arbeit bis Freitag?', 'Herr Müller beendet die Besprechung.', 'Wir beenden das Projekt zum vereinbarten Termin.', 'Wann beendest du die Schule?', 'Der Mechaniker beendet die Reparatur des Autos.', 'Die Praktikanten beenden ihre Aufgaben.', 'Der Professor beendet die Vorlesung mit einem Zitat.', 'Ihr beendet eure Arbeit vor dem Wochenende.', 'Ich beende meine Arbeit um 17 Uhr.'],
+    perfektSentences: ['Herr Müller hat das Meeting beendet.', 'Wer hat bis Freitag seine Arbeit beendet?', 'Ich habe meine Arbeit um 17 Uhr beendet.', 'Der Mechaniker hat die Reparatur beendet.', 'Der Professor hat die Vorlesung beendet.', 'Ihr habt eure Arbeit vor dem Wochenende beendet.', 'Die Praktikanten haben ihre Arbeit beendet.', 'Wann hast du die Arbeit beendet?', 'Wir haben das Projekt pünktlich beendet.'],
   },
   {
     infinitiv: 'anklicken',
@@ -803,6 +917,7 @@
     perfekt: 'angeklickt', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Du musst dieses Symbol mit der Maus anklicken, um das Programm zu starten.', 'Du klickst den Link an, um die Seite zu sehen.', 'Wenn du das Bild anklickst, dann wird es größer.', 'Werner klickt die E-Mail auf seinem Smartphone an.', 'Herr Böll klickt den Hyperlink an.', 'Die Praktikanten klicken das Symbol an.', 'Wir klicken das Wort doppelt an.', 'Wer klickt das Bild an?', 'Warum klicken Sie die Werkzeugleiste an?', 'Du klickst die Linie an.'],
+    perfektSentences: ['Hast du das Symbol mit der Maus angeklickt?', 'Ihr habt den Link angeklickt, um die Seite zu sehen.', 'Haben Sie das Bild anklickt?', 'Werner klickt die E-Mail auf seinem Smartphone an.', 'Herr Böll hat den Hyperlink angeklickt.', 'Die Praktikanten haben das Symbol angeklickt.', 'Wir haben das Wort doppelt angeklickt.', 'Wer hat das Bild angeklickt?', 'Warum haben Sie die Werkzeugleiste angeklickt?', 'Du hast die Linie angeklickt.'],
   },
   {
     infinitiv: 'funktionieren',
@@ -810,6 +925,7 @@
     perfekt: 'funktioniert', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Das Auto funktioniert gut.', 'Wir funktionieren gut als Team.', 'Die Maschine funktioniert nicht.', 'Die Maschine funktioniert nach der Reparatur.', 'Ihr funktioniert gut in stressigen Situationen.', 'Die App funktioniert gut auf verschiedenen Geräten.', 'Die App funktioniert schon.', 'Der Computer funktioniert nach einem Neustart.', 'Wie funktioniert deine neue App?', 'Das Experiment funktioniert nicht.'],
+    perfektSentences: ['Das Auto hat gut funktioniert.', 'Die Maschine hat nach der Reparatur funktioniert.', 'Die App hat nicht funktioniert.', 'Wie hat dein neues Programm funktioniert?', 'Wir haben als Team gut gearbeitet.', 'Das Programm hat auf verschiedenen Geräten gut funktioniert.', 'Die Maschine hat nicht funktioniert.', 'Ihr habt in stressigen Situationen gut funktioniert.', 'Das Computerprogramm hat gut funktioniert.', 'Der Computer hat nach einem Neustart funktioniert.'],
   },
   {
     infinitiv: 'installieren',
@@ -817,6 +933,7 @@
     perfekt: 'installiert', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich installiere die neue Software auf meinem Computer.', 'Du installierst eine App auf deinem Smartphone.', 'Herr Müller installiert ein neues Betriebssystem auf seinem Notebook.', 'Wir installieren ein Sicherheitsupdate auf allen Geräten.', 'Man installiert eine neue App auf dem Tablet.', 'Die Informatikabteilung installiert Software-Updates auf den Computern im Unternehmen.', 'Frau Schmidt installiert ein Virenschutzprogramm auf ihrem Computer.', 'Der Techniker installiert neue Treiber für den Drucker.', 'Das Unternehmen installiert eine neue Produktionsanlage in der Fabrik.', 'Der Installateur installiert eine neue Heizungsanlage im Haus.'],
+    perfektSentences: ['Ich habe die neue Software auf meinem Computer installiert.', 'Hast du eine App auf deinem Smartphone installiert?', 'Herr Jung hat ein neues Betriebssystem auf seinem Laptop installiert.', 'Wir haben auf allen Geräten ein Sicherheitsupdate installiert.', 'Wer hat eine neue App auf dem Tablet installiert?', 'Die IT-Abteilung hat Software-Updates auf den Computern im Unternehmen installiert.', 'Frau Lich hat auf ihrem Computer ein Virenschutzprogramm installiert.', 'Der Techniker hat neue Druckertreiber installiert.', 'Die Firma hat eine neue Produktionsanlage in der Fabrik installiert.', 'Der Installateur hat eine neue Heizungsanlage im Haus installiert.'],
   },
   {
     infinitiv: 'speichern',
@@ -824,6 +941,7 @@
     perfekt: 'gespeichert', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich speichere das Dokument auf meinem Computer.', 'Speicherst du die Fotos in der Cloud?', 'Herr Wagner speichert wichtige Dateien auf einer externen Festplatte.', 'Wir speichern unsere Dateien immer.', 'Speichert ihr eure Notizen auf dem Tablet?', 'Der Professor speichert die Prüfungsergebnisse im System.', 'Die Software speichert alle Änderungen automatisch.', 'Frau Schmidt speichert ihre Kontakte in der Handy-App.', 'Adam speichert sein Bild als digitale Datei.', 'Die Firma speichert ihre Daten auf sicheren Servern.'],
+    perfektSentences: ['Die Software hat alle Änderungen automatisch gespeichert.', 'Frau Schmidt hat ihre Kontakte in der Handy-App gespeichert.', 'Rainer hat sein Foto als digitale Datei gespeichert.', 'Die Firma hat ihre Daten auf sicheren Servern gespeichert.', 'Der Professor hat die Prüfungsergebnisse im System gespeichert.', 'Habt ihr eure Notizen auf dem Tablet gespeichert?', 'Wir haben unsere Dateien immer gespeichert.', 'Herr Haller hat wichtige Dateien auf einer externen Festplatte gespeichert.', 'Hast du die Fotos in der Cloud gespeichert?', 'Ich habe das Dokument auf meinem Computer gespeichert.'],
   },
   {
     infinitiv: 'öffnen',
@@ -831,6 +949,7 @@
     perfekt: 'geöffnet', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Frau Schmidt öffnet die E-Mail.', 'Der Mechaniker öffnet die Haube.', 'Ich öffne die Tür.', 'Die Studenten öffnen ihre Laptops.', 'Der Student öffnet die Cola-Dose.', 'Du öffnest das Buch.', 'Herr Müller öffnet die Tür, um Herrn Beck zu begrüßen.', 'Wir öffnen die Fenster.', 'Man öffnet die Datei auf dem Computer.', 'Die Praktikanten öffnen die Maschine.'],
+    perfektSentences: ['Die Praktikanten haben die Maschine geöffnet.', 'Der Student hat die Cola-Dose geöffnet.', 'Ich habe die Tür geöffnet.', 'Du hast die Buch geöffnet.', 'Herr Müller hat die Tür geöffnet, um Herrn Beck zu begrüßen.', 'Wir haben die Fenster geöffnet.', 'Man hat die Datei auf dem Computer geöffnet.', 'Die Studenten haben ihre Laptops geöffnet.', 'Der Mechaniker hat die Motorhaube geöffnet.', 'Frau Schmidt hat die E-Mail geöffnet.'],
   },
   {
     infinitiv: 'planen',
@@ -838,6 +957,7 @@
     perfekt: 'geplant', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Die Studentin plant ihre Karriere.', 'Der Ingenieur plant das Design der Autoteile.', 'Die Studierenden planen ihre Präsentation.', 'Wer plant unsere nächste Konferenz?', 'Ich plane meine Woche im Voraus.', 'Du planst das Wochenende.', 'Herr Müller plant eine Besprechung mit seinen Kollegen.', 'Wir planen ein Treffen im Juni.', 'Ihr plant euer Projekt.', 'Die Firma plant ein neues Produkt.'],
+    perfektSentences: ['Herr Müller hat ein Treffen mit seinen Kollegen geplant.', 'Die Firma hat ein neues Produkt geplant.', 'Der Student hat seine Karriere geplant.', 'Der Ingenieur hat die Konstruktion der Autoteile geplant.', 'Die Studentin hat ihre Präsentation geplant.', 'Wer hat die nächste Konferenz geplant?', 'Ich habe meine Woche geplant.', 'Du hast dein Wochenende geplant.', 'Wir haben ein Sommerfest geplant.', 'Ihr habt euer Projekt geplant.'],
   },
   {
     infinitiv: 'anfangen',
@@ -845,6 +965,7 @@
     perfekt: 'angefangen', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich fange gleich mit meiner Arbeit an.', 'Wann fängst du heute an zu arbeiten?', 'Herr Müller fängt immer pünktlich an zu arbeiten.', 'Wir fangen nächste Woche mit dem Projekt an.', 'Der Kurs fängt um 8 Uhr an.', 'Die Musiker fangen mit der Probe an.', 'Frau Schmidt fängt an, Japanisch zu lernen.', 'Der Student fängt an zu antworten.', 'Die Studenten fangen mit den Aufgaben an.', 'Der Ingenieur fängt an, in 3D zu modellieren.'],
+    perfektSentences: ['Die Studenten haben mit den Aufgaben angefangen.', 'Ich habe im Juni mit der Arbeit angefangen.', 'Frau Schmidt hat angefangen Japanisch zu lernen.', 'Der Student hat angefangen zu antworten.', 'Die Studierenden haben angefangen zu programmieren.', 'Der Kurs hat um 8 Uhr angefangen.', 'Wir haben letzte Woche angefangen zu arbeiten.', 'Herr Müller hat immer pünktlich nut der Arbeit angefangen.', 'Der Ingenieur hat mit der 3D-Modellierung angefangen.', 'Wann hast du heute angefangen zu arbeiten?'],
   },
   {
     infinitiv: 'hochladen',
@@ -852,6 +973,7 @@
     perfekt: 'hochgeladen', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Der Entwickler lädt den Code hoch.', 'Die Studierenden laden ihre Projekte auf die Lernplattform hoch.', 'Der Student lädt seine Aufgabe in Moodle hoch.', 'Frau Schmidt lädt die Fotos auf die Sozialmedien hoch.', 'Das Unternehmen lädt die Dokumente auf die Plattform hoch.', 'Ihr ladet die Präsentation in die Cloud hoch.', 'Wir laden die mp3-Datei auf Google drive hoch.', 'Herr Müller lädt das Video auf YouTube hoch.', 'Du lädst die Bilder auf die Website hoch.', 'Wann lädst du deine mp4-Datei hoch?'],
+    perfektSentences: ['Wann hast du die mp4-Datei hochgeladen?', 'Du hast die Bilder auf die Website hochgeladen.', 'Herr Meier hat das Video auf YouTube hochgeladen.', 'Wir haben die mp3-Datei auf Google Drive hochgeladen.', 'Sie haben die Präsentation in die Cloud hochgeladen.', 'Die Firma hat die Dokumente auf die Plattform hochgeladen.', 'Frau Schmidt hat die Fotos auf Social Media hochgeladen.', 'Der Studierende hat seine Aufgabe in Moodle hochgeladen.', 'Die Studierenden haben ihre Projekte auf die Lernplattform hochgeladen.', 'Der Entwickler hat den Code hochgeladen.'],
   },
   {
     infinitiv: 'starten',
@@ -859,6 +981,7 @@
     perfekt: 'gestartet', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Die Praktikantin startet die Aktion gegen den Hunger.', 'Die Studierenden starten den Laptop.', 'Frau Meier startet ihr Notebook.', 'Man startet den Motor des Autos.', 'Die Piloten starten das Flugzeug.', 'Herr Schmidt startet die Maschine in der Fabrik.', 'Du startest das Auto.', 'Herr Müller startet das Programm für die Präsentation.', 'Wir starten das Projekt diese Woche.', 'Ich starte den Computer.'],
+    perfektSentences: ['Die Praktikantin hat die Aktion gegen den Hunger gestartet.', 'Die Studierenden haben das Notebook gestartet.', 'Frau Meier hat ihren Laptop gestartet.', 'Ich habe den Computer gestartet.', 'Wir haben das Projekt in dieser Woche gestartet.', 'Herr Bauer hat das Programm für die Präsentation gestartet.', 'Du hast das Auto gestartet.', 'Herr Müller hat die Maschine in der Fabrik gestartet.', 'Der Pilot hat das Flugzeug gestartet.', 'Man hat den Motor des Autos gestartet.'],
   },
   {
     infinitiv: 'herunterfahren',
@@ -866,6 +989,7 @@
     perfekt: 'heruntergefahren', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Ich fahre den Computer herunter.', 'Du fährst das Programm herunter.', 'Der Professor fährt den Computer im Computerraum herunter.', 'Fährt ihr den Laptop herunter?', 'Frau Schmidt fährt den Drucker herunter.', 'Der Techniker fährt das System herunter.', 'Fahrt ihr die Maschine herunter?', 'Das Unternehmen fährt die Produktion am Wochenende herunter.', 'Herr Müller fährt die Anlage herunter.', 'Wir fahren das Betriebssystem herunter.'],
+    perfektSentences: ['Ich habe den Computer heruntergefahren.', 'Habt ihr den Laptop heruntergefahren?', 'Der Techniker hat die Anlage heruntergefahren.', 'Der Professor hat den Computer im Computerraum heruntergefahren.', 'Frau Schmidt hat den Drucker heruntergefahren.', 'Die Firma hat die Produktion am Wochenende heruntergefahren.', 'Wer hat die Maschine heruntergefahren?', 'Herr Müller hat das System heruntergefahren.', 'Wir haben das Betriebssystem heruntergefahren.', 'Du hast das Programm heruntergefahren.'],
   },
   {
     infinitiv: 'herunterladen',
@@ -873,6 +997,7 @@
     perfekt: 'heruntergeladen', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Der Ingenieur lädt die CAD-Dateien von der Website herunter.', 'Die Studierenden laden die Forschungspapiere herunter.', 'Was muss ich noch herunterladen?', 'Frau Schmidt lädt die Präsentation vom Server.', 'Du lädst die Bilder von der Kamera herunter.', 'Ich lade die Datei aus dem Internet herunter.', 'Herr Müller lädt das Software-Update herunter.', 'Wir laden das E-Book auf den E-Reader.', 'Man lädt die Musik von der Plattform herunter.', 'Das Unternehmen lädt die Berichte aus der Cloud herunter.'],
+    perfektSentences: ['Ich habe die Datei aus dem Internet geladen.', 'Der Ingenieur hat die CAD-Dateien von der Website heruntergeladen.', 'Die Studierenden haben die Texte heruntergeladen.', 'Wer hat die Videos heruntergeladen?', 'Herr Schmidt hat die Präsentation vom Server heruntergeladen.', 'Die Firma hat die Berichte aus der Cloud heruntergeladen.', 'Sie haben die Musik von der Plattform heruntergeladen.', 'Wir haben das E-Book auf den E-Reader geladen.', 'Herr Müller hat das Software-Update heruntergeladen.', 'Du hast die Bilder von der Kamera heruntergeladen.'],
   },
   {
     infinitiv: 'entpacken',
@@ -880,6 +1005,7 @@
     perfekt: 'entpackt', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Herr Jung entpackt die Datei online.', 'Frau Lich entpackt die Datei kostenlos im Internet.', 'Es ist nicht kompliziert, die Datei zu entpacken.', 'Wie kann man die Datei entpacken?', 'Die Arbeiter entpacken die Lieferung im Lager.', 'Wie entpackt man eine RAR-Datei?', 'Wer entpackt die Datei?', 'Kann Herr Richter die Datei entpacken?', 'Du entpackst die Dateien.', 'Ich entpacke die Dateien auf meinem Computer.'],
+    perfektSentences: ['Du hast die Dateien entpackt?', 'Ich habe die Dateien am Computer entpackt.', 'Herr Jung hat die Datei online entpackt.', 'Herr Richter hat die Datei entpackt?', 'Wer hat die Datei entpackt?', 'Wie haben die Praktikanten die RAR-Datei entpackt?', 'Die Mitarbeiter haben die Lieferung im Lager entpackt.', 'Wie hat Adam die Datei entpackt?', 'Habt ihr die Datei entpackt?', 'Frau Lich hat die Datei kostenlos im Internet entpackt.'],
   },
   {
     infinitiv: 'ändern',
@@ -887,6 +1013,7 @@
     perfekt: 'geändert', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Änderst du das Dokument?', 'Die Mitarbeiter ändern ihren Arbeitsplatz.', 'Der Ingenieur ändert das Projekt.', 'Das Unternehmen ändert seine Strategie.', 'Der Student ändert die Farben im Bild.', 'Man ändert die Software in ein paar Minuten.', 'Wir ändern das Design des Logos.', 'Der Techniker ändert die Computereinstellungen.', 'Du änderst oft deine Meinung.', 'Ich ändere meine Pläne.'],
+    perfektSentences: ['Der Mitarbeiter hat seinen Arbeitsplatz geändert.', 'Hast du das Dokument geändert?', 'Der Konstrukteur hat das Projekt geändert.', 'Die Firma hat ihre Strategie geändert.', 'Der Student hat die Farben des Bildes geändert.', 'Der Techniker hat die Software geändert.', 'Wir haben das Logo geändert.', 'Der Techniker hat die Einstellungen des Computers geändert.', 'Was hast du geändert?', 'Ich habe meine Pläne geändert.'],
   },
   {
     infinitiv: 'begrüßen',
@@ -894,6 +1021,7 @@
     perfekt: 'begrüßt', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Der Student begrüßt seinen Professor.', 'Begrüßt man die Gäste an der Tür?', 'Der Chef begrüßt die Mitarbeiter.', 'Herr Müller begrüßt die Studenten am Morgen.', 'Frau Richter begrüßt ihre Kollegen.', 'Wen begrüßt ihr?', 'Wir begrüßen die neuen Auszubildenden', 'Er begrüßt seine Gäste freundlich.', 'Du begrüßt Herrn Schmidt immer freundlich.', 'Ich begrüße herzlich Frau Meier.'],
+    perfektSentences: ['Der Student hat gestern seinen Professor begrüßt.', 'Ich habe Frau Meier schön begrüßt.', 'Du hast Herrn Schmidt freundlich begrüßt.', 'Er hat seine Gäste freundlich begrüßt.', 'Wir haben die neuen Praktikanten begrüßt.', 'Wen habt ihr begrüßt?', 'Frau Richter hat ihre Kollegen begrüßt.', 'Herr Müller hat die Studenten begrüßt.', 'Der Chef hat die Kollegen begrüßt.', 'Hast du die Gäste an der Tür begrüßt?'],
   },
   {
     infinitiv: 'fragen',
@@ -901,6 +1029,7 @@
     perfekt: 'gefragt', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Warum fragst du das?', 'Wer fragt nach Herrn Richter?', 'Warum fragt ihr immer so viel?', 'Fragst du den Betreuer nach Informationen?', 'Warum fragt ihr nach meiner Telefonnummer?', 'Fragt Herr Richter nach dem neuen Autoteil?', 'Warum fragt Frau Lich nach meiner Adresse?', 'Wir fragen immer etwas.', 'Fragst du mich nach meiner Meinung?', 'Was fragt er?'],
+    perfektSentences: ['Habt ihr etwas gefragt?', 'Wir haben immer etwas gefragt.', 'Was hat er gefragt?', 'Warum hast du gefragt?', 'Hast du mich nach meiner Meinung gefragt?', 'Hast du nach dem Betreuer gefragt?', 'Warum hat Frau Lich nach meiner Adresse gefragt?', 'Hat Herr Richter nach dem neuen Autoteil gefragt?', 'Warum habt ihr nach meiner Telefonnummer gefragt?', 'Wer hat nach Herrn Richter gefragt?'],
   },
   {
     infinitiv: 'bedanken, sich',
@@ -908,6 +1037,7 @@
     perfekt: 'bedankt', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Die Praktikanten bedanken sich für die Informationen.', 'Wie bedankst du dich bei Herrn Richter?', 'Der Chef bedankt sich bei seinem Team für die gute Arbeit.', 'Der Kunde bedankt sich für den Service.', 'Ich bedanke mich herzlich für deine Hilfe.', 'Wir bedanken uns für die Einladung zum Essen.', 'Frau Richter bedankt sich für alles.', 'Man bedankt sich bei, Betreuer für die Zusammenarbeit.', 'Er bedankt sich bei seinen Kollegen für die Hilfe.', 'Du bedankst dich immer freundlich.'],
+    perfektSentences: ['Warum hast du dich bedankt?', 'Er hat sich bei seinen Kollegen für die Hilfe bedankt.', 'Bei wem hast du dich für das Geschenk bedankt?', 'Die Praktikanten haben sich für die Informationen bedankt.', 'Frau Richter hat sich für das Lob bedankt.', 'Wir haben uns für die Einladung zum Essen bedankt.', 'Ich habe mich für die Hilfe bedankt.', 'Die Kunden haben sich für den Service bedankt.', 'Der Chef hat sich bei seinem Team für die gute Arbeit bedankt.', 'Wie hast du dich bei Herrn Richter bedankt?'],
   },
   {
     infinitiv: 'modellieren',
@@ -915,6 +1045,7 @@
     perfekt: 'modelliert', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Herr Richter modelliert Figuren ohne 3D.', 'Du modellierst den 3D-Körper einer Figur für ein Videospiel.', 'Können Sie geometrische Formen in 3D modellieren?', 'Frau Beck modelliert 3D-Kleider.', 'Ich modelliere gerne mit 3D-Programmen.', 'Du modellierst eine Frau in 3D.', 'Wir modellieren ein Haus in 3D.', 'Modelliert ihr ein neues Produkt in 3D?', 'Die Studierenden modellieren Maschinenteile für das 3D-Projekt.', 'Thomas modelliert das 3D-Autoteil am Computer.'],
+    perfektSentences: ['Herr Richter hat Figuren ohne 3D modelliert.', 'Wer hat die geometrischen Formen in 3D modelliert?', 'Du hast den 3D-Körper einer Figur für ein Videospiel modelliert.', 'Die Studierenden haben Maschinenteile für das 3D-Projekt modelliert.', 'Was hat Herr Klopp modelliert?', 'Habt ihr das neue Produkt in 3D modelliert?', 'Wir haben ein Haus in 3D modelliert.', 'Thomas hat ein Autoteil am Computer in 3D modelliert.', 'Hast du die Frau in 3D modelliert?', 'Ich habe gerne mit 3D-Programmen modelliert.'],
   },
   {
     infinitiv: 'beachten',
@@ -922,6 +1053,7 @@
     perfekt: 'beachtet', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Sie betrachten das Phänomen mit großem Interesse.', 'So kann man das nicht betrachten.', 'Wie betrachtet ihr das Projekt?', 'Der Professor betrachtet sie kritisch.', 'Die Studierenden betrachten das Problem optimistisch.', 'Die Praktikanten betrachten die Firma mit Respekt.', 'Ich betrachte das Projekt mit Interesse.', 'Wir betrachten die neue Abteilung positiv.', 'Die Studierenden betrachten das Problem optimistisch.', 'Du betrachtest die Präsentation ohne Interesse.'],
+    perfektSentences: ['Der Professor hat die Ergebnisse optimistisch betrachtet.', 'Die Studierenden haben das Phänomen mit großem Interesse betrachtet.', 'Wie haben Sie die Arbeit betrachtet?', 'Wie haben Sie das Ergebnis betrachtet?', 'Sie haben das Programm ohne Interesse betrachtet.', 'Habt ihr die Aufgaben kritisch betrachtet?', 'Wir haben die KI positiv betrachtet.', 'Herr Jung hat den Maschinenfehler aus verschiedenen Perspektiven betrachtet.', 'Hast du das Projekt aus dieser Perspektive betrachtet?', 'Ich habe die neuen Technologien nicht kritisch betrachtet.'],
   },
   {
     infinitiv: 'sollen',
@@ -929,6 +1061,7 @@
     perfekt: '* Präteritum', hilfsverb: 'HABEN' as const,
     lesson: 8, difficulty: 1,
     sentences: ['Die Mitarbeiter sollen länger arbeiten.', 'Du sollst nicht so viel am Computer arbeiten.', 'Die Studierenden sollen ihre Projekte bis April abgeben.', 'Die Praktikanten sollen keine langen Pausen machen.', 'Was sollen wir tun?', 'Ihr sollt eure Meinungen respektieren.', 'Wir sollen uns auf die Prüfung vorbereiten.', 'Er soll die Abteilung aufräumen.', 'Du sollst pünktlich zum Englischkurs kommen.', 'Ich soll unser Projekt beenden.'],
+    perfektSentences: [],
   },
   {
     infinitiv: 'tun',
@@ -936,6 +1069,7 @@
     perfekt: 'getan', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Ich tue mein Bestes.', 'Wie tut er das?', 'Die Betreuer tun alles, um den Praktikanten zu helfen.', 'Du tust das Richtige.', 'Adam tut nichts.', 'Die Praktikanten tun nichts Falsches.', 'Wer tut was?', 'Wir tun alles für unser Studium.', 'Herr Schmidt tut alles für die Praktikanten.', 'Was tust du?'],
+    perfektSentences: ['Frau Lich hat alles getan.', 'Adam hat nichts Falsches getan.', 'Was hast du getan?', 'Die Praktikanten haben nichts Falsches getan.', 'Wer hat was getan?', 'Wir haben alles für unsere Prüfung getan.', 'Herr Schmidt hat alles für die Praktikanten getan.', 'Der Betreuer hat alles getan, um den Praktikanten zu helfen.', 'Du hast das Richtige getan.', 'Wie hat er das getan?'],
   },
   {
     infinitiv: 'fühlen, sich',
@@ -943,6 +1077,7 @@
     perfekt: 'gefühlt', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Ich fühle mich heute gut.', 'Wie fühlen Sie sich?', 'Fühlt ihr euch nicht gut?', 'Frau Müller fühlt sich krank.', 'Ana fühlt sich gut.', 'Fühlt ihr euch krank?', 'Wir fühlen uns nicht so gut.', 'Herr Jung fühlt sich gestresst.', 'Fühlst du dich gut?', 'Die Studenten fühlen sich müde.'],
+    perfektSentences: ['Gestern habe ich mich nicht gut gefühlt.', 'Habt ihr euch auf der Party gut gefühlt?', 'Die Studierenden haben sich nach der Prüfung müde gefühlt.', 'Wie haben Sie sich gefühlt?', 'Herr Schmidt hat sich fit gefühlt.', 'Wir haben uns nicht gut gefühlt.', 'Habt ihr euch krank gefühlt?', 'Tina hat sich gut gefühlt.', 'Frau Jung hat sich gestern schlecht gefühlt.', 'Hast du dich gut gefühlt?'],
   },
   {
     infinitiv: 'stören',
@@ -950,6 +1085,7 @@
     perfekt: 'gestört', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Stört dich das?', 'Es stört mich, wenn die Kollegen laut reden.', 'Lars stört selten.', 'Die Maschinen stören bei der Arbeit.', 'Die Musik stört mich nicht.', 'Stört euch laute Musik?', 'Wir stören nicht gerne.', 'Der Student stört nie den Unterricht.', 'Du störst mich nur bei der Arbeit.', 'Ich störe dich nicht.'],
+    perfektSentences: ['Sie haben mich nicht gestört.', 'Habe ich Sie bei der Arbeit gestört?', 'Der Student hat seine Mitstudierenden gestört.', 'Wir haben den Betreuer manchmal mit Fragen gestört.', 'Hat euch laute Musik gestört?', 'Mich hat Musik nie gestört.', 'Wer hat die Kollegen bei der Arbeit gestört?', 'Was hat Lars gestört?', 'Mich hat es immer gestört, wenn die Kollegen laut geredet haben.', 'Hat dich das gestört?'],
   },
   {
     infinitiv: 'reisen',
@@ -957,6 +1093,7 @@
     perfekt: 'gereist', hilfsverb: 'SEIN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Wir reisen im Sommer.', 'Die Familie reist nicht so viel.', 'Ich reise gerne mit dem Zug.', 'Du reist viel.', 'Ihr reist mit dem Auto.', 'Reist Lars dem Bus?', 'Die Studierenden reisen viel in ihrer Freizeit.', 'Du reist für einen Austausch nach Deutschland.', 'Die Studenten reisen für ein Semester nach Österreich.', 'Der Professor reist zu einer Konferenz nach Polen.'],
+    perfektSentences: ['Der Professor ist für ein Projekt nach Wien gereist.', 'Die Studierenden sind für ein Semester nach Graz gereist.', 'Eva ist für einen Austausch nach Deutschland gereist.', 'Die Studierenden haben viel im Sommer gereist.', 'Ist Lars mit dem Bus gereist?', 'Bist du mit dem Auto gereist?', 'Bist du viel gereist?', 'Ich bin gerne mit dem Zug gereist.', 'Anna ist nicht so viel gereist.', 'Wir sind im Sommer gereist.'],
   },
   {
     infinitiv: 'schlafen',
@@ -964,6 +1101,7 @@
     perfekt: 'geschlafen', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Herr Jung schläft nie vor Mitternacht.', 'Schläfst du schon?', 'Die Praktikanten schlafen in der Jugendherberge.', 'Lars schläft im Studentenwohnheim.', 'Wo schlafen Sie?', 'Ihr schlaft unruhig.', 'Wir schlafen in einem großen Bett.', 'Herr Kurz schläft gerne auf der Couch.', 'Du schläfst tief.', 'Manchmal schlafe ich sieben Stunden.'],
+    perfektSentences: ['Herr Jung hat noch nie länger als 5 Stunden geschlafen.', 'Die Praktikanten schliefen in der Jugendherberge.', 'Hast du im Deutschunterricht geschlafen?', 'Ich habe manchmal nur drei Stunden geschlafen.', 'Du hast tief geschlafen.', 'Herr Kurz hat auf dem Sofa geschlafen.', 'Wir haben im Hotel geschlafen.', 'Ihr habt unruhig geschlafen.', 'Wo habt ihr geschlafen?', 'Die Studenten haben im Studentenwohnheim geschlafen.'],
   },
   {
     infinitiv: 'entschuldigen, sich',
@@ -971,6 +1109,7 @@
     perfekt: 'entschuldigt', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Ich entschuldige mich für die verspätete Antwort auf Ihre E-Mail.', 'Du entschuldigst dich immer für die Störung.', 'Frau Schmidt entschuldigt sich bei Herrn Jung für das Missverständnis.', 'Wir entschuldigen uns für die Fehler im Programm.', 'Bettina entschuldigt sich beim Professor für ihre Abwesenheit.', 'Man entschuldigt sich bei den Nachbarn für den Lärm.', 'Der Chef entschuldigt sich bei seinem Team für die Verspätung.', 'Ich entschuldige mich vielmals für meine Verspätung.', 'Die Praktikanten entschuldigen sich bei ihrem Betreuer für das Chaos in der Abteilung.', 'Die Firma entschuldigt sich bei den Kunden für die Qualitätsprobleme ihrer Produkte.'],
+    perfektSentences: ['Wofür hast du dich entschuldigt?', 'Hast dich für die Störung entschuldigt.', 'Frau Schmidt hat sich bei Herrn Jung für das Missverständnis entschuldigt.', 'Der Chef hat sich bei seinem Team für die Verspätung entschuldigt.', 'Das Unternehmen hat sich bei den Kunden für die Qualitätsprobleme entschuldigt.', 'Haben Sie sich bei Ihrem Chef für das Chaos in der Abteilung entschuldigt?', 'Ich habe mich mehrmals für mein Zuspätkommen entschuldigt.', 'Erik hat sich beim Professor für sein Fehlen entschuldigt.', 'Wer hat sich beim Professor entschuldigt?', 'Wir haben uns für die Fehler im Programm entschuldigt.'],
   },
   {
     infinitiv: 'beginnen',
@@ -978,6 +1117,7 @@
     perfekt: 'begonnen', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Der Konferenz beginnt um 9 Uhr.', 'Der Deutschunterricht beginnt um 8 Uhr.', 'Der Tag beginnt mit einem leckeren Frühstück.', 'Die Party beginnt um 20 Uhr.', 'Die Reise beginnt im Zug.', 'Wann beginnt der Kurs?', 'Der Film beginnt in ein paar Minuten.', 'Die Präsentationen beginnen jetzt.', 'Die Arbeit beginnt morgen.', 'Das Konzert beginnt in einer Stunde.'],
+    perfektSentences: ['Das Spiel hat später begonnen.', 'Wann hat das Konzert gestern angefangen?', 'Die Konferenz hat um 9.00 Uhr begonnen.', 'Die Referate haben vor kurzem begonnen.', 'Der Film hat jetzt begonnen.', 'Hat der Kurs schon begonnen?', 'Wann hat der Unterricht begonnen?', 'Der Deutschkurs hat um 10 Uhr begonnen.', 'Der Tag hat mit einem leckeren Frühstück begonnen.', 'Die Party hat um 8 Uhr begonnen.'],
   },
   {
     infinitiv: 'lauten',
@@ -985,6 +1125,7 @@
     perfekt: 'gelautet', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Wie lautet die Regel?', 'Meine Antwort lautet: Ja.', 'Der Satz lautet: Guten Tag!', 'Wie lautet Ihre Antwort?', 'Wie lautet deine Frage zum Text?', 'Die Testfrage lautet: Wie heißt die Hauptstadt von Deutschland?', 'Die Firma lautet auf meinen Namen.', 'Die Nachrichten lauten schlecht.', 'Auf wessen Namen lautet der Vertrag?', 'Das lautet gut.'],
+    perfektSentences: ['Das hat gut gelautet.', 'Die Nachrichten haben schlecht gelautet.', 'Die Testfrage hat gelautet: Wie heißt die Hauptstadt von Deutschland?', 'Wie hat Ihre Antwort gelautet?', 'Die Firma hat auf meinen Namen gelautet.', 'Der Satz hat gelautet: Guten Tag!', 'Meine Antwort hat gelautet: Ja.', 'Wie hat deine Frage zum Text gelautet?', 'Auf wessen Namen hat der Vertrag gelautet?', 'Wie hat die Regel gelautet?'],
   },
   {
     infinitiv: 'wünschen',
@@ -992,6 +1133,7 @@
     perfekt: 'gewünscht', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Die Mitarbeiter wünschen sich finanziellen Erfolg.', 'Die Fußballspieler wünschen sich eine Revanche beim nächsten Spiel.', 'Die Kolleginnen und Kollegen wünschen sich eine gute Zusammenarbeit.', 'Man wünscht sich manchmal mehr Zeit.', 'Der Betreuer wünscht sich neue Praktikanten.', 'Ihr wünscht uns viel Spaß auf dem Fest.', 'Wir wünschen eine gute Reise.', 'Ich wünsche Ihnen einen ruhigen Abend.', 'Adam wünscht mir Erfolg im Beruf.', 'Was wünschst du dir?'],
+    perfektSentences: ['Wir haben Ihnen eine gute Fahrt gewünscht.', 'Die Fußballspieler haben sich eine Revanche beim nächsten Spiel gewünscht.', 'Die Mitarbeiter haben sich finanziellen Erfolg gewünscht.', 'Ich habe einen ruhigen Abend gewünscht.', 'Was hast du dir gewünscht?', 'Leo hat mir Erfolg im Beruf gewünscht.', 'Das Basketballmannschaft hat sich neue Rekorde gewünscht.', 'Man hat sich manchmal mehr Zeit gewünscht.', 'Die Kollegen haben sich eine gute Zusammenarbeit gewünscht.', 'Frau Lich hat Herrn Jung viel Spaß bei der Geburtstagsfeier gewünscht.'],
   },
   {
     infinitiv: 'hoffen',
@@ -999,6 +1141,7 @@
     perfekt: 'gehofft', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Lars hofft auf einen Job.', 'Worauf hoffst du?', 'Wir hoffen auf eine gute Zusammenarbeit.', 'Die Fans hoffen auf eine Revanche beim nächsten Spiel.', 'Man hofft auf einen besseren Arbeitsplatz.', 'Ihr hofft auf baldige Besserung.', 'Wir hoffen, dass die Prüfung nicht lang dauert.', 'Anna hofft auf beruflichen Erfolg.', 'Du hoffst auf eine positive Antwort.', 'Ich hoffe auf ein Wiedersehen.'],
+    perfektSentences: ['Ich habe auf ein Wiedersehen gehofft.', 'Du hast auf eine positive Antwort gehofft.', 'Anna hat gehofft, Karriere zu machen.', 'Wir haben gehofft, dass die Kontrolle nicht lange dauert.', 'Sie haben auf Erfolg gehofft.', 'Lars hat auf eine Arbeitsstelle gehofft.', 'Wir haben auf einen besseren Job gehofft.', 'Die Fans haben auf eine Revanche beim nächsten Spiel gehofft.', 'Wir haben auf eine gute Kooperation gehofft.', 'Hast du auf eine leichte Aufgabe gehofft?'],
   },
   {
     infinitiv: 'gefallen',
@@ -1006,6 +1149,7 @@
     perfekt: 'gefallen', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Manchmal gefallen mir die Ideen nicht.', 'Den Studierenden gefällt das Programm.', 'Wem gefallen die Kommentare zu den Hausaufgaben?', 'Den Praktikanten gefallen die neuen Maschinen.', 'Den Praktikanten gefallen die Abteilungen in der Firma.', 'Gefällt euch der neue Lehrer?', 'Uns gefallen die Projektideen.', 'Herrn Müller gefällt der Film nicht.', 'Gefällt dir die Farbe des Autos?', 'Die neuen Projektideen gefallen mir.'],
+    perfektSentences: ['Mir haben die neuen Projektideen nicht gefallen.', 'Hat dir die Farbe des Autos gefallen?', 'Die Musik hat Herrn Müller nicht gefallen.', 'Uns haben die Projektideen gut gefallen.', 'Hat euch der neue Lehrer gefallen?', 'Die Abteilungen in der Firma haben den Praktikanten gefallen.', 'Den Praktikanten haben die neuen Geräte gefallen.', 'Wem haben die Kommentare zu den Hausaufgaben gefallen?', 'Den Studierenden hat das Programm gefallen.', 'Manchmal haben mir die Ideen nicht gefallen.'],
   },
   {
     infinitiv: 'ansehen',
@@ -1013,6 +1157,7 @@
     perfekt: 'angesehen', hilfsverb: 'HABEN' as const,
     lesson: 9, difficulty: 1,
     sentences: ['Die Fans sehen sich das Fußballspiel im Stadion an.', 'Herr Jung sieht sich die Bewerbungen an.', 'Die Studierenden sehen sich die Beispielsätze an.', 'Wir sehen uns oft YouTube-Videos an.', 'Die Praktikanten sehen sich eine Maschine an.', 'Ihr seht euch eine Projektdokumentation an.', 'Wir sehen uns heute Abend ein Theaterstück an.', 'Frau Müller sieht sich oft Fotos von ihrer letzten Reise an.', 'Du siehst dir Fußballspiele im Fernsehen an.', 'Ich sehe mir gerne Filme an.'],
+    perfektSentences: ['Die Professorinnen haben sich die Diplomarbeiten angesehen.', 'Ich habe mir gerne Filme angesehen.', 'Hast du dir Comics angesehen?', 'Herr Meier hat sich oft Familienfotos angesehen.', 'Wir haben uns einen Horrorfilm angesehen.', 'Habt ihr euch die Projektdokumentation angesehen?', 'Die Praktikanten haben sich die Software angesehen.', 'Wir haben uns oft Videos angesehen.', 'Die Studierenden haben sich die Beispielsätze angesehen.', 'Wer hat sich die Bewerbungen angesehen?'],
   },
   {
     infinitiv: 'reden',
@@ -1020,6 +1165,7 @@
     perfekt: 'geredet', hilfsverb: 'HABEN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Ich rede gerne über meine Hobbys.', 'Der Student redet leise während der Vorlesung.', 'Man redet über die Pläne fürs Wochenende.', 'Die Experten reden über technische Entwicklungen.', 'Die Praktikanten reden über das Praktikum.', 'Die Sportler reden über ihr Training.', 'Man redet viel über das Wetter.', 'Der Professor redet mit den Studierenden über ihre Projekte.', 'Wir reden über die aktuelle Politik.', 'Du redest viel über das Auslandsstipendium.'],
+    perfektSentences: ['Sie haben über das Wetter geredet.', 'Ich habe gerne über meine Hobbys geredet.', 'Du hast viel über das Auslandsstipendium geredet.', 'Der Professor hat mit den Studenten über ihre Projekte geredet.', 'Der Student hat während der Vorlesung laut geredet.', 'Wir haben über die aktuelle Politik geredet.', 'Die Sportler haben über das Training geredet.', 'Die Praktikanten haben über ihr Praktikum geredet.', 'Die Experten haben über technische Entwicklungen geredet.', 'Man hat über die Pläne fürs Wochenende geredet.'],
   },
   {
     infinitiv: 'zuordnen',
@@ -1027,6 +1173,7 @@
     perfekt: 'zugeordnet', hilfsverb: 'HABEN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Wer ordnet die Daten zu?', 'Die Software ordnet die Daten automatisch zu.', 'Die Mitarbeiter ordnen die Kundenanfragen den Abteilungen zu.', 'Ihr ordnet die Daten dem Kalender zu.', 'Die Professorin ordnet die Studierenden den Teams zu.', 'Wie ordnet man Dokumente zu?', 'Ihr ordnet die Farben den entsprechenden Kisten zu.', 'Wir ordnen die Aufgaben den Teammitgliedern zu.', 'Frau Jung ordnet die Zahlen den Kategorien zu.', 'Du ordnest die Verben zu.'],
+    perfektSentences: ['Wer hat die Daten zugeordnet?', 'Die Software hat die Daten automatisch zugeordnet.', 'Die Mitarbeiter haben die Kundenanfragen den Abteilungen zugeordnet.', 'Die Praktikanten haben die Daten dem Kalender zugeordnet.', 'Du hast die Verben zugeordnet.', 'Frau Müller hat die Zahlen den Kategorien zugeordnet.', 'Wir haben die Aufgaben den Teammitgliedern zugeordnet.', 'Ihr habt die Farben den Kisten zugeordnet.', 'Wie habt ihr die Dokumente zugeordnet?', 'Der Professor hat die Studierenden den Teams zugeordnet.'],
   },
   {
     infinitiv: 'fahren',
@@ -1034,6 +1181,7 @@
     perfekt: 'gefahren', hilfsverb: 'SEIN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Ich fahre jeden Tag mit dem Fahrrad zur Arbeit.', 'Du fährst heute mit dem Bus zur Schule.', 'Herr Beck fährt oft mit dem Auto in die Stadt.', 'Am Wochenende fahren wir nach Wien.', 'Man fährt mit dem Zug nach Berlin.', 'Die Familie fährt im Sommer in den Urlaub.', 'Man fährt mit der U-Bahn zur Arbeit.', 'Die Touristen fahren mit dem Boot auf dem Fluss.', 'Die Studentin fährt in den Ferien in die Berge.', 'Die Busfahrer fahren durch die Stadt.'],
+    perfektSentences: ['Seid ihr nach Spanien gefahren?', 'Bist du im Sommer nach Italien gefahren?', 'Die Praktikanten sind nach Hause gefahren.', 'Man ist mit der S-Bahn zur Arbeit gefahren.', 'Im Sommer sind die Familien in den Urlaub gefahren.', 'Mit dem Zug sind wir schnell nach Berlin gefahren.', 'Wir sind am Wochenende nach Hamburg gefahren.', 'Frau Kurz ist oft mit dem Auto in die Stadt gefahren.', 'Bist du heute mit dem Bus zur Schule gefahren?', 'Ich bin jeden Tag mit dem Fahrrad zur Arbeit gefahren.'],
   },
   {
     infinitiv: 'bleiben',
@@ -1041,6 +1189,7 @@
     perfekt: 'geblieben', hilfsverb: 'SEIN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Bleibt ihr noch hier?', 'Die Gäste bleiben bis 21 Uhr.', 'Die Studierenden bleiben optimistisch.', 'Ich bleibe heute Abend zu Hause.', 'Regina bleibt noch zwei Stunden im Labor.', 'Wir bleiben eine Woche in Salzburg.', 'Herr Jung bleibt in stressigen Situationen immer ruhig.', 'Die Mitarbeiter bleiben bis 14 Uhr in der Kantine.', 'Du bleibst heute länger in der Schule.', 'Die Praktikanten bleiben in der Produktion.'],
+    perfektSentences: ['Die Praktikanten sind in der Informatikabteilung geblieben.', 'Ich bin letzte Nacht zu Hause geblieben.', 'Gudrun ist zwei Stunden länger im Labor geblieben.', 'Wie lange sind Sie in Salzburg geblieben?', 'Herr Milke ist in stressigen Situationen immer ruhig geblieben.', 'Wir sind bis 14 Uhr in der Kantine geblieben.', 'Du bist heute länger in der Schule geblieben.', 'Die Gäste blieben bis 21 Uhr.', 'Seid ihr lange geblieben?', 'Die Studierenden sind optimistisch geblieben.'],
   },
   {
     infinitiv: 'schwimmen',
@@ -1048,6 +1197,7 @@
     perfekt: 'geschwommen', hilfsverb: 'SEIN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Ich schwimme gerne im See.', 'Schwimmst du gerne?', 'Herr Meier schwimmt morgens im Schwimmbad.', 'Wir schwimmen lieber im Meer.', 'Man schwimmt im Sommer oft im Freibad.', 'Die Studierenden schwimmen im Fluss.', 'Schwimmen Sie jeden Morgen?', 'Schwimmt ihr immer am Wochenende?', 'Die Schwimmerinnen schwimmen im Olympiabecken.', 'Die Senioren schwimmen im Thermalbad.'],
+    perfektSentences: ['Wir sind am liebsten im Meer geschwommen.', 'Ich bin gerne im See geschwommen.', 'Die Senioren sind gestern im Thermalbad geschwommen.', 'Die Sportschwimmerinnen sind im Olympiabecken geschwommen.', 'Seid ihr immer am Sonntag geschwommen?', 'Ist jemand jeden Morgen geschwommen?', 'Herr Müller ist vormittags im Schwimmbad geschwommen.', 'Bist du gerne geschwommen?', 'Wir sind im Fluss geschwommen.', 'Anna ist im Sommer oft im Freibad geschwommen.'],
   },
   {
     infinitiv: 'feiern',
@@ -1055,6 +1205,7 @@
     perfekt: 'gefeiert', hilfsverb: 'HABEN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Feiern Studierende ihren Abschluss?', 'Anna feiert ihren Schulabschluss mit einer Party.', 'Ich feiere jedes Jahr meinen Geburtstag.', 'Man feiert Silvester mit einem großen Feuerwerk.', 'Die Stadt feiert ein Sommerfest.', 'Der Chef feiert seinen beruflichen Erfolg.', 'Weihnachten feiert man traditionell mit der Familie.', 'Die Schule feiert ein Jubiläum.', 'Man feiert den Sieg im Fußballturnier.', 'Wir feiern heute Abend einen Geburtstag.'],
+    perfektSentences: ['Johannes hat seinen Abschluss mit einer Party gefeiert.', 'Haben die Studierenden gestern ihren Abschluss gefeiert?', 'Meinen Geburtstag habe ich jedes Jahr gefeiert.', 'Silvester haben wir mit einem großen Feuerwerk gefeiert.', 'Wer hat gestern so lange gefeiert?', 'Der Chef hat seinen beruflichen Erfolg gefeiert.', 'Weihnachten hat man traditionell mit der Familie gefeiert.', 'In der Schule hat man ein Jubiläum gefeiert.', 'Man hat den Sieg im Fußballturnier gefeiert.', 'Heute Abend haben wir einen Geburtstag gefeiert.'],
   },
   {
     infinitiv: 'liegen',
@@ -1062,6 +1213,7 @@
     perfekt: 'gelegen', hilfsverb: 'HABEN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Die Nordsee liegt in Nordeuropa.', 'Berlin liegt im Osten von Deutschland.', 'Die Alpen liegen in Südeuropa.', 'Die Aufgabe liegt auf deinem Schreibtisch.', 'Herr Meier liegt im Bett.', 'Österreich liegt im Süden von Deutschland.', 'Deutschland liegt in Mitteleuropa.', 'München liegt in Süddeutschland.', 'Hamburg liegt im Norden Deutschlands.'],
+    perfektSentences: ['Die Bücher haben auf dem Boden gelegen.', 'Die Karte hat auf dem Tisch gelegen.', 'Das Buch hat auf der Couch gelegen.', 'Hast du lange im Bett gelegen?', 'Wie lange haben Sie im Bett gelegen?', 'Warum habt ihr auf dem Boden gelegen?', 'Das Formular hat auf dem Tisch gelegen.', 'Wo hat deine Projektmappe gelegen?', 'Haben die Fotos hier gelegen?', 'Wo haben deine Schutzhandschuhe gelegen?'],
   },
   {
     infinitiv: 'schneien',
@@ -1069,6 +1221,7 @@
     perfekt: 'geschneit', hilfsverb: 'HABEN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Es schneit.', 'Heute schneit es.', 'Morgen schneit es.', 'Im Februar schneit es.', 'Manchmal schneit es im Dezember.', 'Im Januar schneit es selten.', 'Schneit es?', 'Wann schneit es?', 'Wie oft schneit es im Winter?', 'Morgen schneit es nicht mehr.'],
+    perfektSentences: ['Heute hat es geschneit.', 'Es hat viel geschneit.', 'Heute hat es nicht geschneit.', 'Im Dezember hat es manchmal geschneit.', 'Im Januar hat es selten geschneit.', 'Hat es geschneit?', 'Wann hat es geschneit?', 'Wie oft hat es in diesem Winter geschneit?', 'Am Freitag hat es nicht geschneit.', 'Hat es in der Nacht wieder gescheint?'],
   },
   {
     infinitiv: 'regnen',
@@ -1076,6 +1229,7 @@
     perfekt: 'geregnet', hilfsverb: 'HABEN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Es regnet.', 'Morgen regenet es.', 'Wann regnet es?', 'Es regnet stark.', 'Regnet es?', 'Im Frühling regnet es oft.', 'Es regnet seit Stunden.', 'In den Herbstmonaten regnet es oft.', 'Es regnet leicht.', 'Heute regnet es nicht.'],
+    perfektSentences: ['Heute Morgen hat es geregnet.', 'Wann hat es geregnet?', 'Gestern hat es stark geregnet.', 'Hat es am Wochenende geregnet?', 'In diesem Frühling hat es oft geregnet.', 'Es hat stundenlang geregnet.', 'Im Herbst hat es oft geregnet.', 'Es hat ein bisschen geregnet.', 'Heute hat es nicht geregnet.', 'Im vergangenen Jahr hat es nur selten geregnet.'],
   },
   {
     infinitiv: 'mitbringen',
@@ -1083,6 +1237,7 @@
     perfekt: 'mitgebracht', hilfsverb: 'HABEN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Die Studierenden bringen ihre Projekte in den Unterricht mit.', 'Mein Bruder bringt immer gute Musik-CDs mit.', 'Bringt ihr eure Sachen mit?', 'Der Praktikant bringt Käsebrot mit.', 'Sie bringt die wichtigen Unterlagen zur Besprechung mit.', 'Bringt ihr eure Hausaufgaben mit?', 'Wir bringen oft Wurstbrote mit.', 'Er bringt seine Kolleginnen zur Party mit.', 'Warum bringst du keine Brötchen mit?', 'Ich bringe die Bücher mit.'],
+    perfektSentences: ['Warum hast du keine Butterbrote mitgebracht?', 'Er hat seine Kolleginnen mitgebracht.', 'Mein Kollege hat immer gute Musik-CDs zur Party mitgebracht.', 'Wir haben oft Wurstbrote mitgebracht.', 'Habt ihr eure Aufgaben mitgebracht?', 'Sie hat die wichtigen Unterlagen für die Besprechung mitgebracht.', 'Der Praktikant hat Coladosen mitgebracht.', 'Ich habe die Arbeitsmaterialien mitgebracht.', 'Habt ihr eure Sachen mitgebracht?', 'Die Studierenden haben ihre Projekte mitgebracht.'],
   },
   {
     infinitiv: 'einschenken',
@@ -1090,6 +1245,7 @@
     perfekt: 'eingeschenkt', hilfsverb: 'HABEN' as const,
     lesson: 10, difficulty: 1,
     sentences: ['Was schenkt Lars ihren Kollegen ein?', 'Ihr schenkt euch Saft ein.', 'Leo schenkt sich Wasser ein.', 'Ich schenke mir einen Kaffee ein.', 'Schenkst du deinen Gästen ein Glas Wein ein?', 'Die Praktikanten schenken sich in der Kaffeepause Kaffee ein.', 'Warum schenkst du dir keinen Saft ein?', 'Der Barkeeper gießt den Cocktail in die Gläser.', 'Die Müllers schenken allen Gästen ein Glas Sekt ein.', 'Wir schenken uns Tee ein.'],
+    perfektSentences: ['Was haben Praktikanten ihren Arbeitskollegen eingeschenkt?', 'Der Barmann hat den Cocktail in die Gläser eingeschenkt.', 'Ich habe mir Tee eingeschenkt.', 'Hast du deinen Gästen Wein eingeschenkt?', 'Sven hat Maria Wasser eingeschenkt.', 'Wir haben uns heiße Schokolade eingeschenkt.', 'Ihr habt euch Fruchtsaft eingeschenkt.', 'Die Praktikanten haben sich in der Pause Kaffee eingeschenkt.', 'Warum hast du dir keinen Saft eingeschenkt?', 'Die Meiers haben allen Gästen ein Glas mit Sekt eingeschenkt.'],
   },
   {
     infinitiv: 'verbinden',
@@ -1097,6 +1253,7 @@
     perfekt: 'verbindet', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Ich verbinde Sie jetzt mit dem Kundendienst.', 'Verbinden Sie mich mit dem zuständigen Mitarbeiter?', 'Die Assistentin verbindet Herrn Richter mit der Marketingabteilung.', 'Frau Jung verbindet einen wichtigen Anruf mit dem Betreuer.', 'Wir verbinden die Anrufe für Herrn Schmidt mit Frau Müller.', 'Können Sie mich mit Herrn Müller verbinden?', 'Die Telefonanlage verbindet heute falsch.', 'Das Telefonsystem verbindet automatisch mit Frau Sommer.', 'Verbinden Sie mich bitte mit der Assistentin?', 'Der Kollege verbindet alle Anrufe mit dem Chef.'],
+    perfektSentences: ['Ich habe Sie mit dem Kundenservice verbunden.', 'Haben Sie mich mit dem richtigen Mitarbeiter verbunden?', 'Die Sekretärin hat Herrn Richter mit der Marketingabteilung verbunden.', 'Frau Lang hat einen wichtigen Anruf mit dem Supervisor verbunden.', 'Wir haben Herrn Schmidt mit Frau Müller verbunden.', 'Haben Sie mich mit Herrn Müller verbunden?', 'Die Telefonanlage hat gestern alle Anrufe falsch verbunden.', 'Die Telefonanlage hat automatisch mit Herrn Jung verbunden.', 'Haben Sie mich bitte mit Frau Sommer verbunden?', 'Der Kollege hat alle Anrufe mit dem Chef verbunden.'],
   },
   {
     infinitiv: 'ausrichten',
@@ -1104,6 +1261,7 @@
     perfekt: 'ausgerichtet', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Ich richte aus, dass Herr Müller Sie morgen zurückruft.', 'Kannst du bitte ausrichten, dass die Besprechung um 15 Uhr beginnt?', 'Der Chef richtet aus, dass das Projekt nächste Woche beginnt.', 'Herr Schmidt richtet Ihnen aus, dass er den Termin bestätigt.', 'Kannst du meinem Kollegen bitte ausrichten, dass ich später komme?', 'Wir richten aus, dass wir das Teammeeting auf morgen verschieben.', 'Richten Sie dem Kunden aus, dass wir ihn morgen anrufen.', 'Möchten Sie Herrn Schmidt etwas ausrichten?', 'Was richten Sie Herrn Sommer aus?', 'Ich richte im Moment nichts aus.'],
+    perfektSentences: ['Ich habe ausgerichtet, dass Herr Müller Sie morgen zurückruft.', 'Hast du ausgerichtet, dass die Besprechung um 15 Uhr beginnt?', 'Ich habe gestern nichts ausgerichtet.', 'Der Chef hat ausgerichtet, dass das Projekt nächste Woche beginnt.', 'Herr Schmidt hat ausgerichtet, dass er den Termin bestätigt.', 'Hast du bitte meinem Kollegen ausgerichtet, dass ich später komme?', 'Wir haben ausgerichtet, dass die Teambesprechung auf morgen verschoben wird.', 'Haben Sie dem Kunden ausgerichtet, dass wir ihn morgen anrufen?', 'Haben Sie Herrn Schmidt etwas ausgerichtet?', 'Was haben Sie Herrn Sommer ausgerichtet?'],
   },
   {
     infinitiv: 'sagen',
@@ -1111,6 +1269,7 @@
     perfekt: 'gesagt', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Du sagst, dass du pünktlich bist.', 'Wir sagen unseren Geschäftspartnern immer, wenn wir ein Treffen verschieben müssen.', 'Ihr sagt, dass ihr am Wochenende eine Party macht.', 'Die Studenten sagen, dass sie das Projekt pünktlich beenden.', 'Der Professor sagt den Schülern, dass sie ihre Hausaufgaben abgeben sollen.', 'Die Nachrichten sagen, dass das Wetter am Wochenende sonnig sein wird.', 'Sagst du mir, wie spät es ist?', 'Die Betreuer sagen ihren Praktikanten, dass sie sich konzentrieren sollen.', 'Du sagst, dass du bis morgen fertig bist.', 'Ich sage lieber nichts.'],
+    perfektSentences: ['Die Betreuer haben ihren Praktikanten gesagt, dass sie sich konzentrieren sollen.', 'Hast du mir gesagt, wie spät es ist?', 'Die Nachrichten haben gesagt, dass das Wetter am Wochenende sonnig sein wird.', 'Habt ihr gesagt, dass ihr am Wochenende feiert?', 'Ich habe nie etwas gegen Herrn Richter gesagt.', 'Du hast gesagt, dass du morgen fertig bist.', 'Der Professor hat gesagt, dass die Studenten ihre Hausaufgaben abgeben sollen.', 'Wir haben unseren Geschäftspartnern gesagt, wenn wir ein Treffen verschieben müssen.', 'Die Studenten haben gesagt, dass sie das Projekt pünktlich beenden.', 'Du hast gesagt, dass du pünktlich bist.'],
   },
   {
     infinitiv: 'hinterlassen',
@@ -1118,6 +1277,7 @@
     perfekt: 'hinterlassen', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Hinterlassen Sie nach dem Piepton eine Nachricht.', 'Kannst du eine Nachricht hinterlassen?', 'Ralf hinterlässt oft Kommentare auf Facebook.', 'Wir hinterlassen eine Notiz am Kühlschrank, wenn wir einkaufen gehen.', 'Ihr hinterlasst mir die ganze Arbeit.', 'Der Kunde hinterlässt einen positiven Kommentar auf der Website.', 'Hinterlässt du eine Nachricht, wenn ich nicht da bin?', 'Die Lehrerin hinterlässt wichtige Informationen im Moodle-Raum.', 'Die Kollegen hinterlassen eine kurze Nachricht, wenn sie unterwegs sind.', 'Ich hinterlasse dir eine Nachricht.'],
+    perfektSentences: ['Was für eine Nachricht hast du Herrn Beck hinterlassen?', 'Wann haben Sie die Nachricht hinterlassen?', 'Habe ich keine Nachricht hinterlassen?', 'Welche Nachricht hast du hinterlassen?', 'Haben Sie eine Nachricht für Herrn Jung hinterlassen?', 'Warum haben Sie keine Nachricht hinterlassen?', 'Leider haben wir keine Nachricht hinterlassen.', 'Ich habe eine Nachricht für Herrn Schmidt hinterlassen.', 'Wir haben gestern eine Nachricht hinterlassen.'],
   },
   {
     infinitiv: 'ankommen',
@@ -1125,6 +1285,7 @@
     perfekt: 'angekommen', hilfsverb: 'SEIN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Ich komme pünktlich an.', 'Die Gäste kommen gerade an.', 'Mein Zug kommt um 15 Uhr an.', 'Du kommst am Samstag an.', 'Frau Sommer kommt um 6 Uhr an.', 'Wir kommen am Bahnhof an.', 'Wann kommst du in Berlin an?', 'Wann kommt man in Deutschland an?', 'Wann kommst du in München an?', 'Die Flüge kommen pünktlich an.'],
+    perfektSentences: ['Der Bus ist pünktlich angekommen.', 'Ich bin rechtzeitig in Bonn angekommen.', 'Mein Zug ist um 15 Uhr angekommen.', 'Du bist am Samstag angekommen.', 'Frau Sommer ist um 6 Uhr früh angekommen.', 'Wann bist du in München angekommen?', 'Die Kunden sind gerade in der Kundenhalle angekommen.', 'Wann bist du in Deutschland angekommen?', 'Wann bist du in Berlin angekommen?', 'Wir sind am Bahnhof angekommen.'],
   },
   {
     infinitiv: 'erreichen',
@@ -1132,6 +1293,7 @@
     perfekt: 'erreicht', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Wann erreiche ich dich am schnellsten?', 'Erreichst du deine Kollegen während der Arbeitszeit?', 'Mitarbeiter erreichen ihre Kollegen per Telefon.', 'Ich kann meinen Chef gerade nicht erreichen.', 'Wir erreichen unsere Kunden durch gezielte Marketingkampagnen.', 'Ihr erreicht eure Freunde über Social Media.', 'Wie erreichst du deinen Kollegen für das Meeting?', 'Die Kunden erreichen den Kundenservice über die Hotline.', 'Herr Jung erreicht seine Ziele durch harte Arbeit.', 'Du erreichst mich am besten per E-Mail.'],
+    perfektSentences: ['Wann habe ich dich erreicht?', 'Kunden haben den Kundenservice über die Hotline erreicht.', 'Wie hast du deinen Kollegen für die Präsentation erreicht?', 'Mitarbeiter haben ihre Kollegen über das Telefon erreicht.', 'Ihr habt eure Freunde über Snapchat erreicht.', 'Wir haben unsere Kunden durch gezielte Marketingkampagnen erreicht.', 'Die Praktikantin hat ihre Ziele durch harte Arbeit erreicht.', 'Du hast mich per E-Mail erreicht.', 'Ich habe meinen Chef im Moment nicht erreicht.', 'Wie hast du deine Kollegen während der Arbeitszeit erreicht?'],
   },
   {
     infinitiv: 'wiederholen',
@@ -1139,6 +1301,7 @@
     perfekt: 'wiederholt', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Ich wiederhole oft die Vokabeln.', 'Der Projektleiter wiederholt die wichtigsten Ideen aus dem Brainstorming.', 'Der Arzt wiederholt die Therapie.', 'Wir wiederholen die Sicherheitsregeln im Unternehmen.', 'Du wiederholst die Matheaufgaben.', 'Die Sportmannschaft wiederholt jeden Tag ihr Training.', 'Sie wiederholt die Melodie.', 'Der Trainer wiederholt vor jedem Spiel die taktischen Anweisungen.', 'Die Studierenden wiederholen die Experimente im Labor.', 'Ich wiederhole die Yoga-Übungen.'],
+    perfektSentences: ['Du hast die Matheaufgaben wiederholt.', 'Ich habe das Vokabular oft wiederholt.', 'Die Studierenden haben die Experimente im Labor wiederholt.', 'Der Arzt hat die Therapie wiederholt.', 'Wir haben die Sicherheitsregeln in den Abteilungen wiederholt.', 'Die Sportmannschaft hat das tägliche Training wiederholt.', 'Sie hat die Melodie geübt.', 'Der Trainer hat die taktischen Anweisungen vor jedem Spiel wiederholt.', 'Ich habe die Yoga-Übungen wiederholt.', 'Der Projektleiter hat die wichtigsten Ideen aus dem Brainstorming wiederholt.'],
   },
   {
     infinitiv: 'verwählen, sich',
@@ -1146,6 +1309,7 @@
     perfekt: 'verwählt', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Du verwählst dich oft, wenn du im Stress bist.', 'Die Sekretärin verwählt sich selten, weil sie die Nummern gut kennt.', 'Wir verwählen uns nie.', 'Verwählst du dich nie?', 'Herr Schmidt verwählt sich nur, wenn es eine neue Nummer gibt.', 'Warum verwählt sich Frau Jung so oft?', 'Verwählt sich dein Handy automatisch, wenn du im Ausland bist?', 'Die ältere Frau verwählt sich oft.', 'Ich verwähle mich manchmal.', 'Praktikanten verwählen sich oft.'],
+    perfektSentences: ['Der Praktikant hat sich oft verwählt.', 'Du hast dich oft verwählt, wenn du gestresst warst.', 'Die Sekretärin hat sich selten verwählt, weil sie die Nummern gut kennt.', 'Die Mitarbeiter haben uns nie verwählt.', 'Du hast dich nie verwählt.', 'Herr Schmidt hat sich nur verwählt, wenn es eine neue Nummer gab.', 'Warum hat sich Frau Schmidt so selten verwählt?', 'Hat sich dein Handy automatisch verwählt, als du im Ausland warst?', 'Der ältere Herr hat sich oft verwählt.', 'Ich habe mich manchmal verwählt.'],
   },
   {
     infinitiv: 'buchstabieren',
@@ -1153,6 +1317,7 @@
     perfekt: 'buchstabiert', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Die Praktikanten buchstabieren ihre Adresse.', 'Die Lehrerin buchstabiert die schwierigen Wörter für die Studenten.', 'Man buchstabiert seinen Nachnamen für das Formular.', 'Warum buchstabierst du dein Passwort am Telefon?', 'Der Lehrer buchstabiert wichtige Wörter im Englischunterricht.', 'Ihr buchstabiert die Produktcodes.', 'Wir buchstabieren oft E-Mail-Adressen.', 'Frau Lich buchstabiert den Straßennamen für den Taxifahrer.', 'Du buchstabierst die schwierigen Wörter beim Diktat.', 'Ich buchstabiere immer meinen Namen am Telefon.'],
+    perfektSentences: ['Die Praktikanten haben ihre Adresse buchstabiert.', 'Der Professor hat die schwierigen Wörter für die Studenten buchstabiert.', 'Hast du deinen Nachnamen für das Formular buchstabiert?', 'Ich habe am Telefon immer meinen Namen buchstabiert.', 'Jens hat die schwierigen Wörter im Diktat buchstabiert.', 'Die Lehrerinnen haben wichtige Wörter im Englischunterricht buchstabiert.', 'Warum hast du dein Passwort am Telefon buchstabiert?', 'Man hat Produktcodes buchstabiert.', 'Wir haben oft E-Mail-Adressen buchstabiert.', 'Herr Schmidt hat dem Taxifahrer die Adresse buchstabiert.'],
   },
   {
     infinitiv: 'zurückrufen',
@@ -1160,6 +1325,7 @@
     perfekt: 'zurückgerufen', hilfsverb: 'HABEN' as const,
     lesson: 11, difficulty: 1,
     sentences: ['Ich rufe dich später zurück.', 'Wann rufen Sie zurück?', 'Sie ruft ihren Kollegen zurück.', 'Kannst du mich zurückrufen?', 'Rufen Sie zurück?', 'Mein Chef hat mich gebeten, den Kunden sofort zurückzurufen.', 'Susanne ruft morgen zurück.', 'Könnt ihr uns bitte zurückrufen?', 'Wir rufen immer so schnell wie möglich zurück.', 'Warum rufst du nicht zurück?'],
+    perfektSentences: ['Sie hat ihren Kollegen zurückgerufen.', 'Wir haben immer so schnell wie möglich zurückgerufen.', 'Habt ihr zurückgerufen?', 'Wann haben Sie zurückgerufen?', 'Kannst du mich bitte zurückrufen?', 'Haben Sie zurückgerufen?', 'Susanne hat vor zwei Tagen zurückgerufen.', 'Ich habe den Kunden sofort zurückgerufen.', 'Warum hast du mich nicht zurückgerufen?', 'Ich habe dich gestern zurückgerufen.'],
   },
   {
     infinitiv: 'vorbereiten',
@@ -1167,6 +1333,7 @@
     perfekt: 'vorbereitet', hilfsverb: 'HABEN' as const,
     lesson: 12, difficulty: 1,
     sentences: ['Sie bereiten die technische Geräte für die Show vor.', 'Die Teams bereiten sich auf das Turnier vor.', 'Ich bereite die Besprechung für heute Nachmittag vor.', 'Du bereitest die Unterlagen für die Fortbildung vor.', 'Sie bereitet sich auf das Gespräch vor.', 'Wir bereiten die Räume für die Konferenz vor.', 'Ihr bereitet das Essen für die Party vor.', 'Er bereitet die Dokumente für das Treffen mit dem Kunden vor.', 'Die Lehrer bereiten den Unterricht für morgen vor.', 'Die Studierenden bereiten ihre Präsentationen vor.'],
+    perfektSentences: ['Hast du die Unterlagen für die Besprechung vorbereitet?', 'Ich habe die Besprechung für morgen vorbereitet.', 'Wir haben die Räume für die Besprechung vorbereitet.', 'Ihr habt das Essen für das Treffen vorbereitet.', 'Jörg hat die Unterlagen für das Treffen mit dem Kunden vorbereitet.', 'Frau Jung hat die Konferenz vorbereitet.', 'Die Trainer haben den Kurs für morgen vorbereitet.', 'Die Studenten haben die technischen Geräte für die Präsentation vorbereitet.', 'Die Teams haben sich auf das Spiel vorbereitet.', 'Die Studenten haben ihre Präsentationen vorbereitet.'],
   },
   {
     infinitiv: 'anpinnen',
@@ -1174,6 +1341,7 @@
     perfekt: 'angepinnt', hilfsverb: 'HABEN' as const,
     lesson: 12, difficulty: 1,
     sentences: ['Wir pinnen die Einladung an.', 'Die Praktikanten pinnen den Bericht an.', 'Die Praktikanten pinnen die Nachricht an.', 'Die Techniker pinnen die wichtigen Links an.', 'Was pinnen Sie an?', 'Wir pinnen die Liste an.', 'Pinnst du den Artikel an?', 'Frau Schmidt pinnt den Teamplan an.', 'Herr Beck hängt Informationen an.', 'Warum pinnst du den Dienstplan an?'],
+    perfektSentences: ['Wir haben die Einladung angepinnt.', 'Die Praktikanten haben den Bericht angepinnt.', 'Die Studenten haben die Nachricht angepinnt.', 'Was haben Sie angepinnt?', 'Frau Schmidt hat den Schichtplan angepinnt.', 'Warum hast du den Schichtplan angepinnt?', 'Herr Beck hat die Informationen angepinnt.', 'Hast du den Artikel angepinnt?', 'Wir haben die Liste angepinnt.', 'Die Techniker haben die wichtigen Links angepinnt.'],
   },
   {
     infinitiv: 'organisieren',
@@ -1181,6 +1349,7 @@
     perfekt: 'organisiert', hilfsverb: 'HABEN' as const,
     lesson: 12, difficulty: 1,
     sentences: ['Du organisierst die Teambesprechungen.', 'Wir organisieren nächsten Monat ein Event.', 'Frau Schmidt organisiert die Konferenz für die internationalen Gäste.', 'Das Unternehmen organisiert Schulungen für die Mitarbeiter.', 'Ihr organisiert das Material für das neue Projekt.', 'Der Sportverein organisiert Aktionen in der Stadt.', 'Er organisiert eine Geschäftsreise für die Mitarbeiter.', 'Die Studierenden organisieren ein Benefizkonzert.', 'Wir organisieren die Logistik für die Firmenparty.', 'Sie organisiert die Details für die Präsentation.'],
+    perfektSentences: ['Hast du die Teambesprechungen organisiert?', 'Die Firma hat Schulungen für die Mitarbeiter organisiert.', 'Habt ihr das Material für das neue Projekt organisiert?', 'Der Sportverein hat Aktivitäten in der Stadt organisiert.', 'Er hat einen Betriebsausflug für die Mitarbeiter organisiert.', 'Die Studierenden haben ein Konzert organisiert.', 'Wir haben die Logistik für das Firmenfest organisiert.', 'Wer hat die Details für die Präsentation organisiert?', 'Frau Schmidt hat die Konferenz für die internationalen Gäste organisiert.', 'Wir haben gestern eine Veranstaltung organisiert.'],
   },
   {
     infinitiv: 'korrigieren',
@@ -1188,6 +1357,7 @@
     perfekt: 'korrigiert', hilfsverb: 'HABEN' as const,
     lesson: 12, difficulty: 1,
     sentences: ['Ich korrigiere meine Hausaufgaben.', 'Herr Schmidt korrigiert die Software.', 'Wir korrigieren Fehler in unseren Projekten gemeinsam.', 'Ihr korrigiert eure Fehler.', 'Frau Müller korrigiert die Klausuren.', 'Du korrigierst Fehler in deinem Text.', 'Die Studentin korrigiert Grammatikfehler.', 'Die Ingenieure korrigieren den Code.', 'Wer korrigiert meinen Test?', 'Die Professoren korrigieren die Tests am Ende der Woche.'],
+    perfektSentences: ['Wer hat meine Arbeit korrigiert?', 'Der Studierende hat die Fehler korrigiert.', 'Die Professoren haben die Klausuren korrigiert.', 'Wer hat meine Klausur korrigiert?', 'Die Ingenieure haben den Code korrigiert.', 'Die Studentin hat die Grammatikfehler korrigiert.', 'Hast du Fehler in deinem Text korrigiert?', 'Ihr habt eure Fehler korrigiert.', 'Frau Beck hat meine Tests korrigiert.', 'Wir haben gemeinsam Fehler in unseren Projekten korrigiert.'],
   },
   {
     infinitiv: 'holen',
@@ -1195,6 +1365,7 @@
     perfekt: 'geholt', hilfsverb: 'HABEN' as const,
     lesson: 12, difficulty: 1,
     sentences: ['Wer holt die Post?', 'Herr Müller holt seine Programme aus dem Büro.', 'Holt Anna die Bücher aus der Bibliothek?', 'Die Kollegen holen Kaffee für die Besprechung.', 'Die Studentin holt ihr Referat.', 'Wir holen frische Brötchen.', 'Der Lieferant holt die Pakete.', 'Man holt das Werkzeug aus der Garage.', 'Die Auszubildenden holen Werkzeug aus der Werkzeugkiste.', 'Wer holt Bier?'],
+    perfektSentences: ['Hat die Studentin ihr Referat geholt?', 'Wer hat die Post geholt?', 'Haben die Praktikanten das Werkzeug aus der Werkzeugkiste geholt?', 'Hat Frau Schmidt Gemüse vom Markt geholt?', 'Hat der Lieferant die Pakete geholt?', 'Hat Anna die Bücher aus der Bibliothek geholt?', 'Hat Herr Müller seine Programme aus dem Büro geholt?', 'Haben die Kollegen den Kaffee für die Besprechung geholt?', 'Wer hat das Werkzeug aus der Garage geholt?', 'Haben Sie frische Brötchen geholt?'],
   },
   {
     infinitiv: 'verstehen',
@@ -1202,6 +1373,7 @@
     perfekt: 'verstanden', hilfsverb: 'HABEN' as const,
     lesson: 12, difficulty: 1,
     sentences: ['Bettina versteht den Text nicht.', 'Ich verstehe Sie nicht.', 'Die Experten verstehen komplexe Systeme.', 'Du verstehst die Aufgabe gut.', 'Wir verstehen Herrn Schmidt nicht.', 'Wer versteht Englisch besser als Deutsch?', 'Verstehst du mich?', 'Ihr versteht die Regeln.', 'Die Studenten verstehen den Professor gut.', 'Der Ingenieur versteht die Technik.'],
+    perfektSentences: ['Ralf hat den Text nicht verstanden.', 'Ich habe alles verstanden.', 'Wer hat den Englischlehrer verstanden?', 'Hast du die Aufgabe verstanden?', 'Die Studierenden haben die Physik verstanden.', 'Hast du mich verstanden?', 'Wir haben Herrn Richter nicht verstanden.', 'Ich habe Sie nicht verstanden.', 'Wer hat die Mechanik verstanden?', 'Habt ihr die Regeln verstanden?'],
   },
   {
     infinitiv: 'schmecken',
@@ -1209,5 +1381,6 @@
     perfekt: 'geschmeckt', hilfsverb: 'HABEN' as const,
     lesson: 12, difficulty: 1,
     sentences: ['Die Suppe schmeckt lecker.', 'Der Kaffee schmeckt stark.', 'Der Kuchen schmeckt himmlisch.', 'Die Früchte schmecken süß.', 'Wie schmeckt es dir?', 'Schmeckt dir das Bier?', 'Das Gemüse schmeckt frisch.', 'Der Wein schmeckt trocken.', 'Die Schokolade schmeckt bitter.'],
+    perfektSentences: ['Das Eis hat gut geschmeckt.', 'Das Gemüse hat frisch geschmeckt.', 'Die Schokolade hat bitter geschmeckt.', 'Wie hat dir das Bier geschmeckt?', 'Wie hat es dir geschmeckt?', 'Das Obst hat süß geschmeckt.', 'Der Kuchen hat lecker geschmeckt.', 'Der Kaffee hat sehr stark geschmeckt.', 'Wie hat Ihnen das Eis geschmeckt?'],
   },
 ]

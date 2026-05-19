@@ -3,6 +3,18 @@ import { parseSentenceTemplate } from './parser'
 
 const PERSONS: GrammaticalPerson[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie']
 
+const HABEN_CONJ: Record<GrammaticalPerson, string> = {
+  ich: 'habe', du: 'hast', er: 'hat', wir: 'haben', ihr: 'habt', sie: 'haben',
+}
+const SEIN_CONJ: Record<GrammaticalPerson, string> = {
+  ich: 'bin', du: 'bist', er: 'ist', wir: 'sind', ihr: 'seid', sie: 'sind',
+}
+
+function getPerfektForm(verb: VerbData, person: GrammaticalPerson): string {
+  const aux = verb.hilfsverb === 'SEIN' ? SEIN_CONJ[person] : HABEN_CONJ[person]
+  return `${aux} ${verb.perfekt}`
+}
+
 const PERSON_PRONOUN: Record<GrammaticalPerson, string> = {
   ich: 'ich',
   du: 'du',
@@ -130,6 +142,74 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
           translation: `${PERSON_PRONOUN[person]} (${verb.translation ?? verb.infinitiv})`,
           correctAnswers: [correctAnswer],
           options,
+        })
+        break
+      }
+
+      case 'PERFEKT_HILFSVERB': {
+        // Samo HABEN ili SEIN — višestruki izbor od 2
+        const isHaben = verb.hilfsverb === 'HABEN'
+        questions.push({
+          id: `ph-${verb.id}-${i}`,
+          type: 'PERFEKT_HILFSVERB',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          translation: verb.translation ?? verb.infinitiv,
+          correctAnswers: [verb.hilfsverb === 'HABEN' ? 'haben' : 'sein'],
+          options: isHaben ? ['haben', 'sein'] : ['sein', 'haben'],
+        })
+        break
+      }
+
+      case 'PERFEKT_PARTIZIP': {
+        // Dat infinitiv → upiši Partizip II
+        const distractorsP = shuffle(verbs)
+          .filter((v) => v.id !== verb.id && v.perfekt)
+          .slice(0, 3)
+          .map((v) => v.perfekt)
+        questions.push({
+          id: `pp-${verb.id}-${i}`,
+          type: 'PERFEKT_PARTIZIP',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          translation: verb.translation ?? verb.infinitiv,
+          correctAnswers: [verb.perfekt],
+          options: shuffle([verb.perfekt, ...distractorsP]),
+        })
+        break
+      }
+
+      case 'PERFEKT_CONJUGATE': {
+        // Sa licem: ich + gehen → bin gegangen
+        const perfektAnswer = getPerfektForm(verb, person)
+        questions.push({
+          id: `pc-${verb.id}-${person}-${i}`,
+          type: 'PERFEKT_CONJUGATE',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          translation: verb.translation ?? verb.infinitiv,
+          correctAnswers: [perfektAnswer],
+          options: [PERSON_PRONOUN[person]],
+        })
+        break
+      }
+
+      case 'PERFEKT_FILL': {
+        // Rečenica sa dva prazna mesta: aux + partizip
+        const matchingSentences = sentences.filter((s) => s.verbId === verb.id)
+        if (matchingSentences.length === 0) break
+        const sentence = randomItem(matchingSentences)
+        const parsed = parseSentenceTemplate(sentence.template, verbMap)
+        if (parsed.blanks.length < 2) break
+        questions.push({
+          id: `pf-${sentence.id}-${i}`,
+          type: 'PERFEKT_FILL',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          sentence: sentence.template,
+          parsedSentence: parsed,
+          translation: sentence.translation,
+          correctAnswers: parsed.blanks.map((b) => b.answer),
         })
         break
       }

@@ -14,7 +14,7 @@ const ResultSchema = z.object({
 })
 
 const SubmitSchema = z.object({
-  gameType: z.enum(['CONJUGATE', 'FILL_BLANK', 'MATCH_PAIRS', 'TRANSLATE', 'AUDIO']),
+  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_CONJUGATE','PERFEKT_FILL','AUDIO']),
   lesson: z.number().int().min(1).max(13),
   results: z.array(ResultSchema).min(1),
 })
