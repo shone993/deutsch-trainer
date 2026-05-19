@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import type { GameSession, GameType, GameQuestion, QuestionResult } from '@/types'
 import { GameEngine } from '@/components/game/GameEngine'
 
@@ -324,6 +325,24 @@ export default function LessonPage({ params }: PageProps) {
         )}
 
         {renderSection('Präsens', 'text-sky-600', PREZENS_TYPES)}
+
+        {/* Modalni glagoli — podsekcija Präsens-a */}
+        <div className="mb-8">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-sky-600 mb-1">Modalni glagoli</h2>
+          <p className="text-xs text-gray-400 mb-3">können · müssen · wollen · sollen · dürfen · mögen</p>
+          <Link
+            href="/modal"
+            className="bg-white border-2 border-sky-200 hover:border-sky-500 hover:bg-sky-50 rounded-2xl p-4 flex items-center gap-4 transition"
+          >
+            <span className="text-2xl">🔷</span>
+            <div>
+              <div className="font-bold text-gray-900 text-sm">Posebna vežba — Modalni glagoli</div>
+              <div className="text-xs text-gray-500">Poveži, konjuguj i umetni u rečenicu</div>
+            </div>
+            <span className="ml-auto text-sky-400 text-lg">→</span>
+          </Link>
+        </div>
+
         {renderSection('Perfekt', 'text-purple-600', PERFEKT_TYPES)}
       </div>
     </main>
