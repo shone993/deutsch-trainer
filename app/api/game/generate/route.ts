@@ -5,10 +5,13 @@ import { prisma } from '@/lib/db/prisma'
 import { generateQuestions } from '@/lib/game/generator'
 import type { VerbData, GameType } from '@/types'
 
+const MODAL_VERBS = ['können','müssen','wollen','sollen','dürfen','mögen']
+
 const QuerySchema = z.object({
-  lesson: z.coerce.number().int().min(1).max(13),
+  lesson: z.coerce.number().int().min(1).max(13).optional().default(13),
   gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_CONJUGATE','PERFEKT_FILL','AUDIO']),
   count: z.coerce.number().int().min(1).max(30).default(10),
+  modalOnly: z.coerce.boolean().optional().default(false),
 })
 
 export async function GET(request: NextRequest) {
@@ -26,11 +29,13 @@ export async function GET(request: NextRequest) {
     return Response.json({ error: parsed.error.issues[0].message }, { status: 400 })
   }
 
-  const { lesson, gameType, count } = parsed.data
+  const { lesson, gameType, count, modalOnly } = parsed.data
 
-  // Dohvati glagole iz lekcije (ili svih lekcija do date)
+  // Dohvati glagole — modalni filtar ili po lekciji
   const dbVerbs = await prisma.verb.findMany({
-    where: { lesson: { lte: lesson }, isActive: true },
+    where: modalOnly
+      ? { infinitiv: { in: MODAL_VERBS }, isActive: true }
+      : { lesson: { lte: lesson }, isActive: true },
     orderBy: { lesson: 'asc' },
   })
 
