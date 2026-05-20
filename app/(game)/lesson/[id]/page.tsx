@@ -109,6 +109,39 @@ const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: stri
     ],
     example: 'Primer: "Ich _____ nach Berlin _____"  →  bin / gegangen',
   },
+  PRETERIT_MATCH: {
+    title: 'Poveži parove — Präteritum',
+    emoji: '🔗',
+    steps: [
+      'Na levoj strani su infinitivi glagola.',
+      'Na desnoj strani su zamenica + Präteritum oblik — izmešani.',
+      'Klikni infinitiv (levo), pa odgovarajući oblik (desno).',
+      'Tačan par postaje zelen. Krivi par bljesne crveno.',
+    ],
+    example: 'Primer: klikni "sein" → klikni "ich war"',
+  },
+  PRETERIT_CONJUGATE: {
+    title: 'Konjugacija — Präteritum',
+    emoji: '🔤',
+    steps: [
+      'Prikazan je infinitiv glagola i lična zamenica.',
+      'Upiši tačan Präteritum oblik za to lice.',
+      'sein: war/warst/war/waren/wart/waren',
+      'haben: hatte/hattest/hatte/hatten/hattet/hatten',
+    ],
+    example: 'Primer: "können" + "wir"  →  upiši: konnten',
+  },
+  PRETERIT_FILL: {
+    title: 'Umetni u rečenicu — Präteritum',
+    emoji: '✏️',
+    steps: [
+      'Vidiš nemačku rečenicu u kojoj nedostaje glagol u Präteritumu.',
+      'Kartica gore prikazuje koji glagol i koje lice treba.',
+      'Upiši tačan Präteritum oblik glagola.',
+      'Potvrdi pritiskom na ✓ ili Enter.',
+    ],
+    example: 'Primer: "Ich _____ gestern krank."  →  upiši: war',
+  },
   AUDIO: {
     title: 'Audio vežba',
     emoji: '🔊',

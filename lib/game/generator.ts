@@ -1,7 +1,75 @@
-import type { GameQuestion, GameType, GrammaticalPerson, VerbData } from '@/types'
+import type { GameQuestion, GameType, GrammaticalPerson, ParsedSentence, SentenceTag, VerbData } from '@/types'
 import { parseSentenceTemplate } from './parser'
 
 const PERSONS: GrammaticalPerson[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie']
+
+const PRETERIT_DATA: Record<string, Record<GrammaticalPerson, string>> = {
+  'können': { ich: 'konnte',  du: 'konntest', er: 'konnte',  wir: 'konnten', ihr: 'konntet', sie: 'konnten' },
+  'müssen': { ich: 'musste',  du: 'musstest', er: 'musste',  wir: 'mussten', ihr: 'musstet', sie: 'mussten' },
+  'wollen': { ich: 'wollte',  du: 'wolltest', er: 'wollte',  wir: 'wollten', ihr: 'wolltet', sie: 'wollten' },
+  'sollen': { ich: 'sollte',  du: 'solltest', er: 'sollte',  wir: 'sollten', ihr: 'solltet', sie: 'sollten' },
+  'dürfen': { ich: 'durfte',  du: 'durftest', er: 'durfte',  wir: 'durften', ihr: 'durftet', sie: 'durften' },
+  'mögen':  { ich: 'mochte',  du: 'mochtest', er: 'mochte',  wir: 'mochten', ihr: 'mochtet', sie: 'mochten' },
+  'sein':   { ich: 'war',     du: 'warst',    er: 'war',     wir: 'waren',   ihr: 'wart',    sie: 'waren'   },
+  'haben':  { ich: 'hatte',   du: 'hattest',  er: 'hatte',   wir: 'hatten',  ihr: 'hattet',  sie: 'hatten'  },
+}
+
+interface PreteritSentence { template: string; person: GrammaticalPerson; translation: string }
+
+const PRETERIT_SENTENCES: Record<string, PreteritSentence[]> = {
+  'können': [
+    { template: 'Ich _____ gestern nicht kommen.',       person: 'ich', translation: 'Juče nisam mogao/la da dođem.' },
+    { template: 'Er _____ sehr gut schwimmen.',          person: 'er',  translation: 'On je mogao dobro da pliva.' },
+    { template: 'Wir _____ die Aufgabe lösen.',          person: 'wir', translation: 'Mogli smo da rešimo zadatak.' },
+    { template: 'Ihr _____ nicht schlafen.',             person: 'ihr', translation: 'Niste mogli da spavate.' },
+  ],
+  'müssen': [
+    { template: 'Ich _____ früh aufstehen.',             person: 'ich', translation: 'Morao/la sam rano da ustanem.' },
+    { template: 'Er _____ lange warten.',                person: 'er',  translation: 'Morao je dugo da čeka.' },
+    { template: 'Wir _____ viel lernen.',                person: 'wir', translation: 'Morali smo mnogo da učimo.' },
+    { template: 'Du _____ das Zimmer aufräumen.',        person: 'du',  translation: 'Morao/la si da počistiš sobu.' },
+  ],
+  'wollen': [
+    { template: 'Er _____ Arzt werden.',                 person: 'er',  translation: 'Hteo je da postane lekar.' },
+    { template: 'Ich _____ ins Kino gehen.',             person: 'ich', translation: 'Hteo/la sam u bioskop.' },
+    { template: 'Sie _____ nicht kommen.',               person: 'er',  translation: 'Ona nije htela da dođe.' },
+    { template: 'Wir _____ zusammen essen.',             person: 'wir', translation: 'Hteli smo zajedno da jedemo.' },
+  ],
+  'sollen': [
+    { template: 'Ich _____ das Buch lesen.',             person: 'ich', translation: 'Trebalo je da pročitam knjigu.' },
+    { template: 'Er _____ die Tür schließen.',           person: 'er',  translation: 'Trebalo je da zatvori vrata.' },
+    { template: 'Wir _____ pünktlich sein.',             person: 'wir', translation: 'Trebalo je da budemo tačni.' },
+    { template: 'Du _____ früher kommen.',               person: 'du',  translation: 'Trebalo je da dođeš ranije.' },
+  ],
+  'dürfen': [
+    { template: 'Wir _____ nicht laut sprechen.',        person: 'wir', translation: 'Nismo smeli glasno da govorimo.' },
+    { template: 'Er _____ nicht spielen.',               person: 'er',  translation: 'On nije smeo da se igra.' },
+    { template: 'Ich _____ ins Kino gehen.',             person: 'ich', translation: 'Smeo/la sam u bioskop.' },
+    { template: 'Du _____ das nicht sagen.',             person: 'du',  translation: 'Nisi smeo/la to da kažeš.' },
+  ],
+  'mögen': [
+    { template: 'Er _____ keine Tomaten.',               person: 'er',  translation: 'On nije voleo paradajz.' },
+    { template: 'Ich _____ diesen Film sehr.',           person: 'ich', translation: 'Veoma sam voleo/la ovaj film.' },
+    { template: 'Sie _____ klassische Musik.',           person: 'er',  translation: 'Ona je volela klasičnu muziku.' },
+    { template: 'Wir _____ dieses Restaurant.',          person: 'wir', translation: 'Voleli smo ovaj restoran.' },
+  ],
+  'sein': [
+    { template: 'Ich _____ gestern krank.',              person: 'ich', translation: 'Juče sam bio/la bolestan/na.' },
+    { template: 'Er _____ sehr glücklich.',              person: 'er',  translation: 'On je bio veoma srećan.' },
+    { template: 'Wir _____ in Berlin.',                  person: 'wir', translation: 'Bili smo u Berlinu.' },
+    { template: 'Ihr _____ sehr müde.',                  person: 'ihr', translation: 'Bili ste veoma umorni.' },
+    { template: 'Du _____ pünktlich.',                   person: 'du',  translation: 'Bio/la si tačan/na.' },
+    { template: 'Sie _____ gute Freunde.',               person: 'sie', translation: 'Bili su dobri prijatelji.' },
+  ],
+  'haben': [
+    { template: 'Ich _____ keine Zeit.',                 person: 'ich', translation: 'Nisam imao/la vremena.' },
+    { template: 'Er _____ großen Hunger.',               person: 'er',  translation: 'Bio je veoma gladan.' },
+    { template: 'Wir _____ viel Spaß.',                  person: 'wir', translation: 'Imali smo puno zabave.' },
+    { template: 'Du _____ Recht.',                       person: 'du',  translation: 'Imao/la si pravo.' },
+    { template: 'Sie _____ einen Hund.',                 person: 'sie', translation: 'Imali su psa.' },
+    { template: 'Ihr _____ Glück.',                      person: 'ihr', translation: 'Imali ste sreće.' },
+  ],
+}
 
 const HABEN_CONJ: Record<GrammaticalPerson, string> = {
   ich: 'habe', du: 'hast', er: 'hat', wir: 'haben', ihr: 'habt', sie: 'haben',
@@ -210,6 +278,78 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
           parsedSentence: parsed,
           translation: sentence.translation,
           correctAnswers: parsed.blanks.map((b) => b.answer),
+        })
+        break
+      }
+
+      case 'PRETERIT_MATCH': {
+        const eligibleVerbs = verbs.filter((v) => v.infinitiv in PRETERIT_DATA)
+        if (eligibleVerbs.length < 4) break
+        const pairVerbs = shuffle(eligibleVerbs).slice(0, 4)
+        const pairPerson = randomItem(PERSONS)
+        const pronoun = PERSON_PRONOUN[pairPerson]
+        questions.push({
+          id: `pret-match-${verb.id}-${i}`,
+          type: 'PRETERIT_MATCH',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          translation: verb.translation ?? verb.infinitiv,
+          correctAnswers: pairVerbs.map((v) => `${pronoun} ${PRETERIT_DATA[v.infinitiv]![pairPerson]}`),
+          options: pairVerbs.map((v) => v.infinitiv),
+        })
+        break
+      }
+
+      case 'PRETERIT_CONJUGATE': {
+        const preteritConj = PRETERIT_DATA[verb.infinitiv]
+        if (!preteritConj) break
+        questions.push({
+          id: `pret-conj-${verb.id}-${person}-${i}`,
+          type: 'PRETERIT_CONJUGATE',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          translation: `${PERSON_PRONOUN[person]} + ${verb.infinitiv}`,
+          correctAnswers: [preteritConj[person]],
+          options: [PERSON_PRONOUN[person]],
+        })
+        break
+      }
+
+      case 'PRETERIT_FILL': {
+        const sentencePool = PRETERIT_SENTENCES[verb.infinitiv]
+        if (!sentencePool || sentencePool.length === 0) break
+        const sentenceData = randomItem(sentencePool)
+        const correct = PRETERIT_DATA[verb.infinitiv]?.[sentenceData.person]
+        if (!correct) break
+        const placeholder = '_____'
+        const blankIndex = sentenceData.template.indexOf(placeholder)
+        if (blankIndex === -1) break
+        const before = sentenceData.template.slice(0, blankIndex)
+        const after = sentenceData.template.slice(blankIndex + placeholder.length)
+        const fakeTag: SentenceTag = {
+          verbId: verb.id,
+          person: sentenceData.person,
+          answer: correct,
+          startIndex: blankIndex,
+          endIndex: blankIndex + placeholder.length,
+        }
+        const parsedSentence: ParsedSentence = {
+          parts: [
+            ...(before ? [{ type: 'text' as const, value: before }] : []),
+            { type: 'blank' as const, tag: fakeTag, index: 0 },
+            ...(after ? [{ type: 'text' as const, value: after }] : []),
+          ],
+          blanks: [fakeTag],
+        }
+        questions.push({
+          id: `pret-fill-${verb.id}-${i}`,
+          type: 'PRETERIT_FILL',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          sentence: sentenceData.template,
+          parsedSentence,
+          translation: sentenceData.translation,
+          correctAnswers: [correct],
         })
         break
       }

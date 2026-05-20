@@ -8,9 +8,15 @@ import { GameEngine } from '@/components/game/GameEngine'
 type ExerciseEntry = { type: GameType; label: string; emoji: string; desc: string }
 
 const MODAL_EXERCISES: ExerciseEntry[] = [
-  { type: 'MATCH_PAIRS', label: 'Poveži parove',   emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i oblikom (er mag)' },
-  { type: 'CONJUGATE',   label: 'Konjugacija',     emoji: '🔤', desc: 'Data je lična zamenica — upiši oblik modalnog glagola' },
+  { type: 'MATCH_PAIRS', label: 'Poveži parove',     emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i oblikom (er mag)' },
+  { type: 'CONJUGATE',   label: 'Konjugacija',       emoji: '🔤', desc: 'Data je lična zamenica — upiši oblik modalnog glagola' },
   { type: 'FILL_BLANK',  label: 'Umetni u rečenicu', emoji: '✏️', desc: 'Dat je infinitiv i rečenica — upiši ispravan oblik' },
+]
+
+const PRETERIT_EXERCISES: ExerciseEntry[] = [
+  { type: 'PRETERIT_MATCH',     label: 'Poveži parove',     emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i Präteritum oblikom' },
+  { type: 'PRETERIT_CONJUGATE', label: 'Konjugacija',       emoji: '🔤', desc: 'Upiši Präteritum oblik za dato lice' },
+  { type: 'PRETERIT_FILL',      label: 'Umetni u rečenicu', emoji: '✏️', desc: 'Upiši Präteritum oblik glagola u rečenicu' },
 ]
 
 const INSTRUCTIONS: Record<string, { title: string; emoji: string; steps: string[]; example: string }> = {
@@ -45,6 +51,39 @@ const INSTRUCTIONS: Record<string, { title: string; emoji: string; steps: string
     ],
     example: 'Primer: "Er _____ Deutsch sprechen."  →  upiši: kann',
   },
+  PRETERIT_MATCH: {
+    title: 'Poveži parove — Präteritum',
+    emoji: '🔗',
+    steps: [
+      'Na levoj strani su infinitivi glagola.',
+      'Na desnoj strani su zamenica + Präteritum oblik — izmešani.',
+      'Klikni infinitiv (levo), pa odgovarajući oblik (desno).',
+      'Tačan par postaje zelen.',
+    ],
+    example: 'Primer: klikni "sein" → klikni "ich war"',
+  },
+  PRETERIT_CONJUGATE: {
+    title: 'Konjugacija — Präteritum',
+    emoji: '🔤',
+    steps: [
+      'Prikazan je infinitiv glagola i lična zamenica.',
+      'Upiši tačan Präteritum oblik za to lice.',
+      'sein: war/warst/war/waren/wart/waren',
+      'haben: hatte/hattest/hatte/hatten/hattet/hatten',
+    ],
+    example: 'Primer: "können" + "wir"  →  upiši: konnten',
+  },
+  PRETERIT_FILL: {
+    title: 'Umetni u rečenicu — Präteritum',
+    emoji: '✏️',
+    steps: [
+      'Vidiš nemačku rečenicu u kojoj nedostaje glagol u Präteritumu.',
+      'Kartica gore prikazuje koji glagol i koje lice treba.',
+      'Upiši tačan Präteritum oblik glagola.',
+      'Potvrdi pritiskom na ✓ ili Enter.',
+    ],
+    example: 'Primer: "Ich _____ gestern krank."  →  upiši: war',
+  },
 }
 
 export default function ModalPage() {
@@ -68,7 +107,9 @@ export default function ModalPage() {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch(`/api/game/generate?gameType=${type}&count=12&modalOnly=true`)
+      const isPreterit = (type as string).startsWith('PRETERIT_')
+      const modeParam = isPreterit ? 'preteritOnly=true' : 'modalOnly=true'
+      const res = await fetch(`/api/game/generate?gameType=${type}&count=12&${modeParam}`)
       const data = await res.json()
       if (!res.ok) throw new Error(data.error ?? 'Greška')
 
@@ -198,10 +239,25 @@ export default function ModalPage() {
         )}
 
         <h2 className="text-sm font-bold uppercase tracking-widest text-sky-600 mb-3">Präsens</h2>
-        <div className="grid grid-cols-1 gap-3">
+        <div className="grid grid-cols-1 gap-3 mb-8">
           {MODAL_EXERCISES.map((g) => (
             <button key={g.type} onClick={() => selectExercise(g.type)} disabled={loading}
               className="bg-white border-2 border-gray-200 hover:border-sky-500 hover:bg-sky-50 disabled:opacity-60 rounded-2xl p-4 flex items-center gap-4 text-left transition">
+              <span className="text-2xl">{g.emoji}</span>
+              <div>
+                <div className="font-bold text-gray-900 text-sm">{g.label}</div>
+                <div className="text-xs text-gray-500">{g.desc}</div>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <h2 className="text-sm font-bold uppercase tracking-widest text-purple-600 mb-1">Präteritum</h2>
+        <p className="text-xs text-gray-400 mb-3">sein · haben · können · müssen · wollen · sollen · dürfen · mögen</p>
+        <div className="grid grid-cols-1 gap-3">
+          {PRETERIT_EXERCISES.map((g) => (
+            <button key={g.type} onClick={() => selectExercise(g.type)} disabled={loading}
+              className="bg-white border-2 border-gray-200 hover:border-purple-400 hover:bg-purple-50 disabled:opacity-60 rounded-2xl p-4 flex items-center gap-4 text-left transition">
               <span className="text-2xl">{g.emoji}</span>
               <div>
                 <div className="font-bold text-gray-900 text-sm">{g.label}</div>

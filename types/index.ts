@@ -7,6 +7,8 @@ export type GameType =
   | 'MATCH_PAIRS' | 'TRANSLATE' | 'CONJUGATE' | 'FILL_BLANK'
   // Perfekt
   | 'PERFEKT_HILFSVERB' | 'PERFEKT_PARTIZIP' | 'PERFEKT_CONJUGATE' | 'PERFEKT_FILL'
+  // Präteritum
+  | 'PRETERIT_MATCH' | 'PRETERIT_CONJUGATE' | 'PRETERIT_FILL'
   // ostalo
   | 'AUDIO'
 

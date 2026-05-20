@@ -53,6 +53,9 @@ export function GameEngine({ session, onComplete }: Props) {
       {question.type === 'PERFEKT_PARTIZIP' && <PerfektPartizipGame key={question.id} {...questionProps} />}
       {question.type === 'PERFEKT_CONJUGATE' && <PerfektConjugateGame key={question.id} {...questionProps} />}
       {question.type === 'PERFEKT_FILL' && <PerfektFillGame key={question.id} {...questionProps} />}
+      {question.type === 'PRETERIT_MATCH' && <MatchPairsGame key={question.id} {...questionProps} />}
+      {question.type === 'PRETERIT_CONJUGATE' && <ConjugateGame key={question.id} {...questionProps} />}
+      {question.type === 'PRETERIT_FILL' && <FillBlankGame key={question.id} {...questionProps} />}
       {question.type === 'AUDIO' && (
         <div className="text-center text-gray-500 mt-20">
           <p className="text-2xl mb-2">🚧</p>
