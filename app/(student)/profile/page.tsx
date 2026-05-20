@@ -86,18 +86,6 @@ export default async function ProfilePage() {
           </div>
         </div>
 
-        {/* Modalni glagoli */}
-        <Link
-          href="/modal"
-          className="w-full bg-sky-500 text-white rounded-2xl p-4 flex items-center gap-4 hover:bg-sky-600 transition"
-        >
-          <span className="text-2xl">🔷</span>
-          <div>
-            <div className="font-bold text-base">Modalni glagoli</div>
-            <div className="text-sky-100 text-xs">können · müssen · wollen · sollen · dürfen · mögen</div>
-          </div>
-        </Link>
-
         {/* Navigacija */}
         <div className="flex gap-3">
           <Link
