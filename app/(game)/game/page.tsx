@@ -35,9 +35,16 @@ function GameContent() {
     })
 
     fetch(`/api/game/generate?${params}`)
-      .then(res => res.json())
+      .then(async res => {
+        // Ako server vrati redirect (npr. login page) ili prazno tijelo
+        const text = await res.text()
+        if (!text.trim()) throw new Error(t.noQuestions)
+        let data: { error?: string; questions?: GameQuestion[] }
+        try { data = JSON.parse(text) } catch { throw new Error(`Server error (${res.status})`) }
+        if (!res.ok || data.error) throw new Error(data.error ?? `HTTP ${res.status}`)
+        return data
+      })
       .then(data => {
-        if (data.error) throw new Error(data.error)
         if (!data.questions?.length) throw new Error(t.noQuestions)
         setSession({
           sessionId: crypto.randomUUID(),

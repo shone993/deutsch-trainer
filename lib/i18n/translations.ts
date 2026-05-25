@@ -66,6 +66,67 @@ export const T = {
       points: 'poena',
       question: 'Pitanje',
       startExercise: '🚀 Počni vežbu',
+      // Feedback
+      correct: '🎉 Tačno!',
+      wrong: '❌ Tačan odgovor:',
+      wrongSentence: '❌ Tačna rečenica:',
+      correctAnswers: 'Tačni odgovori:',
+      youWrote: 'upisao/la si:',
+      // Dugmad
+      confirm: 'Potvrdi',
+      reset: '↺ Resetuj',
+      // ConjugateGame
+      conjugateInstruction: '✏️ Upiši tačan oblik glagola:',
+      verbLabel: 'Glagol',
+      formPlaceholder: 'forma...',
+      // FillBlank
+      fillInstruction: '✏️ Upiši ispravni oblik glagola u prazninu:',
+      personLabel: 'Lice',
+      answerPlaceholder: 'Unesite odgovor...',
+      // Translate
+      translateInstruction: 'Izaberi ispravnu konjugaciju za:',
+      // MatchPairs
+      matchTitle: 'Poveži parove',
+      matchInstruction: 'Poveži infinitiv sa ispravnom konjugacijom',
+      pairsOf: 'parova',
+      // Perfekt Hilfsverb
+      perfektHilfsverbHeader: 'Perfekt — pomoćni glagol',
+      perfektHilfsverbQ: '🤔 Koji pomoćni glagol se koristi u Perfektu?',
+      perfektHilfsverbUses: 'koristi',
+      // Perfekt Partizip
+      perfektPartizipHeader: 'Perfekt — Partizip II',
+      perfektPartizipInstruction: '📝 Upiši Partizip II ovog glagola:',
+      perfektPartizipHint: 'haben/sein + Partizip II',
+      perfektPartizipPlaceholder: 'Partizip II...',
+      // Perfekt Conjugate
+      perfektConjugateVerbLabel: 'Glagol (Perfekt)',
+      perfektConjugateInstruction: '✏️ Upiši Perfekt formu (pomoćni glagol + Partizip II):',
+      perfektConjugatePlaceholder: 'forma Perfekta...',
+      // Perfekt Fill
+      perfektFillHeader: 'Perfekt — Popuni rečenicu',
+      perfektFillInstruction: '✏️ Upiši pomoćni glagol i Partizip II:',
+      perfektAuxLabel: '1. Pomoćni glagol (haben/sein)',
+      perfektPartizipLabel2: '2. Partizip II',
+      perfektAuxBadge: '1. pomoćni glagol',
+      perfektPartizipBadge: '2. Partizip II',
+      perfektAuxName: 'Pomoćni glagol',
+      perfektPartizipName: 'Partizip II',
+      // Audio
+      audioPlaying: 'Svira…',
+      audioClickToHear: 'Klikni da ponovo čuješ',
+      audioInstruction: 'Koji infinitiv si čuo/la?',
+      audioYouHeard: 'Čuo/la si:',
+      audioHeard: 'čulo se:',
+      // WordOrder
+      wordOrderHeader: 'Složi rečenicu',
+      wordOrderInstruction: '🔤 Klikni reči redom da složiš tačnu rečenicu:',
+      wordOrderEmpty: 'Ovde će se pojaviti rečenica…',
+      wordOrderRemaining: 'Ostalo',
+      wordOrderWords: 'reči',
+      // Personal pronouns (translation hint)
+      persons: {
+        ich: 'ja', du: 'ti', er: 'on/ona/ono', wir: 'mi', ihr: 'vi', sie: 'oni/Vi',
+      },
     },
 
     nounArticle: {
@@ -119,6 +180,8 @@ export const T = {
       backToNouns: '← Nazad na imenice',
     },
   },
+
+  // ─── HUNGARIAN ────────────────────────────────────────────────────────────
 
   hu: {
     logout: 'Kijelentkezés',
@@ -179,6 +242,54 @@ export const T = {
       points: 'pont',
       question: 'Kérdés',
       startExercise: '🚀 Gyakorlat indítása',
+      correct: '🎉 Helyes!',
+      wrong: '❌ Helyes válasz:',
+      wrongSentence: '❌ Helyes mondat:',
+      correctAnswers: 'Helyes válaszok:',
+      youWrote: 'te beírtad:',
+      confirm: 'Megerősít',
+      reset: '↺ Visszaállít',
+      conjugateInstruction: '✏️ Írd be a helyes igealakot:',
+      verbLabel: 'Ige',
+      formPlaceholder: 'igealak...',
+      fillInstruction: '✏️ Írd be a helyes igealakot az üres helyre:',
+      personLabel: 'Személy',
+      answerPlaceholder: 'Írd be a választ...',
+      translateInstruction: 'Válaszd ki a helyes ragozást:',
+      matchTitle: 'Párosítás',
+      matchInstruction: 'Párosítsd az infinitívuszt a helyes ragozással',
+      pairsOf: 'pár',
+      perfektHilfsverbHeader: 'Perfekt — segédige',
+      perfektHilfsverbQ: '🤔 Melyik segédigét használjuk a Perfektben?',
+      perfektHilfsverbUses: 'segédigéje:',
+      perfektPartizipHeader: 'Perfekt — Partizip II',
+      perfektPartizipInstruction: '📝 Írd be a Partizip II-t:',
+      perfektPartizipHint: 'haben/sein + Partizip II',
+      perfektPartizipPlaceholder: 'Partizip II...',
+      perfektConjugateVerbLabel: 'Ige (Perfekt)',
+      perfektConjugateInstruction: '✏️ Írd be a Perfekt alakot (segédige + Partizip II):',
+      perfektConjugatePlaceholder: 'Perfekt alak...',
+      perfektFillHeader: 'Perfekt — Töltsd ki a mondatot',
+      perfektFillInstruction: '✏️ Írd be a segédigét és a Partizip II-t:',
+      perfektAuxLabel: '1. Segédige (haben/sein)',
+      perfektPartizipLabel2: '2. Partizip II',
+      perfektAuxBadge: '1. segédige',
+      perfektPartizipBadge: '2. Partizip II',
+      perfektAuxName: 'Segédige',
+      perfektPartizipName: 'Partizip II',
+      audioPlaying: 'Lejátszás…',
+      audioClickToHear: 'Kattints az újrahallgatáshoz',
+      audioInstruction: 'Melyik főnévi igenevet hallottad?',
+      audioYouHeard: 'Hallottad:',
+      audioHeard: 'hallotta:',
+      wordOrderHeader: 'Rakd össze a mondatot',
+      wordOrderInstruction: '🔤 Kattints a szavakra sorban a helyes mondat összerakásához:',
+      wordOrderEmpty: 'A mondat itt jelenik meg…',
+      wordOrderRemaining: 'Maradt',
+      wordOrderWords: 'szó',
+      persons: {
+        ich: 'én', du: 'te', er: 'ő', wir: 'mi', ihr: 'ti', sie: 'ők/Ön',
+      },
     },
 
     nounArticle: {
@@ -232,6 +343,8 @@ export const T = {
       backToNouns: '← Vissza a főnevekhez',
     },
   },
+
+  // ─── GERMAN ───────────────────────────────────────────────────────────────
 
   de: {
     logout: 'Abmelden',
@@ -292,6 +405,54 @@ export const T = {
       points: 'Punkte',
       question: 'Frage',
       startExercise: '🚀 Übung starten',
+      correct: '🎉 Richtig!',
+      wrong: '❌ Richtige Antwort:',
+      wrongSentence: '❌ Richtiger Satz:',
+      correctAnswers: 'Richtige Antworten:',
+      youWrote: 'du hast geschrieben:',
+      confirm: 'Bestätigen',
+      reset: '↺ Zurücksetzen',
+      conjugateInstruction: '✏️ Schreibe die richtige Verbform:',
+      verbLabel: 'Verb',
+      formPlaceholder: 'Form...',
+      fillInstruction: '✏️ Schreibe die richtige Verbform in die Lücke:',
+      personLabel: 'Person',
+      answerPlaceholder: 'Antwort eingeben...',
+      translateInstruction: 'Wähle die richtige Konjugation für:',
+      matchTitle: 'Paare verbinden',
+      matchInstruction: 'Verbinde den Infinitiv mit der richtigen Konjugation',
+      pairsOf: 'Paare',
+      perfektHilfsverbHeader: 'Perfekt — Hilfsverb',
+      perfektHilfsverbQ: '🤔 Welches Hilfsverb wird im Perfekt verwendet?',
+      perfektHilfsverbUses: 'verwendet',
+      perfektPartizipHeader: 'Perfekt — Partizip II',
+      perfektPartizipInstruction: '📝 Schreibe das Partizip II:',
+      perfektPartizipHint: 'haben/sein + Partizip II',
+      perfektPartizipPlaceholder: 'Partizip II...',
+      perfektConjugateVerbLabel: 'Verb (Perfekt)',
+      perfektConjugateInstruction: '✏️ Schreibe die Perfektform (Hilfsverb + Partizip II):',
+      perfektConjugatePlaceholder: 'Perfektform...',
+      perfektFillHeader: 'Perfekt — Ergänze den Satz',
+      perfektFillInstruction: '✏️ Schreibe das Hilfsverb und das Partizip II:',
+      perfektAuxLabel: '1. Hilfsverb (haben/sein)',
+      perfektPartizipLabel2: '2. Partizip II',
+      perfektAuxBadge: '1. Hilfsverb',
+      perfektPartizipBadge: '2. Partizip II',
+      perfektAuxName: 'Hilfsverb',
+      perfektPartizipName: 'Partizip II',
+      audioPlaying: 'Spielt…',
+      audioClickToHear: 'Klicke zum erneuten Anhören',
+      audioInstruction: 'Welchen Infinitiv hast du gehört?',
+      audioYouHeard: 'Du hast gehört:',
+      audioHeard: 'Man hörte:',
+      wordOrderHeader: 'Bilde den Satz',
+      wordOrderInstruction: '🔤 Klicke die Wörter der Reihe nach:',
+      wordOrderEmpty: 'Der Satz erscheint hier…',
+      wordOrderRemaining: 'Noch',
+      wordOrderWords: 'Wörter',
+      persons: {
+        ich: 'ich', du: 'du', er: 'er/sie/es', wir: 'wir', ihr: 'ihr', sie: 'sie/Sie',
+      },
     },
 
     nounArticle: {
@@ -347,7 +508,7 @@ export const T = {
   },
 } as const
 
-// Rekurzivno širi literal tipove u string (potrebno za context)
+// Rekurzivno širi literal tipove u string
 type Stringify<T> = T extends string
   ? string
   : T extends object

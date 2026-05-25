@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import type { GameQuestion, QuestionResult } from '@/types'
 import { calculatePoints } from '@/lib/game/scorer'
+import { useTranslation } from '@/lib/i18n/LanguageContext'
 
 interface Props {
   question: GameQuestion
@@ -12,6 +13,9 @@ interface Props {
 }
 
 export function TranslateGame({ question, onAnswer, questionNumber, totalQuestions }: Props) {
+  const { t } = useTranslation()
+  const g = t.game
+
   const [selected, setSelected] = useState<string | null>(null)
   const startTime = useRef(Date.now())
 
@@ -26,7 +30,6 @@ export function TranslateGame({ question, onAnswer, questionNumber, totalQuestio
     const timeTakenMs = Date.now() - startTime.current
     const isCorrect = question.correctAnswers.includes(option)
     const points = calculatePoints(isCorrect, timeTakenMs)
-
     setTimeout(() => {
       onAnswer({ questionId: question.id, userAnswer: option, isCorrect, timeTakenMs, pointsEarned: points })
     }, 1000)
@@ -36,19 +39,17 @@ export function TranslateGame({ question, onAnswer, questionNumber, totalQuestio
     <div className="flex flex-col items-center gap-6 w-full max-w-lg mx-auto">
       <div className="w-full">
         <div className="flex justify-between text-sm text-gray-500 mb-1">
-          <span>Pitanje {questionNumber}/{totalQuestions}</span>
+          <span>{g.question} {questionNumber}/{totalQuestions}</span>
           <span className="font-medium text-sky-600">{question.infinitiv}</span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
-          <div
-            className="bg-sky-500 h-2 rounded-full transition-all"
-            style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
-          />
+          <div className="bg-sky-500 h-2 rounded-full transition-all"
+            style={{ width: `${(questionNumber / totalQuestions) * 100}%` }} />
         </div>
       </div>
 
       <div className="bg-white rounded-2xl shadow p-6 w-full text-center">
-        <p className="text-gray-500 text-sm mb-2">Izaberi ispravnu konjugaciju za:</p>
+        <p className="text-gray-500 text-sm mb-2">{g.translateInstruction}</p>
         <p className="text-2xl font-bold text-gray-900">{question.translation}</p>
       </div>
 
@@ -62,12 +63,8 @@ export function TranslateGame({ question, onAnswer, questionNumber, totalQuestio
             else cls = 'border-2 border-gray-200 bg-white text-gray-400 opacity-60'
           }
           return (
-            <button
-              key={option}
-              onClick={() => handleSelect(option)}
-              disabled={!!selected}
-              className={`rounded-xl px-4 py-4 text-lg font-semibold transition ${cls}`}
-            >
+            <button key={option} onClick={() => handleSelect(option)} disabled={!!selected}
+              className={`rounded-xl px-4 py-4 text-lg font-semibold transition ${cls}`}>
               {option}
             </button>
           )

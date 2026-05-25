@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import type { GameQuestion, QuestionResult } from '@/types'
+import { useTranslation } from '@/lib/i18n/LanguageContext'
 
 interface Props {
   question: GameQuestion
@@ -20,10 +21,12 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuestions }: Props) {
+  const { t } = useTranslation()
+  const g = t.game
+
   const infinitives = question.options ?? []
   const conjugations = question.correctAnswers
 
-  // Parovi: infinitives[i] ↔ conjugations[i]
   const pairMap = useMemo(() => {
     const m = new Map<string, string>()
     infinitives.forEach((inf, i) => m.set(inf, conjugations[i]))
@@ -32,7 +35,6 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
 
   const [leftItems] = useState(() => shuffle(infinitives))
   const [rightItems] = useState(() => shuffle(conjugations))
-
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null)
   const [selectedRight, setSelectedRight] = useState<string | null>(null)
   const [matched, setMatched] = useState<Set<string>>(new Set())
@@ -49,7 +51,6 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
 
   function handleRight(conj: string) {
     if (wrong) return
-    // check if already matched
     const alreadyMatched = [...matched].some((inf) => pairMap.get(inf) === conj)
     if (alreadyMatched) return
     setSelectedRight(conj)
@@ -63,27 +64,18 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
       setMatched(newMatched)
       setSelectedLeft(null)
       setSelectedRight(null)
-
       if (newMatched.size === totalPairs) {
         setTimeout(() => {
           onAnswer({
-            questionId: question.id,
-            userAnswer: conjugations[0],
-            isCorrect: true,
-            // timeTakenMs nosi broj grešaka — server koristi za oduzimanje poena
-            timeTakenMs: wrongAttempts,
-            pointsEarned: Math.max(10, 100 - wrongAttempts * 15),
+            questionId: question.id, userAnswer: conjugations[0], isCorrect: true,
+            timeTakenMs: wrongAttempts, pointsEarned: Math.max(10, 100 - wrongAttempts * 15),
           })
         }, 600)
       }
     } else {
       setWrongAttempts((n) => n + 1)
       setWrong({ left: inf, right: conj })
-      setTimeout(() => {
-        setWrong(null)
-        setSelectedLeft(null)
-        setSelectedRight(null)
-      }, 800)
+      setTimeout(() => { setWrong(null); setSelectedLeft(null); setSelectedRight(null) }, 800)
     }
   }
 
@@ -106,46 +98,33 @@ export function MatchPairsGame({ question, onAnswer, questionNumber, totalQuesti
     <div className="max-w-lg mx-auto w-full">
       <div className="mb-6">
         <div className="flex justify-between text-sm text-gray-500 mb-1">
-          <span>Pitanje {questionNumber} / {totalQuestions}</span>
-          <span>{matched.size} / {totalPairs} parova</span>
+          <span>{g.question} {questionNumber} / {totalQuestions}</span>
+          <span>{matched.size} / {totalPairs} {g.pairsOf}</span>
         </div>
         <div className="h-2 bg-gray-200 rounded-full">
-          <div
-            className="h-2 bg-sky-500 rounded-full transition-all"
-            style={{ width: `${((questionNumber - 1) / totalQuestions) * 100}%` }}
-          />
+          <div className="h-2 bg-sky-500 rounded-full transition-all"
+            style={{ width: `${((questionNumber - 1) / totalQuestions) * 100}%` }} />
         </div>
       </div>
 
-      <h2 className="text-lg font-bold text-gray-900 mb-1">Poveži parove</h2>
-      <p className="text-sm text-gray-500 mb-6">
-        Poveži infinitiv sa ispravnom konjugacijom
-      </p>
+      <h2 className="text-lg font-bold text-gray-900 mb-1">{g.matchTitle}</h2>
+      <p className="text-sm text-gray-500 mb-6">{g.matchInstruction}</p>
 
       <div className="grid grid-cols-2 gap-3">
         <div className="flex flex-col gap-3">
           {leftItems.map((inf) => (
-            <button
-              key={inf}
-              onClick={() => handleLeft(inf)}
-              disabled={matched.has(inf)}
-              className={`border-2 rounded-xl px-4 py-3 font-semibold text-sm transition cursor-pointer ${getLeftStyle(inf)}`}
-            >
+            <button key={inf} onClick={() => handleLeft(inf)} disabled={matched.has(inf)}
+              className={`border-2 rounded-xl px-4 py-3 font-semibold text-sm transition cursor-pointer ${getLeftStyle(inf)}`}>
               {inf}
             </button>
           ))}
         </div>
-
         <div className="flex flex-col gap-3">
           {rightItems.map((conj) => {
             const isMatched = [...matched].some((inf) => pairMap.get(inf) === conj)
             return (
-              <button
-                key={conj}
-                onClick={() => handleRight(conj)}
-                disabled={isMatched}
-                className={`border-2 rounded-xl px-4 py-3 font-semibold text-sm transition cursor-pointer ${getRightStyle(conj)}`}
-              >
+              <button key={conj} onClick={() => handleRight(conj)} disabled={isMatched}
+                className={`border-2 rounded-xl px-4 py-3 font-semibold text-sm transition cursor-pointer ${getRightStyle(conj)}`}>
                 {conj}
               </button>
             )
