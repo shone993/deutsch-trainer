@@ -14,6 +14,33 @@ export const T = {
     error: 'Greška',
     noQuestions: 'Nema pitanja za ovu vežbu.',
 
+    login: {
+      title: 'Prijava',
+      subtitle: 'Deutsch Trainer — VTŠ Subotica',
+      passwordLabel: 'Lozinka',
+      passwordPlaceholder: '••••••••',
+      submit: 'Prijavi se',
+      submitting: 'Prijavljujem...',
+      noAccount: 'Nemaš nalog?',
+      registerLink: 'Registruj se',
+    },
+
+    register: {
+      title: 'Registracija',
+      subtitle: 'Potreban ti je verifikacioni kod od profesora',
+      nameLabel: 'Ime',
+      surnameLabel: 'Prezime',
+      usernameLabel: 'Korisničko ime',
+      passwordLabel: 'Lozinka',
+      passwordPlaceholder: 'Min. 6 karaktera',
+      codeLabel: 'Verifikacioni kod',
+      codeHint: 'Kod dobijen od profesora nemačkog',
+      submit: 'Registruj se',
+      submitting: 'Registrujem...',
+      hasAccount: 'Već imaš nalog?',
+      loginLink: 'Prijavi se',
+    },
+
     profile: {
       streak: 'Streak',
       points: 'Poeni',
@@ -100,6 +127,33 @@ export const T = {
     error: 'Hiba',
     noQuestions: 'Nincs kérdés ehhez a gyakorlathoz.',
 
+    login: {
+      title: 'Bejelentkezés',
+      subtitle: 'Deutsch Trainer — VTŠ Subotica',
+      passwordLabel: 'Jelszó',
+      passwordPlaceholder: '••••••••',
+      submit: 'Bejelentkezés',
+      submitting: 'Bejelentkezés...',
+      noAccount: 'Nincs fiókod?',
+      registerLink: 'Regisztrálj',
+    },
+
+    register: {
+      title: 'Regisztráció',
+      subtitle: 'Szükséged van a tanár által adott ellenőrző kódra',
+      nameLabel: 'Keresztnév',
+      surnameLabel: 'Vezetéknév',
+      usernameLabel: 'Felhasználónév',
+      passwordLabel: 'Jelszó',
+      passwordPlaceholder: 'Min. 6 karakter',
+      codeLabel: 'Ellenőrző kód',
+      codeHint: 'A némettanártól kapott kód',
+      submit: 'Regisztrálj',
+      submitting: 'Regisztráció...',
+      hasAccount: 'Már van fiókod?',
+      loginLink: 'Jelentkezz be',
+    },
+
     profile: {
       streak: 'Sorozat',
       points: 'Pontok',
@@ -185,6 +239,33 @@ export const T = {
     loading: 'Lade...',
     error: 'Fehler',
     noQuestions: 'Keine Fragen für diese Übung.',
+
+    login: {
+      title: 'Anmeldung',
+      subtitle: 'Deutsch Trainer — VTŠ Subotica',
+      passwordLabel: 'Passwort',
+      passwordPlaceholder: '••••••••',
+      submit: 'Anmelden',
+      submitting: 'Anmeldung...',
+      noAccount: 'Kein Konto?',
+      registerLink: 'Registrieren',
+    },
+
+    register: {
+      title: 'Registrierung',
+      subtitle: 'Du brauchst einen Verifizierungscode vom Lehrer',
+      nameLabel: 'Vorname',
+      surnameLabel: 'Nachname',
+      usernameLabel: 'Benutzername',
+      passwordLabel: 'Passwort',
+      passwordPlaceholder: 'Mind. 6 Zeichen',
+      codeLabel: 'Verifizierungscode',
+      codeHint: 'Code vom Deutschlehrer erhalten',
+      submit: 'Registrieren',
+      submitting: 'Registrierung...',
+      hasAccount: 'Hast du schon ein Konto?',
+      loginLink: 'Anmelden',
+    },
 
     profile: {
       streak: 'Serie',
