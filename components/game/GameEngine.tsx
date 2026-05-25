@@ -11,6 +11,7 @@ import { PerfektPartizipGame } from './PerfektPartizipGame'
 import { PerfektConjugateGame } from './PerfektConjugateGame'
 import { PerfektFillGame } from './PerfektFillGame'
 import { AudioGame } from './AudioGame'
+import { WordOrderGame } from './WordOrderGame'
 
 interface Props {
   session: GameSession
@@ -58,6 +59,7 @@ export function GameEngine({ session, onComplete }: Props) {
       {question.type === 'PRETERIT_MATCH' && <MatchPairsGame key={question.id} {...questionProps} />}
       {question.type === 'PRETERIT_CONJUGATE' && <ConjugateGame key={question.id} {...questionProps} />}
       {question.type === 'PRETERIT_FILL' && <FillBlankGame key={question.id} {...questionProps} />}
+      {question.type === 'WORD_ORDER' && <WordOrderGame key={question.id} {...questionProps} />}
       {question.type === 'AUDIO' && <AudioGame key={question.id} {...questionProps} />}
     </div>
   )

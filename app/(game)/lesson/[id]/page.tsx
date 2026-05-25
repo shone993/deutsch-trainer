@@ -12,6 +12,10 @@ const AUDIO_TYPES: ExerciseEntry[] = [
   { type: 'AUDIO', label: 'Slušanje', emoji: '🔊', desc: 'Čuj glagolski oblik — odaberi tačan infinitiv' },
 ]
 
+const WORTFOLGE_TYPES: ExerciseEntry[] = [
+  { type: 'WORD_ORDER', label: 'Redosled reči', emoji: '🧩', desc: 'Složi date reči i interpunkciju u tačnu rečenicu' },
+]
+
 const PREZENS_TYPES: ExerciseEntry[] = [
   { type: 'MATCH_PAIRS', label: 'Poveži parove',    emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i formom' },
   { type: 'TRANSLATE',   label: 'Višestruki izbor', emoji: '🌍', desc: 'Izaberi tačnu konjugaciju' },
@@ -157,6 +161,17 @@ const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: stri
       'Potvrdi pritiskom na ✓ ili Enter.',
     ],
     example: 'Primer: "Ich _____ gestern krank."  →  upiši: war',
+  },
+  WORD_ORDER: {
+    title: 'Redosled reči',
+    emoji: '🧩',
+    steps: [
+      'Prikazane su reči i interpunkcija — sve izmešane.',
+      'Klikni reči redom da složiš tačnu nemačku rečenicu.',
+      'Klikni reč u rečenici da je vratiš nazad u pool.',
+      'Kad si upotrebio/la sve reči, klikni Potvrdi.',
+    ],
+    example: 'Primer: "aus · Ich · Deutschland · komme · ."  →  Ich komme aus Deutschland.',
   },
   AUDIO: {
     title: 'Slušanje',
@@ -398,6 +413,8 @@ export default function LessonPage({ params }: PageProps) {
         </div>
 
         {renderSection('Perfekt', 'text-purple-600', PERFEKT_TYPES)}
+
+        {renderSection('Wortfolge', 'text-teal-600', WORTFOLGE_TYPES)}
 
         {renderSection('Audio', 'text-orange-600', AUDIO_TYPES)}
       </div>

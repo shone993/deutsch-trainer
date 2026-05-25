@@ -9,6 +9,8 @@ export type GameType =
   | 'PERFEKT_HILFSVERB' | 'PERFEKT_PARTIZIP' | 'PERFEKT_PARTIZIP_MATCH' | 'PERFEKT_CONJUGATE' | 'PERFEKT_FILL'
   // Präteritum
   | 'PRETERIT_MATCH' | 'PRETERIT_CONJUGATE' | 'PRETERIT_FILL'
+  // Wortfolge
+  | 'WORD_ORDER'
   // ostalo
   | 'AUDIO'
 

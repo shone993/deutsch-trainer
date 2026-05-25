@@ -10,7 +10,7 @@ const PRETERIT_VERBS = ['können','müssen','wollen','sollen','dürfen','mögen'
 
 const QuerySchema = z.object({
   lesson: z.coerce.number().int().min(1).max(13).optional().default(13),
-  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','AUDIO']),
+  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','WORD_ORDER','AUDIO']),
   count: z.coerce.number().int().min(1).max(30).default(10),
   modalOnly: z.coerce.boolean().optional().default(false),
   preteritOnly: z.coerce.boolean().optional().default(false),
@@ -65,8 +65,8 @@ export async function GET(request: NextRequest) {
 
   let sentences: Array<{ id: string; verbId: string; template: string; translation: string }> = []
 
-  if (gameType === 'FILL_BLANK' || gameType === 'PERFEKT_FILL') {
-    const difficulty = gameType === 'PERFEKT_FILL' ? 2 : 1
+  if (gameType === 'FILL_BLANK' || gameType === 'PERFEKT_FILL' || gameType === 'WORD_ORDER') {
+    const difficulty = gameType === 'PERFEKT_FILL' ? 2 : gameType === 'WORD_ORDER' ? 3 : 1
     const dbSentences = await prisma.sentence.findMany({
       where: {
         verbId: { in: dbVerbs.map((v) => v.id) },

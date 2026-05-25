@@ -109,6 +109,21 @@ function getConjugation(verb: VerbData, person: GrammaticalPerson): string {
   return verb.conjugation[person]
 }
 
+/** Rastavlja rečenicu na tokene — reči + interpunkcija kao zasebni tokeni */
+function tokenizeSentence(sentence: string): string[] {
+  const tokens: string[] = []
+  sentence.trim().split(/\s+/).forEach(word => {
+    const match = word.match(/^(.*?)([.,!?;:]+)$/)
+    if (match && match[1]) {
+      tokens.push(match[1])
+      tokens.push(match[2])
+    } else {
+      tokens.push(word)
+    }
+  })
+  return tokens.filter(t => t.length > 0)
+}
+
 function getDistractors(correct: string, allVerbs: VerbData[], count = 3): string[] {
   const pool = new Set<string>()
   for (const verb of shuffle(allVerbs)) {
@@ -365,6 +380,25 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
           parsedSentence,
           translation: sentenceData.translation,
           correctAnswers: [correct],
+        })
+        break
+      }
+
+      case 'WORD_ORDER': {
+        const pool = sentences.filter(s => s.verbId === verb.id)
+        if (pool.length === 0) break
+        const sent = randomItem(pool)
+        const tokens = tokenizeSentence(sent.template)
+        if (tokens.length < 3) break
+        questions.push({
+          id: `wo-${verb.id}-${i}`,
+          type: 'WORD_ORDER',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          sentence: sent.template,
+          translation: sent.translation || '',
+          correctAnswers: [sent.template],
+          options: shuffle(tokens),   // izmešani tokeni
         })
         break
       }
