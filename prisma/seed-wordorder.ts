@@ -48,16 +48,17 @@ async function main() {
 
   console.log(`DB glagola: ${dbVerbs.length}`)
 
-  let addedPraesens = 0
-  let addedPerfekt  = 0
-  let skippedVerbs  = 0
+  const toInsert: Array<{
+    id: string; verbId: string; template: string;
+    translation: string; difficulty: number; isActive: boolean
+  }> = []
+  let skippedVerbs = 0
 
   for (const row of rows) {
     const raw = String(row[COL_INFINITIV] || '').trim()
     if (!raw || raw === 'Infinitiv' || raw.match(/^\d+$/)) continue
-    if (!row[1]) continue  // nema konjugacije → nije verb red
+    if (!row[1]) continue
 
-    // Pronađi glagol u bazi
     const candidates = normalizeInfinitiv(raw)
     let verbId: string | undefined
     for (const c of candidates) {
@@ -71,51 +72,28 @@ async function main() {
       continue
     }
 
-    // Präsens rečenice → difficulty=3
     for (const col of COL_PRAESENS_SENTENCES) {
       const sent = cleanSentence(String(row[col] || ''))
       if (!sent) continue
-      await prisma.sentence.upsert({
-        where: {
-          // Nema uniqueness na (verbId, template) — koristimo create+skip pattern
-          id: `wo3-${verbId}-${col}`,
-        },
-        update: {},
-        create: {
-          id: `wo3-${verbId}-${col}`,
-          verbId,
-          template: sent,
-          translation: '',
-          difficulty: 3,
-          isActive: true,
-        },
-      })
-      addedPraesens++
+      toInsert.push({ id: `wo3-${verbId}-${col}`, verbId, template: sent, translation: '', difficulty: 3, isActive: true })
     }
 
-    // Perfekt rečenice → difficulty=4
     for (const col of COL_PERFEKT_SENTENCES) {
       const sent = cleanSentence(String(row[col] || ''))
       if (!sent) continue
-      await prisma.sentence.upsert({
-        where: { id: `wo4-${verbId}-${col}` },
-        update: {},
-        create: {
-          id: `wo4-${verbId}-${col}`,
-          verbId,
-          template: sent,
-          translation: '',
-          difficulty: 4,
-          isActive: true,
-        },
-      })
-      addedPerfekt++
+      toInsert.push({ id: `wo4-${verbId}-${col}`, verbId, template: sent, translation: '', difficulty: 4, isActive: true })
     }
   }
 
-  console.log(`\n✅ Gotovo!`)
-  console.log(`   Präsens Word Order rečenica: ${addedPraesens}`)
-  console.log(`   Perfekt  Word Order rečenica: ${addedPerfekt}`)
+  console.log(`Ukupno rečenica za insert: ${toInsert.length}`)
+
+  // Batch insert — preskači duplikate ako se skripta pokrene ponovo
+  const result = await prisma.sentence.createMany({
+    data: toInsert,
+    skipDuplicates: true,
+  })
+
+  console.log(`\n✅ Gotovo! Dodato: ${result.count} rečenica`)
   console.log(`   Preskočeni glagoli (nisu u DB): ${skippedVerbs}`)
   await prisma.$disconnect()
 }
