@@ -370,14 +370,20 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
       }
 
       case 'AUDIO': {
+        // Čuje se konjugovani oblik → odaberi tačan infinitiv
+        const distractors = shuffle(verbs.filter((v) => v.id !== verb.id)).slice(0, 3)
+        const allFour = shuffle([verb, ...distractors])
+        const pronoun = PERSON_PRONOUN[person]
+        const form = getConjugation(verb, person)
         questions.push({
           id: `audio-${verb.id}-${person}-${i}`,
           type: 'AUDIO',
           verbId: verb.id,
           infinitiv: verb.infinitiv,
-          translation: verb.translation ?? verb.infinitiv,
-          correctAnswers: [correctAnswer],
-          audioWord: correctAnswer,
+          audioWord: `${pronoun} ${form}`,          // šta se govori
+          translation: `${pronoun} · Präsens`,       // hint na ekranu
+          correctAnswers: [verb.infinitiv],           // student bira infinitiv
+          options: allFour.map((v) => v.infinitiv),  // 4 dugmeta
         })
         break
       }

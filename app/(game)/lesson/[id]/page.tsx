@@ -8,6 +8,10 @@ import { GameEngine } from '@/components/game/GameEngine'
 
 type ExerciseEntry = { type: GameType; label: string; emoji: string; desc: string }
 
+const AUDIO_TYPES: ExerciseEntry[] = [
+  { type: 'AUDIO', label: 'Slušanje', emoji: '🔊', desc: 'Čuj glagolski oblik — odaberi tačan infinitiv' },
+]
+
 const PREZENS_TYPES: ExerciseEntry[] = [
   { type: 'MATCH_PAIRS', label: 'Poveži parove',    emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i formom' },
   { type: 'TRANSLATE',   label: 'Višestruki izbor', emoji: '🌍', desc: 'Izaberi tačnu konjugaciju' },
@@ -155,10 +159,15 @@ const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: stri
     example: 'Primer: "Ich _____ gestern krank."  →  upiši: war',
   },
   AUDIO: {
-    title: 'Audio vežba',
+    title: 'Slušanje',
     emoji: '🔊',
-    steps: ['Odslušaj izgovor nemačke reči.', 'Upiši ono što si čuo.'],
-    example: '',
+    steps: [
+      'Klikni dugme 🔊 — čućeš glagolski oblik sa zamenicom (npr. „er geht").',
+      'Od 4 ponuđena infinitiva klikni onaj koji si čuo/la.',
+      'Možeš da ponovo pustiš audio koliko god puta hoćeš.',
+      'Potvrdi odgovor klikom na dugme.',
+    ],
+    example: 'Primer: čuješ „wir haben" → klikni: haben',
   },
 }
 
@@ -389,6 +398,8 @@ export default function LessonPage({ params }: PageProps) {
         </div>
 
         {renderSection('Perfekt', 'text-purple-600', PERFEKT_TYPES)}
+
+        {renderSection('Audio', 'text-orange-600', AUDIO_TYPES)}
       </div>
     </main>
   )

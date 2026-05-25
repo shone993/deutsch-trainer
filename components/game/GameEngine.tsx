@@ -10,6 +10,7 @@ import { PerfektHilfsverbGame } from './PerfektHilfsverbGame'
 import { PerfektPartizipGame } from './PerfektPartizipGame'
 import { PerfektConjugateGame } from './PerfektConjugateGame'
 import { PerfektFillGame } from './PerfektFillGame'
+import { AudioGame } from './AudioGame'
 
 interface Props {
   session: GameSession
@@ -57,24 +58,7 @@ export function GameEngine({ session, onComplete }: Props) {
       {question.type === 'PRETERIT_MATCH' && <MatchPairsGame key={question.id} {...questionProps} />}
       {question.type === 'PRETERIT_CONJUGATE' && <ConjugateGame key={question.id} {...questionProps} />}
       {question.type === 'PRETERIT_FILL' && <FillBlankGame key={question.id} {...questionProps} />}
-      {question.type === 'AUDIO' && (
-        <div className="text-center text-gray-500 mt-20">
-          <p className="text-2xl mb-2">🚧</p>
-          <p>Audio vežba je u razvoju</p>
-          <button
-            className="mt-4 bg-sky-500 text-white px-6 py-2 rounded-lg"
-            onClick={() => handleAnswer({
-              questionId: question.id,
-              userAnswer: '',
-              isCorrect: false,
-              timeTakenMs: 0,
-              pointsEarned: 0,
-            })}
-          >
-            Preskoči
-          </button>
-        </div>
-      )}
+      {question.type === 'AUDIO' && <AudioGame key={question.id} {...questionProps} />}
     </div>
   )
 }
