@@ -16,10 +16,11 @@ const PREZENS_TYPES: ExerciseEntry[] = [
 ]
 
 const PERFEKT_TYPES: ExerciseEntry[] = [
-  { type: 'PERFEKT_HILFSVERB',  label: 'HABEN ili SEIN?',   emoji: '🟣', desc: 'Koji pomoćni glagol se koristi?' },
-  { type: 'PERFEKT_PARTIZIP',   label: 'Partizip II',        emoji: '📝', desc: 'Upiši oblik Partizipa II' },
-  { type: 'PERFEKT_CONJUGATE',  label: 'Konjugacija Perfekt',emoji: '🔤', desc: 'Upiši punu Perfekt formu sa licem' },
-  { type: 'PERFEKT_FILL',       label: 'Rečenice (Perfekt)', emoji: '✏️', desc: 'Popuni dva mesta u rečenici' },
+  { type: 'PERFEKT_HILFSVERB',       label: 'HABEN ili SEIN?',      emoji: '🟣', desc: 'Koji pomoćni glagol se koristi?' },
+  { type: 'PERFEKT_PARTIZIP_MATCH',  label: 'Poveži Partizip II',   emoji: '🔗', desc: 'Poveži infinitiv sa Partizipom II' },
+  { type: 'PERFEKT_PARTIZIP',        label: 'Partizip II',           emoji: '📝', desc: 'Upiši oblik Partizipa II' },
+  { type: 'PERFEKT_CONJUGATE',       label: 'Konjugacija Perfekt',  emoji: '🔤', desc: 'Upiši punu Perfekt formu sa licem' },
+  { type: 'PERFEKT_FILL',            label: 'Rečenice (Perfekt)',   emoji: '✏️', desc: 'Popuni dva mesta u rečenici' },
 ]
 
 const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: string[]; example: string }> = {
@@ -76,6 +77,17 @@ const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: stri
       'Zapamti: glagoli kretanja i promene stanja → sein; ostali → haben.',
     ],
     example: 'Primer: "gehen"  →  klikni: sein',
+  },
+  PERFEKT_PARTIZIP_MATCH: {
+    title: 'Poveži Partizip II',
+    emoji: '🔗',
+    steps: [
+      'Na levoj strani su infinitivi glagola.',
+      'Na desnoj strani su Partizip II oblici — izmešani.',
+      'Klikni infinitiv (levo), pa odgovarajući Partizip II (desno).',
+      'Tačan par postaje zelen. Krivi par bljesne crveno.',
+    ],
+    example: 'Primer: klikni "gehen" → klikni "gegangen"',
   },
   PERFEKT_PARTIZIP: {
     title: 'Partizip II',

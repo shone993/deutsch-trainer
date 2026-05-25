@@ -282,6 +282,21 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
         break
       }
 
+      case 'PERFEKT_PARTIZIP_MATCH': {
+        // Poveži infinitiv (levo) ↔ Partizip II (desno)
+        const pairVerbs = shuffle(verbs).slice(0, 4)
+        questions.push({
+          id: `perf-pmatch-${verb.id}-${i}`,
+          type: 'PERFEKT_PARTIZIP_MATCH',
+          verbId: verb.id,
+          infinitiv: verb.infinitiv,
+          translation: verb.translation ?? verb.infinitiv,
+          correctAnswers: pairVerbs.map((v) => v.perfekt),
+          options: pairVerbs.map((v) => v.infinitiv),
+        })
+        break
+      }
+
       case 'PRETERIT_MATCH': {
         const eligibleVerbs = verbs.filter((v) => v.infinitiv in PRETERIT_DATA)
         if (eligibleVerbs.length < 4) break

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import type { GameQuestion, GameSession, GameType, QuestionResult } from '@/types'
+import type { GameSession, QuestionResult } from '@/types'
 import { ConjugateGame } from './ConjugateGame'
 import { FillBlankGame } from './FillBlankGame'
 import { TranslateGame } from './TranslateGame'
@@ -53,6 +53,7 @@ export function GameEngine({ session, onComplete }: Props) {
       {question.type === 'PERFEKT_PARTIZIP' && <PerfektPartizipGame key={question.id} {...questionProps} />}
       {question.type === 'PERFEKT_CONJUGATE' && <PerfektConjugateGame key={question.id} {...questionProps} />}
       {question.type === 'PERFEKT_FILL' && <PerfektFillGame key={question.id} {...questionProps} />}
+      {question.type === 'PERFEKT_PARTIZIP_MATCH' && <MatchPairsGame key={question.id} {...questionProps} />}
       {question.type === 'PRETERIT_MATCH' && <MatchPairsGame key={question.id} {...questionProps} />}
       {question.type === 'PRETERIT_CONJUGATE' && <ConjugateGame key={question.id} {...questionProps} />}
       {question.type === 'PRETERIT_FILL' && <FillBlankGame key={question.id} {...questionProps} />}

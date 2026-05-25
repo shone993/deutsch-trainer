@@ -10,7 +10,7 @@ const PRETERIT_VERBS = ['können','müssen','wollen','sollen','dürfen','mögen'
 
 const QuerySchema = z.object({
   lesson: z.coerce.number().int().min(1).max(13).optional().default(13),
-  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','AUDIO']),
+  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','AUDIO']),
   count: z.coerce.number().int().min(1).max(30).default(10),
   modalOnly: z.coerce.boolean().optional().default(false),
   preteritOnly: z.coerce.boolean().optional().default(false),
