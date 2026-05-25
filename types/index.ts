@@ -11,6 +11,8 @@ export type GameType =
   | 'PRETERIT_MATCH' | 'PRETERIT_CONJUGATE' | 'PRETERIT_FILL'
   // Wortfolge
   | 'WORD_ORDER'
+  // Imenice
+  | 'NOUN_ARTICLE' | 'VOCAB_MATCH'
   // ostalo
   | 'AUDIO'
 
@@ -59,8 +61,9 @@ export interface ParsedSentence {
 export interface GameQuestion {
   id: string
   type: GameType
-  verbId: string
-  infinitiv: string
+  verbId?: string             // glagolska vežba (opciono za imenice)
+  nounId?: string             // imenička vežba
+  infinitiv: string           // glagol ili imenica (tekst koji se prikazuje)
   sentence?: string           // originalni template
   parsedSentence?: ParsedSentence
   translation: string

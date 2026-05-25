@@ -184,6 +184,27 @@ const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: stri
     ],
     example: 'Primer: čuješ „wir haben" → klikni: haben',
   },
+  NOUN_ARTICLE: {
+    title: 'DER / DIE / DAS',
+    emoji: '🏷️',
+    steps: [
+      'Prikazana je nemačka imenica.',
+      'Klikni na tačan odredjeni član: DER (muški rod), DIE (ženski rod) ili DAS (srednji rod).',
+      'Potvrdi klikom na dugme "Potvrdi".',
+    ],
+    example: 'Primer: "Schule"  →  klikni: die',
+  },
+  VOCAB_MATCH: {
+    title: 'Poveži parove',
+    emoji: '🔗',
+    steps: [
+      'Na levoj strani su nemački izrazi (imenice sa članom, glagoli, ostale reči).',
+      'Na desnoj strani su srpski prevodi — izmešani.',
+      'Klikni nemački izraz (levo), pa odgovarajući prevod (desno).',
+      'Tačan par postaje zelen. Krivi par bljesne crveno.',
+    ],
+    example: 'Primer: klikni "die Schule" → klikni "škola"',
+  },
 }
 
 interface PageProps {

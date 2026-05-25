@@ -109,6 +109,13 @@ export default async function ProfilePage() {
             <div className="text-2xl">📖</div>
             <div className="text-sm font-medium text-gray-700 mt-1">Glosar</div>
           </Link>
+          <Link
+            href="/imenice"
+            className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
+          >
+            <div className="text-2xl">🏷️</div>
+            <div className="text-sm font-medium text-gray-700 mt-1">Imenice</div>
+          </Link>
         </div>
       </div>
     </main>

@@ -137,16 +137,91 @@ function getDistractors(correct: string, allVerbs: VerbData[], count = 3): strin
   return shuffle([...pool]).slice(0, count)
 }
 
+export interface NounData {
+  id: string
+  article: string
+  noun: string
+  translation: string | null
+  translationHu?: string | null
+  translationEn?: string | null
+  lesson: number
+}
+
+export interface WordData {
+  id: string
+  word: string
+  translation: string | null
+  translationHu?: string | null
+  translationEn?: string | null
+}
+
 interface GenerateOptions {
   verbs: VerbData[]
   sentences?: Array<{ id: string; verbId: string; template: string; translation: string }>
+  nouns?: NounData[]
+  words?: WordData[]
   gameType: GameType
   lesson: number
   count: number
 }
 
 export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
-  const { verbs, sentences = [], gameType, count } = opts
+  const { verbs, sentences = [], nouns = [], words = [], gameType, count } = opts
+
+  // --- NOUN_ARTICLE: posebna petlja po imenicama ---
+  if (gameType === 'NOUN_ARTICLE') {
+    if (nouns.length === 0) return []
+    const shuffledNouns = shuffle(nouns)
+    const questions: GameQuestion[] = []
+    for (let i = 0; i < count; i++) {
+      const noun = shuffledNouns[i % shuffledNouns.length]
+      questions.push({
+        id: `na-${noun.id}-${i}`,
+        type: 'NOUN_ARTICLE',
+        nounId: noun.id,
+        infinitiv: noun.noun,
+        translation: noun.translation ?? '',
+        correctAnswers: [noun.article],
+        options: ['der', 'die', 'das'],
+      })
+    }
+    return questions
+  }
+
+  // --- VOCAB_MATCH: mešani parovi (imenice + glagoli + ostalo) ---
+  if (gameType === 'VOCAB_MATCH') {
+    const pool: Array<{ german: string; serbian: string }> = [
+      ...shuffle(nouns).slice(0, 30).map(n => ({
+        german: `${n.article} ${n.noun}`,
+        serbian: n.translation || n.noun,
+      })),
+      ...shuffle(words).slice(0, 20).map(w => ({
+        german: w.word,
+        serbian: w.translation || w.word,
+      })),
+      ...shuffle(verbs).slice(0, 20).map(v => ({
+        german: v.infinitiv,
+        serbian: v.translation || v.infinitiv,
+      })),
+    ]
+    const shuffledPool = shuffle(pool)
+    const questions: GameQuestion[] = []
+    for (let i = 0; i < count; i++) {
+      const offset = (i * 4) % Math.max(1, shuffledPool.length - 4)
+      const picked = shuffle(shuffledPool.slice(offset, offset + 8)).slice(0, 4)
+      if (picked.length < 4) break
+      questions.push({
+        id: `vocab-match-${i}`,
+        type: 'VOCAB_MATCH',
+        infinitiv: '',
+        translation: '',
+        correctAnswers: picked.map(p => p.serbian),
+        options: picked.map(p => p.german),
+      })
+    }
+    return questions
+  }
+
   if (verbs.length === 0) return []
 
   const verbMap = new Map(verbs.map((v) => [v.id, v]))

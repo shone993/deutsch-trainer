@@ -4,16 +4,18 @@ import { createClient } from '@/lib/supabase/server'
 import { prisma } from '@/lib/db/prisma'
 import { generateQuestions } from '@/lib/game/generator'
 import type { VerbData, GameType } from '@/types'
+import type { NounData, WordData } from '@/lib/game/generator'
 
 const MODAL_VERBS = ['können','müssen','wollen','sollen','dürfen','mögen']
 const PRETERIT_VERBS = ['können','müssen','wollen','sollen','dürfen','mögen','sein','haben']
 
 const QuerySchema = z.object({
   lesson: z.coerce.number().int().min(1).max(13).optional().default(13),
-  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','WORD_ORDER','AUDIO']),
+  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','WORD_ORDER','AUDIO','NOUN_ARTICLE','VOCAB_MATCH']),
   count: z.coerce.number().int().min(1).max(30).default(10),
   modalOnly: z.coerce.boolean().optional().default(false),
   preteritOnly: z.coerce.boolean().optional().default(false),
+  nounLesson: z.coerce.number().int().min(0).max(12).optional().default(0), // 0 = sve lekcije
 })
 
 export async function GET(request: NextRequest) {
@@ -31,10 +33,11 @@ export async function GET(request: NextRequest) {
     return Response.json({ error: parsed.error.issues[0].message }, { status: 400 })
   }
 
-  const { lesson, gameType, count, modalOnly, preteritOnly } = parsed.data
+  const { lesson, gameType, count, modalOnly, preteritOnly, nounLesson } = parsed.data
 
   // Dohvati glagole — preterit/modalni filtar ili po lekciji
-  const dbVerbs = await prisma.verb.findMany({
+  const isNounOnly = gameType === 'NOUN_ARTICLE'
+  const dbVerbs = isNounOnly ? [] : await prisma.verb.findMany({
     where: preteritOnly
       ? { infinitiv: { in: PRETERIT_VERBS }, isActive: true }
       : modalOnly
@@ -64,27 +67,53 @@ export async function GET(request: NextRequest) {
   }))
 
   let sentences: Array<{ id: string; verbId: string; template: string; translation: string }> = []
-
   if (gameType === 'FILL_BLANK' || gameType === 'PERFEKT_FILL' || gameType === 'WORD_ORDER') {
     const difficulty = gameType === 'PERFEKT_FILL' ? 2 : gameType === 'WORD_ORDER' ? 3 : 1
     const dbSentences = await prisma.sentence.findMany({
-      where: {
-        verbId: { in: dbVerbs.map((v) => v.id) },
-        isActive: true,
-        difficulty,
-      },
+      where: { verbId: { in: dbVerbs.map((v) => v.id) }, isActive: true, difficulty },
     })
     sentences = dbSentences.map((s) => ({
-      id: s.id,
-      verbId: s.verbId,
-      template: s.template,
-      translation: s.translation,
+      id: s.id, verbId: s.verbId, template: s.template, translation: s.translation,
+    }))
+  }
+
+  // Imenice — za NOUN_ARTICLE i VOCAB_MATCH
+  let nouns: NounData[] = []
+  if (gameType === 'NOUN_ARTICLE' || gameType === 'VOCAB_MATCH') {
+    const dbNouns = await prisma.noun.findMany({
+      where: nounLesson > 0
+        ? { lesson: nounLesson, isActive: true }
+        : { isActive: true },
+    })
+    nouns = dbNouns.map((n) => ({
+      id: n.id,
+      article: n.article,
+      noun: n.noun,
+      translation: n.translation,
+      translationHu: n.translationHu,
+      translationEn: n.translationEn,
+      lesson: n.lesson,
+    }))
+  }
+
+  // OSTALO reči — za VOCAB_MATCH
+  let words: WordData[] = []
+  if (gameType === 'VOCAB_MATCH') {
+    const dbWords = await prisma.word.findMany({ where: { isActive: true } })
+    words = dbWords.map((w) => ({
+      id: w.id,
+      word: w.word,
+      translation: w.translation,
+      translationHu: w.translationHu,
+      translationEn: w.translationEn,
     }))
   }
 
   const questions = generateQuestions({
     verbs,
     sentences,
+    nouns,
+    words,
     gameType: gameType as GameType,
     lesson,
     count,

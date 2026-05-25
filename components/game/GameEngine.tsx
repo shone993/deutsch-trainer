@@ -12,6 +12,7 @@ import { PerfektConjugateGame } from './PerfektConjugateGame'
 import { PerfektFillGame } from './PerfektFillGame'
 import { AudioGame } from './AudioGame'
 import { WordOrderGame } from './WordOrderGame'
+import { NounArticleGame } from './NounArticleGame'
 
 interface Props {
   session: GameSession
@@ -61,6 +62,8 @@ export function GameEngine({ session, onComplete }: Props) {
       {question.type === 'PRETERIT_FILL' && <FillBlankGame key={question.id} {...questionProps} />}
       {question.type === 'WORD_ORDER' && <WordOrderGame key={question.id} {...questionProps} />}
       {question.type === 'AUDIO' && <AudioGame key={question.id} {...questionProps} />}
+      {question.type === 'NOUN_ARTICLE' && <NounArticleGame key={question.id} {...questionProps} />}
+      {question.type === 'VOCAB_MATCH' && <MatchPairsGame key={question.id} {...questionProps} />}
     </div>
   )
 }
