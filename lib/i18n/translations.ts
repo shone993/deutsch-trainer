@@ -129,6 +129,51 @@ export const T = {
       },
     },
 
+    lesson: {
+      chooseExercise: 'Izaberi vrstu vežbe',
+      lessonLabel: 'Lekcija',
+      modalVerbs: 'Modalni glagoli',
+      modalVerbsList: 'können · müssen · wollen · sollen · dürfen · mögen',
+      modalVerbsTitle: 'Posebna vežba — Modalni glagoli',
+      modalVerbsDesc: 'Poveži, konjuguj i umetni u rečenicu',
+      types: {
+        AUDIO:                 { label: 'Slušanje',                       emoji: '🔊', desc: 'Čuj glagolski oblik — odaberi tačan infinitiv' },
+        WORD_ORDER:            { label: 'Redosled reči',                  emoji: '🧩', desc: 'Složi date reči i interpunkciju u tačnu rečenicu' },
+        MATCH_PAIRS:           { label: 'Poveži parove',                  emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i formom' },
+        TRANSLATE:             { label: 'Višestruki izbor',               emoji: '🌍', desc: 'Izaberi tačnu konjugaciju' },
+        CONJUGATE:             { label: 'Konjugacija',                    emoji: '🔤', desc: 'Upiši oblik glagola za dato lice' },
+        FILL_BLANK:            { label: 'Popuni rečenicu',                emoji: '✏️', desc: 'Upiši glagol koji nedostaje u rečenici' },
+        PERFEKT_HILFSVERB:     { label: 'HABEN ili SEIN?',                emoji: '🟣', desc: 'Koji pomoćni glagol se koristi?' },
+        PERFEKT_PARTIZIP_MATCH:{ label: 'Poveži Partizip II',             emoji: '🔗', desc: 'Poveži infinitiv sa Partizipom II' },
+        PERFEKT_PARTIZIP:      { label: 'Partizip II',                    emoji: '📝', desc: 'Upiši oblik Partizipa II' },
+        PERFEKT_CONJUGATE:     { label: 'Konjugacija Perfekt',            emoji: '🔤', desc: 'Upiši punu Perfekt formu sa licem' },
+        PERFEKT_FILL:          { label: 'Rečenice (Perfekt)',             emoji: '✏️', desc: 'Popuni dva mesta u rečenici' },
+        PRETERIT_MATCH:        { label: 'Poveži parove — Präteritum',     emoji: '🔗', desc: 'Poveži infinitiv sa Präteritum oblikom' },
+        PRETERIT_CONJUGATE:    { label: 'Konjugacija — Präteritum',       emoji: '🔤', desc: 'Upiši tačan Präteritum oblik' },
+        PRETERIT_FILL:         { label: 'Umetni u rečenicu — Präteritum', emoji: '✏️', desc: 'Popuni Präteritum oblik u rečenici' },
+        NOUN_ARTICLE:          { label: 'DER / DIE / DAS',                emoji: '🏷️', desc: 'Odaberi određeni član' },
+        VOCAB_MATCH:           { label: 'Poveži parove',                  emoji: '🔗', desc: 'Poveži nemački izraz sa prevodom' },
+      },
+      instructions: {
+        MATCH_PAIRS: { title: 'Poveži parove', steps: ['Na levoj strani su infinitivi glagola.', 'Na desnoj strani su zamenica + konjugacija — izmešane.', 'Klikni jedan infinitiv (levo), pa odgovarajuću formu (desno).', 'Tačan par postaje zelen. Krivi par bljesne crveno.'], example: 'Primer: klikni "sein" → klikni "er/sie/es ist"' },
+        TRANSLATE: { title: 'Višestruki izbor', steps: ['Vidiš glagol i lice koje treba da konjuguješ.', 'Ponuđena su 4 odgovora — samo jedan je tačan.', 'Klikni na tačan oblik glagola.', 'Brži odgovor donosi više poena!'], example: 'Primer: "haben · wir"  →  klikni: haben' },
+        CONJUGATE: { title: 'Konjugacija', steps: ['Prikazan je infinitiv glagola i lična zamenica.', 'Upiši tačan oblik glagola za to lice.', 'Potvrdi pritiskom na ✓ ili Enter.', 'Brži tačan odgovor donosi više poena!'], example: 'Primer: "sein" + "er/sie/es"  →  upiši: ist' },
+        FILL_BLANK: { title: 'Popuni rečenicu', steps: ['Vidiš nemačku rečenicu u kojoj nedostaje glagol.', 'Kartica gore prikazuje koji glagol i koje lice treba.', 'Upiši tačan oblik glagola u polje za unos.', 'Potvrdi pritiskom na ✓ ili Enter.'], example: 'Primer: "Ich  ?  Student."  →  upiši: bin' },
+        PERFEKT_HILFSVERB: { title: 'HABEN ili SEIN?', steps: ['Prikazan je infinitiv glagola.', 'Klikni da li taj glagol u Perfektu koristi HABEN ili SEIN.', 'Zapamti: glagoli kretanja i promene stanja → sein; ostali → haben.'], example: 'Primer: "gehen"  →  klikni: sein' },
+        PERFEKT_PARTIZIP_MATCH: { title: 'Poveži Partizip II', steps: ['Na levoj strani su infinitivi glagola.', 'Na desnoj strani su Partizip II oblici — izmešani.', 'Klikni infinitiv (levo), pa odgovarajući Partizip II (desno).', 'Tačan par postaje zelen. Krivi par bljesne crveno.'], example: 'Primer: klikni "gehen" → klikni "gegangen"' },
+        PERFEKT_PARTIZIP: { title: 'Partizip II', steps: ['Prikazan je infinitiv glagola.', 'Upiši Partizip II (treći oblik glagola).', 'Regularni glagoli: ge- + osnova + -t  (lernen → gelernt)', 'Nepravilni glagoli imaju posebne oblike (gehen → gegangen).'], example: 'Primer: "lernen"  →  upiši: gelernt' },
+        PERFEKT_CONJUGATE: { title: 'Konjugacija Perfekt', steps: ['Prikazan je infinitiv glagola i lična zamenica.', 'Upiši punu Perfekt formu: konjugovani haben/sein + Partizip II.', 'Razmaknicom odvoji pomoćni glagol od participa.'], example: 'Primer: "gehen" + "ich"  →  upiši: bin gegangen' },
+        PERFEKT_FILL: { title: 'Rečenice — Perfekt', steps: ['Vidiš nemačku rečenicu sa dva prazna mesta.', 'Prvo mesto: konjugovani haben/sein.', 'Drugo mesto: Partizip II.', 'Upiši svaki oblik posebno.'], example: 'Primer: "Ich _____ nach Berlin _____"  →  bin / gegangen' },
+        PRETERIT_MATCH: { title: 'Poveži parove — Präteritum', steps: ['Na levoj strani su infinitivi glagola.', 'Na desnoj strani su zamenica + Präteritum oblik — izmešani.', 'Klikni infinitiv (levo), pa odgovarajući oblik (desno).', 'Tačan par postaje zelen. Krivi par bljesne crveno.'], example: 'Primer: klikni "sein" → klikni "ich war"' },
+        PRETERIT_CONJUGATE: { title: 'Konjugacija — Präteritum', steps: ['Prikazan je infinitiv glagola i lična zamenica.', 'Upiši tačan Präteritum oblik za to lice.', 'sein: war/warst/war/waren/wart/waren', 'haben: hatte/hattest/hatte/hatten/hattet/hatten'], example: 'Primer: "können" + "wir"  →  upiši: konnten' },
+        PRETERIT_FILL: { title: 'Umetni u rečenicu — Präteritum', steps: ['Vidiš nemačku rečenicu u kojoj nedostaje glagol u Präteritumu.', 'Kartica gore prikazuje koji glagol i koje lice treba.', 'Upiši tačan Präteritum oblik glagola.', 'Potvrdi pritiskom na ✓ ili Enter.'], example: 'Primer: "Ich _____ gestern krank."  →  upiši: war' },
+        WORD_ORDER: { title: 'Redosled reči', steps: ['Prikazane su reči i interpunkcija — sve izmešane.', 'Klikni reči redom da složiš tačnu nemačku rečenicu.', 'Klikni reč u rečenici da je vratiš nazad u pool.', 'Kad si upotrebio/la sve reči, klikni Potvrdi.'], example: 'Primer: "aus · Ich · Deutschland · komme · ."  →  Ich komme aus Deutschland.' },
+        AUDIO: { title: 'Slušanje', steps: ['Klikni dugme 🔊 — čućeš glagolski oblik sa zamenicom (npr. „er geht").', 'Od 4 ponuđena infinitiva klikni onaj koji si čuo/la.', 'Možeš da ponovo pustiš audio koliko god puta hoćeš.', 'Potvrdi odgovor klikom na dugme.'], example: 'Primer: čuješ „wir haben" → klikni: haben' },
+        NOUN_ARTICLE: { title: 'DER / DIE / DAS', steps: ['Prikazana je nemačka imenica.', 'Klikni na tačan određeni član: DER (muški rod), DIE (ženski rod) ili DAS (srednji rod).', 'Potvrdi klikom na dugme "Potvrdi".'], example: 'Primer: "Schule"  →  klikni: die' },
+        VOCAB_MATCH: { title: 'Poveži parove', steps: ['Na levoj strani su nemački izrazi (imenice sa članom, glagoli, ostale reči).', 'Na desnoj strani su srpski prevodi — izmešani.', 'Klikni nemački izraz (levo), pa odgovarajući prevod (desno).', 'Tačan par postaje zelen. Krivi par bljesne crveno.'], example: 'Primer: klikni "die Schule" → klikni "škola"' },
+      },
+    },
+
     nounArticle: {
       instruction: 'Odaberi određeni član za imenicu:',
       correct: '✓ Tačno!',
@@ -289,6 +334,51 @@ export const T = {
       wordOrderWords: 'szó',
       persons: {
         ich: 'én', du: 'te', er: 'ő', wir: 'mi', ihr: 'ti', sie: 'ők/Ön',
+      },
+    },
+
+    lesson: {
+      chooseExercise: 'Válassz gyakorlatot',
+      lessonLabel: 'Lecke',
+      modalVerbs: 'Modális igék',
+      modalVerbsList: 'können · müssen · wollen · sollen · dürfen · mögen',
+      modalVerbsTitle: 'Különleges gyakorlat — Modális igék',
+      modalVerbsDesc: 'Párosítás, ragozás és mondatba helyezés',
+      types: {
+        AUDIO:                 { label: 'Hallgatás',                    emoji: '🔊', desc: 'Halld az igealakot — válaszd ki a helyes főnévi igenevet' },
+        WORD_ORDER:            { label: 'Szórend',                      emoji: '🧩', desc: 'Rakd össze a szavakat és az írásjeleket helyesen' },
+        MATCH_PAIRS:           { label: 'Párosítás',                    emoji: '🔗', desc: 'Párosítsd az infinitívuszt a névmással és az igealakkal' },
+        TRANSLATE:             { label: 'Többszörös választás',         emoji: '🌍', desc: 'Válaszd ki a helyes ragozást' },
+        CONJUGATE:             { label: 'Ragozás',                      emoji: '🔤', desc: 'Írd be az igealakot az adott személyhez' },
+        FILL_BLANK:            { label: 'Töltsd ki a mondatot',         emoji: '✏️', desc: 'Írd be a hiányzó igét a mondatba' },
+        PERFEKT_HILFSVERB:     { label: 'HABEN vagy SEIN?',             emoji: '🟣', desc: 'Melyik segédigét használjuk?' },
+        PERFEKT_PARTIZIP_MATCH:{ label: 'Partizip II párosítás',        emoji: '🔗', desc: 'Párosítsd az infinitívuszt a Partizip II-vel' },
+        PERFEKT_PARTIZIP:      { label: 'Partizip II',                  emoji: '📝', desc: 'Írd be a Partizip II-t' },
+        PERFEKT_CONJUGATE:     { label: 'Perfekt ragozás',              emoji: '🔤', desc: 'Írd be a teljes Perfekt alakot személlyel' },
+        PERFEKT_FILL:          { label: 'Mondatok (Perfekt)',            emoji: '✏️', desc: 'Töltsd ki a két üres helyet' },
+        PRETERIT_MATCH:        { label: 'Párosítás — Präteritum',       emoji: '🔗', desc: 'Párosítsd az infinitívuszt a Präteritum alakkal' },
+        PRETERIT_CONJUGATE:    { label: 'Ragozás — Präteritum',         emoji: '🔤', desc: 'Írd be a helyes Präteritum alakot' },
+        PRETERIT_FILL:         { label: 'Mondat — Präteritum',          emoji: '✏️', desc: 'Töltsd ki a Präteritum alakot a mondatban' },
+        NOUN_ARTICLE:          { label: 'DER / DIE / DAS',              emoji: '🏷️', desc: 'Válaszd ki a megfelelő névelőt' },
+        VOCAB_MATCH:           { label: 'Párosítás',                    emoji: '🔗', desc: 'Párosítsd a német kifejezést a fordításával' },
+      },
+      instructions: {
+        MATCH_PAIRS: { title: 'Párosítás', steps: ['A bal oldalon az igék infinitívuszai vannak.', 'A jobb oldalon névmás + ragozás — összekeverve.', 'Kattints egy infinitívuszra (bal), majd a megfelelő alakra (jobb).', 'A helyes pár zöld lesz. A rossz pár piros villanást kap.'], example: 'Példa: kattints "sein" → kattints "er/sie/es ist"' },
+        TRANSLATE: { title: 'Többszörös választás', steps: ['Látod az igét és a személyt, amelyet ragozni kell.', '4 lehetséges válasz jelenik meg — csak egy helyes.', 'Kattints a helyes igealakra.', 'A gyorsabb válasz több pontot ér!'], example: 'Példa: "haben · wir" → kattints: haben' },
+        CONJUGATE: { title: 'Ragozás', steps: ['Megjelenik az ige főnévi igeneve és a személyes névmás.', 'Írd be az adott személyhez tartozó helyes igealakot.', 'Erősítsd meg ✓ vagy Enter gombbal.', 'A gyorsabb helyes válasz több pontot ér!'], example: 'Példa: "sein" + "er/sie/es" → írd be: ist' },
+        FILL_BLANK: { title: 'Töltsd ki a mondatot', steps: ['Látsz egy német mondatot, amelyből hiányzik az ige.', 'A felső kártya mutatja, melyik igét és melyik személyt kell használni.', 'Írd be az ige helyes alakját a beviteli mezőbe.', 'Erősítsd meg ✓ vagy Enter gombbal.'], example: 'Példa: "Ich ? Student." → írd be: bin' },
+        PERFEKT_HILFSVERB: { title: 'HABEN vagy SEIN?', steps: ['Megjelenik az ige főnévi igeneve.', 'Kattints arra, hogy az ige Perfektben HABEN-t vagy SEIN-t használ-e.', 'Emlékezz: mozgást és állapotváltozást kifejező igék → sein; többi → haben.'], example: 'Példa: "gehen" → kattints: sein' },
+        PERFEKT_PARTIZIP_MATCH: { title: 'Partizip II párosítás', steps: ['A bal oldalon az igék infinitívuszai vannak.', 'A jobb oldalon Partizip II alakok — összekeverve.', 'Kattints az infinitívuszra (bal), majd a megfelelő Partizip II-re (jobb).', 'A helyes pár zöld lesz. A rossz pár piros villanást kap.'], example: 'Példa: kattints "gehen" → kattints "gegangen"' },
+        PERFEKT_PARTIZIP: { title: 'Partizip II', steps: ['Megjelenik az ige főnévi igeneve.', 'Írd be a Partizip II-t (az ige harmadik alakja).', 'Szabályos igék: ge- + tő + -t (lernen → gelernt)', 'Rendhagyó igéknek különleges alakjaik vannak (gehen → gegangen).'], example: 'Példa: "lernen" → írd be: gelernt' },
+        PERFEKT_CONJUGATE: { title: 'Perfekt ragozás', steps: ['Megjelenik az ige főnévi igeneve és a személyes névmás.', 'Írd be a teljes Perfekt alakot: ragozott haben/sein + Partizip II.', 'Szóközzel válaszd el a segédigét a participiumtól.'], example: 'Példa: "gehen" + "ich" → írd be: bin gegangen' },
+        PERFEKT_FILL: { title: 'Mondatok — Perfekt', steps: ['Látsz egy német mondatot két üres hellyel.', 'Első hely: ragozott haben/sein.', 'Második hely: Partizip II.', 'Mindkét alakot külön írd be.'], example: 'Példa: "Ich _____ nach Berlin _____" → bin / gegangen' },
+        PRETERIT_MATCH: { title: 'Párosítás — Präteritum', steps: ['A bal oldalon az igék infinitívuszai vannak.', 'A jobb oldalon névmás + Präteritum alak — összekeverve.', 'Kattints az infinitívuszra (bal), majd a megfelelő alakra (jobb).', 'A helyes pár zöld lesz. A rossz pár piros villanást kap.'], example: 'Példa: kattints "sein" → kattints "ich war"' },
+        PRETERIT_CONJUGATE: { title: 'Ragozás — Präteritum', steps: ['Megjelenik az ige főnévi igeneve és a személyes névmás.', 'Írd be az adott személyhez tartozó helyes Präteritum alakot.', 'sein: war/warst/war/waren/wart/waren', 'haben: hatte/hattest/hatte/hatten/hattet/hatten'], example: 'Példa: "können" + "wir" → írd be: konnten' },
+        PRETERIT_FILL: { title: 'Mondat — Präteritum', steps: ['Látsz egy német mondatot, amelyből hiányzik a Präteritum ige.', 'A felső kártya mutatja, melyik igét és melyik személyt kell használni.', 'Írd be az ige helyes Präteritum alakját.', 'Erősítsd meg ✓ vagy Enter gombbal.'], example: 'Példa: "Ich _____ gestern krank." → írd be: war' },
+        WORD_ORDER: { title: 'Szórend', steps: ['A szavak és az írásjelek megjelennek — összekeverve.', 'Kattints a szavakra sorban a helyes német mondat összerakásához.', 'Kattints egy szóra a mondatban, hogy visszatedd a készletbe.', 'Amikor felhasználtad az összes szót, kattints a Megerősít gombra.'], example: 'Példa: "aus · Ich · Deutschland · komme · ." → Ich komme aus Deutschland.' },
+        AUDIO: { title: 'Hallgatás', steps: ['Kattints a 🔊 gombra — hallani fogod az igealakot névmással (pl. „er geht").', '4 infinitívusz közül kattints arra, amelyiket hallottad.', 'Az audiót annyiszor hallgathatod meg, ahányszor szeretnéd.', 'Erősítsd meg a válaszodat a gombra kattintva.'], example: 'Példa: hallod „wir haben" → kattints: haben' },
+        NOUN_ARTICLE: { title: 'DER / DIE / DAS', steps: ['Megjelenik egy német főnév.', 'Kattints a helyes határozott névelőre: DER (hímnem), DIE (nőnem) vagy DAS (semleges nem).', 'Erősítsd meg a „Megerősít" gombra kattintva.'], example: 'Példa: "Schule" → kattints: die' },
+        VOCAB_MATCH: { title: 'Párosítás', steps: ['A bal oldalon német kifejezések vannak (főnév névelővel, igék, egyéb szavak).', 'A jobb oldalon fordítások — összekeverve.', 'Kattints a német kifejezésre (bal), majd a megfelelő fordításra (jobb).', 'A helyes pár zöld lesz. A rossz pár piros villanást kap.'], example: 'Példa: kattints "die Schule" → kattints "iskola"' },
       },
     },
 
@@ -455,6 +545,51 @@ export const T = {
       },
     },
 
+    lesson: {
+      chooseExercise: 'Übungstyp auswählen',
+      lessonLabel: 'Lektion',
+      modalVerbs: 'Modalverben',
+      modalVerbsList: 'können · müssen · wollen · sollen · dürfen · mögen',
+      modalVerbsTitle: 'Spezialübung — Modalverben',
+      modalVerbsDesc: 'Verbinden, konjugieren und in Sätze einsetzen',
+      types: {
+        AUDIO:                 { label: 'Hören',                          emoji: '🔊', desc: 'Höre die Verbform — wähle den richtigen Infinitiv' },
+        WORD_ORDER:            { label: 'Wortfolge',                      emoji: '🧩', desc: 'Ordne die Wörter und Satzzeichen richtig' },
+        MATCH_PAIRS:           { label: 'Paare verbinden',                emoji: '🔗', desc: 'Verbinde den Infinitiv mit Pronomen und Verbform' },
+        TRANSLATE:             { label: 'Multiple Choice',                emoji: '🌍', desc: 'Wähle die richtige Konjugation' },
+        CONJUGATE:             { label: 'Konjugation',                    emoji: '🔤', desc: 'Schreibe die Verbform für die angegebene Person' },
+        FILL_BLANK:            { label: 'Lücke ausfüllen',                emoji: '✏️', desc: 'Schreibe das fehlende Verb in den Satz' },
+        PERFEKT_HILFSVERB:     { label: 'HABEN oder SEIN?',               emoji: '🟣', desc: 'Welches Hilfsverb wird verwendet?' },
+        PERFEKT_PARTIZIP_MATCH:{ label: 'Partizip II verbinden',          emoji: '🔗', desc: 'Verbinde den Infinitiv mit dem Partizip II' },
+        PERFEKT_PARTIZIP:      { label: 'Partizip II',                    emoji: '📝', desc: 'Schreibe das Partizip II' },
+        PERFEKT_CONJUGATE:     { label: 'Perfekt Konjugation',            emoji: '🔤', desc: 'Schreibe die vollständige Perfektform mit Person' },
+        PERFEKT_FILL:          { label: 'Sätze (Perfekt)',                emoji: '✏️', desc: 'Fülle zwei Lücken im Satz' },
+        PRETERIT_MATCH:        { label: 'Paare — Präteritum',             emoji: '🔗', desc: 'Verbinde den Infinitiv mit der Präteritumform' },
+        PRETERIT_CONJUGATE:    { label: 'Konjugation — Präteritum',       emoji: '🔤', desc: 'Schreibe die richtige Präteritumform' },
+        PRETERIT_FILL:         { label: 'Satz — Präteritum',              emoji: '✏️', desc: 'Fülle die Präteritumform im Satz ein' },
+        NOUN_ARTICLE:          { label: 'DER / DIE / DAS',                emoji: '🏷️', desc: 'Wähle den richtigen bestimmten Artikel' },
+        VOCAB_MATCH:           { label: 'Paare verbinden',                emoji: '🔗', desc: 'Verbinde den deutschen Ausdruck mit der Übersetzung' },
+      },
+      instructions: {
+        MATCH_PAIRS: { title: 'Paare verbinden', steps: ['Auf der linken Seite sind die Infinitive der Verben.', 'Auf der rechten Seite stehen Pronomen + Konjugation — durchgemischt.', 'Klicke einen Infinitiv (links), dann die passende Form (rechts).', 'Das richtige Paar wird grün. Das falsche Paar blinkt rot.'], example: 'Beispiel: klicke "sein" → klicke "er/sie/es ist"' },
+        TRANSLATE: { title: 'Multiple Choice', steps: ['Du siehst das Verb und die Person, die konjugiert werden soll.', '4 Antworten werden angeboten — nur eine ist richtig.', 'Klicke auf die richtige Verbform.', 'Eine schnellere Antwort bringt mehr Punkte!'], example: 'Beispiel: "haben · wir" → klicke: haben' },
+        CONJUGATE: { title: 'Konjugation', steps: ['Der Infinitiv des Verbs und das Personalpronomen werden angezeigt.', 'Schreibe die richtige Verbform für diese Person.', 'Bestätige mit ✓ oder Enter.', 'Eine schnellere richtige Antwort bringt mehr Punkte!'], example: 'Beispiel: "sein" + "er/sie/es" → schreibe: ist' },
+        FILL_BLANK: { title: 'Lücke ausfüllen', steps: ['Du siehst einen deutschen Satz, in dem das Verb fehlt.', 'Die obere Karte zeigt, welches Verb und welche Person benötigt wird.', 'Schreibe die richtige Verbform in das Eingabefeld.', 'Bestätige mit ✓ oder Enter.'], example: 'Beispiel: "Ich ? Student." → schreibe: bin' },
+        PERFEKT_HILFSVERB: { title: 'HABEN oder SEIN?', steps: ['Der Infinitiv des Verbs wird angezeigt.', 'Klicke, ob das Verb im Perfekt HABEN oder SEIN verwendet.', 'Merke: Verben der Bewegung und Zustandsveränderung → sein; andere → haben.'], example: 'Beispiel: "gehen" → klicke: sein' },
+        PERFEKT_PARTIZIP_MATCH: { title: 'Partizip II verbinden', steps: ['Auf der linken Seite sind die Infinitive der Verben.', 'Auf der rechten Seite stehen Partizip II Formen — durchgemischt.', 'Klicke den Infinitiv (links), dann das passende Partizip II (rechts).', 'Das richtige Paar wird grün. Das falsche Paar blinkt rot.'], example: 'Beispiel: klicke "gehen" → klicke "gegangen"' },
+        PERFEKT_PARTIZIP: { title: 'Partizip II', steps: ['Der Infinitiv des Verbs wird angezeigt.', 'Schreibe das Partizip II (die dritte Form des Verbs).', 'Regelmäßige Verben: ge- + Stamm + -t (lernen → gelernt)', 'Unregelmäßige Verben haben besondere Formen (gehen → gegangen).'], example: 'Beispiel: "lernen" → schreibe: gelernt' },
+        PERFEKT_CONJUGATE: { title: 'Perfekt Konjugation', steps: ['Der Infinitiv des Verbs und das Personalpronomen werden angezeigt.', 'Schreibe die vollständige Perfektform: konjugiertes haben/sein + Partizip II.', 'Trenne das Hilfsverb mit einem Leerzeichen vom Partizip.'], example: 'Beispiel: "gehen" + "ich" → schreibe: bin gegangen' },
+        PERFEKT_FILL: { title: 'Sätze — Perfekt', steps: ['Du siehst einen deutschen Satz mit zwei Lücken.', 'Erste Lücke: konjugiertes haben/sein.', 'Zweite Lücke: Partizip II.', 'Schreibe jede Form separat.'], example: 'Beispiel: "Ich _____ nach Berlin _____" → bin / gegangen' },
+        PRETERIT_MATCH: { title: 'Paare — Präteritum', steps: ['Auf der linken Seite sind die Infinitive der Verben.', 'Auf der rechten Seite stehen Pronomen + Präteritumform — durchgemischt.', 'Klicke den Infinitiv (links), dann die passende Form (rechts).', 'Das richtige Paar wird grün. Das falsche Paar blinkt rot.'], example: 'Beispiel: klicke "sein" → klicke "ich war"' },
+        PRETERIT_CONJUGATE: { title: 'Konjugation — Präteritum', steps: ['Der Infinitiv des Verbs und das Personalpronomen werden angezeigt.', 'Schreibe die richtige Präteritumform für diese Person.', 'sein: war/warst/war/waren/wart/waren', 'haben: hatte/hattest/hatte/hatten/hattet/hatten'], example: 'Beispiel: "können" + "wir" → schreibe: konnten' },
+        PRETERIT_FILL: { title: 'Satz — Präteritum', steps: ['Du siehst einen deutschen Satz, in dem das Präteritum fehlt.', 'Die obere Karte zeigt, welches Verb und welche Person benötigt wird.', 'Schreibe die richtige Präteritumform des Verbs.', 'Bestätige mit ✓ oder Enter.'], example: 'Beispiel: "Ich _____ gestern krank." → schreibe: war' },
+        WORD_ORDER: { title: 'Wortfolge', steps: ['Die Wörter und Satzzeichen werden angezeigt — durchgemischt.', 'Klicke die Wörter der Reihe nach, um den richtigen deutschen Satz zu bilden.', 'Klicke ein Wort im Satz, um es in den Pool zurückzulegen.', 'Wenn du alle Wörter verwendet hast, klicke auf Bestätigen.'], example: 'Beispiel: "aus · Ich · Deutschland · komme · ." → Ich komme aus Deutschland.' },
+        AUDIO: { title: 'Hören', steps: ['Klicke die 🔊 Taste — du hörst die Verbform mit Pronomen (z. B. „er geht").', 'Klicke aus 4 angebotenen Infinitiven den, den du gehört hast.', 'Du kannst das Audio so oft wiederholen, wie du möchtest.', 'Bestätige deine Antwort durch einen Klick auf die Taste.'], example: 'Beispiel: du hörst „wir haben" → klicke: haben' },
+        NOUN_ARTICLE: { title: 'DER / DIE / DAS', steps: ['Ein deutsches Nomen wird angezeigt.', 'Klicke den richtigen bestimmten Artikel: DER (maskulin), DIE (feminin) oder DAS (neutrum).', 'Bestätige durch Klicken auf „Bestätigen".'], example: 'Beispiel: "Schule" → klicke: die' },
+        VOCAB_MATCH: { title: 'Paare verbinden', steps: ['Auf der linken Seite stehen deutsche Ausdrücke (Nomen mit Artikel, Verben, andere Wörter).', 'Auf der rechten Seite stehen Übersetzungen — durchgemischt.', 'Klicke den deutschen Ausdruck (links), dann die passende Übersetzung (rechts).', 'Das richtige Paar wird grün. Das falsche Paar blinkt rot.'], example: 'Beispiel: klicke "die Schule" → klicke "škola"' },
+      },
+    },
+
     nounArticle: {
       instruction: 'Wähle den richtigen bestimmten Artikel:',
       correct: '✓ Richtig!',
@@ -508,11 +643,13 @@ export const T = {
   },
 } as const
 
-// Rekurzivno širi literal tipove u string
+// Rekurzivno širi literal tipove u string (uključujući readonly nizove)
 type Stringify<T> = T extends string
   ? string
-  : T extends object
-    ? { -readonly [K in keyof T]: Stringify<T[K]> }
-    : T
+  : T extends readonly (infer U)[]
+    ? readonly Stringify<U>[]
+    : T extends object
+      ? { -readonly [K in keyof T]: Stringify<T[K]> }
+      : T
 
 export type Translations = Stringify<typeof T.sr>

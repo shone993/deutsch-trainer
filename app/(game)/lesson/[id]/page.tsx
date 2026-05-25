@@ -5,207 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import type { GameSession, GameType, GameQuestion, QuestionResult } from '@/types'
 import { GameEngine } from '@/components/game/GameEngine'
-
-type ExerciseEntry = { type: GameType; label: string; emoji: string; desc: string }
-
-const AUDIO_TYPES: ExerciseEntry[] = [
-  { type: 'AUDIO', label: 'Slušanje', emoji: '🔊', desc: 'Čuj glagolski oblik — odaberi tačan infinitiv' },
-]
-
-const WORTFOLGE_TYPES: ExerciseEntry[] = [
-  { type: 'WORD_ORDER', label: 'Redosled reči', emoji: '🧩', desc: 'Složi date reči i interpunkciju u tačnu rečenicu' },
-]
-
-const PREZENS_TYPES: ExerciseEntry[] = [
-  { type: 'MATCH_PAIRS', label: 'Poveži parove',    emoji: '🔗', desc: 'Poveži infinitiv sa zamenicom i formom' },
-  { type: 'TRANSLATE',   label: 'Višestruki izbor', emoji: '🌍', desc: 'Izaberi tačnu konjugaciju' },
-  { type: 'CONJUGATE',   label: 'Konjugacija',      emoji: '🔤', desc: 'Upiši oblik glagola za dato lice' },
-  { type: 'FILL_BLANK',  label: 'Popuni rečenicu',  emoji: '✏️', desc: 'Upiši glagol koji nedostaje u rečenici' },
-]
-
-const PERFEKT_TYPES: ExerciseEntry[] = [
-  { type: 'PERFEKT_HILFSVERB',       label: 'HABEN ili SEIN?',      emoji: '🟣', desc: 'Koji pomoćni glagol se koristi?' },
-  { type: 'PERFEKT_PARTIZIP_MATCH',  label: 'Poveži Partizip II',   emoji: '🔗', desc: 'Poveži infinitiv sa Partizipom II' },
-  { type: 'PERFEKT_PARTIZIP',        label: 'Partizip II',           emoji: '📝', desc: 'Upiši oblik Partizipa II' },
-  { type: 'PERFEKT_CONJUGATE',       label: 'Konjugacija Perfekt',  emoji: '🔤', desc: 'Upiši punu Perfekt formu sa licem' },
-  { type: 'PERFEKT_FILL',            label: 'Rečenice (Perfekt)',   emoji: '✏️', desc: 'Popuni dva mesta u rečenici' },
-]
-
-const INSTRUCTIONS: Record<GameType, { title: string; emoji: string; steps: string[]; example: string }> = {
-  MATCH_PAIRS: {
-    title: 'Poveži parove',
-    emoji: '🔗',
-    steps: [
-      'Na levoj strani su infinitivi glagola.',
-      'Na desnoj strani su zamenica + konjugacija — izmešane.',
-      'Klikni jedan infinitiv (levo), pa odgovarajuću formu (desno).',
-      'Tačan par postaje zelen. Krivi par bljesne crveno.',
-    ],
-    example: 'Primer: klikni "sein" → klikni "er/sie/es ist"',
-  },
-  TRANSLATE: {
-    title: 'Višestruki izbor',
-    emoji: '🌍',
-    steps: [
-      'Vidiš glagol i lice koje treba da konjuguješ.',
-      'Ponuđena su 4 odgovora — samo jedan je tačan.',
-      'Klikni na tačan oblik glagola.',
-      'Brži odgovor donosi više poena!',
-    ],
-    example: 'Primer: "haben · wir"  →  klikni: haben',
-  },
-  CONJUGATE: {
-    title: 'Konjugacija',
-    emoji: '🔤',
-    steps: [
-      'Prikazan je infinitiv glagola i lična zamenica.',
-      'Upiši tačan oblik glagola za to lice.',
-      'Potvrdi pritiskom na ✓ ili Enter.',
-      'Brži tačan odgovor donosi više poena!',
-    ],
-    example: 'Primer: "sein" + "er/sie/es"  →  upiši: ist',
-  },
-  FILL_BLANK: {
-    title: 'Popuni rečenicu',
-    emoji: '✏️',
-    steps: [
-      'Vidiš nemačku rečenicu u kojoj nedostaje glagol.',
-      'Kartica gore prikazuje koji glagol i koje lice treba.',
-      'Upiši tačan oblik glagola u polje za unos.',
-      'Potvrdi pritiskom na ✓ ili Enter.',
-    ],
-    example: 'Primer: "Ich  ?  Student."  →  upiši: bin',
-  },
-  PERFEKT_HILFSVERB: {
-    title: 'HABEN ili SEIN?',
-    emoji: '🟣',
-    steps: [
-      'Prikazan je infinitiv glagola.',
-      'Klikni da li taj glagol u Perfektu koristi HABEN ili SEIN.',
-      'Zapamti: glagoli kretanja i promene stanja → sein; ostali → haben.',
-    ],
-    example: 'Primer: "gehen"  →  klikni: sein',
-  },
-  PERFEKT_PARTIZIP_MATCH: {
-    title: 'Poveži Partizip II',
-    emoji: '🔗',
-    steps: [
-      'Na levoj strani su infinitivi glagola.',
-      'Na desnoj strani su Partizip II oblici — izmešani.',
-      'Klikni infinitiv (levo), pa odgovarajući Partizip II (desno).',
-      'Tačan par postaje zelen. Krivi par bljesne crveno.',
-    ],
-    example: 'Primer: klikni "gehen" → klikni "gegangen"',
-  },
-  PERFEKT_PARTIZIP: {
-    title: 'Partizip II',
-    emoji: '📝',
-    steps: [
-      'Prikazan je infinitiv glagola.',
-      'Upiši Partizip II (treći oblik glagola).',
-      'Regularni glagoli: ge- + osnova + -t  (lernen → gelernt)',
-      'Nepravilni glagoli imaju posebne oblike (gehen → gegangen).',
-    ],
-    example: 'Primer: "lernen"  →  upiši: gelernt',
-  },
-  PERFEKT_CONJUGATE: {
-    title: 'Konjugacija Perfekt',
-    emoji: '🔤',
-    steps: [
-      'Prikazan je infinitiv glagola i lična zamenica.',
-      'Upiši punu Perfekt formu: konjugovani haben/sein + Partizip II.',
-      'Razmaknicom odvoji pomoćni glagol od participa.',
-    ],
-    example: 'Primer: "gehen" + "ich"  →  upiši: bin gegangen',
-  },
-  PERFEKT_FILL: {
-    title: 'Rečenice — Perfekt',
-    emoji: '✏️',
-    steps: [
-      'Vidiš nemačku rečenicu sa dva prazna mesta.',
-      'Prvo mesto: konjugovani haben/sein.',
-      'Drugo mesto: Partizip II.',
-      'Upiši svaki oblik posebno.',
-    ],
-    example: 'Primer: "Ich _____ nach Berlin _____"  →  bin / gegangen',
-  },
-  PRETERIT_MATCH: {
-    title: 'Poveži parove — Präteritum',
-    emoji: '🔗',
-    steps: [
-      'Na levoj strani su infinitivi glagola.',
-      'Na desnoj strani su zamenica + Präteritum oblik — izmešani.',
-      'Klikni infinitiv (levo), pa odgovarajući oblik (desno).',
-      'Tačan par postaje zelen. Krivi par bljesne crveno.',
-    ],
-    example: 'Primer: klikni "sein" → klikni "ich war"',
-  },
-  PRETERIT_CONJUGATE: {
-    title: 'Konjugacija — Präteritum',
-    emoji: '🔤',
-    steps: [
-      'Prikazan je infinitiv glagola i lična zamenica.',
-      'Upiši tačan Präteritum oblik za to lice.',
-      'sein: war/warst/war/waren/wart/waren',
-      'haben: hatte/hattest/hatte/hatten/hattet/hatten',
-    ],
-    example: 'Primer: "können" + "wir"  →  upiši: konnten',
-  },
-  PRETERIT_FILL: {
-    title: 'Umetni u rečenicu — Präteritum',
-    emoji: '✏️',
-    steps: [
-      'Vidiš nemačku rečenicu u kojoj nedostaje glagol u Präteritumu.',
-      'Kartica gore prikazuje koji glagol i koje lice treba.',
-      'Upiši tačan Präteritum oblik glagola.',
-      'Potvrdi pritiskom na ✓ ili Enter.',
-    ],
-    example: 'Primer: "Ich _____ gestern krank."  →  upiši: war',
-  },
-  WORD_ORDER: {
-    title: 'Redosled reči',
-    emoji: '🧩',
-    steps: [
-      'Prikazane su reči i interpunkcija — sve izmešane.',
-      'Klikni reči redom da složiš tačnu nemačku rečenicu.',
-      'Klikni reč u rečenici da je vratiš nazad u pool.',
-      'Kad si upotrebio/la sve reči, klikni Potvrdi.',
-    ],
-    example: 'Primer: "aus · Ich · Deutschland · komme · ."  →  Ich komme aus Deutschland.',
-  },
-  AUDIO: {
-    title: 'Slušanje',
-    emoji: '🔊',
-    steps: [
-      'Klikni dugme 🔊 — čućeš glagolski oblik sa zamenicom (npr. „er geht").',
-      'Od 4 ponuđena infinitiva klikni onaj koji si čuo/la.',
-      'Možeš da ponovo pustiš audio koliko god puta hoćeš.',
-      'Potvrdi odgovor klikom na dugme.',
-    ],
-    example: 'Primer: čuješ „wir haben" → klikni: haben',
-  },
-  NOUN_ARTICLE: {
-    title: 'DER / DIE / DAS',
-    emoji: '🏷️',
-    steps: [
-      'Prikazana je nemačka imenica.',
-      'Klikni na tačan odredjeni član: DER (muški rod), DIE (ženski rod) ili DAS (srednji rod).',
-      'Potvrdi klikom na dugme "Potvrdi".',
-    ],
-    example: 'Primer: "Schule"  →  klikni: die',
-  },
-  VOCAB_MATCH: {
-    title: 'Poveži parove',
-    emoji: '🔗',
-    steps: [
-      'Na levoj strani su nemački izrazi (imenice sa članom, glagoli, ostale reči).',
-      'Na desnoj strani su srpski prevodi — izmešani.',
-      'Klikni nemački izraz (levo), pa odgovarajući prevod (desno).',
-      'Tačan par postaje zelen. Krivi par bljesne crveno.',
-    ],
-    example: 'Primer: klikni "die Schule" → klikni "škola"',
-  },
-}
+import { useTranslation } from '@/lib/i18n/LanguageContext'
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -213,6 +13,9 @@ interface PageProps {
 
 export default function LessonPage({ params }: PageProps) {
   const router = useRouter()
+  const { t } = useTranslation()
+  const L = t.lesson
+
   const [lesson, setLesson] = useState<number | null>(null)
   const [selectedType, setSelectedType] = useState<GameType | null>(null)
   const [session, setSession] = useState<GameSession | null>(null)
@@ -235,6 +38,30 @@ export default function LessonPage({ params }: PageProps) {
     )
   }
 
+  // Build exercise type arrays from translations
+  type ExerciseEntry = { type: GameType; label: string; emoji: string; desc: string }
+
+  function typeEntry(type: GameType): ExerciseEntry {
+    const e = L.types[type as keyof typeof L.types]
+    return { type, label: e.label, emoji: e.emoji, desc: e.desc }
+  }
+
+  const AUDIO_TYPES: ExerciseEntry[] = [typeEntry('AUDIO')]
+  const WORTFOLGE_TYPES: ExerciseEntry[] = [typeEntry('WORD_ORDER')]
+  const PREZENS_TYPES: ExerciseEntry[] = [
+    typeEntry('MATCH_PAIRS'),
+    typeEntry('TRANSLATE'),
+    typeEntry('CONJUGATE'),
+    typeEntry('FILL_BLANK'),
+  ]
+  const PERFEKT_TYPES: ExerciseEntry[] = [
+    typeEntry('PERFEKT_HILFSVERB'),
+    typeEntry('PERFEKT_PARTIZIP_MATCH'),
+    typeEntry('PERFEKT_PARTIZIP'),
+    typeEntry('PERFEKT_CONJUGATE'),
+    typeEntry('PERFEKT_FILL'),
+  ]
+
   function selectGameType(gameType: GameType) {
     setPendingType(gameType)
     setShowInstructions(true)
@@ -246,9 +73,12 @@ export default function LessonPage({ params }: PageProps) {
     setError(null)
     try {
       const res = await fetch(`/api/game/generate?lesson=${lesson}&gameType=${gameType}&count=10`)
-      const data = await res.json()
-
-      if (!res.ok) throw new Error(data.error ?? 'Greška')
+      const text = await res.text()
+      if (!text.trim()) throw new Error(t.noQuestions)
+      let data: { error?: string; questions?: GameQuestion[] }
+      try { data = JSON.parse(text) } catch { throw new Error(`Server error (${res.status})`) }
+      if (!res.ok || data.error) throw new Error(data.error ?? `HTTP ${res.status}`)
+      if (!data.questions?.length) throw new Error(t.noQuestions)
 
       const newSession: GameSession = {
         sessionId: crypto.randomUUID(),
@@ -263,7 +93,7 @@ export default function LessonPage({ params }: PageProps) {
       setSelectedType(gameType)
       setSession(newSession)
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Došlo je do greške')
+      setError(e instanceof Error ? e.message : t.error)
     } finally {
       setLoading(false)
     }
@@ -272,8 +102,6 @@ export default function LessonPage({ params }: PageProps) {
   async function handleComplete(results: QuestionResult[], totalScore: number, maxScore: number) {
     setFinalScore({ total: totalScore, max: maxScore })
     setCompleted(true)
-
-    // Pošalji rezultate na server
     try {
       await fetch('/api/game/submit', {
         method: 'POST',
@@ -290,23 +118,24 @@ export default function LessonPage({ params }: PageProps) {
           })),
         }),
       })
-    } catch {
-      // Tiha greška — statistike nisu kritične za UX
-    }
+    } catch { /* silent */ }
   }
 
+  // ── Instructions overlay ───────────────────────────────────────────────────
   if (showInstructions && pendingType) {
-    const instr = INSTRUCTIONS[pendingType]
+    const instrKey = pendingType as keyof typeof L.instructions
+    const instr = L.instructions[instrKey]
+    const typeInfo = L.types[pendingType as keyof typeof L.types]
     return (
       <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-sky-500 to-sky-700 px-4">
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full">
           <div className="text-center mb-6">
-            <div className="text-5xl mb-3">{instr.emoji}</div>
+            <div className="text-5xl mb-3">{typeInfo.emoji}</div>
             <h2 className="text-2xl font-bold text-gray-900">{instr.title}</h2>
           </div>
 
           <ol className="space-y-3 mb-6">
-            {instr.steps.map((step, i) => (
+            {instr.steps.map((step: string, i: number) => (
               <li key={i} className="flex gap-3 text-sm text-gray-700">
                 <span className="flex-shrink-0 w-6 h-6 bg-sky-100 text-sky-700 font-bold rounded-full flex items-center justify-center text-xs">
                   {i + 1}
@@ -328,13 +157,13 @@ export default function LessonPage({ params }: PageProps) {
               disabled={loading}
               className="w-full bg-sky-500 hover:bg-sky-600 disabled:opacity-60 text-white font-bold py-3 rounded-xl transition text-lg"
             >
-              {loading ? 'Učitavam...' : '🚀 Počni vežbu'}
+              {loading ? t.loading : t.game.startExercise}
             </button>
             <button
               onClick={() => { setShowInstructions(false); setPendingType(null) }}
               className="w-full border border-gray-300 text-gray-600 font-medium py-2.5 rounded-xl hover:bg-gray-50 transition"
             >
-              ← Nazad
+              {t.back}
             </button>
           </div>
         </div>
@@ -342,34 +171,38 @@ export default function LessonPage({ params }: PageProps) {
     )
   }
 
+  // ── Game running ───────────────────────────────────────────────────────────
   if (session && !completed) {
     return <GameEngine session={session} onComplete={handleComplete} />
   }
 
+  // ── Completed screen ───────────────────────────────────────────────────────
   if (completed) {
     const pct = Math.round((finalScore.total / finalScore.max) * 100)
     return (
       <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-sky-500 to-sky-700 px-4">
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full text-center">
           <div className="text-6xl mb-4">{pct >= 80 ? '🎉' : pct >= 50 ? '👍' : '💪'}</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Završeno!</h2>
-          <p className="text-gray-500 mb-4">Lekcija {lesson}</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.game.finished}</h2>
+          <p className="text-gray-500 mb-4">{L.lessonLabel} {lesson}</p>
           <div className="bg-sky-50 rounded-xl p-4 mb-6">
             <div className="text-4xl font-bold text-sky-600">{finalScore.total}</div>
-            <div className="text-gray-500 text-sm">od {finalScore.max} poena ({pct}%)</div>
+            <div className="text-gray-500 text-sm">
+              {t.game.of} {finalScore.max} {t.game.points} ({pct}%)
+            </div>
           </div>
           <div className="flex flex-col gap-3">
             <button
               onClick={() => { setSession(null); setCompleted(false); setSelectedType(null) }}
               className="bg-sky-500 text-white font-semibold py-2.5 rounded-xl hover:bg-sky-600 transition"
             >
-              Pokušaj ponovo
+              {t.game.tryAgain}
             </button>
             <button
               onClick={() => router.push('/profile')}
               className="border border-gray-300 text-gray-700 font-medium py-2.5 rounded-xl hover:bg-gray-50 transition"
             >
-              Na profil
+              {t.game.toProfile}
             </button>
           </div>
         </div>
@@ -377,6 +210,7 @@ export default function LessonPage({ params }: PageProps) {
     )
   }
 
+  // ── Exercise list ──────────────────────────────────────────────────────────
   function renderSection(title: string, color: string, types: ExerciseEntry[]) {
     return (
       <div className="mb-8">
@@ -404,9 +238,9 @@ export default function LessonPage({ params }: PageProps) {
   return (
     <main className="min-h-screen bg-gray-50 px-4 py-8">
       <div className="max-w-lg mx-auto">
-        <button onClick={() => router.back()} className="text-sky-600 text-sm mb-4">← Nazad</button>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Lekcija {lesson}</h1>
-        <p className="text-gray-500 mb-6">Izaberi vrstu vežbe</p>
+        <button onClick={() => router.back()} className="text-sky-600 text-sm mb-4">{t.back}</button>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">{L.lessonLabel} {lesson}</h1>
+        <p className="text-gray-500 mb-6">{L.chooseExercise}</p>
 
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg p-3 mb-4">
@@ -416,18 +250,18 @@ export default function LessonPage({ params }: PageProps) {
 
         {renderSection('Präsens', 'text-sky-600', PREZENS_TYPES)}
 
-        {/* Modalni glagoli — podsekcija Präsens-a */}
+        {/* Modalni glagoli / Modális igék / Modalverben */}
         <div className="mb-8">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-sky-600 mb-1">Modalni glagoli</h2>
-          <p className="text-xs text-gray-400 mb-3">können · müssen · wollen · sollen · dürfen · mögen</p>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-sky-600 mb-1">{L.modalVerbs}</h2>
+          <p className="text-xs text-gray-400 mb-3">{L.modalVerbsList}</p>
           <Link
             href="/modal"
             className="bg-white border-2 border-sky-200 hover:border-sky-500 hover:bg-sky-50 rounded-2xl p-4 flex items-center gap-4 transition"
           >
             <span className="text-2xl">🔷</span>
             <div>
-              <div className="font-bold text-gray-900 text-sm">Posebna vežba — Modalni glagoli</div>
-              <div className="text-xs text-gray-500">Poveži, konjuguj i umetni u rečenicu</div>
+              <div className="font-bold text-gray-900 text-sm">{L.modalVerbsTitle}</div>
+              <div className="text-xs text-gray-500">{L.modalVerbsDesc}</div>
             </div>
             <span className="ml-auto text-sky-400 text-lg">→</span>
           </Link>
