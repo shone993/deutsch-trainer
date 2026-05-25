@@ -4,10 +4,12 @@ import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import type { GameSession, GameType, GameQuestion, QuestionResult } from '@/types'
 import { GameEngine } from '@/components/game/GameEngine'
+import { useTranslation } from '@/lib/i18n/LanguageContext'
 
 function GameContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
+  const { t } = useTranslation()
 
   const type = searchParams.get('type') as GameType | null
   const count = parseInt(searchParams.get('count') ?? '10', 10)
@@ -21,7 +23,7 @@ function GameContent() {
 
   useEffect(() => {
     if (!type) {
-      setError('Nije naveden tip vežbe.')
+      setError(t.error)
       setLoading(false)
       return
     }
@@ -36,7 +38,7 @@ function GameContent() {
       .then(res => res.json())
       .then(data => {
         if (data.error) throw new Error(data.error)
-        if (!data.questions?.length) throw new Error('Nema pitanja za ovu vežbu.')
+        if (!data.questions?.length) throw new Error(t.noQuestions)
         setSession({
           sessionId: crypto.randomUUID(),
           gameType: type,
@@ -48,7 +50,7 @@ function GameContent() {
           startedAt: Date.now(),
         })
       })
-      .catch(e => setError(e instanceof Error ? e.message : 'Greška pri učitavanju'))
+      .catch(e => setError(e instanceof Error ? e.message : t.error))
       .finally(() => setLoading(false))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -80,7 +82,7 @@ function GameContent() {
       <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <div className="text-center">
           <div className="text-4xl mb-4 animate-pulse">⏳</div>
-          <p className="text-gray-500">Učitavam vežbu...</p>
+          <p className="text-gray-500">{t.game.loading}</p>
         </div>
       </div>
     )
@@ -91,13 +93,13 @@ function GameContent() {
       <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
         <div className="bg-white rounded-2xl shadow p-8 max-w-sm w-full text-center">
           <div className="text-4xl mb-3">❌</div>
-          <h2 className="text-lg font-bold text-gray-800 mb-2">Greška</h2>
+          <h2 className="text-lg font-bold text-gray-800 mb-2">{t.error}</h2>
           <p className="text-gray-500 text-sm mb-6">{error}</p>
           <button
             onClick={() => router.back()}
             className="w-full bg-sky-500 text-white font-semibold py-3 rounded-xl hover:bg-sky-600 transition"
           >
-            ← Nazad
+            {t.back}
           </button>
         </div>
       </div>
@@ -106,36 +108,42 @@ function GameContent() {
 
   if (completed) {
     const pct = finalScore.max > 0 ? Math.round((finalScore.total / finalScore.max) * 100) : 0
+    const typeLabel = type === 'NOUN_ARTICLE'
+      ? 'DER / DIE / DAS'
+      : type === 'VOCAB_MATCH'
+        ? t.vocabMatch.label
+        : type ?? ''
+
     return (
       <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-sky-500 to-sky-700 px-4">
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full text-center">
           <div className="text-6xl mb-4">{pct >= 80 ? '🎉' : pct >= 50 ? '👍' : '💪'}</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-1">Završeno!</h2>
-          <p className="text-gray-500 mb-4">
-            {type === 'NOUN_ARTICLE' ? 'DER / DIE / DAS' : 'Poveži parove'}
-          </p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-1">{t.game.finished}</h2>
+          <p className="text-gray-500 mb-4">{typeLabel}</p>
           <div className="bg-sky-50 rounded-xl p-4 mb-6">
             <div className="text-4xl font-bold text-sky-600">{finalScore.total}</div>
-            <div className="text-gray-500 text-sm">od {finalScore.max} poena ({pct}%)</div>
+            <div className="text-gray-500 text-sm">
+              {t.game.of} {finalScore.max} {t.game.points} ({pct}%)
+            </div>
           </div>
           <div className="flex flex-col gap-3">
             <button
               onClick={() => router.push(`/game?type=${type}&count=${count}&nounLesson=${nounLesson}`)}
               className="bg-sky-500 text-white font-semibold py-2.5 rounded-xl hover:bg-sky-600 transition"
             >
-              Pokušaj ponovo
+              {t.game.tryAgain}
             </button>
             <button
               onClick={() => router.push('/imenice')}
               className="border border-gray-300 text-gray-700 font-medium py-2.5 rounded-xl hover:bg-gray-50 transition"
             >
-              ← Imenice
+              {t.game.toNouns}
             </button>
             <button
               onClick={() => router.push('/profile')}
               className="border border-gray-300 text-gray-700 font-medium py-2.5 rounded-xl hover:bg-gray-50 transition"
             >
-              Na profil
+              {t.game.toProfile}
             </button>
           </div>
         </div>
@@ -156,7 +164,6 @@ export default function GamePage() {
       <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <div className="text-center">
           <div className="text-4xl mb-4 animate-pulse">⏳</div>
-          <p className="text-gray-500">Učitavam...</p>
         </div>
       </div>
     }>

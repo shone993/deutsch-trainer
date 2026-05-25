@@ -4,6 +4,9 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { prisma } from '@/lib/db/prisma'
 import { logout } from '@/app/actions/auth'
+import { getLang } from '@/lib/i18n/getLang'
+import { T } from '@/lib/i18n/translations'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 
 export default async function ProfilePage() {
   const supabase = await createClient()
@@ -11,7 +14,7 @@ export default async function ProfilePage() {
 
   if (!user) redirect('/login')
 
-  const [dbUser, streak, totalPointsAgg] = await Promise.all([
+  const [dbUser, streak, totalPointsAgg, lang] = await Promise.all([
     prisma.user.findUnique({
       where: { id: user.id },
       select: { displayName: true, name: true, surname: true, email: true, avatarUrl: true, language: true },
@@ -22,9 +25,12 @@ export default async function ProfilePage() {
       _sum: { totalPoints: true },
       _count: { verbId: true },
     }),
+    getLang(),
   ])
 
   if (!dbUser) redirect('/login')
+
+  const t = T[lang]
 
   const totalPoints = totalPointsAgg._sum.totalPoints ?? 0
   const verbsLearned = totalPointsAgg._count.verbId ?? 0
@@ -47,31 +53,34 @@ export default async function ProfilePage() {
               <p className="text-sky-100 text-xs">{dbUser.name} {dbUser.surname}</p>
             </div>
           </div>
-          <form action={logout}>
-            <button type="submit" className="text-sky-100 hover:text-white text-sm">
-              Odjavi se
-            </button>
-          </form>
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher compact />
+            <form action={logout}>
+              <button type="submit" className="text-sky-100 hover:text-white text-sm">
+                {t.logout}
+              </button>
+            </form>
+          </div>
         </div>
       </header>
 
       <div className="max-w-lg mx-auto px-4 py-6 space-y-6">
         {/* Statistike */}
         <div className="grid grid-cols-3 gap-3">
-          <StatCard emoji="🔥" label="Streak" value={`${currentStreak} dana`} highlight={currentStreak > 0} />
-          <StatCard emoji="⭐" label="Poeni" value={totalPoints.toLocaleString()} />
-          <StatCard emoji="📚" label="Glagoli" value={`${verbsLearned}`} />
+          <StatCard emoji="🔥" label={t.profile.streak} value={`${currentStreak} ${t.profile.days}`} highlight={currentStreak > 0} />
+          <StatCard emoji="⭐" label={t.profile.points} value={totalPoints.toLocaleString()} />
+          <StatCard emoji="📚" label={t.profile.verbs} value={`${verbsLearned}`} />
         </div>
 
         {currentStreak > 0 && longestStreak > 0 && (
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-3 text-center text-sm text-orange-700">
-            🏆 Najduži streak: <strong>{longestStreak} dana</strong>
+            🏆 {t.profile.longestStreak} <strong>{longestStreak} {t.profile.days}</strong>
           </div>
         )}
 
         {/* Lekcije */}
         <div>
-          <h2 className="text-lg font-bold text-gray-900 mb-3">Izaberi lekciju</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">{t.profile.chooseLesson}</h2>
           <div className="grid grid-cols-3 gap-3">
             {LESSONS.map((lesson) => (
               <Link
@@ -80,7 +89,7 @@ export default async function ProfilePage() {
                 className="bg-white border-2 border-gray-200 hover:border-sky-500 hover:bg-sky-50 rounded-xl p-4 text-center font-bold text-gray-700 hover:text-sky-700 transition"
               >
                 <div className="text-2xl mb-1">📖</div>
-                <div className="text-sm">Lekcija {lesson}</div>
+                <div className="text-sm">{t.profile.lesson} {lesson}</div>
               </Link>
             ))}
           </div>
@@ -93,8 +102,8 @@ export default async function ProfilePage() {
         >
           <span className="text-3xl">🏷️</span>
           <div>
-            <div className="font-bold text-base leading-tight">Imenice i vežbe</div>
-            <div className="text-sky-100 text-sm">DER/DIE/DAS · Poveži parove · Kartice</div>
+            <div className="font-bold text-base leading-tight">{t.profile.nounsTitle}</div>
+            <div className="text-sky-100 text-sm">{t.profile.nounsSubtitle}</div>
           </div>
           <span className="ml-auto text-sky-200 text-xl">›</span>
         </Link>
@@ -106,21 +115,21 @@ export default async function ProfilePage() {
             className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
           >
             <div className="text-2xl">🏆</div>
-            <div className="text-sm font-medium text-gray-700 mt-1">Leaderboard</div>
+            <div className="text-sm font-medium text-gray-700 mt-1">{t.profile.leaderboard}</div>
           </Link>
           <Link
             href="/saved"
             className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
           >
             <div className="text-2xl">🔖</div>
-            <div className="text-sm font-medium text-gray-700 mt-1">Sačuvani</div>
+            <div className="text-sm font-medium text-gray-700 mt-1">{t.profile.saved}</div>
           </Link>
           <Link
             href="/glosar"
             className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
           >
             <div className="text-2xl">📖</div>
-            <div className="text-sm font-medium text-gray-700 mt-1">Glosar</div>
+            <div className="text-sm font-medium text-gray-700 mt-1">{t.profile.glossary}</div>
           </Link>
         </div>
       </div>

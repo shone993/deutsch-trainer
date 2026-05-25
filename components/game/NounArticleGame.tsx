@@ -2,8 +2,8 @@
 
 import { useState, useCallback } from 'react'
 import type { GameQuestion, QuestionResult } from '@/types'
+import { useTranslation } from '@/lib/i18n/LanguageContext'
 
-// Klasične boje za rodove u nemačkom
 const ARTICLE_STYLE: Record<string, { idle: string; selected: string; correct: string; wrong: string }> = {
   der: {
     idle:     'border-sky-400 text-sky-700 hover:bg-sky-50',
@@ -33,6 +33,9 @@ interface Props {
 }
 
 export function NounArticleGame({ question, onAnswer, questionNumber, totalQuestions }: Props) {
+  const { t } = useTranslation()
+  const na = t.nounArticle
+
   const [selected, setSelected] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [startTime] = useState(Date.now())
@@ -75,8 +78,8 @@ export function NounArticleGame({ question, onAnswer, questionNumber, totalQuest
       {/* Progress */}
       <div className="w-full max-w-md mb-6">
         <div className="flex justify-between text-sm text-gray-500 mb-1">
-          <span>Pitanje {questionNumber} / {totalQuestions}</span>
-          <span>Imenice — član</span>
+          <span>{t.game.question} {questionNumber} / {totalQuestions}</span>
+          <span>{na.label}</span>
         </div>
         <div className="h-2 bg-gray-200 rounded-full">
           <div
@@ -88,7 +91,7 @@ export function NounArticleGame({ question, onAnswer, questionNumber, totalQuest
 
       {/* Instrukcija */}
       <p className="text-gray-500 text-sm mb-6 text-center">
-        Odaberi odredjeni član za imenicu:
+        {na.instruction}
       </p>
 
       {/* Imenica */}
@@ -118,7 +121,7 @@ export function NounArticleGame({ question, onAnswer, questionNumber, totalQuest
         ))}
       </div>
 
-      {/* Feedback posle submita */}
+      {/* Feedback */}
       {submitted && (
         <div className={`w-full max-w-md rounded-xl p-4 text-center mb-6 ${
           selected === correctArticle
@@ -127,24 +130,24 @@ export function NounArticleGame({ question, onAnswer, questionNumber, totalQuest
         }`}>
           {selected === correctArticle ? (
             <p className="text-green-700 font-semibold">
-              ✓ Tačno! <span className="font-bold">{correctArticle} {question.infinitiv}</span>
+              {na.correct} <span className="font-bold">{correctArticle} {question.infinitiv}</span>
             </p>
           ) : (
             <p className="text-red-700 font-semibold">
-              ✗ Netačno. Tačan odgovor: <span className="font-bold">{correctArticle} {question.infinitiv}</span>
+              {na.wrong} <span className="font-bold">{correctArticle} {question.infinitiv}</span>
             </p>
           )}
         </div>
       )}
 
-      {/* Potvrdi dugme */}
+      {/* Potvrdi */}
       {!submitted && (
         <button
           onClick={handleSubmit}
           disabled={!selected}
           className="w-full max-w-md py-4 rounded-xl font-semibold text-white bg-sky-500 hover:bg-sky-600 disabled:bg-gray-200 disabled:text-gray-400 transition-colors"
         >
-          Potvrdi
+          {na.confirm}
         </button>
       )}
     </div>

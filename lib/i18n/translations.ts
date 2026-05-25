@@ -1,0 +1,276 @@
+export type Lang = 'sr' | 'hu' | 'de'
+
+export const LANG_LABELS: Record<Lang, string> = {
+  sr: '🇷🇸 Srpski',
+  hu: '🇭🇺 Magyar',
+  de: '🇩🇪 Deutsch',
+}
+
+export const T = {
+  sr: {
+    logout: 'Odjavi se',
+    back: '← Nazad',
+    loading: 'Učitavam...',
+    error: 'Greška',
+    noQuestions: 'Nema pitanja za ovu vežbu.',
+
+    profile: {
+      streak: 'Streak',
+      points: 'Poeni',
+      verbs: 'Glagoli',
+      days: 'dana',
+      longestStreak: 'Najduži streak:',
+      chooseLesson: 'Izaberi lekciju',
+      lesson: 'Lekcija',
+      nounsTitle: 'Imenice i vežbe',
+      nounsSubtitle: 'DER/DIE/DAS · Poveži parove · Kartice',
+      leaderboard: 'Leaderboard',
+      saved: 'Sačuvani',
+      glossary: 'Glosar',
+    },
+
+    game: {
+      loading: 'Učitavam vežbu...',
+      finished: 'Završeno!',
+      tryAgain: 'Pokušaj ponovo',
+      toProfile: 'Na profil',
+      toNouns: '← Imenice',
+      of: 'od',
+      points: 'poena',
+      question: 'Pitanje',
+      startExercise: '🚀 Počni vežbu',
+    },
+
+    nounArticle: {
+      instruction: 'Odaberi određeni član za imenicu:',
+      correct: '✓ Tačno!',
+      wrong: '✗ Netačno. Tačan odgovor:',
+      confirm: 'Potvrdi',
+      label: 'Imenice — član',
+    },
+
+    vocabMatch: {
+      label: 'Poveži parove',
+    },
+
+    imenice: {
+      title: 'Imenice',
+      subtitle: 'Vežbe za nemačke imenice',
+      exercises: 'Vežbe',
+      flashcardsSection: 'Kartice (Flashcards)',
+      allCards: 'Sve kartice',
+      allCardsDesc: 'Glagoli + imenice + ostalo',
+      onlyNouns: 'Samo imenice',
+      onlyNounsDesc: '281 imenica sa članom',
+      onlyVerbs: 'Samo glagoli',
+      onlyVerbsDesc: 'Infinitiv → prevod',
+      otherWords: 'Ostale reči',
+      otherWordsDesc: 'Pridevi, prilozi i ostalo',
+      lessonLabel: 'Lekcija:',
+      allLessons: 'Sve',
+      start: 'Kreni! 🚀',
+    },
+
+    flashcard: {
+      back: '← Nazad',
+      clickToFlip: 'Klikni da vidiš prevod',
+      doYouKnow: 'Da li si znao/la?',
+      flipCard: 'Okreni karticu',
+      know: '✓ Znam',
+      dontKnow: '✗ Ne znam',
+      noun: '🏷️ Imenica',
+      verb: '📝 Glagol',
+      other: '💬 Ostalo',
+      translationLang: '🇷🇸 Srpski',
+      finished: 'Završeno!',
+      finishedDesc: 'Prošao/la si kroz sve kartice',
+      knownLabel: 'Znam ✓',
+      unknownLabel: 'Ne znam ✗',
+      successLabel: 'Uspešnost',
+      repeatAll: '🔁 Ponovi sve kartice',
+      repeatUnknown: '🔁 Ponovi samo neznane',
+      backToNouns: '← Nazad na imenice',
+    },
+  },
+
+  hu: {
+    logout: 'Kijelentkezés',
+    back: '← Vissza',
+    loading: 'Betöltés...',
+    error: 'Hiba',
+    noQuestions: 'Nincs kérdés ehhez a gyakorlathoz.',
+
+    profile: {
+      streak: 'Sorozat',
+      points: 'Pontok',
+      verbs: 'Igék',
+      days: 'nap',
+      longestStreak: 'Leghosszabb sorozat:',
+      chooseLesson: 'Válassz leckét',
+      lesson: 'Lecke',
+      nounsTitle: 'Főnevek és gyakorlatok',
+      nounsSubtitle: 'DER/DIE/DAS · Párosítás · Kártyák',
+      leaderboard: 'Ranglista',
+      saved: 'Mentett',
+      glossary: 'Szójegyzék',
+    },
+
+    game: {
+      loading: 'Gyakorlat betöltése...',
+      finished: 'Kész!',
+      tryAgain: 'Próbáld újra',
+      toProfile: 'Profilhoz',
+      toNouns: '← Főnevek',
+      of: '/',
+      points: 'pont',
+      question: 'Kérdés',
+      startExercise: '🚀 Gyakorlat indítása',
+    },
+
+    nounArticle: {
+      instruction: 'Válaszd ki a megfelelő névelőt:',
+      correct: '✓ Helyes!',
+      wrong: '✗ Helytelen. Helyes válasz:',
+      confirm: 'Megerősít',
+      label: 'Főnevek — névelő',
+    },
+
+    vocabMatch: {
+      label: 'Párosítás',
+    },
+
+    imenice: {
+      title: 'Főnevek',
+      subtitle: 'Gyakorlatok német főnevekhez',
+      exercises: 'Gyakorlatok',
+      flashcardsSection: 'Kártyák (Flashcards)',
+      allCards: 'Minden kártya',
+      allCardsDesc: 'Igék + főnevek + egyéb',
+      onlyNouns: 'Csak főnevek',
+      onlyNounsDesc: '281 főnév névelővel',
+      onlyVerbs: 'Csak igék',
+      onlyVerbsDesc: 'Főnévi igenév → fordítás',
+      otherWords: 'Egyéb szavak',
+      otherWordsDesc: 'Melléknevek, határozószók stb.',
+      lessonLabel: 'Lecke:',
+      allLessons: 'Mind',
+      start: 'Kezdjük! 🚀',
+    },
+
+    flashcard: {
+      back: '← Vissza',
+      clickToFlip: 'Kattints a fordításért',
+      doYouKnow: 'Tudtad?',
+      flipCard: 'Fordítsd meg',
+      know: '✓ Tudom',
+      dontKnow: '✗ Nem tudom',
+      noun: '🏷️ Főnév',
+      verb: '📝 Ige',
+      other: '💬 Egyéb',
+      translationLang: '🇷🇸 Szerb',
+      finished: 'Kész!',
+      finishedDesc: 'Végigmentél az összes kártyán',
+      knownLabel: 'Tudom ✓',
+      unknownLabel: 'Nem tudom ✗',
+      successLabel: 'Eredményesség',
+      repeatAll: '🔁 Ismételd az összes kártyát',
+      repeatUnknown: '🔁 Ismételd a nem tudottakat',
+      backToNouns: '← Vissza a főnevekhez',
+    },
+  },
+
+  de: {
+    logout: 'Abmelden',
+    back: '← Zurück',
+    loading: 'Lade...',
+    error: 'Fehler',
+    noQuestions: 'Keine Fragen für diese Übung.',
+
+    profile: {
+      streak: 'Serie',
+      points: 'Punkte',
+      verbs: 'Verben',
+      days: 'Tage',
+      longestStreak: 'Längste Serie:',
+      chooseLesson: 'Lektion wählen',
+      lesson: 'Lektion',
+      nounsTitle: 'Nomen und Übungen',
+      nounsSubtitle: 'DER/DIE/DAS · Paare verbinden · Karten',
+      leaderboard: 'Rangliste',
+      saved: 'Gespeichert',
+      glossary: 'Glossar',
+    },
+
+    game: {
+      loading: 'Übung wird geladen...',
+      finished: 'Fertig!',
+      tryAgain: 'Nochmal versuchen',
+      toProfile: 'Zum Profil',
+      toNouns: '← Nomen',
+      of: 'von',
+      points: 'Punkte',
+      question: 'Frage',
+      startExercise: '🚀 Übung starten',
+    },
+
+    nounArticle: {
+      instruction: 'Wähle den richtigen bestimmten Artikel:',
+      correct: '✓ Richtig!',
+      wrong: '✗ Falsch. Richtige Antwort:',
+      confirm: 'Bestätigen',
+      label: 'Nomen — Artikel',
+    },
+
+    vocabMatch: {
+      label: 'Paare verbinden',
+    },
+
+    imenice: {
+      title: 'Nomen',
+      subtitle: 'Übungen für deutsche Nomen',
+      exercises: 'Übungen',
+      flashcardsSection: 'Karten (Flashcards)',
+      allCards: 'Alle Karten',
+      allCardsDesc: 'Verben + Nomen + Sonstiges',
+      onlyNouns: 'Nur Nomen',
+      onlyNounsDesc: '281 Nomen mit Artikel',
+      onlyVerbs: 'Nur Verben',
+      onlyVerbsDesc: 'Infinitiv → Übersetzung',
+      otherWords: 'Andere Wörter',
+      otherWordsDesc: 'Adjektive, Adverbien usw.',
+      lessonLabel: 'Lektion:',
+      allLessons: 'Alle',
+      start: 'Los geht\'s! 🚀',
+    },
+
+    flashcard: {
+      back: '← Zurück',
+      clickToFlip: 'Klicke für die Übersetzung',
+      doYouKnow: 'Wusstest du es?',
+      flipCard: 'Karte umdrehen',
+      know: '✓ Ich weiß es',
+      dontKnow: '✗ Ich weiß es nicht',
+      noun: '🏷️ Nomen',
+      verb: '📝 Verb',
+      other: '💬 Sonstiges',
+      translationLang: '🇷🇸 Serbisch',
+      finished: 'Fertig!',
+      finishedDesc: 'Du hast alle Karten durchgemacht',
+      knownLabel: 'Gewusst ✓',
+      unknownLabel: 'Nicht gewusst ✗',
+      successLabel: 'Erfolgsrate',
+      repeatAll: '🔁 Alle Karten wiederholen',
+      repeatUnknown: '🔁 Unbekannte wiederholen',
+      backToNouns: '← Zurück zu Nomen',
+    },
+  },
+} as const
+
+// Rekurzivno širi literal tipove u string (potrebno za context)
+type Stringify<T> = T extends string
+  ? string
+  : T extends object
+    ? { -readonly [K in keyof T]: Stringify<T[K]> }
+    : T
+
+export type Translations = Stringify<typeof T.sr>
