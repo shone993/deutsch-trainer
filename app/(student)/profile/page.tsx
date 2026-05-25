@@ -87,20 +87,27 @@ export default async function ProfilePage() {
         </div>
 
         {/* Navigacija */}
-        <div className="flex gap-3">
+        <div className="grid grid-cols-3 gap-3">
           <Link
             href="/leaderboard"
-            className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
+            className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
           >
             <div className="text-2xl">🏆</div>
             <div className="text-sm font-medium text-gray-700 mt-1">Leaderboard</div>
           </Link>
           <Link
             href="/saved"
-            className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
+            className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
           >
             <div className="text-2xl">🔖</div>
             <div className="text-sm font-medium text-gray-700 mt-1">Sačuvani</div>
+          </Link>
+          <Link
+            href="/glosar"
+            className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
+          >
+            <div className="text-2xl">📖</div>
+            <div className="text-sm font-medium text-gray-700 mt-1">Glosar</div>
           </Link>
         </div>
       </div>
