@@ -86,6 +86,19 @@ export default async function ProfilePage() {
           </div>
         </div>
 
+        {/* Imenice — istaknuto */}
+        <Link
+          href="/imenice"
+          className="flex items-center gap-4 bg-sky-500 hover:bg-sky-600 text-white rounded-2xl px-5 py-4 transition shadow-sm"
+        >
+          <span className="text-3xl">🏷️</span>
+          <div>
+            <div className="font-bold text-base leading-tight">Imenice i vežbe</div>
+            <div className="text-sky-100 text-sm">DER/DIE/DAS · Poveži parove · Kartice</div>
+          </div>
+          <span className="ml-auto text-sky-200 text-xl">›</span>
+        </Link>
+
         {/* Navigacija */}
         <div className="grid grid-cols-3 gap-3">
           <Link
@@ -108,13 +121,6 @@ export default async function ProfilePage() {
           >
             <div className="text-2xl">📖</div>
             <div className="text-sm font-medium text-gray-700 mt-1">Glosar</div>
-          </Link>
-          <Link
-            href="/imenice"
-            className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-sky-400 hover:bg-sky-50 transition"
-          >
-            <div className="text-2xl">🏷️</div>
-            <div className="text-sm font-medium text-gray-700 mt-1">Imenice</div>
           </Link>
         </div>
       </div>
