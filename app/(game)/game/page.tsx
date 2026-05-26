@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useEffect, useState } from 'react'
+import { Suspense, useEffect, useState, useCallback } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import type { GameSession, GameType, GameQuestion, QuestionResult } from '@/types'
 import { GameEngine } from '@/components/game/GameEngine'
@@ -21,12 +21,16 @@ function GameContent() {
   const [completed, setCompleted] = useState(false)
   const [finalScore, setFinalScore] = useState({ total: 0, max: 0 })
 
-  useEffect(() => {
+  const loadGame = useCallback(() => {
     if (!type) {
       setError(t.error)
       setLoading(false)
       return
     }
+    setLoading(true)
+    setError(null)
+    setCompleted(false)
+    setSession(null)
 
     const params = new URLSearchParams({
       gameType: type,
@@ -36,7 +40,6 @@ function GameContent() {
 
     fetch(`/api/game/generate?${params}`)
       .then(async res => {
-        // Ako server vrati redirect (npr. login page) ili prazno tijelo
         const text = await res.text()
         if (!text.trim()) throw new Error(t.noQuestions)
         let data: { error?: string; questions?: GameQuestion[] }
@@ -59,6 +62,11 @@ function GameContent() {
       })
       .catch(e => setError(e instanceof Error ? e.message : t.error))
       .finally(() => setLoading(false))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type, count, nounLesson])
+
+  useEffect(() => {
+    loadGame()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -135,7 +143,7 @@ function GameContent() {
           </div>
           <div className="flex flex-col gap-3">
             <button
-              onClick={() => router.push(`/game?type=${type}&count=${count}&nounLesson=${nounLesson}`)}
+              onClick={loadGame}
               className="bg-sky-500 text-white font-semibold py-2.5 rounded-xl hover:bg-sky-600 transition"
             >
               {t.game.tryAgain}

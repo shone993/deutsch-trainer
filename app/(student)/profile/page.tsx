@@ -86,21 +86,25 @@ export default async function ProfilePage() {
               <Link
                 key={lesson}
                 href={`/lesson/${lesson}`}
-                className="bg-white border-2 border-gray-200 hover:border-sky-500 hover:bg-sky-50 rounded-xl p-4 text-center font-bold text-gray-700 hover:text-sky-700 transition"
+                className={`border-2 rounded-xl p-4 text-center font-bold transition ${
+                  lesson === 13
+                    ? 'bg-sky-50 border-sky-300 hover:border-sky-500 hover:bg-sky-100 text-sky-700 hover:text-sky-800'
+                    : 'bg-white border-gray-200 hover:border-sky-500 hover:bg-sky-50 text-gray-700 hover:text-sky-700'
+                }`}
               >
-                <div className="text-2xl mb-1">📖</div>
-                <div className="text-sm">{t.profile.lesson} {lesson}</div>
+                <div className="text-2xl mb-1">{lesson === 13 ? '🔄' : '📖'}</div>
+                <div className="text-sm">{lesson === 13 ? t.profile.review : `${t.profile.lesson} ${lesson}`}</div>
               </Link>
             ))}
           </div>
         </div>
 
-        {/* Imenice — istaknuto */}
+        {/* Kartice za učenje */}
         <Link
-          href="/imenice"
+          href="/imenice/kartice"
           className="flex items-center gap-4 bg-sky-500 hover:bg-sky-600 text-white rounded-2xl px-5 py-4 transition shadow-sm"
         >
-          <span className="text-3xl">🏷️</span>
+          <span className="text-3xl">🃏</span>
           <div>
             <div className="font-bold text-base leading-tight">{t.profile.nounsTitle}</div>
             <div className="text-sky-100 text-sm">{t.profile.nounsSubtitle}</div>

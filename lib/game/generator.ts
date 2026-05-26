@@ -190,18 +190,19 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
 
   // --- VOCAB_MATCH: mešani parovi (imenice + glagoli + ostalo) ---
   if (gameType === 'VOCAB_MATCH') {
+    // Only include items that have a Serbian translation — avoids German on both sides
     const pool: Array<{ german: string; serbian: string }> = [
-      ...shuffle(nouns).slice(0, 30).map(n => ({
+      ...shuffle(nouns).filter(n => n.translation).slice(0, 30).map(n => ({
         german: `${n.article} ${n.noun}`,
-        serbian: n.translation || n.noun,
+        serbian: n.translation!,
       })),
-      ...shuffle(words).slice(0, 20).map(w => ({
+      ...shuffle(words).filter(w => w.translation).slice(0, 20).map(w => ({
         german: w.word,
-        serbian: w.translation || w.word,
+        serbian: w.translation!,
       })),
-      ...shuffle(verbs).slice(0, 20).map(v => ({
+      ...shuffle(verbs).filter(v => v.translation).slice(0, 20).map(v => ({
         german: v.infinitiv,
-        serbian: v.translation || v.infinitiv,
+        serbian: v.translation!,
       })),
     ]
     const shuffledPool = shuffle(pool)

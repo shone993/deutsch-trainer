@@ -131,15 +131,10 @@ export function WordOrderGame({ question, onAnswer, questionNumber, totalQuestio
       )}
 
       {submitted && (
-        <div className={`w-full rounded-xl p-4 font-semibold text-base ${
-          isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+        <div className={`w-full rounded-xl p-4 text-base ${
+          isCorrect ? 'bg-green-100 text-green-700' : 'bg-amber-50 text-amber-800'
         }`}>
-          {isCorrect ? g.correct : (
-            <div>
-              <div>{g.wrongSentence}</div>
-              <div className="mt-1 font-normal text-sm">{correctAnswer}</div>
-            </div>
-          )}
+          <div className="font-normal text-sm">{correctAnswer}</div>
         </div>
       )}
     </div>

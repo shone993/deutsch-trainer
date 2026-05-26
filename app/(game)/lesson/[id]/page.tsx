@@ -235,11 +235,16 @@ export default function LessonPage({ params }: PageProps) {
     )
   }
 
+  // For lesson 13: section titles
+  const isReview = lesson === 13
+
   return (
     <main className="min-h-screen bg-gray-50 px-4 py-8">
       <div className="max-w-lg mx-auto">
         <button onClick={() => router.back()} className="text-sky-600 text-sm mb-4">{t.back}</button>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">{L.lessonLabel} {lesson}</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+          {isReview ? t.profile.review : `${L.lessonLabel} ${lesson}`}
+        </h1>
         <p className="text-gray-500 mb-6">{L.chooseExercise}</p>
 
         {error && (
@@ -272,6 +277,12 @@ export default function LessonPage({ params }: PageProps) {
         {renderSection('Wortfolge', 'text-teal-600', WORTFOLGE_TYPES)}
 
         {renderSection('Audio', 'text-orange-600', AUDIO_TYPES)}
+
+        {/* Lesson 13: DER/DIE/DAS + Poveži parove */}
+        {isReview && renderSection(L.nounExercises, 'text-sky-600', [
+          typeEntry('NOUN_ARTICLE'),
+          typeEntry('VOCAB_MATCH'),
+        ])}
       </div>
     </main>
   )
