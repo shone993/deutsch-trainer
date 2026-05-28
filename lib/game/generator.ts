@@ -155,18 +155,39 @@ export interface WordData {
   translationEn?: string | null
 }
 
+export interface QuestionSentenceData {
+  id: string
+  template: string
+  answer: string
+}
+
 interface GenerateOptions {
   verbs: VerbData[]
   sentences?: Array<{ id: string; verbId: string; template: string; translation: string }>
   nouns?: NounData[]
   words?: WordData[]
+  questionSentences?: QuestionSentenceData[]
   gameType: GameType
   lesson: number
   count: number
 }
 
 export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
-  const { verbs, sentences = [], nouns = [], words = [], gameType, count } = opts
+  const { verbs, sentences = [], nouns = [], words = [], questionSentences = [], gameType, count } = opts
+
+  // --- QUESTION_WORDS: upitne reči ---
+  if (gameType === 'QUESTION_WORDS') {
+    if (questionSentences.length === 0) return []
+    const shuffled = shuffle(questionSentences)
+    return shuffled.slice(0, count).map((qs, i) => ({
+      id: `qw-${qs.id}-${i}`,
+      type: 'QUESTION_WORDS' as const,
+      infinitiv: qs.answer,
+      sentence: qs.template,
+      translation: qs.template.replace('___', qs.answer),
+      correctAnswers: [qs.answer],
+    }))
+  }
 
   // --- NOUN_ARTICLE: posebna petlja po imenicama ---
   if (gameType === 'NOUN_ARTICLE') {

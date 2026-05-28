@@ -34,6 +34,7 @@ enum GameType {
   AUDIO
   NOUN_ARTICLE
   VOCAB_MATCH
+  QUESTION_WORDS
 }
 
 // Korisnički nalog — studenti i admini
@@ -198,6 +199,18 @@ model Noun {
   createdAt     DateTime @default(now()) @map("created_at")
 
   @@map("nouns")
+}
+
+// Rečenice sa upitnim rečima — student upisuje nedostajuću upitnu reč
+model QuestionSentence {
+  id        String   @id @default(uuid())
+  template  String   // rečenica sa ___ umesto upitne reči
+  answer    String   // tačna upitna reč
+  lesson    Int      @default(13)
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("question_sentences")
 }
 
 // Ostale reči (pridevi, prilozi, itd.) sa prevodima

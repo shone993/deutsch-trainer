@@ -13,6 +13,8 @@ export type GameType =
   | 'WORD_ORDER'
   // Imenice
   | 'NOUN_ARTICLE' | 'VOCAB_MATCH'
+  // Upitne reči
+  | 'QUESTION_WORDS'
   // ostalo
   | 'AUDIO'
 

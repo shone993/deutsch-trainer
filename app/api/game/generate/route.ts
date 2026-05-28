@@ -4,14 +4,14 @@ import { createClient } from '@/lib/supabase/server'
 import { prisma } from '@/lib/db/prisma'
 import { generateQuestions } from '@/lib/game/generator'
 import type { VerbData, GameType } from '@/types'
-import type { NounData, WordData } from '@/lib/game/generator'
+import type { NounData, WordData, QuestionSentenceData } from '@/lib/game/generator'
 
 const MODAL_VERBS = ['können','müssen','wollen','sollen','dürfen','mögen']
 const PRETERIT_VERBS = ['können','müssen','wollen','sollen','dürfen','mögen','sein','haben']
 
 const QuerySchema = z.object({
   lesson: z.coerce.number().int().min(1).max(13).optional().default(13),
-  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','WORD_ORDER','AUDIO','NOUN_ARTICLE','VOCAB_MATCH']),
+  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','WORD_ORDER','AUDIO','NOUN_ARTICLE','VOCAB_MATCH','QUESTION_WORDS']),
   count: z.coerce.number().int().min(1).max(30).default(10),
   modalOnly: z.coerce.boolean().optional().default(false),
   preteritOnly: z.coerce.boolean().optional().default(false),
@@ -34,6 +34,16 @@ export async function GET(request: NextRequest) {
   }
 
   const { lesson, gameType, count, modalOnly, preteritOnly, nounLesson } = parsed.data
+
+  // QUESTION_WORDS: vrati rečenice sa upitnim rečima
+  if (gameType === 'QUESTION_WORDS') {
+    const dbQS = await prisma.questionSentence.findMany({ where: { isActive: true } })
+    const questionSentences: QuestionSentenceData[] = dbQS.map(q => ({
+      id: q.id, template: q.template, answer: q.answer,
+    }))
+    const questions = generateQuestions({ verbs: [], gameType: 'QUESTION_WORDS', lesson, count, questionSentences })
+    return Response.json({ questions, lesson, gameType })
+  }
 
   // Dohvati glagole — preterit/modalni filtar ili po lekciji
   const isNounOnly = gameType === 'NOUN_ARTICLE'

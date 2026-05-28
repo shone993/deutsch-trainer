@@ -283,6 +283,11 @@ export default function LessonPage({ params }: PageProps) {
           typeEntry('NOUN_ARTICLE'),
           typeEntry('VOCAB_MATCH'),
         ])}
+
+        {/* Lesson 13: Upitne reči */}
+        {isReview && renderSection(L.questionWordsExercises, 'text-violet-600', [
+          typeEntry('QUESTION_WORDS'),
+        ])}
       </div>
     </main>
   )
