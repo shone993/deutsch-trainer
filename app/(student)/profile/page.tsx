@@ -14,10 +14,10 @@ export default async function ProfilePage() {
 
   if (!user) redirect('/login')
 
-  const [dbUser, streak, totalPointsAgg, lang] = await Promise.all([
+  const [dbUser, streak, totalPointsAgg, lang, roleRows] = await Promise.all([
     prisma.user.findUnique({
       where: { id: user.id },
-      select: { displayName: true, name: true, surname: true, email: true, avatarUrl: true, language: true, role: true },
+      select: { displayName: true, name: true, surname: true, email: true, avatarUrl: true, language: true },
     }),
     prisma.streak.findUnique({ where: { userId: user.id } }),
     prisma.stats.aggregate({
@@ -26,7 +26,10 @@ export default async function ProfilePage() {
       _count: { verbId: true },
     }),
     getLang(),
+    prisma.$queryRaw<{ role: string }[]>`SELECT role::text FROM users WHERE id = ${user.id}`,
   ])
+
+  const isAdmin = roleRows[0]?.role === 'ADMIN'
 
   if (!dbUser) redirect('/login')
 
@@ -113,7 +116,7 @@ export default async function ProfilePage() {
         </Link>
 
         {/* Admin link */}
-        {dbUser.role === 'ADMIN' && (
+        {isAdmin && (
           <Link
             href="/dashboard"
             className="flex items-center gap-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl px-5 py-4 transition shadow-sm"
