@@ -14,31 +14,38 @@ export default async function ProfilePage() {
 
   if (!user) redirect('/login')
 
-  const [dbUser, streak, totalPointsAgg, lang, roleRows] = await Promise.all([
-    prisma.user.findUnique({
-      where: { id: user.id },
-      select: { displayName: true, name: true, surname: true, email: true, avatarUrl: true, language: true },
-    }),
-    prisma.streak.findUnique({ where: { userId: user.id } }),
-    prisma.stats.aggregate({
-      where: { userId: user.id },
-      _sum: { totalPoints: true },
-      _count: { verbId: true },
-    }),
-    getLang(),
-    prisma.$queryRaw<{ role: string }[]>`SELECT role::text FROM users WHERE id = ${user.id}`,
-  ])
+  const lang = await getLang()
+  const t = T[lang]
 
-  const isAdmin = roleRows[0]?.role === 'ADMIN'
+  const dbUser = await prisma.user.findUnique({
+    where: { id: user.id },
+    select: { displayName: true, name: true, surname: true, email: true, avatarUrl: true, language: true },
+  })
 
   if (!dbUser) redirect('/login')
 
-  const t = T[lang]
+  // Fetch stats and streak defensively — errors here must not crash the whole page
+  let totalPoints = 0
+  let verbsLearned = 0
+  let currentStreak = 0
+  let longestStreak = 0
+  let isAdmin = false
 
-  const totalPoints = totalPointsAgg._sum.totalPoints ?? 0
-  const verbsLearned = totalPointsAgg._count.verbId ?? 0
-  const currentStreak = streak?.currentStreak ?? 0
-  const longestStreak = streak?.longestStreak ?? 0
+  try {
+    const [pointsAgg, verbCount, streak, roleRows] = await Promise.all([
+      prisma.stats.aggregate({ where: { userId: user.id }, _sum: { totalPoints: true } }),
+      prisma.stats.count({ where: { userId: user.id } }),
+      prisma.streak.findUnique({ where: { userId: user.id } }),
+      prisma.$queryRaw<{ role: string }[]>`SELECT role::text FROM users WHERE id = ${user.id}`,
+    ])
+    totalPoints = pointsAgg._sum.totalPoints ?? 0
+    verbsLearned = verbCount
+    currentStreak = streak?.currentStreak ?? 0
+    longestStreak = streak?.longestStreak ?? 0
+    isAdmin = roleRows[0]?.role === 'ADMIN'
+  } catch (err) {
+    console.error('[profile] stats/role fetch error:', err)
+  }
 
   const LESSONS = Array.from({ length: 13 }, (_, i) => i + 1)
 
@@ -115,7 +122,7 @@ export default async function ProfilePage() {
           <span className="ml-auto text-sky-200 text-xl">›</span>
         </Link>
 
-        {/* Admin link */}
+        {/* Admin link — only for admins */}
         {isAdmin && (
           <Link
             href="/dashboard"
