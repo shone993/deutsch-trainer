@@ -55,6 +55,7 @@ export const T = {
       leaderboard: 'Leaderboard',
       saved: 'Sačuvani',
       glossary: 'Glosar',
+      facts: 'Zanimljivosti',
     },
 
     game: {
@@ -284,6 +285,7 @@ export const T = {
       leaderboard: 'Ranglista',
       saved: 'Mentett',
       glossary: 'Szójegyzék',
+      facts: 'Érdekességek',
     },
 
     game: {
@@ -499,6 +501,7 @@ export const T = {
       leaderboard: 'Rangliste',
       saved: 'Gespeichert',
       glossary: 'Glossar',
+      facts: 'Wissenswertes',
     },
 
     game: {

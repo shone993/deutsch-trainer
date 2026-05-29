@@ -75,6 +75,11 @@ export default async function AdminDashboardPage() {
               <div className="font-medium text-gray-800">Studenti</div>
               <div className="text-xs text-gray-500">Kodovi i statistike</div>
             </Link>
+            <Link href="/admin/sessions" className="bg-white border-2 border-gray-200 hover:border-indigo-400 rounded-xl p-4 text-center transition">
+              <div className="text-2xl mb-1">📊</div>
+              <div className="font-medium text-gray-800">Sesije</div>
+              <div className="text-xs text-gray-500">Ko · Kada · Koja vežba</div>
+            </Link>
           </div>
         </div>
 
