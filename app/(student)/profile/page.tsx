@@ -17,7 +17,7 @@ export default async function ProfilePage() {
   const [dbUser, streak, totalPointsAgg, lang] = await Promise.all([
     prisma.user.findUnique({
       where: { id: user.id },
-      select: { displayName: true, name: true, surname: true, email: true, avatarUrl: true, language: true },
+      select: { displayName: true, name: true, surname: true, email: true, avatarUrl: true, language: true, role: true },
     }),
     prisma.streak.findUnique({ where: { userId: user.id } }),
     prisma.stats.aggregate({
@@ -111,6 +111,21 @@ export default async function ProfilePage() {
           </div>
           <span className="ml-auto text-sky-200 text-xl">›</span>
         </Link>
+
+        {/* Admin link */}
+        {dbUser.role === 'ADMIN' && (
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl px-5 py-4 transition shadow-sm"
+          >
+            <span className="text-3xl">⚙️</span>
+            <div>
+              <div className="font-bold text-base leading-tight">Admin Panel</div>
+              <div className="text-indigo-200 text-sm">Sesije · Studenti · Glagoli</div>
+            </div>
+            <span className="ml-auto text-indigo-300 text-xl">›</span>
+          </Link>
+        )}
 
         {/* Navigacija */}
         <div className="grid grid-cols-3 gap-3">
