@@ -33,9 +33,14 @@ export default async function AdminDashboardPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <header className="bg-indigo-700 text-white px-4 py-4">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="font-bold text-xl">Admin Panel</h1>
-          <p className="text-indigo-300 text-sm">{dbUser.displayName}</p>
+        <div className="max-w-3xl mx-auto flex items-center justify-between">
+          <div>
+            <h1 className="font-bold text-xl">Admin Panel</h1>
+            <p className="text-indigo-300 text-sm">{dbUser.displayName}</p>
+          </div>
+          <Link href="/profile" className="text-indigo-300 hover:text-white text-sm border border-indigo-500 hover:border-indigo-300 rounded-lg px-3 py-1.5 transition">
+            ← Profil
+          </Link>
         </div>
       </header>
 
