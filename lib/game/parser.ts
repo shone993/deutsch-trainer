@@ -53,6 +53,22 @@ export function parseSentenceTemplate(
       if (verb) answer = getConjugation(verb, person)
     }
 
+    // If the last word of the answer is already present right after this tag
+    // in the template (separable verbs like "schließt an" + "...an." in template,
+    // or reflexive "interessieren uns" + "uns für..."), strip the trailing duplicate.
+    const afterTag = template.slice(match.index + fullMatch.length).replace(/^\s+/, '')
+    const answerParts = answer.split(' ')
+    if (answerParts.length > 1) {
+      const lastPart = answerParts[answerParts.length - 1]
+      const trailingPattern = new RegExp(
+        '^' + lastPart.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?:\\s|$|[.,!?;:])',
+        'i'
+      )
+      if (trailingPattern.test(afterTag)) {
+        answer = answerParts.slice(0, -1).join(' ')
+      }
+    }
+
     const tag: SentenceTag = {
       verbId, person, answer,
       startIndex: match.index,
