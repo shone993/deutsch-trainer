@@ -12,6 +12,8 @@ const SEIN_CONJ: Record<string, string> = {
   ich: 'bin', du: 'bist', er: 'ist', wir: 'sind', ihr: 'seid', sie: 'sind',
 }
 
+const REFLEXIVE_PRONOUNS = new Set(['mich', 'dich', 'sich', 'uns', 'euch'])
+
 export function parseSentenceTemplate(
   template: string,
   verbMap: Map<string, VerbData>
@@ -51,22 +53,32 @@ export function parseSentenceTemplate(
       // Präsens: standardno lice
       person = PERSON_MAP[rawTag.trim().toLowerCase()] ?? 'er'
       if (verb) answer = getConjugation(verb, person)
-    }
 
-    // If the last word of the answer is already present right after this tag
-    // in the template (separable verbs like "schließt an" + "...an." in template,
-    // or reflexive "interessieren uns" + "uns für..."), strip the trailing duplicate.
-    const afterTag = template.slice(match.index + fullMatch.length).replace(/^\s+/, '')
-    const answerParts = answer.split(' ')
-    if (answerParts.length > 1) {
-      const lastPart = answerParts[answerParts.length - 1]
-      const trailingPattern = new RegExp(
-        '^' + lastPart.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?:\\s|$|[.,!?;:])',
-        'i'
-      )
-      if (trailingPattern.test(afterTag)) {
-        answer = answerParts.slice(0, -1).join(' ')
+      // Reflexive Verben: das Reflexivpronomen steht im Satz bereits separat
+      // (z.B. "Die Studentinnen <blank> sich für..."), daher gehört nur der
+      // konjugierte Verbstamm in die Lücke.
+      let words = answer.trim().split(/\s+/).filter(Boolean)
+      const isReflexive = verb?.infinitiv.endsWith(', sich') ?? false
+      if (isReflexive) {
+        words = words.filter((w) => !REFLEXIVE_PRONOUNS.has(w.toLowerCase()))
       }
+
+      // Trennbare Verben: das Partikel steht am Satzende (z.B. "...mir einen
+      // Kaffee an."), daher gehört nur der konjugierte Verbstamm in die Lücke,
+      // wenn das Partikel als eigenständiges Wort im restlichen Satz steht.
+      if (words.length > 1) {
+        const last = words[words.length - 1]
+        const afterTag = template.slice(match.index + fullMatch.length)
+        const wordPattern = new RegExp(
+          '(^|\\s)' + last.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=$|[\\s.,!?;:])',
+          'i'
+        )
+        if (wordPattern.test(afterTag)) {
+          words = words.slice(0, -1)
+        }
+      }
+
+      answer = words.join(' ')
     }
 
     const tag: SentenceTag = {
