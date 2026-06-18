@@ -173,7 +173,13 @@ export default function LessonPage({ params }: PageProps) {
 
   // ── Game running ───────────────────────────────────────────────────────────
   if (session && !completed) {
-    return <GameEngine session={session} onComplete={handleComplete} />
+    return (
+      <GameEngine
+        session={session}
+        onComplete={handleComplete}
+        onAbort={() => { setSession(null); setSelectedType(null) }}
+      />
+    )
   }
 
   // ── Completed screen ───────────────────────────────────────────────────────
@@ -192,11 +198,19 @@ export default function LessonPage({ params }: PageProps) {
             </div>
           </div>
           <div className="flex flex-col gap-3">
+            {selectedType && (
+              <button
+                onClick={() => { setCompleted(false); startGame(selectedType) }}
+                className="bg-sky-500 text-white font-semibold py-2.5 rounded-xl hover:bg-sky-600 transition"
+              >
+                {t.game.tryAgain}
+              </button>
+            )}
             <button
               onClick={() => { setSession(null); setCompleted(false); setSelectedType(null) }}
-              className="bg-sky-500 text-white font-semibold py-2.5 rounded-xl hover:bg-sky-600 transition"
+              className="bg-white border-2 border-sky-400 text-sky-600 font-semibold py-2.5 rounded-xl hover:bg-sky-50 transition"
             >
-              {t.game.tryAgain}
+              {L.chooseExercise}
             </button>
             <button
               onClick={() => router.push('/profile')}

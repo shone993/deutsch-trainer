@@ -18,9 +18,10 @@ import { QuestionWordsGame } from './QuestionWordsGame'
 interface Props {
   session: GameSession
   onComplete: (results: QuestionResult[], totalScore: number, maxScore: number) => void
+  onAbort?: () => void
 }
 
-export function GameEngine({ session, onComplete }: Props) {
+export function GameEngine({ session, onComplete, onAbort }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [results, setResults] = useState<QuestionResult[]>([])
 
@@ -49,6 +50,14 @@ export function GameEngine({ session, onComplete }: Props) {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 px-4 py-8">
+      {onAbort && (
+        <button
+          onClick={onAbort}
+          className="self-start text-gray-400 hover:text-gray-700 text-sm mb-2 flex items-center gap-1"
+        >
+          ← Odustani
+        </button>
+      )}
       {question.type === 'CONJUGATE' && <ConjugateGame key={question.id} {...questionProps} />}
       {question.type === 'FILL_BLANK' && <FillBlankGame key={question.id} {...questionProps} />}
       {question.type === 'TRANSLATE' && <TranslateGame {...questionProps} />}
