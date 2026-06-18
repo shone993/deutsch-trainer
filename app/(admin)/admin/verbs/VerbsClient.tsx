@@ -13,7 +13,8 @@ export interface VerbRow {
 
 interface Props { verbs: VerbRow[] }
 
-export function VerbsClient({ verbs }: Props) {
+export function VerbsClient({ verbs: initialVerbs }: Props) {
+  const [verbs, setVerbs] = useState(initialVerbs)
   const [search, setSearch] = useState('')
   const [lessonFilter, setLessonFilter] = useState<number | 'all'>('all')
   const [editId, setEditId] = useState<string | null>(null)
@@ -46,9 +47,12 @@ export function VerbsClient({ verbs }: Props) {
       })
       if (res.ok) {
         setSavedIds(prev => new Set(prev).add(id))
+        setVerbs(prev => prev.map(v =>
+          v.id === id
+            ? { ...v, translation: editSr || null, translationHu: editHu || null }
+            : v
+        ))
         setEditId(null)
-        // Refresh to show updated data
-        window.location.reload()
       }
     })
   }
