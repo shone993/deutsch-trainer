@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata = { title: 'Zanimljivosti — Deutsch Trainer' }
@@ -39,18 +40,44 @@ const LANGUAGE: Fact[] = [
   { emoji: '📖', title: 'Nivo A1–C2', body: 'Goethe-Institut deli znanje nemačkog na 6 nivoa (A1, A2, B1, B2, C1, C2). Na nivou B2 može se studirati na nemačkim univerzitetima, a studije su često besplatne ili uz minimalnu školarinu.' },
 ]
 
-interface SectionProps { title: string; flag: string; color: string; facts: Fact[] }
+interface Accent { border: string; badgeBg: string }
 
-function Section({ title, flag, color, facts }: SectionProps) {
+interface SectionProps {
+  title: string
+  flag: string
+  accent: Accent
+  image: string
+  imageAlt: string
+  facts: Fact[]
+}
+
+function Section({ title, flag, accent, image, imageAlt, facts }: SectionProps) {
   return (
     <section>
-      <h2 className={`text-lg font-bold mb-4 flex items-center gap-2 ${color}`}>
-        <span>{flag}</span> {title}
-      </h2>
+      <div className="relative h-44 sm:h-56 rounded-2xl overflow-hidden shadow-md mb-4">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, 672px"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 px-5 py-4 flex items-center gap-2">
+          <span className="text-3xl drop-shadow">{flag}</span>
+          <h2 className="text-xl font-bold text-white drop-shadow">{title}</h2>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {facts.map((f, i) => (
-          <div key={i} className="bg-white rounded-xl border border-gray-200 p-4 flex gap-3">
-            <span className="text-2xl shrink-0 mt-0.5">{f.emoji}</span>
+          <div
+            key={i}
+            className={`bg-white rounded-xl border border-gray-200 border-t-4 ${accent.border} p-4 flex gap-3 shadow-sm hover:shadow-md transition-shadow`}
+          >
+            <span className={`text-2xl shrink-0 mt-0.5 w-10 h-10 flex items-center justify-center rounded-full ${accent.badgeBg}`}>
+              {f.emoji}
+            </span>
             <div>
               <div className="font-semibold text-gray-900 text-sm mb-1">{f.title}</div>
               <div className="text-gray-600 text-sm leading-relaxed">{f.body}</div>
@@ -80,11 +107,39 @@ export default async function ZanimljivostiPage() {
       </header>
 
       <div className="max-w-2xl mx-auto px-4 py-6 space-y-10">
-        <Section title="Nemačka"   flag="🇩🇪" color="text-gray-800" facts={GERMANY}   />
-        <Section title="Austrija"  flag="🇦🇹" color="text-red-700"  facts={AUSTRIA}   />
-        <Section title="Švajcarska" flag="🇨🇭" color="text-red-600"  facts={SWITZERLAND} />
-        <Section title="Nemački jezik" flag="🗣️" color="text-sky-700" facts={LANGUAGE} />
+        <Section
+          title="Nemačka" flag="🇩🇪"
+          accent={{ border: 'border-t-gray-700', badgeBg: 'bg-gray-100' }}
+          image="/zanimljivosti/germany.jpg"
+          imageAlt="Dvorac Neuschwanstein u Bavarskoj"
+          facts={GERMANY}
+        />
+        <Section
+          title="Austrija" flag="🇦🇹"
+          accent={{ border: 'border-t-red-700', badgeBg: 'bg-red-50' }}
+          image="/zanimljivosti/austria.jpg"
+          imageAlt="Bečka državna opera"
+          facts={AUSTRIA}
+        />
+        <Section
+          title="Švajcarska" flag="🇨🇭"
+          accent={{ border: 'border-t-red-600', badgeBg: 'bg-red-50' }}
+          image="/zanimljivosti/switzerland.jpg"
+          imageAlt="Matterhorn u Alpima"
+          facts={SWITZERLAND}
+        />
+        <Section
+          title="Nemački jezik" flag="🗣️"
+          accent={{ border: 'border-t-sky-700', badgeBg: 'bg-sky-50' }}
+          image="/zanimljivosti/language.jpg"
+          imageAlt="Duden — nemački rečnik"
+          facts={LANGUAGE}
+        />
       </div>
+
+      <p className="text-center text-xs text-gray-400 px-4 pb-6">
+        Foto: Wilfredor (CC0) · Wiener Staatsoper GmbH (CC BY-SA 4.0) · Andrew Bossi (CC BY-SA 2.5) · Konrad Duden (javno dobro) — Wikimedia Commons
+      </p>
     </main>
   )
 }
