@@ -48,6 +48,10 @@ export default function LessonPage({ params }: PageProps) {
 
   const AUDIO_TYPES: ExerciseEntry[] = [typeEntry('AUDIO')]
   const WORTFOLGE_TYPES: ExerciseEntry[] = [typeEntry('WORD_ORDER')]
+  const KONJUNKTIONEN_TYPES: ExerciseEntry[] = [
+    typeEntry('KONJUNKTION_MATCH'),
+    typeEntry('KONJUNKTION_FILL'),
+  ]
   const PREZENS_TYPES: ExerciseEntry[] = [
     typeEntry('MATCH_PAIRS'),
     typeEntry('TRANSLATE'),
@@ -289,6 +293,8 @@ export default function LessonPage({ params }: PageProps) {
         {renderSection('Perfekt', 'text-purple-600', PERFEKT_TYPES)}
 
         {renderSection('Wortfolge', 'text-teal-600', WORTFOLGE_TYPES)}
+
+        {renderSection('Konjunktionen', 'text-amber-600', KONJUNKTIONEN_TYPES)}
 
         {renderSection('Audio', 'text-orange-600', AUDIO_TYPES)}
 

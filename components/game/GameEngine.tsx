@@ -14,6 +14,7 @@ import { AudioGame } from './AudioGame'
 import { WordOrderGame } from './WordOrderGame'
 import { NounArticleGame } from './NounArticleGame'
 import { QuestionWordsGame } from './QuestionWordsGame'
+import { KonjunktionFillGame } from './KonjunktionFillGame'
 
 interface Props {
   session: GameSession
@@ -75,6 +76,8 @@ export function GameEngine({ session, onComplete, onAbort }: Props) {
       {question.type === 'NOUN_ARTICLE' && <NounArticleGame key={question.id} {...questionProps} />}
       {question.type === 'VOCAB_MATCH' && <MatchPairsGame key={question.id} {...questionProps} />}
       {question.type === 'QUESTION_WORDS' && <QuestionWordsGame key={question.id} {...questionProps} />}
+      {question.type === 'KONJUNKTION_MATCH' && <MatchPairsGame key={question.id} {...questionProps} />}
+      {question.type === 'KONJUNKTION_FILL' && <KonjunktionFillGame key={question.id} {...questionProps} />}
     </div>
   )
 }

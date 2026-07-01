@@ -11,7 +11,7 @@ const PRETERIT_VERBS = ['können','müssen','wollen','sollen','dürfen','mögen'
 
 const QuerySchema = z.object({
   lesson: z.coerce.number().int().min(1).max(13).optional().default(13),
-  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','WORD_ORDER','AUDIO','NOUN_ARTICLE','VOCAB_MATCH','QUESTION_WORDS']),
+  gameType: z.enum(['MATCH_PAIRS','TRANSLATE','CONJUGATE','FILL_BLANK','PERFEKT_HILFSVERB','PERFEKT_PARTIZIP','PERFEKT_PARTIZIP_MATCH','PERFEKT_CONJUGATE','PERFEKT_FILL','PRETERIT_MATCH','PRETERIT_CONJUGATE','PRETERIT_FILL','WORD_ORDER','AUDIO','NOUN_ARTICLE','VOCAB_MATCH','QUESTION_WORDS','KONJUNKTION_MATCH','KONJUNKTION_FILL']),
   count: z.coerce.number().int().min(1).max(30).default(10),
   modalOnly: z.coerce.boolean().optional().default(false),
   preteritOnly: z.coerce.boolean().optional().default(false),
@@ -34,6 +34,12 @@ export async function GET(request: NextRequest) {
   }
 
   const { lesson, gameType, count, modalOnly, preteritOnly, nounLesson } = parsed.data
+
+  // KONJUNKTION_MATCH / KONJUNKTION_FILL: statički podaci, ne treba DB
+  if (gameType === 'KONJUNKTION_MATCH' || gameType === 'KONJUNKTION_FILL') {
+    const questions = generateQuestions({ verbs: [], gameType: gameType as GameType, lesson, count })
+    return Response.json({ questions, lesson, gameType })
+  }
 
   // QUESTION_WORDS: vrati rečenice sa upitnim rečima
   if (gameType === 'QUESTION_WORDS') {

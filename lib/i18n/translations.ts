@@ -128,6 +128,9 @@ export const T = {
       // QuestionWords
       fragewortLabel: 'Upitna reč',
       fragewortInstruction: 'Unesi upitnu reč koja nedostaje',
+      // Konjunktionen
+      konjunktionLabel: 'Veznik',
+      konjunktionInstruction: 'Odaberi tačan veznik koji nedostaje',
       // Personal pronouns (translation hint)
       persons: {
         ich: 'ja', du: 'ti', er: 'on/ona/ono', wir: 'mi', ihr: 'vi', sie: 'oni/Vi',
@@ -161,6 +164,8 @@ export const T = {
         NOUN_ARTICLE:          { label: 'DER / DIE / DAS',                emoji: '🏷️', desc: 'Odaberi određeni član' },
         VOCAB_MATCH:           { label: 'Poveži parove',                  emoji: '🔗', desc: 'Poveži nemački izraz sa prevodom' },
         QUESTION_WORDS:        { label: 'Upitne reči',                    emoji: '❓', desc: 'Unesi upitnu reč koja nedostaje u rečenici' },
+        KONJUNKTION_MATCH:     { label: 'Poveži rečenice',                emoji: '🔗', desc: 'Poveži početak rečenice sa odgovarajućim krajem' },
+        KONJUNKTION_FILL:      { label: 'Umetni veznik',                  emoji: '🔤', desc: 'Odaberi tačan veznik koji nedostaje u rečenici' },
       },
       instructions: {
         MATCH_PAIRS: { title: 'Poveži parove', steps: ['Na levoj strani su infinitivi glagola.', 'Na desnoj strani su zamenica + konjugacija — izmešane.', 'Klikni jedan infinitiv (levo), pa odgovarajuću formu (desno).', 'Tačan par postaje zelen. Krivi par bljesne crveno.'], example: 'Primer: klikni "sein" → klikni "er/sie/es ist"' },
@@ -180,6 +185,8 @@ export const T = {
         NOUN_ARTICLE: { title: 'DER / DIE / DAS', steps: ['Prikazana je nemačka imenica.', 'Klikni na tačan određeni član: DER (muški rod), DIE (ženski rod) ili DAS (srednji rod).', 'Potvrdi klikom na dugme "Potvrdi".'], example: 'Primer: "Schule"  →  klikni: die' },
         VOCAB_MATCH: { title: 'Poveži parove', steps: ['Na levoj strani su nemački izrazi (imenice sa članom, glagoli, ostale reči).', 'Na desnoj strani su srpski prevodi — izmešani.', 'Klikni nemački izraz (levo), pa odgovarajući prevod (desno).', 'Tačan par postaje zelen. Krivi par bljesne crveno.'], example: 'Primer: klikni "die Schule" → klikni "škola"' },
         QUESTION_WORDS: { title: 'Upitne reči', steps: ['Vidiš nemačku rečenicu u kojoj nedostaje upitna reč.', 'Pročitaj rečenicu i razmisli šta se pita.', 'Upiši tačnu upitnu reč (npr. Wann, Wo, Warum, Wer...).', 'Potvrdi pritiskom na ✓ ili Enter.'], example: 'Primer: "___ arbeitest du am Montag?" → upiši: Wann' },
+        KONJUNKTION_MATCH: { title: 'Poveži rečenice', steps: ['Na levoj strani su počeci rečenica.', 'Na desnoj strani su krajevi rečenica sa veznikom — izmešani.', 'Klikni početak rečenice (levo), pa odgovarajući kraj (desno).', 'Tačan par postaje zelen. Krivi par bljesne crveno.'], example: 'Primer: klikni "Ich glaube," → klikni "dass der Techniker morgen kommt."' },
+        KONJUNKTION_FILL: { title: 'Umetni veznik', steps: ['Vidiš nemačku rečenicu u kojoj nedostaje veznik.', 'Ponuđeno je 5 veznika: weil, dass, denn, bevor, wenn.', 'Klikni na tačan veznik.', 'Brži odgovor donosi više poena!'], example: 'Primer: "Der Drucker funktioniert nicht, ___ kein Papier da ist." → weil' },
       },
     },
 
@@ -345,6 +352,8 @@ export const T = {
       wordOrderWords: 'szó',
       fragewortLabel: 'Kérdőszó',
       fragewortInstruction: 'Írd be a hiányzó kérdőszót',
+      konjunktionLabel: 'Kötőszó',
+      konjunktionInstruction: 'Válaszd ki a hiányzó kötőszót',
       persons: {
         ich: 'én', du: 'te', er: 'ő', wir: 'mi', ihr: 'ti', sie: 'ők/Ön',
       },
@@ -377,6 +386,8 @@ export const T = {
         NOUN_ARTICLE:          { label: 'DER / DIE / DAS',              emoji: '🏷️', desc: 'Válaszd ki a megfelelő névelőt' },
         VOCAB_MATCH:           { label: 'Párosítás',                    emoji: '🔗', desc: 'Párosítsd a német kifejezést a fordításával' },
         QUESTION_WORDS:        { label: 'Kérdőszavak',                  emoji: '❓', desc: 'Írd be a hiányzó kérdőszót a mondatba' },
+        KONJUNKTION_MATCH:     { label: 'Mondatrészek párosítása',       emoji: '🔗', desc: 'Párosítsd a mondat elejét a megfelelő végével' },
+        KONJUNKTION_FILL:      { label: 'Kötőszó beillesztése',          emoji: '🔤', desc: 'Válaszd ki a hiányzó kötőszót' },
       },
       instructions: {
         MATCH_PAIRS: { title: 'Párosítás', steps: ['A bal oldalon az igék infinitívuszai vannak.', 'A jobb oldalon névmás + ragozás — összekeverve.', 'Kattints egy infinitívuszra (bal), majd a megfelelő alakra (jobb).', 'A helyes pár zöld lesz. A rossz pár piros villanást kap.'], example: 'Példa: kattints "sein" → kattints "er/sie/es ist"' },
@@ -396,6 +407,8 @@ export const T = {
         NOUN_ARTICLE: { title: 'DER / DIE / DAS', steps: ['Megjelenik egy német főnév.', 'Kattints a helyes határozott névelőre: DER (hímnem), DIE (nőnem) vagy DAS (semleges nem).', 'Erősítsd meg a „Megerősít" gombra kattintva.'], example: 'Példa: "Schule" → kattints: die' },
         VOCAB_MATCH: { title: 'Párosítás', steps: ['A bal oldalon német kifejezések vannak (főnév névelővel, igék, egyéb szavak).', 'A jobb oldalon fordítások — összekeverve.', 'Kattints a német kifejezésre (bal), majd a megfelelő fordításra (jobb).', 'A helyes pár zöld lesz. A rossz pár piros villanást kap.'], example: 'Példa: kattints "die Schule" → kattints "iskola"' },
         QUESTION_WORDS: { title: 'Kérdőszavak', steps: ['Látsz egy német mondatot, amelyből hiányzik a kérdőszó.', 'Olvasd el a mondatot, és gondolkodj el, mit kérdez.', 'Írd be a helyes kérdőszót (pl. Wann, Wo, Warum, Wer...).', 'Erősítsd meg ✓ vagy Enter gombbal.'], example: 'Példa: "___ arbeitest du am Montag?" → írd be: Wann' },
+        KONJUNKTION_MATCH: { title: 'Mondatrészek párosítása', steps: ['A bal oldalon mondatkezdet látható.', 'A jobb oldalon mondatvégek kötőszóval — összekeverve.', 'Kattints a mondatkezdetre (bal), majd a megfelelő mondatvégre (jobb).', 'A helyes pár zöld lesz. A rossz pár piros villanást kap.'], example: 'Példa: kattints "Ich glaube," → kattints "dass der Techniker morgen kommt."' },
+        KONJUNKTION_FILL: { title: 'Kötőszó beillesztése', steps: ['Látsz egy német mondatot, amelyből hiányzik a kötőszó.', '5 kötőszó közül kell választani: weil, dass, denn, bevor, wenn.', 'Kattints a helyes kötőszóra.', 'A gyorsabb válasz több pontot ér!'], example: 'Példa: "Der Drucker funktioniert nicht, ___ kein Papier da ist." → weil' },
       },
     },
 
@@ -561,6 +574,8 @@ export const T = {
       wordOrderWords: 'Wörter',
       fragewortLabel: 'Fragewort',
       fragewortInstruction: 'Schreibe das fehlende Fragewort',
+      konjunktionLabel: 'Konjunktion',
+      konjunktionInstruction: 'Wähle die fehlende Konjunktion',
       persons: {
         ich: 'ich', du: 'du', er: 'er/sie/es', wir: 'wir', ihr: 'ihr', sie: 'sie/Sie',
       },
@@ -593,6 +608,8 @@ export const T = {
         NOUN_ARTICLE:          { label: 'DER / DIE / DAS',                emoji: '🏷️', desc: 'Wähle den richtigen bestimmten Artikel' },
         VOCAB_MATCH:           { label: 'Paare verbinden',                emoji: '🔗', desc: 'Verbinde den deutschen Ausdruck mit der Übersetzung' },
         QUESTION_WORDS:        { label: 'Fragewörter',                    emoji: '❓', desc: 'Schreibe das fehlende Fragewort in den Satz' },
+        KONJUNKTION_MATCH:     { label: 'Satzteile verbinden',            emoji: '🔗', desc: 'Verbinde den Satzbeginn mit dem passenden Satzende' },
+        KONJUNKTION_FILL:      { label: 'Konjunktion einsetzen',          emoji: '🔤', desc: 'Wähle die fehlende Konjunktion im Satz' },
       },
       instructions: {
         MATCH_PAIRS: { title: 'Paare verbinden', steps: ['Auf der linken Seite sind die Infinitive der Verben.', 'Auf der rechten Seite stehen Pronomen + Konjugation — durchgemischt.', 'Klicke einen Infinitiv (links), dann die passende Form (rechts).', 'Das richtige Paar wird grün. Das falsche Paar blinkt rot.'], example: 'Beispiel: klicke "sein" → klicke "er/sie/es ist"' },
@@ -612,6 +629,8 @@ export const T = {
         NOUN_ARTICLE: { title: 'DER / DIE / DAS', steps: ['Ein deutsches Nomen wird angezeigt.', 'Klicke den richtigen bestimmten Artikel: DER (maskulin), DIE (feminin) oder DAS (neutrum).', 'Bestätige durch Klicken auf „Bestätigen".'], example: 'Beispiel: "Schule" → klicke: die' },
         VOCAB_MATCH: { title: 'Paare verbinden', steps: ['Auf der linken Seite stehen deutsche Ausdrücke (Nomen mit Artikel, Verben, andere Wörter).', 'Auf der rechten Seite stehen Übersetzungen — durchgemischt.', 'Klicke den deutschen Ausdruck (links), dann die passende Übersetzung (rechts).', 'Das richtige Paar wird grün. Das falsche Paar blinkt rot.'], example: 'Beispiel: klicke "die Schule" → klicke "škola"' },
         QUESTION_WORDS: { title: 'Fragewörter', steps: ['Du siehst einen deutschen Satz, in dem das Fragewort fehlt.', 'Lies den Satz und überlege, was gefragt wird.', 'Schreibe das richtige Fragewort (z. B. Wann, Wo, Warum, Wer...).', 'Bestätige mit ✓ oder Enter.'], example: 'Beispiel: "___ arbeitest du am Montag?" → schreibe: Wann' },
+        KONJUNKTION_MATCH: { title: 'Satzteile verbinden', steps: ['Auf der linken Seite steht der Satzbeginn.', 'Auf der rechten Seite stehen Satzenden mit Konjunktion — durchgemischt.', 'Klicke den Satzbeginn (links), dann das passende Satzende (rechts).', 'Das richtige Paar wird grün. Das falsche Paar blinkt rot.'], example: 'Beispiel: klicke "Ich glaube," → klicke "dass der Techniker morgen kommt."' },
+        KONJUNKTION_FILL: { title: 'Konjunktion einsetzen', steps: ['Du siehst einen deutschen Satz, in dem die Konjunktion fehlt.', '5 Konjunktionen stehen zur Auswahl: weil, dass, denn, bevor, wenn.', 'Klicke auf die richtige Konjunktion.', 'Eine schnellere Antwort bringt mehr Punkte!'], example: 'Beispiel: "Der Drucker funktioniert nicht, ___ kein Papier da ist." → weil' },
       },
     },
 

@@ -15,6 +15,8 @@ export type GameType =
   | 'NOUN_ARTICLE' | 'VOCAB_MATCH'
   // Upitne reči
   | 'QUESTION_WORDS'
+  // Konjunktionen
+  | 'KONJUNKTION_MATCH' | 'KONJUNKTION_FILL'
   // ostalo
   | 'AUDIO'
 

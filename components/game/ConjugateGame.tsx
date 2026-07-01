@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import type { GameQuestion, QuestionResult } from '@/types'
 import { checkAnswer } from '@/lib/game/parser'
 import { calculatePoints } from '@/lib/game/scorer'
+import { randomCorrectPhrase, randomWrongPhrase } from '@/lib/game/feedback'
 import { useTranslation } from '@/lib/i18n/LanguageContext'
 
 interface Props {
@@ -20,6 +21,7 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
   const [input, setInput] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
+  const [feedbackPhrase, setFeedbackPhrase] = useState('')
   const startTime = useRef(Date.now())
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -29,6 +31,7 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
     startTime.current = Date.now()
     setInput('')
     setSubmitted(false)
+    setFeedbackPhrase('')
     inputRef.current?.focus()
   }, [question.id])
 
@@ -39,6 +42,7 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
     const correct = checkAnswer(input, question.correctAnswers[0])
     const points = calculatePoints(correct, timeTakenMs)
     setIsCorrect(correct)
+    setFeedbackPhrase(correct ? randomCorrectPhrase() : randomWrongPhrase())
     setSubmitted(true)
     setTimeout(() => {
       onAnswer({ questionId: question.id, userAnswer: input, isCorrect: correct, timeTakenMs, pointsEarned: points })
@@ -94,7 +98,8 @@ export function ConjugateGame({ question, onAnswer, questionNumber, totalQuestio
         <div className={`w-full rounded-xl p-4 text-center font-semibold text-lg ${
           isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
         }`}>
-          {isCorrect ? g.correct : `${g.wrong} ${question.correctAnswers[0]}`}
+          <div>{feedbackPhrase}</div>
+          {!isCorrect && <div className="text-sm font-normal mt-1">{g.wrong} {question.correctAnswers[0]}</div>}
         </div>
       )}
     </div>

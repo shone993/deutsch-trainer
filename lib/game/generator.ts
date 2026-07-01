@@ -71,6 +71,32 @@ const PRETERIT_SENTENCES: Record<string, PreteritSentence[]> = {
   ],
 }
 
+const KONJUNKTION_PAIRS: Array<{ left: string; right: string }> = [
+  { left: 'Die Maus funktioniert nicht,',    right: 'weil die Batterie leer ist.' },
+  { left: 'Ich glaube,',                     right: 'dass der Techniker morgen kommt.' },
+  { left: 'Ich brauche einen neuen USB-Stick,', right: 'denn er ist defekt.' },
+  { left: 'Ich speichere die Datei,',        right: 'bevor ich den Computer ausschalte.' },
+  { left: 'Der Chef informiert uns,',        right: 'dass die Besprechung verschoben wird.' },
+  { left: 'Wenn das Internet ausfällt,',     right: 'kontaktieren wir den IT-Support.' },
+  { left: 'Ich weiß,',                       right: 'dass das Programm kostenlos ist.' },
+  { left: 'Der Computer ist langsam,',       right: 'weil viele Programme geöffnet sind.' },
+  { left: 'Ich lege Papier in den Drucker,', right: 'bevor ich etwas ausdrucke.' },
+  { left: 'Der Chef sagt,',                  right: 'dass die Besprechung um zehn Uhr beginnt.' },
+  { left: 'Ich lade den Laptop auf,',        right: 'denn der Akku ist fast leer.' },
+]
+
+const KONJUNKTION_FILL_SENTENCES: Array<{ template: string; answer: string }> = [
+  { template: 'Ich speichere die Datei, ___ ich den Computer herunterfahre.',    answer: 'bevor' },
+  { template: 'Der Drucker funktioniert nicht, ___ kein Papier mehr da ist.',    answer: 'weil' },
+  { template: 'Frau Meier kauft einen neuen Bildschirm, ___ der alte ist kaputt.', answer: 'denn' },
+  { template: '___ ich eine E-Mail bekomme, lese ich sie sofort.',               answer: 'Wenn' },
+  { template: 'Der Chef sagt, ___ die Besprechung um 10 Uhr beginnt.',           answer: 'dass' },
+  { template: 'Wir machen eine Sicherungskopie, ___ wir das Programm aktualisieren.', answer: 'bevor' },
+  { template: 'Der Computer ist langsam, ___ zu viele Programme geöffnet sind.', answer: 'weil' },
+]
+
+const KONJUNKTIONEN_OPTIONS = ['weil', 'dass', 'denn', 'bevor', 'wenn']
+
 const HABEN_CONJ: Record<GrammaticalPerson, string> = {
   ich: 'habe', du: 'hast', er: 'hat', wir: 'haben', ihr: 'habt', sie: 'haben',
 }
@@ -242,6 +268,39 @@ export function generateQuestions(opts: GenerateOptions): GameQuestion[] {
       })
     }
     return questions
+  }
+
+  // --- KONJUNKTION_MATCH: poveži početak rečenice sa krajem (4 para) ---
+  if (gameType === 'KONJUNKTION_MATCH') {
+    const questions: GameQuestion[] = []
+    const total = Math.min(count, 5)
+    for (let i = 0; i < total; i++) {
+      const picked = shuffle([...KONJUNKTION_PAIRS]).slice(0, 4)
+      questions.push({
+        id: `konjmatch-${i}`,
+        type: 'KONJUNKTION_MATCH',
+        infinitiv: 'Konjunktionen',
+        translation: 'Verbinde die Satzteile',
+        correctAnswers: picked.map((p) => p.right),
+        options: picked.map((p) => p.left),
+      })
+    }
+    return questions
+  }
+
+  // --- KONJUNKTION_FILL: odaberi tačan veznik ---
+  if (gameType === 'KONJUNKTION_FILL') {
+    const shuffled = shuffle([...KONJUNKTION_FILL_SENTENCES])
+    const total = Math.min(count, shuffled.length)
+    return shuffled.slice(0, total).map((s, i) => ({
+      id: `konjfill-${i}`,
+      type: 'KONJUNKTION_FILL' as const,
+      infinitiv: 'Konjunktionen',
+      sentence: s.template,
+      translation: s.template.replace('___', s.answer),
+      correctAnswers: [s.answer.toLowerCase()],
+      options: KONJUNKTIONEN_OPTIONS,
+    }))
   }
 
   if (verbs.length === 0) return []
